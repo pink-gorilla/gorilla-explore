@@ -1,4 +1,4 @@
-(defproject clojurewb "0.1.0-SNAPSHOT"
+(defproject gorillauniverse "0.1.0-SNAPSHOT"
   :description "Discover the Universe of Gorilla Workbooks. Load Gorilla Workbooks from github."
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.10.1"]
