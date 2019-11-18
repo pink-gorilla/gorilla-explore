@@ -1,8 +1,8 @@
-(ns gorillauniverse.github.demo
+(ns pinkgorilla.explore.demo
   (:require
    [clojure.string]
    [clojure.pprint]
-   [gorillauniverse.github.core :refer [user-repos tags user-gists specific-gist search-code me]]
+   [pinkgorilla.exolore.github-helper  :refer [user-repos tags user-gists specific-gist search-code me]]
    ))
 
 

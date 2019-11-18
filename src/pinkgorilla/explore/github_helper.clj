@@ -1,4 +1,4 @@
-(ns gorillauniverse.github.core
+(ns pinkgorilla.explore.github-helper
   (:require
    [clojure.string]
    [tentacles.repos]

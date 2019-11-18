@@ -1,7 +1,7 @@
-(ns gorillauniverse.github.repo
+(ns pinkgorilla.explore.repo
   (:require 
-   [gorillauniverse.github.core :refer [search-code]]
-   [gorillauniverse.print :refer [print-repo]]
+   [pinkgorilla.explore.github-helper :refer [search-code]]
+   [pinkgorilla.print :refer [print-repo]]
    ))
 
 (defn repo-data [user repo]
@@ -18,16 +18,9 @@
         search-options {:in "file"
                         :language "clj"
                         :user user}
-        r (search-code "gorilla-repl fileformat = 1" (merge search-options options) options)
+        r (search-code "gorilla-repl fileformat = 2" (merge search-options options) options)
         items (:items r)
         _ (println "potential gorilla-workbooks found: " (count items))]
 
     (->> (map (partial repo-data user) items)
          (filter #(clojure.string/ends-with? (:repo-fn %) "clj")))))
-
-(comment
-  (gorilla-repos "awb99" {:oauth-token "21cfc5276900feff73e5edf77939dcfb6e13e74e"})
-  
-  (print-repo (gorilla-repos "martinhynar"))
-  
-)

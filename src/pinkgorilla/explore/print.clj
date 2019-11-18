@@ -1,4 +1,4 @@
-(ns gorillauniverse.print)
+(ns pinkgorilla.explore.print)
 
 
 (defn shorten-field-one- 
