@@ -10,6 +10,7 @@
    [pinkgorilla.storage.repo]
    [pinkgorilla.storage.bitbucket]
 
+   [pinkgorilla.creds :refer [creds]]
    [pinkgorilla.explore.db :refer [clear all]]
    [pinkgorilla.explore.discover :refer [discover-github-users]]))
 
@@ -29,27 +30,22 @@
            "NicMcPhee" "J-Atkinson" "light24bulbs" "mrcslws"])
 
 
-(defn generate-list [users]
+(defn generate-list [users tokens]
   (clear)
-  (discover-github-users :gist users)
+ ; (discover-github-users :gist users)
+  (discover-github-users :repo tokens users)
   (spit "resources/list.json" (generate-string {:data (all)}) :append false)
   (println "generate-list finished."))
 
 
 (comment
 
-  (print-gist @users)
+  (future (generate-list ["awb99" "pink-gorilla" "deas"] creds))
 
-  (add-google)
+   ;; Add GISTs from one git-user to db
+  (discover-github :gist creds "lambdaforg")
+  (discover-github-users :gist creds (shuffle seed))
 
-  ;; Add GISTs from one git-user to db
-  (discover-github :gist "lambdaforg")
-
-
-  (generate-list ["awb99" "pink-gorilla" "deas"])
-
-  (discover-github-users :gist (shuffle seed))
-
-  (future (discover-github-users :test (shuffle seed)))
-  (future (discover-github-users :repo (shuffle seed)))
-  (future (discover-github-users :gist (shuffle seed))))
+  (future (discover-github-users :test creds (shuffle seed)))
+  (future (discover-github-users :repo creds (shuffle seed)))
+  (future (discover-github-users :gist creds (shuffle seed))))
