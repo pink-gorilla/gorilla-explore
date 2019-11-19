@@ -31,7 +31,15 @@
                                  :repo "sample-notebooks", 
                                  :filename "samples/html-image.cljg"})
         ]
-      (notebook-load storage tokens))
+    (notebook-load storage tokens))
   
+  (let [tokens {}
+        storage (create-storage {:type :repo
+                                 :user "pink-gorilla"
+                                 :repo "sample-notebooks"
+                                 :filename "samples/uiplugin/gorillaplot/central-limit.cljg"})]
+    (notebook-load storage tokens))
+  
+
   
   )

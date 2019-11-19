@@ -7,7 +7,7 @@
 (defn repo-data [user repo]
   {:type :repo
    :user user
-   ;:id (:sha repo) ; (:node_id repo) ; :sha might be bettwer
+   :id (:sha repo) ; (:node_id repo) ; :sha might be better ; this is just for dbmanagement purpose
    :repo (get-in repo [:repository :name])
    ;:repo-fn (:name repo)
    :filename (:path repo)

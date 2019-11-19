@@ -32,7 +32,7 @@
 
 (defn generate-list [users tokens]
   (clear)
- ; (discover-github-users :gist users)
+  (discover-github-users :gist users)
   (discover-github-users :repo tokens users)
   (spit "resources/list.json" (generate-string {:data (all)}) :append false)
   (println "generate-list finished."))

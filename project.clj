@@ -18,7 +18,7 @@
    [throttler "1.0.0"] ; api rate-limits
    [org.clojure/data.json "0.2.6"]
    
-   [org.pinkgorilla/encoding "0.0.10"]         ; notebook encoding
+   [org.pinkgorilla/encoding "0.0.11"]         ; notebook encoding
    ]
 
   :min-lein-version "2.8.3"
