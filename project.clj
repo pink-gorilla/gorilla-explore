@@ -17,8 +17,9 @@
    [cheshire "5.8.1"]  ; JSON parsings
    [throttler "1.0.0"] ; api rate-limits
    [org.clojure/data.json "0.2.6"]
+   [clj-time "0.15.2"]  ; datetime
    
-   [org.pinkgorilla/encoding "0.0.11"]         ; notebook encoding
+   [org.pinkgorilla/encoding "0.0.14"]         ; notebook encoding
    ]
 
   :min-lein-version "2.8.3"

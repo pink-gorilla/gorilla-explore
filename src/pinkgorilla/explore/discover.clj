@@ -1,6 +1,9 @@
 (ns pinkgorilla.explore.discover
   (:require
 
+   [clj-time.core :as t]
+   [clj-time.format :as fmt]
+
   ; dependencies needed to be in cljs bundle: 
    [pinkgorilla.storage.storage :as storage]
    [pinkgorilla.storage.file]
@@ -36,21 +39,43 @@
     :test []))
 
 
+(defn random-edit-date []
+  (fmt/unparse (:date fmt/formatters)
+               (-> (rand-int 500) t/days t/ago)))
+
+
+
 (defn add-meta [tokens entry]
   (let [_ (println "adding meta for entry" entry)
         storage (create-storage entry)
         ;tokens {}
         _ (println "loading notebook " storage)
-        nb (notebook-load storage tokens)]
+        nb (notebook-load storage tokens)
+        _ (println "notebook loaded!")]
     (if (nil? nb)
       nil
-      (assoc entry :meta (:meta nb)))))
+      (assoc entry
+             :meta (:meta nb)
+             :stars (rand-int 100)
+             :edit-date (random-edit-date)))))
+
+
+(defn is-excluded? [storage]
+  (cond
+    (= (:repo storage) "notebook-encoding") true
+    (= (:filename storage) "meta1.cljg") true
+    :else false))
+
+(defn remove-excluded [storages]
+  (remove is-excluded? storages))
+
 
 (defn discover-github
   "adds the gists of a github-user to the db
    It is safe to call it when github has rate-limited the ip"
   [type tokens user-name]
   (do (->> (github-action type user-name)
+           (remove-excluded)
            (map (partial add-meta tokens))
            (remove nil?)
            (add-list))

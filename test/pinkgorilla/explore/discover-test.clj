@@ -40,7 +40,9 @@
 
 (comment
 
-  (future (generate-list ["awb99" "pink-gorilla" "deas"] creds))
+  (future 
+    (generate-list ["awb99" "pink-gorilla" "deas"] (creds))
+    )
 
    ;; Add GISTs from one git-user to db
   (discover-github :gist creds "lambdaforg")
