@@ -64,6 +64,7 @@
   (cond
     (= (:repo storage) "notebook-encoding") true
     (= (:filename storage) "meta1.cljg") true
+    (= (:filename storage) "unittest-meta1.cljg") true
     :else false))
 
 (defn remove-excluded [storages]
