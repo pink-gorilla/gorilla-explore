@@ -51,11 +51,16 @@
         ;tokens {}
         _ (println "loading notebook " storage)
         nb (notebook-load storage tokens)
-        _ (println "notebook loaded!")]
+        _ (println "notebook loaded!")
+        meta (:meta nb)
+        meta (if (= (:version nb) 1) 
+               {:tags "legacy" :tagline "legacy notebook"}
+               meta)
+        ]
     (if (nil? nb)
       nil
       (assoc entry
-             :meta (:meta nb)
+             :meta meta
              :stars (rand-int 100)
              :edit-date (random-edit-date)))))
 

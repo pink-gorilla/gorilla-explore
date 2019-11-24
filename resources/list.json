@@ -11,8 +11,8 @@
                 "name": "counter via atom storage",
                 "tagline": ""
             },
-            "stars": 10,
-            "edit-date": "2019-11-15"
+            "stars": 37,
+            "edit-date": "2019-07-26"
         },
         {
             "type": "repo",
@@ -25,8 +25,8 @@
                 "tagline": "sparkling demo",
                 "tags": "clj, demo, sparkling,deas"
             },
-            "stars": 54,
-            "edit-date": "2018-12-13"
+            "stars": 78,
+            "edit-date": "2019-04-14"
         },
         {
             "type": "repo",
@@ -36,7 +36,7 @@
             "filename": "notebooks/canvas-svg.cljg",
             "meta": {},
             "stars": 76,
-            "edit-date": "2019-09-18"
+            "edit-date": "2018-11-26"
         },
         {
             "type": "repo",
@@ -50,8 +50,8 @@
                 "tags": "cljs, demo, quil, svg",
                 "description": ""
             },
-            "stars": 10,
-            "edit-date": "2019-05-25"
+            "stars": 9,
+            "edit-date": "2018-12-21"
         },
         {
             "type": "repo",
@@ -65,8 +65,8 @@
                 "tags": "clj,widget,demo",
                 "description": ""
             },
-            "stars": 71,
-            "edit-date": "2019-01-02"
+            "stars": 74,
+            "edit-date": "2019-04-10"
         },
         {
             "type": "repo",
@@ -74,9 +74,12 @@
             "id": "de89839bd6307b54eb24234cabd3f074184e9e1a",
             "repo": "sample-notebooks",
             "filename": "samples/uiplugin/gorillaplot/html-image.cljg",
-            "meta": {},
-            "stars": 60,
-            "edit-date": "2019-10-07"
+            "meta": {
+                "tags": "legacy",
+                "tagline": "legacy notebook"
+            },
+            "stars": 33,
+            "edit-date": "2019-06-29"
         },
         {
             "type": "repo",
@@ -90,8 +93,8 @@
                 "tags": "cljs,demo,mariacloud, svg",
                 "description": ""
             },
-            "stars": 9,
-            "edit-date": "2019-11-14"
+            "stars": 16,
+            "edit-date": "2018-12-05"
         },
         {
             "type": "repo",
@@ -100,8 +103,8 @@
             "repo": "gorilla-notebook",
             "filename": "notebooks/reagent-state.cljg",
             "meta": {},
-            "stars": 91,
-            "edit-date": "2018-07-13"
+            "stars": 9,
+            "edit-date": "2018-10-04"
         },
         {
             "type": "repo",
@@ -110,18 +113,8 @@
             "repo": "gorilla-notebook",
             "filename": "notebooks/unittest/pinkgorilla-demo-html.cljg",
             "meta": {},
-            "stars": 83,
-            "edit-date": "2019-03-15"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "36bc0e409355b4c530edad577331e0dfbb89054d",
-            "repo": "sample-notebooks",
-            "filename": "samples/image-safe.cljg",
-            "meta": {},
-            "stars": 33,
-            "edit-date": "2019-06-20"
+            "stars": 28,
+            "edit-date": "2018-11-05"
         },
         {
             "type": "repo",
@@ -133,8 +126,18 @@
                 "tagline": "how to make a custom ui module",
                 "tags": "ui-plugin,demo,js-module"
             },
-            "stars": 12,
-            "edit-date": "2018-09-16"
+            "stars": 72,
+            "edit-date": "2019-06-24"
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "36bc0e409355b4c530edad577331e0dfbb89054d",
+            "repo": "sample-notebooks",
+            "filename": "samples/image-safe.cljg",
+            "meta": {},
+            "stars": 22,
+            "edit-date": "2018-08-08"
         },
         {
             "type": "repo",
@@ -142,9 +145,12 @@
             "id": "7b021eb34048fb488590ef6d9a7535aec4ca8826",
             "repo": "sample-notebooks",
             "filename": "samples/uiplugin/gorillaplot/central-limit.cljg",
-            "meta": {},
-            "stars": 13,
-            "edit-date": "2019-10-25"
+            "meta": {
+                "tags": "legacy",
+                "tagline": "legacy notebook"
+            },
+            "stars": 16,
+            "edit-date": "2019-02-21"
         },
         {
             "type": "repo",
@@ -156,8 +162,8 @@
                 "tags": "custom-renderer, demo",
                 "tagline": "html image custom renderer"
             },
-            "stars": 91,
-            "edit-date": "2019-08-13"
+            "stars": 21,
+            "edit-date": "2018-12-27"
         },
         {
             "type": "repo",
@@ -170,8 +176,8 @@
                 "tagline": "svg via hiccup",
                 "name": ""
             },
-            "stars": 39,
-            "edit-date": "2019-07-27"
+            "stars": 24,
+            "edit-date": "2018-10-27"
         },
         {
             "type": "repo",
@@ -184,8 +190,8 @@
                 "tagline": "reproduce the error",
                 "name": ""
             },
-            "stars": 42,
-            "edit-date": "2019-05-24"
+            "stars": 98,
+            "edit-date": "2019-08-30"
         }
     ]
 }
