@@ -11,6 +11,50 @@
             }
         },
         {
+            "type": "gist",
+            "id": "3fdd1bab74de88b3d1366d6d2c6c0908",
+            "description": "unittest-meta1",
+            "user": "deas",
+            "filename": "meta1.cljg",
+            "meta": {
+                "test": 789
+            }
+        },
+        {
+            "type": "gist",
+            "id": "298fbe496a2aea922a2a60b5a45e5b86",
+            "description": "unittest storage-raw",
+            "user": "deas",
+            "filename": "meta1.cljg",
+            "meta": {
+                "test": 789
+            }
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "51b54635b91b07443b8a6f72205e24ffe35e23ad",
+            "repo": "notebook-encoding",
+            "filename": "test/notebooks/notebook1.cljg",
+            "meta": null
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "b0c61812d0a466b81d98177cda87061039123f9b",
+            "repo": "notebook-encoding",
+            "filename": "test/notebooks/demo.cljg",
+            "meta": null
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "142cad89e9c1e45585e7057f99f17a7e972cc386",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/unittest/sparkling.cljg",
+            "meta": {}
+        },
+        {
             "type": "repo",
             "user": "pink-gorilla",
             "id": "effe16b87163a5eb804f385ecac895d9b021f91a",
@@ -23,9 +67,49 @@
         {
             "type": "repo",
             "user": "pink-gorilla",
+            "id": "fa1acb2ae0273fc03b694c1364cace74435a0426",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/canvas-svg.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "b0b2b02ae9445c6140ecd7d54ef338b4b048c795",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/cljs/reagent-clock-dynamic.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "586c044a309908b68bd83207ef87ee5c8ba2994d",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/unittest/widget.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
             "id": "de89839bd6307b54eb24234cabd3f074184e9e1a",
             "repo": "sample-notebooks",
             "filename": "samples/uiplugin/gorillaplot/html-image.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "b63db5dd48413b2eb2687848883b87a65222808a",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/cljs/quil.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "a59b8e1e23b11e00b1c65e77213e3d5c849a5b0d",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/cljs/shapes.cljg",
             "meta": {}
         },
         {
@@ -39,6 +123,22 @@
         {
             "type": "repo",
             "user": "pink-gorilla",
+            "id": "8d41b8301c9c80fe27a9d0002e27a5c5896c19eb",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/reagent-state.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
+            "id": "d3e4aa53922ed1511fe4f72dcb3c1206eedaad4c",
+            "repo": "gorilla-notebook",
+            "filename": "notebooks/unittest/pinkgorilla-demo-html.cljg",
+            "meta": {}
+        },
+        {
+            "type": "repo",
+            "user": "pink-gorilla",
             "id": "36bc0e409355b4c530edad577331e0dfbb89054d",
             "repo": "sample-notebooks",
             "filename": "samples/image-safe.cljg",
@@ -47,10 +147,13 @@
         {
             "type": "repo",
             "user": "pink-gorilla",
-            "id": "4f27ce985f289bea48af8dddac21e20972a0f0d6",
+            "id": "2286368d5b49f60e1db21fcf649279aae6d4d47b",
             "repo": "sample-notebooks",
             "filename": "samples/uiplugin/module-test.cljg",
-            "meta": {}
+            "meta": {
+                "tagline": "how to make a custom ui module",
+                "tags": "ui-plugin,demo,js-module"
+            }
         },
         {
             "type": "repo",
@@ -74,14 +177,10 @@
         {
             "type": "repo",
             "user": "pink-gorilla",
-            "id": "b908ea2aeaf918497043342b5bef1c862484785e",
-            "repo": "sample-notebooks",
-            "filename": "samples/fuckup-pprint.cljg",
-            "meta": {
-                "tags": "bug, todo-deas, renderable",
-                "tagline": "reproduce the error",
-                "name": ""
-            }
+            "id": "090629bd22979ba89d447ab3486095c7766afe79",
+            "repo": "notebook-encoding",
+            "filename": "test/notebooks/reagent-manipulate.cljg",
+            "meta": {}
         },
         {
             "type": "repo",
@@ -93,30 +192,6 @@
                 "tags": "svg, renderer, sample",
                 "tagline": "svg via hiccup",
                 "name": ""
-            }
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "1b8e74e2b99ba512b0c4aca4c4f6ca8a222ec021",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/gorillaplot/matrix-form-test.cljg",
-            "meta": {
-                "tags": "ui,core.matrix,legacy,custom-renderer",
-                "name": "core.matrix visualization",
-                "tagline": "from jonny epsilon",
-                "description": ""
-            }
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "2165a60defde6a34770740df0e52203a7c3146c9",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/highchart.cljg",
-            "meta": {
-                "tagline": "highchart ui-plugin demo",
-                "tags": "highchart, demo, ui-plugin"
             }
         }
     ]
