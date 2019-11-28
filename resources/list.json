@@ -1,197 +1,200 @@
 {
-    "data": [
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "d902fe534ecf77e53a1b62cfe3eda48ccc86a18b",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/cljs/reagent-clock-dynamic.cljg",
-            "meta": {
-                "tags": "cljs, reagent, demo",
-                "name": "counter via atom storage",
-                "tagline": ""
-            },
-            "stars": 37,
-            "edit-date": "2019-07-26"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "e66345303f72ca25219bfc61dcf2acf729d6f89e",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/unittest/sparkling.cljg",
-            "meta": {
-                "name": "sparkling-demo",
-                "tagline": "sparkling demo",
-                "tags": "clj, demo, sparkling,deas"
-            },
-            "stars": 78,
-            "edit-date": "2019-04-14"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "fa1acb2ae0273fc03b694c1364cace74435a0426",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/canvas-svg.cljg",
-            "meta": {},
-            "stars": 76,
-            "edit-date": "2018-11-26"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "4262a239bd62882d9e451bc5cb9befcc7c3a9ffd",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/cljs/quil.cljg",
-            "meta": {
-                "name": "quil svg demo",
-                "tagline": "charts with quil",
-                "tags": "cljs, demo, quil, svg",
-                "description": ""
-            },
-            "stars": 9,
-            "edit-date": "2018-12-21"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "3a35072dfd4f6d5d086a47ddc904d07e70d0be79",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/unittest/widget.cljg",
-            "meta": {
-                "name": "widget",
-                "tagline": "clj-widgets",
-                "tags": "clj,widget,demo",
-                "description": ""
-            },
-            "stars": 74,
-            "edit-date": "2019-04-10"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "de89839bd6307b54eb24234cabd3f074184e9e1a",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/gorillaplot/html-image.cljg",
-            "meta": {
-                "tags": "legacy",
-                "tagline": "legacy notebook"
-            },
-            "stars": 33,
-            "edit-date": "2019-06-29"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "28de6d8f69f9d336fe12abbf50a89138facba2b3",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/cljs/shapes.cljg",
-            "meta": {
-                "name": "mariacloud-shapes",
-                "tagline": "svg shapes (from maria cloud)",
-                "tags": "cljs,demo,mariacloud, svg",
-                "description": ""
-            },
-            "stars": 16,
-            "edit-date": "2018-12-05"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "8d41b8301c9c80fe27a9d0002e27a5c5896c19eb",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/reagent-state.cljg",
-            "meta": {},
-            "stars": 9,
-            "edit-date": "2018-10-04"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "d3e4aa53922ed1511fe4f72dcb3c1206eedaad4c",
-            "repo": "gorilla-notebook",
-            "filename": "notebooks/unittest/pinkgorilla-demo-html.cljg",
-            "meta": {},
-            "stars": 28,
-            "edit-date": "2018-11-05"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "2286368d5b49f60e1db21fcf649279aae6d4d47b",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/module-test.cljg",
-            "meta": {
-                "tagline": "how to make a custom ui module",
-                "tags": "ui-plugin,demo,js-module"
-            },
-            "stars": 72,
-            "edit-date": "2019-06-24"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "36bc0e409355b4c530edad577331e0dfbb89054d",
-            "repo": "sample-notebooks",
-            "filename": "samples/image-safe.cljg",
-            "meta": {},
-            "stars": 22,
-            "edit-date": "2018-08-08"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "7b021eb34048fb488590ef6d9a7535aec4ca8826",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/gorillaplot/central-limit.cljg",
-            "meta": {
-                "tags": "legacy",
-                "tagline": "legacy notebook"
-            },
-            "stars": 16,
-            "edit-date": "2019-02-21"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "23df70591227be4ebc4de064c8cbfd1072a16e25",
-            "repo": "sample-notebooks",
-            "filename": "samples/html-image2.cljg",
-            "meta": {
-                "tags": "custom-renderer, demo",
-                "tagline": "html image custom renderer"
-            },
-            "stars": 21,
-            "edit-date": "2018-12-27"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "bf2ef5c31786013404efa3260234c1ea1a010b36",
-            "repo": "sample-notebooks",
-            "filename": "samples/uiplugin/gorillaplot/hiccup-test.cljg",
-            "meta": {
-                "tags": "svg, renderer, sample",
-                "tagline": "svg via hiccup",
-                "name": ""
-            },
-            "stars": 24,
-            "edit-date": "2018-10-27"
-        },
-        {
-            "type": "repo",
-            "user": "pink-gorilla",
-            "id": "b908ea2aeaf918497043342b5bef1c862484785e",
-            "repo": "sample-notebooks",
-            "filename": "samples/fuckup-pprint.cljg",
-            "meta": {
-                "tags": "bug, todo-deas, renderable",
-                "tagline": "reproduce the error",
-                "name": ""
-            },
-            "stars": 98,
-            "edit-date": "2019-08-30"
-        }
-    ]
+  "data" : [
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "e66345303f72ca25219bfc61dcf2acf729d6f89e",
+      "repo" : "gorilla-notebook",
+      "filename" : "notebooks/unittest/sparkling.cljg",
+      "meta" : {
+        "name" : "sparkling-demo",
+        "tagline" : "sparkling demo",
+        "tags" : "clj, demo, sparkling,deas"
+      },
+      "stars" : 3,
+      "edit-date" : "2019-09-23"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "3a35072dfd4f6d5d086a47ddc904d07e70d0be79",
+      "repo" : "gorilla-notebook",
+      "filename" : "notebooks/unittest/widget.cljg",
+      "meta" : {
+        "name" : "widget",
+        "tagline" : "clj-widgets",
+        "tags" : "clj,widget,demo",
+        "description" : ""
+      },
+      "stars" : 5,
+      "edit-date" : "2019-05-13"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "de89839bd6307b54eb24234cabd3f074184e9e1a",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/gorillaplot/html-image.cljg",
+      "meta" : {
+        "tags" : "legacy",
+        "tagline" : "legacy notebook"
+      },
+      "stars" : 45,
+      "edit-date" : "2019-04-30"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "d902fe534ecf77e53a1b62cfe3eda48ccc86a18b",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/reagent-clock-dynamic.cljg",
+      "meta" : {
+        "tags" : "cljs, reagent, demo",
+        "name" : "counter via atom storage",
+        "tagline" : ""
+      },
+      "stars" : 68,
+      "edit-date" : "2018-12-15"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "8d41b8301c9c80fe27a9d0002e27a5c5896c19eb",
+      "repo" : "gorilla-notebook",
+      "filename" : "notebooks/reagent-state.cljg",
+      "meta" : { },
+      "stars" : 75,
+      "edit-date" : "2019-02-21"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "d3e4aa53922ed1511fe4f72dcb3c1206eedaad4c",
+      "repo" : "gorilla-notebook",
+      "filename" : "notebooks/unittest/pinkgorilla-demo-html.cljg",
+      "meta" : { },
+      "stars" : 17,
+      "edit-date" : "2019-04-02"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "2286368d5b49f60e1db21fcf649279aae6d4d47b",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/module-test.cljg",
+      "meta" : {
+        "tagline" : "how to make a custom ui module",
+        "tags" : "ui-plugin,demo,js-module"
+      },
+      "stars" : 0,
+      "edit-date" : "2019-05-19"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "36bc0e409355b4c530edad577331e0dfbb89054d",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/image-safe.cljg",
+      "meta" : { },
+      "stars" : 0,
+      "edit-date" : "2018-09-28"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "4262a239bd62882d9e451bc5cb9befcc7c3a9ffd",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/quil.cljg",
+      "meta" : {
+        "name" : "quil svg demo",
+        "tagline" : "charts with quil",
+        "tags" : "cljs, demo, quil, svg",
+        "description" : ""
+      },
+      "stars" : 83,
+      "edit-date" : "2019-09-30"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "7b021eb34048fb488590ef6d9a7535aec4ca8826",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/gorillaplot/central-limit.cljg",
+      "meta" : {
+        "tags" : "legacy",
+        "tagline" : "legacy notebook"
+      },
+      "stars" : 71,
+      "edit-date" : "2019-06-06"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "23df70591227be4ebc4de064c8cbfd1072a16e25",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/html-image2.cljg",
+      "meta" : {
+        "tags" : "custom-renderer, demo",
+        "tagline" : "html image custom renderer"
+      },
+      "stars" : 26,
+      "edit-date" : "2019-03-31"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "28de6d8f69f9d336fe12abbf50a89138facba2b3",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/shapes.cljg",
+      "meta" : {
+        "name" : "mariacloud-shapes",
+        "tagline" : "svg shapes (from maria cloud)",
+        "tags" : "cljs,demo,mariacloud, svg",
+        "description" : ""
+      },
+      "stars" : 89,
+      "edit-date" : "2018-08-26"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "bf2ef5c31786013404efa3260234c1ea1a010b36",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/gorillaplot/hiccup-test.cljg",
+      "meta" : {
+        "tags" : "svg, renderer, sample",
+        "tagline" : "svg via hiccup",
+        "name" : ""
+      },
+      "stars" : 82,
+      "edit-date" : "2019-10-08"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "b908ea2aeaf918497043342b5bef1c862484785e",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/fuckup-pprint.cljg",
+      "meta" : {
+        "tags" : "bug, todo-deas, renderable",
+        "tagline" : "reproduce the error",
+        "name" : ""
+      },
+      "stars" : 64,
+      "edit-date" : "2019-04-13"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "2165a60defde6a34770740df0e52203a7c3146c9",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/highchart.cljg",
+      "meta" : {
+        "tagline" : "highchart ui-plugin demo",
+        "tags" : "highchart, demo, ui-plugin"
+      },
+      "stars" : 54,
+      "edit-date" : "2019-02-01"
+    }
+  ]
 }

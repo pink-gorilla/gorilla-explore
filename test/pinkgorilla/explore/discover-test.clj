@@ -31,18 +31,21 @@
 
 
 (defn generate-list [users tokens]
-  (clear)
-  (discover-github-users :gist tokens users)
-  (discover-github-users :repo tokens users)
-  (spit "resources/list.json" (generate-string {:data (all)}) :append false)
-  (println "generate-list finished."))
+  (let [filename "resources/list.json"
+        my-pretty-printer (create-pretty-printer
+                           (assoc default-pretty-print-options
+                                  :indent-arrays? true))]
+    (clear)
+    (discover-github-users :gist tokens users)
+    (discover-github-users :repo tokens users)
+    (spit filename (generate-string {:data (all)} {:pretty my-pretty-printer}) :append false)
+    (println "generate-list finished.")))
 
 
 (comment
 
-  (future 
-    (generate-list ["awb99" "pink-gorilla" "deas"] (creds))
-    )
+  (future
+    (generate-list ["awb99" "pink-gorilla" "deas"] (creds)))
 
    ;; Add GISTs from one git-user to db
   (discover-github :gist creds "lambdaforg")
