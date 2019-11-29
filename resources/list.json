@@ -11,8 +11,8 @@
         "tagline" : "sparkling demo",
         "tags" : "clj, demo, sparkling,deas"
       },
-      "stars" : 54,
-      "edit-date" : "2019-09-23"
+      "stars" : 38,
+      "edit-date" : "2019-03-06"
     },
     {
       "type" : "repo",
@@ -26,8 +26,8 @@
         "tags" : "clj,widget,demo",
         "description" : ""
       },
-      "stars" : 47,
-      "edit-date" : "2019-03-10"
+      "stars" : 8,
+      "edit-date" : "2018-12-02"
     },
     {
       "type" : "repo",
@@ -39,8 +39,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 71,
-      "edit-date" : "2019-03-02"
+      "stars" : 94,
+      "edit-date" : "2019-11-20"
     },
     {
       "type" : "repo",
@@ -53,8 +53,8 @@
         "name" : "counter via atom storage",
         "tagline" : ""
       },
-      "stars" : 7,
-      "edit-date" : "2018-09-02"
+      "stars" : 86,
+      "edit-date" : "2019-09-19"
     },
     {
       "type" : "repo",
@@ -63,8 +63,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/reagent-state.cljg",
       "meta" : { },
-      "stars" : 9,
-      "edit-date" : "2019-10-06"
+      "stars" : 30,
+      "edit-date" : "2019-08-14"
     },
     {
       "type" : "repo",
@@ -73,8 +73,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/pinkgorilla-demo-html.cljg",
       "meta" : { },
-      "stars" : 71,
-      "edit-date" : "2019-03-28"
+      "stars" : 63,
+      "edit-date" : "2019-04-14"
     },
     {
       "type" : "repo",
@@ -86,18 +86,8 @@
         "tagline" : "how to make a custom ui module",
         "tags" : "ui-plugin,demo,js-module"
       },
-      "stars" : 81,
-      "edit-date" : "2018-10-17"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "36bc0e409355b4c530edad577331e0dfbb89054d",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/image-safe.cljg",
-      "meta" : { },
-      "stars" : 9,
-      "edit-date" : "2019-09-03"
+      "stars" : 58,
+      "edit-date" : "2018-12-24"
     },
     {
       "type" : "repo",
@@ -109,8 +99,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 57,
-      "edit-date" : "2019-07-07"
+      "stars" : 45,
+      "edit-date" : "2018-09-08"
     },
     {
       "type" : "repo",
@@ -122,8 +112,8 @@
         "tags" : "custom-renderer, demo",
         "tagline" : "html image custom renderer"
       },
-      "stars" : 21,
-      "edit-date" : "2018-10-25"
+      "stars" : 47,
+      "edit-date" : "2019-06-28"
     },
     {
       "type" : "repo",
@@ -137,8 +127,8 @@
         "tags" : "cljs, demo, quil, svg",
         "description" : ""
       },
-      "stars" : 52,
-      "edit-date" : "2019-04-18"
+      "stars" : 77,
+      "edit-date" : "2018-10-12"
     },
     {
       "type" : "repo",
@@ -151,8 +141,8 @@
         "tagline" : "reproduce the error",
         "name" : ""
       },
-      "stars" : 78,
-      "edit-date" : "2019-03-30"
+      "stars" : 68,
+      "edit-date" : "2018-07-22"
     },
     {
       "type" : "repo",
@@ -165,7 +155,7 @@
         "tagline" : "svg via hiccup",
         "name" : ""
       },
-      "stars" : 10,
+      "stars" : 90,
       "edit-date" : "2018-12-09"
     },
     {
@@ -175,8 +165,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/reagent-manipulate.cljg",
       "meta" : { },
-      "stars" : 38,
-      "edit-date" : "2019-06-13"
+      "stars" : 90,
+      "edit-date" : "2019-07-30"
     },
     {
       "type" : "repo",
@@ -185,8 +175,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/pinkgorilla-demo-vega.cljg",
       "meta" : { },
-      "stars" : 40,
-      "edit-date" : "2019-08-10"
+      "stars" : 60,
+      "edit-date" : "2018-07-31"
     },
     {
       "type" : "repo",
@@ -199,8 +189,8 @@
         "name" : "image-render",
         "tagline" : "html image renderable"
       },
-      "stars" : 71,
-      "edit-date" : "2019-08-11"
+      "stars" : 15,
+      "edit-date" : "2018-08-29"
     },
     {
       "type" : "repo",
@@ -212,8 +202,8 @@
         "tagline" : "highchart ui-plugin demo",
         "tags" : "highchart, demo, ui-plugin"
       },
-      "stars" : 41,
-      "edit-date" : "2019-11-12"
+      "stars" : 68,
+      "edit-date" : "2019-03-06"
     },
     {
       "type" : "repo",
@@ -227,8 +217,35 @@
         "tagline" : "from jonny epsilon",
         "description" : ""
       },
-      "stars" : 10,
-      "edit-date" : "2019-03-24"
+      "stars" : 30,
+      "edit-date" : "2019-01-10"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "e40de2151ee577274cf8daa94bd79ba4479a68c0",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/bodymass-index.cljg",
+      "meta" : {
+        "name" : "body mass calculator",
+        "tags" : "cljs, demo, cool, reagent"
+      },
+      "stars" : 6,
+      "edit-date" : "2018-11-22"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "55a405266ce9b293a9c291023de6e532b351a699",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/image-safe.cljg",
+      "meta" : {
+        "name" : "images with gorilla-renderable",
+        "tags" : "clj,renderable, image",
+        "tagline" : ""
+      },
+      "stars" : 18,
+      "edit-date" : "2019-02-25"
     },
     {
       "type" : "repo",
@@ -237,8 +254,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/coremat.cljg",
       "meta" : { },
-      "stars" : 46,
-      "edit-date" : "2019-02-16"
+      "stars" : 3,
+      "edit-date" : "2019-11-22"
     },
     {
       "type" : "repo",
@@ -247,18 +264,22 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/reagent-demo-err-renderex.cljg",
       "meta" : { },
-      "stars" : 37,
-      "edit-date" : "2018-12-16"
+      "stars" : 29,
+      "edit-date" : "2019-06-16"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "6dc2e90ca98b5ad4abb26a09da8fc467318d9dc9",
+      "id" : "86ef12c1190a3c8856f20590293ebb3ccb461170",
       "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/bodymass-index.cljg",
-      "meta" : { },
-      "stars" : 57,
-      "edit-date" : "2019-02-15"
+      "filename" : "samples/cljs/svg.cljg",
+      "meta" : {
+        "name" : "cljs-svg complex",
+        "tagline" : "",
+        "tags" : "cljs, svg, cool, sierpinsky"
+      },
+      "stars" : 43,
+      "edit-date" : "2018-08-13"
     },
     {
       "type" : "repo",
@@ -270,28 +291,23 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 15,
-      "edit-date" : "2019-01-28"
+      "stars" : 61,
+      "edit-date" : "2019-11-03"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "ac5a136f07286053374f4a39fbd0baec2b96ddcd",
+      "id" : "68daee13542c870e7a8ad5585a86a65fdc2ab51c",
       "repo" : "sample-notebooks",
       "filename" : "samples/zmqping.cljg",
-      "meta" : { },
-      "stars" : 37,
-      "edit-date" : "2019-04-21"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "1c2bcde1fa812fef7a95578fc806539afbd8d09f",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/svg.cljg",
-      "meta" : { },
-      "stars" : 85,
-      "edit-date" : "2018-09-10"
+      "meta" : {
+        "name" : "zmq ping server",
+        "tagline" : " ",
+        "tags" : "clj, zmq, messenging, cool",
+        "description" : ""
+      },
+      "stars" : 76,
+      "edit-date" : "2019-04-06"
     },
     {
       "type" : "repo",
@@ -303,8 +319,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 48,
-      "edit-date" : "2019-11-22"
+      "stars" : 46,
+      "edit-date" : "2019-09-25"
     },
     {
       "type" : "repo",
@@ -316,8 +332,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 87,
-      "edit-date" : "2018-10-19"
+      "stars" : 16,
+      "edit-date" : "2019-05-26"
     },
     {
       "type" : "repo",
@@ -329,8 +345,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 26,
-      "edit-date" : "2018-10-05"
+      "stars" : 92,
+      "edit-date" : "2018-12-26"
     },
     {
       "type" : "repo",
@@ -342,8 +358,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 34,
-      "edit-date" : "2018-12-02"
+      "stars" : 81,
+      "edit-date" : "2019-11-24"
     },
     {
       "type" : "repo",
@@ -352,38 +368,36 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/clock-demo.cljg",
       "meta" : { },
-      "stars" : 17,
-      "edit-date" : "2018-12-23"
+      "stars" : 40,
+      "edit-date" : "2019-05-09"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "170ba24e6459bae5a055c12faa232bb9e3bb361a",
+      "id" : "be017e16bf336cd99b91fb7de1148525c2ee3827",
       "repo" : "sample-notebooks",
       "filename" : "samples/uiplugin/gorillaplot/new-render.cljg",
-      "meta" : { },
-      "stars" : 74,
-      "edit-date" : "2018-10-24"
+      "meta" : {
+        "name" : "clj render test (cool)",
+        "tags" : "clj, render, cool, mathjax",
+        "tagline" : ""
+      },
+      "stars" : 99,
+      "edit-date" : "2018-12-15"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "6bae7765ca337d521c757529a19d8814857c7696",
+      "id" : "cf4cd4f0d5cd38c9b3b49a994ccb6d5855600ab3",
       "repo" : "sample-notebooks",
       "filename" : "samples/uiplugin/gorillaplot/graph-examples.cljg",
-      "meta" : { },
-      "stars" : 31,
-      "edit-date" : "2019-02-22"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "0cb6064c532b13ba31208298910e2926de9548b3",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/demo.cljg",
-      "meta" : { },
-      "stars" : 29,
-      "edit-date" : "2018-10-12"
+      "meta" : {
+        "tags" : "clj,plot,sample",
+        "name" : "gorilla-plot samples",
+        "tagline" : "samples adapted from legacy-gorilla"
+      },
+      "stars" : 39,
+      "edit-date" : "2018-10-21"
     },
     {
       "type" : "repo",
@@ -395,8 +409,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 91,
-      "edit-date" : "2018-07-23"
+      "stars" : 81,
+      "edit-date" : "2019-06-30"
     },
     {
       "type" : "repo",
@@ -405,8 +419,22 @@
       "repo" : "sample-notebooks",
       "filename" : "samples/cljs/diff.cljg",
       "meta" : { },
-      "stars" : 77,
-      "edit-date" : "2019-11-27"
+      "stars" : 9,
+      "edit-date" : "2019-07-07"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "ca4aad38b8d4cdcb20eda296ad564cc01f0e3550",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/demo.cljg",
+      "meta" : {
+        "tags" : "cljs,test",
+        "name" : "cljs demos",
+        "tagline" : "explore what clojurescript can do"
+      },
+      "stars" : 11,
+      "edit-date" : "2018-07-31"
     },
     {
       "type" : "repo",
@@ -418,8 +446,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 93,
-      "edit-date" : "2019-02-13"
+      "stars" : 1,
+      "edit-date" : "2019-05-24"
     },
     {
       "type" : "repo",
@@ -433,8 +461,8 @@
         "tags" : "cljs,demo,mariacloud, svg",
         "description" : ""
       },
-      "stars" : 6,
-      "edit-date" : "2019-05-22"
+      "stars" : 8,
+      "edit-date" : "2019-10-28"
     },
     {
       "type" : "repo",
@@ -443,8 +471,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/leaflet_err_javascript_inject.cljg",
       "meta" : { },
-      "stars" : 18,
-      "edit-date" : "2019-06-15"
+      "stars" : 73,
+      "edit-date" : "2019-05-06"
     },
     {
       "type" : "repo",
@@ -456,8 +484,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 46,
-      "edit-date" : "2018-08-02"
+      "stars" : 56,
+      "edit-date" : "2019-05-29"
     },
     {
       "type" : "repo",
@@ -466,8 +494,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/gg4clj-rplot.cljg",
       "meta" : { },
-      "stars" : 86,
-      "edit-date" : "2019-05-04"
+      "stars" : 75,
+      "edit-date" : "2019-11-20"
     },
     {
       "type" : "repo",
@@ -479,8 +507,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 33,
-      "edit-date" : "2019-05-20"
+      "stars" : 40,
+      "edit-date" : "2018-11-06"
     }
   ]
 }
