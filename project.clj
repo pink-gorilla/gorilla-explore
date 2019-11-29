@@ -11,7 +11,8 @@
    [org.clojure/tools.cli "0.4.2"]
    [clojure.java-time "0.3.2"]
   ; dependencies used for discovery:
-   [tentacles "0.5.1"] ; github api
+   [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
+   
    [com.cemerick/url "0.1.1"]  ; url query-strings
    [clj-http "3.10.0"]  ; http requests
    [cheshire "5.8.1"]  ; JSON parsings
@@ -19,7 +20,7 @@
    [org.clojure/data.json "0.2.6"]
    [clj-time "0.15.2"]  ; datetime
    
-   [org.pinkgorilla/encoding "0.0.14"]         ; notebook encoding
+   [org.pinkgorilla/encoding "0.0.18"]         ; notebook encoding
    ]
 
   :min-lein-version "2.8.3"

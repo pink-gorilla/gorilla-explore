@@ -1,8 +1,7 @@
 (ns pinkgorilla.explore.repo
-  (:require 
+  (:require
    [pinkgorilla.explore.github-helper :refer [search-code]]
-   [pinkgorilla.explore.print :refer [print-repo]]
-   ))
+   [pinkgorilla.explore.print :refer [print-repo]]))
 
 (defn repo-data [user repo]
   {:type :repo
@@ -16,31 +15,38 @@
 
 
 (defn gorilla-extension? [repo]
-  (clojure.string/ends-with? (:filename repo) "cljg")
-  )
+  (clojure.string/ends-with? (:filename repo) "cljg"))
 
 (defn tap-ignore [repos]
   (let [ignored (remove gorilla-extension? repos)]
-    (println "pinkgorilla-notebooks ignored: " (count ignored))
+    (println "pinkgorilla-notebooks (bad extension): " (count ignored))
     (println ignored)
     repos))
 
-(defn tap [repos]
-  (println "pinkgorilla-notebooks found: " (count repos))
-  repos
-  )
+(defn tap [text repos]
+  (println text (count repos))
+  repos)
+
+
+; :total_count - The total number of found items.
+;:incomplete_results - true if query exceeds the time limit.
+;:items
 
 (defn gorilla-repos [user & [options]]
   (let [_ (println "discovering pinkgorilla notebooks in github repos for user " user)
-        search-options {:in "file"
+        keywords "gorilla-repl fileformat = 2"
+        query {:in "file"
                         ;:language "clj"
-                        :user user}
-        r (search-code "gorilla-repl fileformat = 2" (merge search-options options) options)
+                        ;
+               :user user 
+               }
+         options {:per_page 100}
+        r (search-code keywords query options); (merge search-options options) options)
         items (:items r)
-        _ (println "potential gorilla-workbooks found: " (count items))]
+        _ (println "total found: " (:total_count r)  " incomplete results: " (:incomplete_results r) )]
 
     (->> (map (partial repo-data user) items)
-         ;(tap-ignore)
+         (tap "search results (from code-search): ")
+         ;(tap-ignore) ; this are mainly encoding files that contain "fileformat = 2""
          (filter gorilla-extension?)
-         (tap)
-         )))
+         (tap "search results (with .cljg extension): "))))
