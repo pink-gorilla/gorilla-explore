@@ -51,7 +51,7 @@
         ;tokens {}
         _ (println "loading notebook " storage)
         nb (notebook-load storage tokens)
-        _ (println "notebook loaded!")
+        ;_ (println "notebook loaded!")
         meta (:meta nb)
         meta (if (= (:version nb) 1) 
                {:tags "legacy" :tagline "legacy notebook"}
