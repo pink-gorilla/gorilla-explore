@@ -11,13 +11,13 @@
    [pinkgorilla.storage.repo]
    [pinkgorilla.storage.bitbucket]
 
-   [pinkgorilla.storage.storage :refer [create-storage]]
-   [pinkgorilla.notebook.core :refer [notebook-load]]
    [pinkgorilla.explore.db :refer [users add add-list usernames save-db]]
  ; [gorillauniverse.google :refer [discover-google]]
    [pinkgorilla.explore.print :refer [print-gist]]
    [pinkgorilla.explore.gist :refer [gorilla-gists]]
-   [pinkgorilla.explore.repo :refer [gorilla-repos]]))
+   [pinkgorilla.explore.repo :refer [gorilla-repos]]
+   [pinkgorilla.explore.meta :refer [add-meta]]
+   ))
 
 #_(defn add-google []
     (->> (discover-google)
@@ -37,32 +37,6 @@
     :gist (gorilla-gists user)
     :repo (gorilla-repos user)
     :test []))
-
-
-(defn random-edit-date []
-  (fmt/unparse (:date fmt/formatters)
-               (-> (rand-int 500) t/days t/ago)))
-
-
-
-(defn add-meta [tokens entry]
-  (let [_ (println "adding meta for entry" entry)
-        storage (create-storage entry)
-        ;tokens {}
-        _ (println "loading notebook " storage)
-        nb (notebook-load storage tokens)
-        ;_ (println "notebook loaded!")
-        meta (:meta nb)
-        meta (if (= (:version nb) 1) 
-               {:tags "legacy" :tagline "legacy notebook"}
-               meta)
-        ]
-    (if (nil? nb)
-      nil
-      (assoc entry
-             :meta meta
-             :stars (rand-int 100)
-             :edit-date (random-edit-date)))))
 
 
 (defn is-excluded? [storage]

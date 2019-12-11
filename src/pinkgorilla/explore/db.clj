@@ -30,12 +30,6 @@
 
 (defonce users (atom {}))
 
-
-
-
-
-
-
 (defn update-item-vector [item items]
   (let [id (:id item)
         ;_ (println "gist-id" id)

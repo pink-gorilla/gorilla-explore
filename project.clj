@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/explore "0.1.1"
+(defproject org.pinkgorilla/explore "0.1.2"
   :description "Explore PinkGorilla notebooks (private and public) on github."
   :url "http://example.com/FIXME"
    ;:deploy-repositories [["releases" :clojars]]
