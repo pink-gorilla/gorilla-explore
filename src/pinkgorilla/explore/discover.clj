@@ -16,7 +16,7 @@
    [pinkgorilla.explore.print :refer [print-gist]]
    [pinkgorilla.explore.gist :refer [gorilla-gists]]
    [pinkgorilla.explore.repo :refer [gorilla-repos]]
-   [pinkgorilla.explore.meta :refer [add-meta]]
+   [pinkgorilla.explore.meta :refer [add-meta add-random]]
    ))
 
 #_(defn add-google []
@@ -57,6 +57,7 @@
   (do (->> (github-action type user-name)
            (remove-excluded)
            (map (partial add-meta tokens))
+           (map (partial add-random tokens))
            (remove nil?)
            (add-list))
       (save-db)))

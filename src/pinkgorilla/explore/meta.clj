@@ -25,5 +25,9 @@
       nil
       (assoc entry
              :meta meta
+             ))))
+
+(defn add-random [tokens entry]
+ (assoc entry
              :stars (rand-int 100)
-             :edit-date (random-edit-date)))))
+             :edit-date (random-edit-date)))

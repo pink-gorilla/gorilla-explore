@@ -1,11 +1,11 @@
 (ns pinkgorilla.explore.file
   "Utility functions to help with scanning for and loading gorilla files."
-  (:require 
+  (:import java.util.Date)
+  (:require
    [clojure.string :as str]
      ; dependencies needed to be in cljs bundle: 
    [pinkgorilla.storage.storage :as storage]
    [pinkgorilla.storage.file]
-   
    [pinkgorilla.explore.meta :refer [add-meta]]))
 
 (defn ends-with
@@ -49,6 +49,16 @@
 
 (def excludes  #{".git"})
 
+
+(defn file-info [file]
+  {:filename (. file getPath)
+   :edit-date (Date. (.lastModified file))})
+
+(defn date->str [date]
+  (-> (java.text.SimpleDateFormat. "yyyy-MM-dd")              ;thread-first macro
+      (.format (.getTime date))
+      str))
+
 (defn gorilla-files-in-directory
   "get all pink-gorilla filenames in a directory.
    Works recursively, so sub-directories are included."
@@ -56,7 +66,7 @@
   (->> (clojure.java.io/file directory)
        (excluded-file-seq excludes)
        (filter include-file?)
-       (map #(. % getPath))
+       (map file-info)
       ; (map #(str/replace-first (. % getPath) "./" ""))
        ))
 
@@ -65,19 +75,18 @@
         storage {:type :file
                  :user "_file"}]
     (->> (gorilla-files-in-directory directory)
-         (map #(assoc storage 
-                      :filename %
-                      :id %))
-         (map (partial add-meta tokens))
-         )))
+         (map #(assoc storage
+                      :filename (:filename %)
+                      :id (:filename %)
+                      :edit-date (date->str (:edit-date %))
+                      ;:x (:edit-date %)
+                      ))
+         (map (partial add-meta tokens)))))
 
 
 (comment
 
-  
-  (gorilla-files-in-directory "/home/andreas/Documents/clojure/clojureQuant/gorilla")
 
-  (explore "/home/andreas/Documents/clojure/clojureQuant/gorilla")
+  (gorilla-files-in-directory "/home/andreas/Documents/gorilla/sample-notebooks/samples")
 
-
-)
+  (explore "/home/andreas/Documents/gorilla/sample-notebooks/samples"))
