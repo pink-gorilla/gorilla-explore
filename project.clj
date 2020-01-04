@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/explore "0.1.4-SNAPSHOT"
+(defproject org.pinkgorilla/explore "0.1.4"
   :description "Explore PinkGorilla notebooks (private and public) on github."
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.10.1"]
