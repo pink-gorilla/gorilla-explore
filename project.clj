@@ -22,20 +22,7 @@
                                      :password :env/release_password
                                      :sign-releases false}]]
 
-  :min-lein-version "2.8.3"
-  :source-paths ["src"]
-  :test-paths ["test"]
-  :resource-paths ["resources"]
-  :target-path "target/%s/"
-
-  :main ^:skip-aot gorillauniverse.main
-  ;; :plugins []
-
-
-  :profiles {:uberjar {:omit-source true
-                       :aot :all
-                       :uberjar-name "gorilla-explore.jar"}
-             :dev {:source-paths ["dev" "test"]
+  :profiles {:dev {:source-paths ["dev" "test"]
                    :dependencies [[clj-kondo "2019.11.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]
