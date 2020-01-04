@@ -7,21 +7,21 @@
                  [clojure.java-time "0.3.2"]
   ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
-                 
+
                  [com.cemerick/url "0.1.1"]  ; url query-strings
                  [clj-http "3.10.0"]  ; http requests
                  [cheshire "5.8.1"]  ; JSON parsings
                  [throttler "1.0.0"] ; api rate-limits
                  [org.clojure/data.json "0.2.6"]
                  [clj-time "0.15.2"]  ; datetime
-                 
+
                  [org.pinkgorilla/encoding "0.0.18"]         ; notebook encoding
                  ]
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
                                      :sign-releases false}]]
-  
+
   :min-lein-version "2.8.3"
   :source-paths ["src"]
   :test-paths ["test"]
@@ -30,7 +30,7 @@
 
   :main ^:skip-aot gorillauniverse.main
   ;; :plugins []
-  
+
 
   :profiles {:uberjar {:omit-source true
                        :aot :all
@@ -49,4 +49,16 @@
                    :cljfmt       {:indents {as->                [[:inner 0]]
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
-                                            try-if-let          [[:block 1]]}}}})
+                                            try-if-let          [[:block 1]]}}}}
+
+
+  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]}
+
+  :release-tasks [["vcs" "assert-committed"]
+                  ["bump-version" "release"]
+                  ["vcs" "commit" "Release %s"]
+                  ["vcs" "tag" "v" "--no-sign"]
+                  ["deploy"]
+                  ["bump-version"]
+                  ["vcs" "commit" "Begin %s"]
+                  ["vcs" "push"]])
