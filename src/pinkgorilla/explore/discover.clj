@@ -16,8 +16,7 @@
    [pinkgorilla.explore.print :refer [print-gist]]
    [pinkgorilla.explore.gist :refer [gorilla-gists]]
    [pinkgorilla.explore.repo :refer [gorilla-repos]]
-   [pinkgorilla.explore.meta :refer [add-meta add-random]]
-   ))
+   [pinkgorilla.explore.meta :refer [add-meta add-random]]))
 
 #_(defn add-google []
     (->> (discover-google)
@@ -30,14 +29,12 @@
   (println name ": " val)
   val)
 
-
 (defn github-action [type user]
   (println "discovering github " type " for user " user)
   (case type
     :gist (gorilla-gists user)
     :repo (gorilla-repos user)
     :test []))
-
 
 (defn is-excluded? [storage]
   (cond
@@ -48,7 +45,6 @@
 
 (defn remove-excluded [storages]
   (remove is-excluded? storages))
-
 
 (defn discover-github
   "adds the gists of a github-user to the db

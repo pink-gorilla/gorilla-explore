@@ -13,7 +13,6 @@
    ;:stars (:stargazers_count repo)
    })
 
-
 (defn gorilla-extension? [repo]
   (clojure.string/ends-with? (:filename repo) "cljg"))
 
@@ -32,18 +31,18 @@
 ;:incomplete_results - true if query exceeds the time limit.
 ;:items
 
+
 (defn gorilla-repos [user & [options]]
   (let [_ (println "discovering pinkgorilla notebooks in github repos for user " user)
         keywords "gorilla-repl fileformat = 2"
         query {:in "file"
                         ;:language "clj"
                         ;
-               :user user 
-               }
-         options {:per_page 100}
+               :user user}
+        options {:per_page 100}
         r (search-code keywords query options); (merge search-options options) options)
         items (:items r)
-        _ (println "total found: " (:total_count r)  " incomplete results: " (:incomplete_results r) )]
+        _ (println "total found: " (:total_count r)  " incomplete results: " (:incomplete_results r))]
 
     (->> (map (partial repo-data user) items)
          (tap "search results (from code-search): ")

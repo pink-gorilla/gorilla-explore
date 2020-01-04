@@ -1,7 +1,6 @@
 (ns user
-  (:require 
-   [pinkgorilla.explore.db :refer [load-db]])
-  )
+  (:require
+   [pinkgorilla.explore.db :refer [load-db]]))
 
 (println "dev-mode - loading db.")
 

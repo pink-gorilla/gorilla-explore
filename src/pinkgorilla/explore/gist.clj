@@ -24,6 +24,7 @@
 
 ;; Filter Gorilla Files
 
+
 (defn file-gorilla?
   "Does git filename have a pinkgorilla extension"
   [file]
@@ -39,14 +40,10 @@
 (defn gist-to-storage-list [gist]
   (let [files (gorilla-files gist)
         storage {:type :gist
-                 :id (:id gist) 
-                 :description (:description gist) 
-                 :user (get-in gist [:owner :login])}
-        ]
-    (map #(assoc storage :filename %) files)
-    )
-  )
-
+                 :id (:id gist)
+                 :description (:description gist)
+                 :user (get-in gist [:owner :login])}]
+    (map #(assoc storage :filename %) files)))
 
 (defn gorilla-gists [user & [token]]
   (let [gists (:data (load-gists user token))
@@ -85,7 +82,6 @@
                                      :gist-fn fn-gorilla}))))
     (println "gorilla gists discovered: " (count @gorilla-infos))
     @gorilla-infos))
-
 
 (defn print-gist-response [gist-response]
   (let [gists (:data gist-response)]

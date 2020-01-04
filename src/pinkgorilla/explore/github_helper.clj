@@ -33,8 +33,8 @@
 
 (def throttle? false)
 
-(if throttle? 
-  (do 
+(if throttle?
+  (do
     (def throttler-rest (fn-throttler 50 :hour))
     (def throttler-search (fn-throttler 8 :hour))
     ; REPO Throttling
@@ -55,14 +55,12 @@
     ; SEARCH
     (def search-code tentacles.search/search-code)
     ; OAUTH
-    (def me tentacles.users/me)
-    ))
-
+    (def me tentacles.users/me)))
 
 (defn username [token]
   (:login (me {:oauth-token token})))
 
-  
+
 
 ; For oauth use :oauth-token <token> 
 ; for oauth2, include :client-id <client_id> :client-token <client_token> in the options map.
