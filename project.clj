@@ -15,7 +15,7 @@
                  [org.clojure/data.json "0.2.6"]
                  [clj-time "0.15.2"]  ; datetime
 
-                 [org.pinkgorilla/encoding "0.0.18"]         ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.0.21"]         ; notebook encoding
                  ]
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
