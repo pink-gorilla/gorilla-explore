@@ -1,5 +1,5 @@
 (ns pinkgorilla.explore.db
-  (:require 
+  (:require
    [cheshire.core :refer :all]))
 
 ;; in-memory db
@@ -37,13 +37,11 @@
         existing-ids (map :id items)
         ;_ (println "existing ids:" existing-ids)
         existing-index (first (positions #{id} existing-ids))
-        _ (println "existing index:" existing-index)
-        ]
+        _ (println "existing index:" existing-index)]
     (if (nil? existing-index)
-      (vec (conj items item)) 
+      (vec (conj items item))
       (assoc items existing-index item))))
 
-  
 (defn add [item]
   (if (or (nil? (:user item)) (nil? (:id item)))
     (println "Not adding Item with empty username or id")
@@ -54,7 +52,7 @@
       (if (nil? items-existing)
         (swap! users assoc user-key [item])
         (swap! users update-in [user-key] (partial update-item-vector item))))))
-  
+
 (defn add-list
   "adds a list of items [{:user :gists []}] to the 
    db (map of users) {:user-name  {:user user-name :gists[gist-id]}}"
@@ -63,21 +61,20 @@
   @users)
 
 (defn all []
-    (flatten (vals @users)))
-      
+  (flatten (vals @users)))
+
 (defn gists []
-  (filter #(= "gist" (:type %)) 
-      (flatten (vals @users))))
+  (filter #(= "gist" (:type %))
+          (flatten (vals @users))))
 
 (defn repos []
-  (filter #(= "repo" (:type %)) 
+  (filter #(= "repo" (:type %))
           (flatten (vals @users))))
 
 (defn usernames []
   (let [user-keys (keys @users)
         user-names (map name user-keys)]
     user-names))
-
 
 (defn print-status [db]
   {:users (count @users)
@@ -95,16 +92,13 @@
 
 (defn save-db []
   (spit @json-fn (generate-string {:data @users}) :append false)
-  (print-status @users)
-  )
-
+  (print-status @users))
 
 (defn clear []
-   (reset! users {}))
+  (reset! users {}))
 
 
 
-      
-      
-      
-      
+
+
+

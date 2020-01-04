@@ -9,7 +9,6 @@
   (fmt/unparse (:date fmt/formatters)
                (-> (rand-int 500) t/days t/ago)))
 
-
 (defn add-meta [tokens entry]
   (let [_ (println "adding meta for entry" entry)
         storage (create-storage entry)
@@ -24,10 +23,9 @@
     (if (nil? nb)
       nil
       (assoc entry
-             :meta meta
-             ))))
+             :meta meta))))
 
 (defn add-random [tokens entry]
- (assoc entry
-             :stars (rand-int 100)
-             :edit-date (random-edit-date)))
+  (assoc entry
+         :stars (rand-int 100)
+         :edit-date (random-edit-date)))

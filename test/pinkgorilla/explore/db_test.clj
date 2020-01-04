@@ -1,6 +1,5 @@
-(ns pinkgorilla.db-test
+(ns pinkgorilla.explore.db-test
   (:require [pinkgorilla.explore.db :refer :all]))
-
 
 (comment
 

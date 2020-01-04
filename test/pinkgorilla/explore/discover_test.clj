@@ -14,7 +14,6 @@
    [pinkgorilla.explore.db :refer [clear all]]
    [pinkgorilla.explore.discover :refer [discover-github-users]]))
 
-
 (def seed ["lambdaforge" "ribelo" "k2n" "iantruslove" "rorokimdim" "ws"
            "bogdartysh" "decentstudio" "martinhynar" "hellonico" "lspector"
            "jguhlin"  "vegetka" "izubkov" "gavilcode"
@@ -29,7 +28,6 @@
            "XingyuHe" "susverwimp" "deas" "JonyEpsilon"
            "NicMcPhee" "J-Atkinson" "light24bulbs" "mrcslws"])
 
-
 (defn generate-list [users tokens]
   (let [filename "resources/list.json"
         my-pretty-printer (create-pretty-printer
@@ -40,7 +38,6 @@
     (discover-github-users :repo tokens users)
     (spit filename (generate-string {:data (all)} {:pretty my-pretty-printer}) :append false)
     (println "generate-list finished.")))
-
 
 (comment
 

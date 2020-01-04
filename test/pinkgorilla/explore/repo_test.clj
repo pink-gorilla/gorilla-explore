@@ -15,31 +15,25 @@
    [pinkgorilla.explore.print :refer [print-repo]]
    [pinkgorilla.explore.repo :refer [gorilla-repos]]))
 
-
 (comment
 
  ; (print-gist-response (load-gists "awb99" (:github-token creds)))
-  
+
 
   (gorilla-repos "pink-gorilla")
 
   (print-repo (gorilla-repos "martinhynar"))
 
   (let [tokens {}
-        storage (create-storage {:type :repo, 
-                                 :user "pink-gorilla", 
-                                 :repo "sample-notebooks", 
-                                 :filename "samples/html-image.cljg"})
-        ]
+        storage (create-storage {:type :repo,
+                                 :user "pink-gorilla",
+                                 :repo "sample-notebooks",
+                                 :filename "samples/html-image.cljg"})]
     (notebook-load storage tokens))
-  
+
   (let [tokens {}
         storage (create-storage {:type :repo
                                  :user "pink-gorilla"
                                  :repo "sample-notebooks"
                                  :filename "samples/uiplugin/gorillaplot/central-limit.cljg"})]
-    (notebook-load storage tokens))
-  
-
-  
-  )
+    (notebook-load storage tokens)))

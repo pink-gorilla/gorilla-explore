@@ -46,9 +46,7 @@
   [file]
   (or (cljg-file? file) (and (clj-file? file) (gorilla-file? file))))
 
-
 (def excludes  #{".git"})
-
 
 (defn file-info [file]
   {:filename (. file getPath)
@@ -83,9 +81,7 @@
                       ))
          (map (partial add-meta tokens)))))
 
-
 (comment
-
 
   (gorilla-files-in-directory "/home/andreas/Documents/gorilla/sample-notebooks/samples")
 
