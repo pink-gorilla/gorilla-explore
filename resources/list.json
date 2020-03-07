@@ -3,22 +3,22 @@
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "9b08314d5d9ccb646067b1a16efae7e5b0fb8eb2",
-      "repo" : "gorilla-notebook",
-      "filename" : "notebooks/unittest/pinkgorilla-demo-html.cljg",
+      "id" : "846ca3ab0d03777e1705ea0281950a42e5bf87f4",
+      "repo" : "gorilla-ui",
+      "filename" : "notebooks/leaflet-cljs.cljg",
       "meta" : { },
-      "stars" : 14,
-      "edit-date" : "2018-10-27"
+      "stars" : 9,
+      "edit-date" : "2019-05-04"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "864ee98fec15231e5aeba0be96c5872bccb8bec7",
+      "id" : "9b08314d5d9ccb646067b1a16efae7e5b0fb8eb2",
       "repo" : "gorilla-notebook",
-      "filename" : "notebooks/unittest/leaflet-cljs.cljg",
+      "filename" : "notebooks/unittest/pinkgorilla-demo-html.cljg",
       "meta" : { },
-      "stars" : 86,
-      "edit-date" : "2018-10-18"
+      "stars" : 25,
+      "edit-date" : "2019-07-06"
     },
     {
       "type" : "repo",
@@ -27,8 +27,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/libpython.cljg",
       "meta" : { },
-      "stars" : 80,
-      "edit-date" : "2018-10-24"
+      "stars" : 51,
+      "edit-date" : "2019-07-17"
     },
     {
       "type" : "repo",
@@ -41,8 +41,8 @@
         "tagline" : "sparkling demo",
         "tags" : "clj, demo, sparkling,deas"
       },
-      "stars" : 18,
-      "edit-date" : "2019-11-05"
+      "stars" : 12,
+      "edit-date" : "2019-11-15"
     },
     {
       "type" : "repo",
@@ -51,8 +51,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/fixme/leaflet-clj.cljg",
       "meta" : { },
-      "stars" : 61,
-      "edit-date" : "2019-03-21"
+      "stars" : 56,
+      "edit-date" : "2018-11-23"
     },
     {
       "type" : "repo",
@@ -61,18 +61,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/fixme/libpython-add-runtime-fail.cljg",
       "meta" : { },
-      "stars" : 81,
-      "edit-date" : "2019-05-21"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "d2592602ad7ce5053e5097eaae626050b2fa8ac5",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/uiplugin/gorillaplot/html-image.cljg",
-      "meta" : { },
-      "stars" : 5,
-      "edit-date" : "2019-04-18"
+      "stars" : 31,
+      "edit-date" : "2019-03-20"
     },
     {
       "type" : "repo",
@@ -81,8 +71,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/plot.cljg",
       "meta" : { },
-      "stars" : 28,
-      "edit-date" : "2019-02-13"
+      "stars" : 81,
+      "edit-date" : "2019-11-15"
     },
     {
       "type" : "repo",
@@ -96,8 +86,18 @@
         "tags" : "clj,widget,demo",
         "description" : ""
       },
-      "stars" : 54,
-      "edit-date" : "2019-10-30"
+      "stars" : 76,
+      "edit-date" : "2020-02-15"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "d2592602ad7ce5053e5097eaae626050b2fa8ac5",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/uiplugin/gorillaplot/html-image.cljg",
+      "meta" : { },
+      "stars" : 18,
+      "edit-date" : "2019-01-11"
     },
     {
       "type" : "repo",
@@ -110,8 +110,8 @@
         "name" : "counter via atom storage",
         "tagline" : ""
       },
-      "stars" : 75,
-      "edit-date" : "2019-07-07"
+      "stars" : 40,
+      "edit-date" : "2020-02-16"
     },
     {
       "type" : "repo",
@@ -120,8 +120,8 @@
       "repo" : "sample-notebooks",
       "filename" : "samples/uiplugin/gorillaplot/central-limit.cljg",
       "meta" : { },
-      "stars" : 87,
-      "edit-date" : "2018-12-29"
+      "stars" : 64,
+      "edit-date" : "2019-03-25"
     },
     {
       "type" : "repo",
@@ -135,8 +135,8 @@
         "tags" : "cljs,cool,ui,iss,sparkline",
         "description" : ""
       },
-      "stars" : 26,
-      "edit-date" : "2019-10-03"
+      "stars" : 18,
+      "edit-date" : "2019-03-03"
     },
     {
       "type" : "repo",
@@ -145,8 +145,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/reagent-state.cljg",
       "meta" : { },
-      "stars" : 7,
-      "edit-date" : "2018-09-14"
+      "stars" : 94,
+      "edit-date" : "2019-04-30"
     },
     {
       "type" : "repo",
@@ -155,21 +155,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/fixme/cljs-shadow.cljg",
       "meta" : { },
-      "stars" : 94,
-      "edit-date" : "2020-01-09"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "2286368d5b49f60e1db21fcf649279aae6d4d47b",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/uiplugin/module-test.cljg",
-      "meta" : {
-        "tagline" : "how to make a custom ui module",
-        "tags" : "ui-plugin,demo,js-module"
-      },
-      "stars" : 9,
-      "edit-date" : "2019-09-03"
+      "stars" : 25,
+      "edit-date" : "2019-01-04"
     },
     {
       "type" : "repo",
@@ -183,8 +170,8 @@
         "tags" : "cljs, demo, quil, svg",
         "description" : ""
       },
-      "stars" : 16,
-      "edit-date" : "2019-05-06"
+      "stars" : 1,
+      "edit-date" : "2019-04-08"
     },
     {
       "type" : "repo",
@@ -196,22 +183,8 @@
         "tags" : "custom-renderer, demo",
         "tagline" : "html image custom renderer"
       },
-      "stars" : 23,
-      "edit-date" : "2019-06-27"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "bf2ef5c31786013404efa3260234c1ea1a010b36",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/uiplugin/gorillaplot/hiccup-test.cljg",
-      "meta" : {
-        "tags" : "svg, renderer, sample",
-        "tagline" : "svg via hiccup",
-        "name" : ""
-      },
-      "stars" : 45,
-      "edit-date" : "2018-09-24"
+      "stars" : 67,
+      "edit-date" : "2019-07-11"
     },
     {
       "type" : "repo",
@@ -224,21 +197,22 @@
         "tagline" : "reproduce the error",
         "name" : ""
       },
-      "stars" : 65,
-      "edit-date" : "2018-11-23"
+      "stars" : 91,
+      "edit-date" : "2019-08-29"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "2165a60defde6a34770740df0e52203a7c3146c9",
+      "id" : "bf2ef5c31786013404efa3260234c1ea1a010b36",
       "repo" : "sample-notebooks",
-      "filename" : "samples/uiplugin/highchart.cljg",
+      "filename" : "samples/uiplugin/gorillaplot/hiccup-test.cljg",
       "meta" : {
-        "tagline" : "highchart ui-plugin demo",
-        "tags" : "highchart, demo, ui-plugin"
+        "tags" : "svg, renderer, sample",
+        "tagline" : "svg via hiccup",
+        "name" : ""
       },
-      "stars" : 9,
-      "edit-date" : "2019-05-19"
+      "stars" : 72,
+      "edit-date" : "2019-05-11"
     },
     {
       "type" : "repo",
@@ -251,8 +225,8 @@
         "tags" : "clj,renderable, image",
         "tagline" : ""
       },
-      "stars" : 12,
-      "edit-date" : "2018-10-05"
+      "stars" : 68,
+      "edit-date" : "2018-12-10"
     },
     {
       "type" : "repo",
@@ -265,8 +239,8 @@
         "name" : "image-render",
         "tagline" : "html image renderable (with errors)"
       },
-      "stars" : 46,
-      "edit-date" : "2019-05-13"
+      "stars" : 28,
+      "edit-date" : "2018-11-10"
     },
     {
       "type" : "repo",
@@ -279,8 +253,8 @@
         "tagline" : "vega from clojure",
         "name" : ""
       },
-      "stars" : 32,
-      "edit-date" : "2019-03-20"
+      "stars" : 73,
+      "edit-date" : "2019-09-21"
     },
     {
       "type" : "repo",
@@ -293,8 +267,8 @@
         "tags" : "cljs, vega, ",
         "name" : ""
       },
-      "stars" : 1,
-      "edit-date" : "2019-08-28"
+      "stars" : 77,
+      "edit-date" : "2019-03-25"
     },
     {
       "type" : "repo",
@@ -306,8 +280,8 @@
         "tagline" : "core-matrix visualizaton as tables",
         "tags" : "clj,core-matrix"
       },
-      "stars" : 17,
-      "edit-date" : "2019-04-29"
+      "stars" : 30,
+      "edit-date" : "2019-11-24"
     },
     {
       "type" : "repo",
@@ -316,8 +290,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/fixme/reagent-demo-err-renderex.cljg",
       "meta" : { },
-      "stars" : 54,
-      "edit-date" : "2020-01-07"
+      "stars" : 46,
+      "edit-date" : "2018-11-29"
     },
     {
       "type" : "repo",
@@ -326,8 +300,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/multimethods.cljg",
       "meta" : { },
-      "stars" : 78,
-      "edit-date" : "2019-12-04"
+      "stars" : 27,
+      "edit-date" : "2019-06-28"
     },
     {
       "type" : "repo",
@@ -339,22 +313,8 @@
         "name" : "body mass calculator",
         "tags" : "cljs, demo, cool, reagent"
       },
-      "stars" : 58,
-      "edit-date" : "2020-01-06"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "78d5d2e97f35f45f13de45d04f4ac53413353820",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/bodymass-index.cljg",
-      "meta" : {
-        "name" : "body mass calculator",
-        "tags" : "cljs, demo, cool, reagent",
-        "tagline" : "bodymass indicator (using only cljs reagent)"
-      },
-      "stars" : 94,
-      "edit-date" : "2018-12-08"
+      "stars" : 67,
+      "edit-date" : "2019-07-27"
     },
     {
       "type" : "repo",
@@ -367,23 +327,22 @@
         "tagline" : "complex svg plot and quil example",
         "tags" : "cljs, svg, quil, cool, sierpinsky"
       },
-      "stars" : 26,
-      "edit-date" : "2019-08-18"
+      "stars" : 40,
+      "edit-date" : "2019-03-13"
     },
     {
       "type" : "repo",
       "user" : "pink-gorilla",
-      "id" : "e7daa98b3c11800b644a1c4b4d210407364fd0b9",
+      "id" : "78d5d2e97f35f45f13de45d04f4ac53413353820",
       "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/sparkline.cljg",
+      "filename" : "samples/cljs/bodymass-index.cljg",
       "meta" : {
-        "name" : "",
-        "tagline" : "Sparkline charts demo",
-        "tags" : "cljs,cool,ui,sparkline",
-        "description" : ""
+        "name" : "body mass calculator",
+        "tags" : "cljs, demo, cool, reagent",
+        "tagline" : "bodymass indicator (using only cljs reagent)"
       },
-      "stars" : 81,
-      "edit-date" : "2018-10-26"
+      "stars" : 91,
+      "edit-date" : "2018-11-25"
     },
     {
       "type" : "repo",
@@ -398,7 +357,22 @@
         "description" : ""
       },
       "stars" : 63,
-      "edit-date" : "2019-10-20"
+      "edit-date" : "2018-12-29"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "d50be534c8aeb355795b726ca5c2473360b35965",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/aggrid.cljg",
+      "meta" : {
+        "name" : "",
+        "tagline" : "Video Demo (Youtube, and more)",
+        "tags" : "cljs,cool,ui,video,youtube",
+        "description" : ""
+      },
+      "stars" : 93,
+      "edit-date" : "2018-11-21"
     },
     {
       "type" : "repo",
@@ -410,8 +384,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 69,
-      "edit-date" : "2019-07-01"
+      "stars" : 91,
+      "edit-date" : "2019-10-01"
     },
     {
       "type" : "repo",
@@ -425,8 +399,8 @@
         "tags" : "clj, zmq, messenging, cool",
         "description" : ""
       },
-      "stars" : 58,
-      "edit-date" : "2018-11-04"
+      "stars" : 60,
+      "edit-date" : "2019-11-28"
     },
     {
       "type" : "repo",
@@ -438,23 +412,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 65,
-      "edit-date" : "2019-06-18"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "818fe208628db82faa510a087a348e828bcf10a4",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/videos.cljg",
-      "meta" : {
-        "name" : "",
-        "tagline" : "Video Demo (Youtube, and more)",
-        "tags" : "cljs,cool,ui,video,youtube",
-        "description" : ""
-      },
-      "stars" : 67,
-      "edit-date" : "2020-01-12"
+      "stars" : 77,
+      "edit-date" : "2019-07-17"
     },
     {
       "type" : "repo",
@@ -466,8 +425,8 @@
         "tags" : "svg,clocks",
         "tagline" : "draw clocks as svg; display a grid of clocks..."
       },
-      "stars" : 75,
-      "edit-date" : "2019-03-31"
+      "stars" : 71,
+      "edit-date" : "2019-12-05"
     },
     {
       "type" : "repo",
@@ -480,8 +439,8 @@
         "tags" : "clj, render, cool, mathjax",
         "tagline" : ""
       },
-      "stars" : 81,
-      "edit-date" : "2018-11-10"
+      "stars" : 38,
+      "edit-date" : "2020-01-22"
     },
     {
       "type" : "repo",
@@ -494,23 +453,8 @@
         "name" : "gorilla-plot samples",
         "tagline" : "samples adapted from legacy-gorilla"
       },
-      "stars" : 7,
-      "edit-date" : "2020-01-12"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "cd5197910cc6e6a51c7d2aaf4c981fa4174ee66c",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/aggrid.cljg",
-      "meta" : {
-        "name" : "",
-        "tagline" : "Video Demo (Youtube, and more)",
-        "tags" : "cljs,cool,ui,video,youtube",
-        "description" : ""
-      },
-      "stars" : 58,
-      "edit-date" : "2019-04-25"
+      "stars" : 20,
+      "edit-date" : "2019-12-20"
     },
     {
       "type" : "repo",
@@ -522,18 +466,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 28,
-      "edit-date" : "2019-11-21"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "2ce0037953a29bc6a91788de39ad70b94cddf864",
-      "repo" : "sample-notebooks",
-      "filename" : "samples/cljs/diff.cljg",
-      "meta" : { },
-      "stars" : 21,
-      "edit-date" : "2019-12-16"
+      "stars" : 53,
+      "edit-date" : "2020-01-08"
     },
     {
       "type" : "repo",
@@ -546,8 +480,18 @@
         "name" : "cljs demos",
         "tagline" : "explore what clojurescript can do"
       },
-      "stars" : 46,
-      "edit-date" : "2019-08-20"
+      "stars" : 51,
+      "edit-date" : "2018-11-19"
+    },
+    {
+      "type" : "repo",
+      "user" : "pink-gorilla",
+      "id" : "2ce0037953a29bc6a91788de39ad70b94cddf864",
+      "repo" : "sample-notebooks",
+      "filename" : "samples/cljs/diff.cljg",
+      "meta" : { },
+      "stars" : 2,
+      "edit-date" : "2019-10-31"
     },
     {
       "type" : "repo",
@@ -556,8 +500,8 @@
       "repo" : "sample-notebooks",
       "filename" : "samples/git-graph.cljg",
       "meta" : { },
-      "stars" : 47,
-      "edit-date" : "2018-10-26"
+      "stars" : 72,
+      "edit-date" : "2020-02-29"
     },
     {
       "type" : "repo",
@@ -571,8 +515,8 @@
         "tags" : "cljs,demo,mariacloud, svg",
         "description" : ""
       },
-      "stars" : 4,
-      "edit-date" : "2018-10-09"
+      "stars" : 89,
+      "edit-date" : "2019-04-24"
     },
     {
       "type" : "repo",
@@ -581,8 +525,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/fixme/leaflet-clj-err-javascript-noexec.cljg",
       "meta" : { },
-      "stars" : 58,
-      "edit-date" : "2019-11-18"
+      "stars" : 59,
+      "edit-date" : "2020-02-03"
     },
     {
       "type" : "repo",
@@ -591,8 +535,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/unittest/gg4clj-rplot.cljg",
       "meta" : { },
-      "stars" : 10,
-      "edit-date" : "2018-11-15"
+      "stars" : 20,
+      "edit-date" : "2020-03-01"
     }
   ]
 }
