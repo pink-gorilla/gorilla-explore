@@ -2,20 +2,20 @@
   :description "Explore PinkGorilla notebooks (private and public) on github."
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/core.async "0.4.500"]
+                 [org.clojure/core.async "1.0.567"]
                  [org.clojure/tools.cli "0.4.2"]
                  [clojure.java-time "0.3.2"]
-  ; dependencies used for discovery:
+                  ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
-
                  [com.cemerick/url "0.1.1"]  ; url query-strings
                  [clj-http "3.10.0"]  ; http requests
                  [cheshire "5.8.1"]  ; JSON parsings
-                 [throttler "1.0.0"] ; api rate-limits
+                 ;[throttler "1.0.0"] ; api rate-limits ; original throttler has old core.async ?
+                 [org.pinkgorilla/throttler "1.0.1"] ; throtteling
                  [org.clojure/data.json "0.2.6"]
                  [clj-time "0.15.2"]  ; datetime
-
-                 [org.pinkgorilla/notebook-encoding "0.0.23"]         ; notebook encoding
+                 
+                 [org.pinkgorilla/notebook-encoding "0.0.25"]         ; notebook encoding
                  ]
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username

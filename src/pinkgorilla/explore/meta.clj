@@ -3,27 +3,30 @@
    [clj-time.core :as t]
    [clj-time.format :as fmt]
    [pinkgorilla.notebook.core :refer [notebook-load]]
-   [pinkgorilla.storage.storage :refer [create-storage]]))
+   [pinkgorilla.storage.storage :refer [create-storage storageformat]]))
 
 (defn random-edit-date []
   (fmt/unparse (:date fmt/formatters)
                (-> (rand-int 500) t/days t/ago)))
 
 (defn add-meta [tokens entry]
-  (let [_ (println "adding meta for entry" entry)
+  (let [;_ (println "adding meta for entry" entry)
         storage (create-storage entry)
-        ;tokens {}
-        _ (println "loading notebook " storage)
-        nb (notebook-load storage tokens)
-        ;_ (println "notebook loaded!")
-        meta (:meta nb)
-        meta (if (= (:version nb) 1)
-               {:tags "legacy" :tagline "legacy notebook"}
-               meta)]
-    (if (nil? nb)
-      nil
-      (assoc entry
-             :meta meta))))
+        format (storageformat storage)]
+    (case format
+      :jupyter (assoc entry :meta {:tags "jupyter" :tagline "jupyter notebook"})
+      :gorilla (let [_ (println "loading notebook " storage)
+                     nb (notebook-load storage tokens)
+                     ;_ (println "notebook loaded!")
+                     ]
+                 (if (nil? nb)
+                   entry
+                   (let [meta (if (= (:version nb) 1)
+                                {:tags "legacy" :tagline "legacy notebook"}
+                                (:meta nb))]
+                     (assoc entry :meta meta))))
+      (do (println "unknown storage format for:" storage)
+          entry))))
 
 (defn add-random [tokens entry]
   (assoc entry
