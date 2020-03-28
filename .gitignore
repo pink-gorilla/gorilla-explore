@@ -13,3 +13,6 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 /test/creds.edn
+.classpath
+.project
+.settings/*
