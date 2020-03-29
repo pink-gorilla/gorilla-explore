@@ -40,7 +40,7 @@
           (let [header (subs first-line 0 26)]
             (= header ";; gorilla-repl.fileformat")))))))
 
-(defn- notebook-file?
+(defn notebook-file?
   "Should  .cljg files, and .clj files with a Gorilla header
   are included."
   [file]
@@ -61,11 +61,25 @@
    (fn [f] (.listFiles f))
    file))
 
-(defn- file-info [file]
-  {:filename (. file getPath)
-   :edit-date (Date. (.lastModified file))})
+(defn date->str [date]
+  (-> (java.text.SimpleDateFormat. "yyyy-MM-dd")
+      (.format (.getTime date))
+      str))
 
-(defn gorilla-files-in-directory
+(defn file-info [file]
+  (let [tokens {}
+        filename (.getPath file)
+        filename-canonical (.getPath (.getCanonicalFile file))]
+    (->>
+     {:type :file
+      :user "_file"
+      :filename filename
+      :filename-canonical filename-canonical
+      :id filename
+      :edit-date (date->str (Date. (.lastModified file)))}
+     (add-meta tokens))))
+
+(defn explore-directory
   "get all pink-gorilla filenames in a directory.
    Works recursively, so sub-directories are included."
   [excludes directory]
@@ -74,25 +88,9 @@
        (filter  notebook-file?)
        (map file-info)))
 
-(defn date->str [date]
-  (-> (java.text.SimpleDateFormat. "yyyy-MM-dd")
-      (.format (.getTime date))
-      str))
-
-(defn explore [excludes directory]
-  (let [tokens {} ; file-storage does not need tokens
-        storage {:type :file
-                 :user "_file"}]
-    (->> (gorilla-files-in-directory excludes directory)
-         (map #(assoc storage
-                      :filename (:filename %)
-                      :id (:filename %)
-                      :edit-date (date->str (:edit-date %))
-                      ;:x (:edit-date %)
-                      ))
-         (map (partial add-meta tokens)))))
 
 ;; Old Api that only needs names
+
 
 (defn gorilla-filepaths-in-current-directory
   [excludes]
@@ -112,13 +110,16 @@
 
   (gorilla-filepaths-in-current-directory excludes)
 
-  (gorilla-files-in-directory
+  (explore-directory
    excludes
    "/home/andreas/Documents/quant/trateg/notebooks")
 
-  (explore
+  (explore-directory
    excludes
    "/home/andreas/Documents/quant/trateg/notebooks")
+
+  (.getPath (clojure.java.io/file
+             "/home/andreas/Documents/quant/trateg/notebooks/alphavantage.cljg"))
 
   ; comment end
   )

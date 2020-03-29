@@ -15,17 +15,15 @@
         format (storageformat storage)]
     (case format
       :jupyter (assoc entry :meta {:tags "jupyter" :tagline "jupyter notebook"})
-      :gorilla (let [_ (println "loading notebook " storage)
-                     nb (notebook-load storage tokens)
-                     ;_ (println "notebook loaded!")
-                     ]
+      :gorilla (let [;_ (println "loading notebook " storage)
+                     nb (notebook-load storage tokens)]
                  (if (nil? nb)
                    entry
                    (let [meta (if (= (:version nb) 1)
                                 {:tags "legacy" :tagline "legacy notebook"}
                                 (:meta nb))]
                      (assoc entry :meta meta))))
-      (do (println "unknown storage format for:" storage)
+      (do (println "unknown storage format for:" format "for storage: " storage)
           entry))))
 
 (defn add-random [tokens entry]
