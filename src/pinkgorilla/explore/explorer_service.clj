@@ -44,7 +44,7 @@
   path)
 
 (defn start [excludes roots]
-  (let [watch-paths (into ["/tmp/yyy"] (map to-canonical (vals roots)))
+  (let [watch-paths (into [] (map to-canonical (vals roots)))
         c {:excludes excludes
            :roots roots
            :notebooks []
