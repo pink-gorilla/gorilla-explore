@@ -1,6 +1,11 @@
 (defproject org.pinkgorilla/gorilla-explore "0.1.16-SNAPSHOT"
   :description "Explore PinkGorilla notebooks (private and public) on github."
-  :url "http://example.com/FIXME"
+  :url "https://github.com/pink-gorilla/gorilla-explore"
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
+                                     :username :env/release_username
+                                     :password :env/release_password
+                                     :sign-releases false}]]
+
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.0.567"]
                  [org.clojure/tools.cli "0.4.2"]
@@ -17,12 +22,13 @@
                  [hawk "0.2.11"] ; file watcher
                  [org.pinkgorilla/notebook-encoding "0.0.27"]         ; notebook encoding
                  ]
-  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
-                                     :username :env/release_username
-                                     :password :env/release_password
-                                     :sign-releases false}]]
 
-  :profiles {:dev {:source-paths ["dev" "test"]
+
+  :profiles {:index {; rebuilds the index
+                     :main ^:skip-aot index.main
+                     :source-paths ["src" "src-index" "test"]}
+             
+             :dev {:source-paths ["dev" "test"]
                    :dependencies [[clj-kondo "2019.11.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]
@@ -39,7 +45,9 @@
                                             try-if-let          [[:block 1]]}}}}
 
 
-  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]}
+  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
+            "build-index" ^{:doc "Rebuild the notebook index"}
+            ["with-profile" "index" "run" "-m" "index.main"]}
 
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]

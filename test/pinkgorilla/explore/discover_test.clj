@@ -3,7 +3,7 @@
 
    [cheshire.core :refer :all]
 
-    ; dependencies needed to be in cljs bundle: 
+    ; dependencies needed to be in bundle: 
    [pinkgorilla.storage.storage :as storage]
    [pinkgorilla.storage.file]
    [pinkgorilla.storage.gist]

@@ -1,5 +1,6 @@
 (ns pinkgorilla.explore.repo
   (:require
+   [clojure.string]
    [pinkgorilla.explore.github-helper :refer [search-code]]
    [pinkgorilla.explore.print :refer [print-repo]]))
 
@@ -37,7 +38,6 @@
         keywords "gorilla-repl fileformat = 2"
         query {:in "file"
                         ;:language "clj"
-                        ;
                :user user}
         options {:per_page 100}
         r (search-code keywords query options); (merge search-options options) options)
