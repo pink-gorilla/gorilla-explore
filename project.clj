@@ -7,20 +7,20 @@
                                      :sign-releases false}]]
 
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/core.async "1.0.567"]
-                 [org.clojure/tools.cli "0.4.2"]
+                 [org.clojure/core.async "1.1.582"]
+                 [org.clojure/tools.cli "1.0.194"]
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
                  [com.cemerick/url "0.1.1"]  ; url query-strings
                  [clj-http "3.10.0"]  ; http requests
-                 [cheshire "5.8.1"]  ; JSON parsings
+                 [cheshire "5.10.0"]  ; JSON parsings
                  ;[throttler "1.0.0"] ; api rate-limits ; original throttler has old core.async ?
-                 [org.pinkgorilla/throttler "1.0.1"] ; throtteling
-                 [org.clojure/data.json "0.2.6"]
+                 [org.pinkgorilla/throttler "1.0.2"] ; throtteling
+                 [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
                  [hawk "0.2.11"] ; file watcher
-                 [org.pinkgorilla/notebook-encoding "0.0.27"]         ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.0.28"]         ; notebook encoding
                  ]
 
 
@@ -29,7 +29,7 @@
                      :source-paths ["src" "src-index" "test"]}
              
              :dev {:source-paths ["dev" "test"]
-                   :dependencies [[clj-kondo "2019.11.23"]]
+                   :dependencies [[clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
@@ -43,7 +43,8 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
-
+ :plugins [[lein-shell "0.5.0"]
+           [lein-ancient "0.6.15"]]
 
   :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
             "build-index" ^{:doc "Rebuild the notebook index"}
