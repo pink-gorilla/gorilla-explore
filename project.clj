@@ -15,8 +15,10 @@
                  [com.cemerick/url "0.1.1"]  ; url query-strings
                  [clj-http "3.10.0"]  ; http requests
                  [cheshire "5.10.0"]  ; JSON parsings
-                 ;[throttler "1.0.0"] ; api rate-limits ; original throttler has old core.async ?
-                 [org.pinkgorilla/throttler "1.0.2"] ; throtteling
+                 [throttler "1.0.0" ; api rate-limits ; has very old core.async
+                  :exclusions  [[org.clojure/clojure]
+                                [org.clojure/core.async]]] 
+                 ;[org.pinkgorilla/throttler "1.0.2"] ; throtteling
                  [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
                  [hawk "0.2.11"] ; file watcher
@@ -27,7 +29,7 @@
   :profiles {:index {; rebuilds the index
                      :main ^:skip-aot index.main
                      :source-paths ["src" "src-index" "test"]}
-             
+
              :dev {:source-paths ["dev" "test"]
                    :dependencies [[clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
@@ -43,8 +45,8 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
- :plugins [[lein-shell "0.5.0"]
-           [lein-ancient "0.6.15"]]
+  :plugins [[lein-shell "0.5.0"]
+            [lein-ancient "0.6.15"]]
 
   :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
             "build-index" ^{:doc "Rebuild the notebook index"}
