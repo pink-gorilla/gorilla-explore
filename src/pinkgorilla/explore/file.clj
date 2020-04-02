@@ -96,19 +96,18 @@
   [excludes]
   (map #(str/replace-first (. % getPath) "./" "")
        (filter  notebook-file? (excluded-file-seq
-                                (clojure.java.io/file ".")
-                                excludes))))
+                                excludes
+                                (clojure.java.io/file ".")))))
 
 (comment
 
   (def excludes #{".git"})
+  (gorilla-filepaths-in-current-directory excludes)
 
   (excluded-file-seq
    excludes
    (clojure.java.io/file
     "/home/andreas/Documents/quant/trateg/notebooks"))
-
-  (gorilla-filepaths-in-current-directory excludes)
 
   (explore-directory
    excludes
