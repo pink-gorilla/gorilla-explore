@@ -10,4 +10,7 @@
   (print-gist-response (load-gists "awb99" (:github-token creds)))
 
   (gorilla-gists "awb99")
-  (gorilla-gists "awb99" (:github-token creds)))
+  (gorilla-gists "awb99" (:github-token creds))
+
+  ;comment
+  )

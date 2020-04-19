@@ -50,4 +50,7 @@
 
   (future (discover-github-users :test creds (shuffle seed)))
   (future (discover-github-users :repo creds (shuffle seed)))
-  (future (discover-github-users :gist creds (shuffle seed))))
+  (future (discover-github-users :gist creds (shuffle seed)))
+
+  ; comment
+  )

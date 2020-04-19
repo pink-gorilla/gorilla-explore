@@ -21,7 +21,10 @@
                  ;[org.pinkgorilla/throttler "1.0.2"] ; throtteling
                  [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
-                 [hawk "0.2.11"] ; file watcher
+                 [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
+                 [hawk "0.2.11" ; file watcher
+                  :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
+                 
                  [org.pinkgorilla/notebook-encoding "0.0.28"]         ; notebook encoding
                  ]
 
