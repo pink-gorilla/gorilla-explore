@@ -6,6 +6,21 @@
                                      :password :env/release_password
                                      :sign-releases false}]]
 
+  :release-tasks [["vcs" "assert-committed"]
+                  ["bump-version" "release"]
+                  ["vcs" "commit" "Release %s"]
+                  ["vcs" "tag" "v" "--no-sign"]
+                  ["deploy"]
+                  ["bump-version"]
+                  ["vcs" "commit" "Begin %s"]
+                  ["vcs" "push"]]
+
+  :target-path  "target/jar"
+  :source-paths ["src/clj"] ; "test"
+  ;:test-paths ["test"]
+  :resource-paths  ["resources" ; not from npm
+                    #_"target/node_modules"] ; css png resources from npm modules
+
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
                  [org.clojure/tools.cli "1.0.194"]
@@ -17,21 +32,40 @@
                  [cheshire "5.10.0"]  ; JSON parsings
                  [throttler "1.0.0" ; api rate-limits ; has very old core.async
                   :exclusions  [[org.clojure/clojure]
-                                [org.clojure/core.async]]] 
+                                [org.clojure/core.async]]]
                  ;[org.pinkgorilla/throttler "1.0.2"] ; throtteling
                  [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-                 
+
                  [org.pinkgorilla/notebook-encoding "0.0.28"]         ; notebook encoding
                  ]
 
 
   :profiles {:index {; rebuilds the index
                      :main ^:skip-aot index.main
-                     :source-paths ["src" "src-index" "test"]}
+                     :source-paths ["profiles/index/src" "test"]}
+
+             :demo  {:source-paths ["src/cljs"
+                                    "profiles/demo/src" 
+                                    "test"]
+                     :dependencies [[org.clojure/clojure "1.10.1"]
+                                   ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
+                                    [thheller/shadow-cljs "2.8.81"]
+                                    [thheller/shadow-cljsjs "0.0.21"]
+                                    [org.clojure/clojurescript "1.10.773"]
+                                    [reagent "0.10.0"
+                                     :exclusions [org.clojure/tools.reader
+                                                  cljsjs/react
+                                                  cljsjs/react-dom]]
+                                    [re-frame "0.10.9"]
+                                     [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
+                                     [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
+
+                                    ]}
+
 
              :dev {:source-paths ["dev" "test"]
                    :dependencies [[clj-kondo "2020.03.20"]]
@@ -51,15 +85,11 @@
   :plugins [[lein-shell "0.5.0"]
             [lein-ancient "0.6.15"]]
 
-  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
-            "build-index" ^{:doc "Rebuild the notebook index"}
-            ["with-profile" "index" "run" "-m" "index.main"]}
+  :aliases {"bump-version"
+            ["change" "version" "leiningen.release/bump-version"]
 
-  :release-tasks [["vcs" "assert-committed"]
-                  ["bump-version" "release"]
-                  ["vcs" "commit" "Release %s"]
-                  ["vcs" "tag" "v" "--no-sign"]
-                  ["deploy"]
-                  ["bump-version"]
-                  ["vcs" "commit" "Begin %s"]
-                  ["vcs" "push"]])
+            "build-index" ^{:doc "Rebuild the notebook index"}
+            ["with-profile" "index" "run" "-m" "index.main"]
+
+            "demo"  ^{:doc "Runs UI components via webserver."}
+            ["with-profile" "cljs" "shell" "shadow-cljs" "watch" "demo"]})
