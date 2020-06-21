@@ -49,7 +49,7 @@
                      :source-paths ["profiles/index/src" "test"]}
 
              :demo  {:source-paths ["src/cljs"
-                                    "profiles/demo/src" 
+                                    "profiles/demo/src"
                                     "test"]
                      :dependencies [[org.clojure/clojure "1.10.1"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
@@ -61,9 +61,8 @@
                                                   cljsjs/react
                                                   cljsjs/react-dom]]
                                     [re-frame "0.10.9"]
-                                     [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
-                                     [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
-
+                                    [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
+                                    [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
                                     ]}
 
 

@@ -16,7 +16,7 @@
 
 
 (defn notebook-explorer
-  []
+  [open-notebook]
   (let [notebooks      (subscribe [:explorer/notebooks-filtered])
         tags-available (subscribe [:explorer/tags-available])
         search         (subscribe [:explorer/search-options])]
@@ -27,7 +27,7 @@
          ; [ui/ctg {:transitionName "filter-survivor" :class "listing-list"}
         (for [notebook @notebooks]
           ^{:key (:index notebook)}
-          [notebook-box (:tags @search) notebook])]
+          [notebook-box open-notebook (:tags @search) notebook])]
          ; ]
        [:div  {:class "p-2 w-1/4"} ; sidebar right 1/4 of width
         [sidebar search @tags-available]]])))

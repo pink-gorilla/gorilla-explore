@@ -39,8 +39,9 @@
           (subs2 p root-len))); for local files remove the root dir (we have :repo so dont need full rot path)
       p)))
 
-(defn notebook-link-gorilla [notebook]
+#_(defn notebook-link-gorilla [notebook]
   (let [storage (:storage notebook)]
+    (println "storage: " storage)
     (if (nil? storage)
       ""
       (gorilla-path storage))))
@@ -60,16 +61,14 @@
 ; [:div;.stars
 ;  (:stars l)]
 
-(defn on-notebook-click [nb]
-  (println "load-notebook-click" nb)
-  )
 
 
 (def border " border-r border-b border-l border-gray-400")
 (def lg " lg:border-l-0 lg:border-t lg:border-gray-400 lg:rounded-b-none lg:rounded-r")
 
-(defn notebook-box [selected-tags notebook]
-  [:div {:class (str "h-48 bg-green-400 w-1/2 rounded-b  p-4 flex flex-col justify-between leading-normal hover:bg-orange-400" border lg)}
+(defn notebook-box [open-notebook selected-tags notebook]
+  [:div {:on-click #(open-notebook (:storage notebook))
+         :class (str "h-48 bg-green-400 w-1/2 rounded-b  p-4 flex flex-col justify-between leading-normal hover:bg-orange-400" border lg)}
 
    [:div.mb-8
 
@@ -81,7 +80,7 @@
       [:span {:class "pg-storage-prop"} (project-path notebook)]]]
 
     ;; project name - click opens the notebook in pink-gorilla
-    [:a {:on-click #(on-notebook-click (notebook-link-gorilla notebook))}
+    [:a {:on-click #(open-notebook (:storage notebook))}
      [:div {:class "text-white font-bold text-xl mb-2"} (notebook-name notebook)]]
 
     [:p {:class "text-white text-base h-8 overflow-hidden"}
