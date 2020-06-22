@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-explore "0.1.20-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-explore "0.2.1-SNAPSHOT"
   :description "Explore PinkGorilla notebooks (private and public) on github."
   :url "https://github.com/pink-gorilla/gorilla-explore"
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
@@ -63,6 +63,14 @@
                                     [re-frame "0.10.9"]
                                     [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
                                     [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
+                                    [bidi "2.1.6"]
+                                    [clj-commons/pushy "0.3.10"]
+                                    [ring/ring-core "1.8.1"]
+                                    [ring/ring-defaults "0.3.2"
+                                     :exclusions [javax.servlet/servlet-api]]
+                                    [ring-middleware-format "0.7.4"]
+                                    [ring/ring-json "0.5.0"]
+                                    [bk/ring-gzip "0.3.0"] ; from oz
                                     ]}
 
 
@@ -91,4 +99,7 @@
             ["with-profile" "index" "run" "-m" "index.main"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "cljs" "shell" "shadow-cljs" "watch" "demo"]})
+            ["with-profile" "cljs" "shell" "shadow-cljs" "watch" "demo"]
+
+            "demo2"  ^{:doc "Runs UI components via webserver."}
+            ["with-profile" "demo" "run" "-m" "demo.app"]})

@@ -7,7 +7,11 @@
    [cljs.core.async :as async :refer [<! >! chan timeout close!]]
    [re-frame.core :refer [dispatch]]
    ; demo
-   [demo.views]))
+   [demo.routes]
+   [demo.views]
+   [demo.config :refer [config-client]]
+   [pinkgorilla.explore.default-config]
+   ))
 
 (enable-console-print!)
 
@@ -19,20 +23,10 @@
   (js/console.log "Stopping..."))
 
 
-(def config
-  {:repositories    
-   [{:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]
-  })
-   ;:explore-file-directories
-;{;; TODO: config map merge never removes keys!
-    ;  :gorilla-notebook "./notebooks"
- ;}
-
-
 (defn ^:export start []
   (println "demo starting ..")
-  ;(init-keybindings! code-editor-keybindings)
-  (dispatch [:explorer/init config])
+
+  (dispatch [:explorer/init config-client])
   ;(dispatch [:nrepl/init "ws://localhost:9000/nrepl"])
 
   #_(go

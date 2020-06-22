@@ -3,7 +3,7 @@
    [clojure.string :as str ;:refer [subs]   ; subs should exist, but does not.
     ]
    ;PinkGorilla Libraries
-   [pinkgorilla.storage.storage :refer [gorilla-path external-url]]
+   [pinkgorilla.storage.storage :refer [external-url]]
    ;PinkGorilla project
    [pinkgorilla.explore.tags :refer [tag-box notebook-tags->list]]))
 
@@ -39,12 +39,7 @@
           (subs2 p root-len))); for local files remove the root dir (we have :repo so dont need full rot path)
       p)))
 
-#_(defn notebook-link-gorilla [notebook]
-  (let [storage (:storage notebook)]
-    (println "storage: " storage)
-    (if (nil? storage)
-      ""
-      (gorilla-path storage))))
+
 
 (defn storage-link [notebook]
   (let [storage (:storage notebook)]
@@ -67,7 +62,7 @@
 (def lg " lg:border-l-0 lg:border-t lg:border-gray-400 lg:rounded-b-none lg:rounded-r")
 
 (defn notebook-box [open-notebook selected-tags notebook]
-  [:div {:on-click #(open-notebook (:storage notebook))
+  [:div {:on-click #(open-notebook notebook)
          :class (str "h-48 bg-green-400 w-1/2 rounded-b  p-4 flex flex-col justify-between leading-normal hover:bg-orange-400" border lg)}
 
    [:div.mb-8
@@ -80,7 +75,7 @@
       [:span {:class "pg-storage-prop"} (project-path notebook)]]]
 
     ;; project name - click opens the notebook in pink-gorilla
-    [:a {:on-click #(open-notebook (:storage notebook))}
+    [:a {:on-click #(open-notebook notebook)}
      [:div {:class "text-white font-bold text-xl mb-2"} (notebook-name notebook)]]
 
     [:p {:class "text-white text-base h-8 overflow-hidden"}

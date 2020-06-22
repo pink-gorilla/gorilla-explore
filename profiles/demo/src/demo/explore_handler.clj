@@ -1,44 +1,33 @@
-(ns pinkgorilla.explore.explore-handler
+(ns demo.explore-handler
+" API endpoint for file-system exploration
+ This returns not only filenames, but full meta-data"  
   (:require
    [clojure.tools.logging :refer [info]]
    [ring.util.response :as res]
    ;PinkGorilla Libraries
-   [pinkgorilla.explore.file :refer [gorilla-filepaths-in-current-directory]]
-   [pinkgorilla.explore.explorer-service]))
+   [pinkgorilla.explore.explorer-service :refer[explore-directories start notebooks]]
+   [demo.config :refer [config-server]]
+   ))
 
 
-;; ugly atom usage to support defroutes
 
-
-(def ^:private excludes (atom #{".git"}))
-
-(defn update-excludes
-  [fn]
-  (swap! excludes fn))
-
-
-;; API endpoint for getting the list of worksheets in the project
-;; This is used by the legacy file explorer
-
-
-(defn gorilla-files
+(defn handler-explore-sync
   [_]
-  (let [excludes @excludes]
-    (res/response {:files (gorilla-filepaths-in-current-directory excludes)})))
-
-;; API endpoint for file-system exploration
-;; This returns not only filenames, but full meta-data
-
-(defn req-explore-directories-sync
-  [_]
-  (res/response {:data (pinkgorilla.explore.explorer-service/explore-directories)}))
+  (res/response {:data (explore-directories (:exclude config-server) (:roots config-server))}))
 
 ;; Async
 
-(defn explore-directories-start [notebook-paths]
-    (info "exploring setting: " notebook-paths)
-    (pinkgorilla.explore.explorer-service/start @excludes notebook-paths))
+(defn explore-directories-start []
+    (info "exploring setting: " config-server)
+    (start (:excludes config-server) (:roots config-server)))
 
-(defn req-explore-directories-async
+(defn handler-explore-async
   [_]
-  (res/response {:data (pinkgorilla.explore.explorer-service/notebooks)}))
+  (println "handler-explore-async")
+  (let [r (res/response {:data (notebooks)})]
+    ;(println "r: " r)
+  r
+  ))
+
+
+

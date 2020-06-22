@@ -1,7 +1,7 @@
 (ns pinkgorilla.explore.events-fetch-index
   "load list of explored notebooks"
   (:require
-   ;[taoensso.timbre :as timbre :refer-macros (info)]
+   [taoensso.timbre :as timbre :refer-macros [info error]]
    [re-frame.core :refer [reg-event-db reg-event-fx]] 
    [day8.re-frame.http-fx]
    [ajax.core :as ajax]
@@ -27,6 +27,17 @@
                  :response-format (ajax/json-response-format {:keywords? true}) ; (ajax/transit-response-format) ;; IMPORTANT!: You must provide this.
                  :on-success      [:explorer/fetch-response]
                  :on-failure      [:process-error-response "load-explore-data"]}}))
+
+
+(reg-event-db
+ :explorer/fetch-error
+ (fn [db [_ location response]]
+   (error "ERROR RESPONSE: " location " r: "response)
+   #_(dispatch [:notification-add
+              (notification :warning
+                            (str location " Error: " (:status-text response) " (" (:status response) ")"))])
+   db))
+
 
 (defn remove-repo-id [item]
   (if (= (:type item) :repo)

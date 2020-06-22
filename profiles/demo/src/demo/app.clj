@@ -3,15 +3,18 @@
    [clojure.tools.logging :refer [info]]
    [shadow.cljs.devtools.api :as shadow]
     ;; [shadow.cljs.devtools.server.nrepl :as shadow-nrepl]
-   [shadow.cljs.devtools.server :as shadow-server]))
+   [shadow.cljs.devtools.server :as shadow-server]
+   ;demo
+   [pinkgorilla.explore.default-config]
+   [demo.routes]
+   [demo.explore-handler :refer [explore-directories-start]]
+   ))
 
 (defn -main
   {:shadow/requires-server true}
   [& args]
   (info "Starting with args: " args)
-  ;; TODO: Should probably use the one started by shadow-cljs - which works for clj and cljs (connecting with Calva)
  
+  (explore-directories-start)
   (shadow-server/start!)
-  (shadow/watch :demo {:verbose true})
-  ;; (start "dev")
-  )
+  (shadow/watch :demo {:verbose true}))
