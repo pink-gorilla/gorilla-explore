@@ -18,3 +18,9 @@
   (explore-directories-start)
   (shadow-server/start!)
   (shadow/watch :demo {:verbose true}))
+
+
+(comment
+  (-main)
+  
+  )

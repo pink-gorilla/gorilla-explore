@@ -71,6 +71,7 @@
                                     [ring-middleware-format "0.7.4"]
                                     [ring/ring-json "0.5.0"]
                                     [bk/ring-gzip "0.3.0"] ; from oz
+                                    [clj-http "3.10.1"]
                                     ]}
 
 
