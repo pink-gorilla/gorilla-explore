@@ -1,7 +1,7 @@
-(ns pinkgorilla.explore.filter
+(ns pinkgorilla.meta.filter
   (:require
    [clojure.string :as str]
-   [pinkgorilla.explore.tags :refer [notebook-tags->set]]))
+   [pinkgorilla.meta.tags :refer [notebook-tags->set]]))
 
 (defn- filter-notebooks-text
   [notebooks text]

@@ -2,8 +2,8 @@
   (:require
    [re-frame.core :refer [reg-event-db trim-v dispatch]]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
-   ; bring to scope:
-   [pinkgorilla.explore.events-fetch-index]))
+   [pinkgorilla.explore.events-fetch]; side effects
+   ))
 
 (reg-event-db
  :explorer/init
@@ -17,14 +17,13 @@
              :search {:tags #{}
                       :text ""}}))))
 
-
 (reg-event-db
  :explorer/show
  [trim-v]
  (fn [db [tags]]
    (println ":explorer-show tags: " tags)
    (-> db
-       (assoc-in [:main] :explore)
+       ;(assoc-in [:main] :explore)
        (assoc-in [:explorer :search :tags] tags))))
 
 (reg-event-db

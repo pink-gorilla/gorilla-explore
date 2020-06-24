@@ -1,4 +1,4 @@
-(ns pinkgorilla.explore.events-fetch-index
+(ns pinkgorilla.explore.events-fetch
   "load list of explored notebooks"
   (:require
    [taoensso.timbre :as timbre :refer-macros [info error]]
@@ -10,7 +10,6 @@
 (reg-event-fx
  :explorer/fetch-index
  (fn [{:keys [db]} [_ repository]]
-   ;(add-notification (notification :info (str "Exploring " (:name repository))))
    {:db         db
     :http-xhrio {:method          :get
                  :uri             (:url repository)
@@ -38,9 +37,12 @@
 (defn add-storage [item]
   (assoc item :storage (create-storage item)))
 
+(defn as-keyword [i]
+  (if (:keywords? i) i (keyword i)))
+
 (defn preprocess-item [start-index idx item]
   (-> item
-      (assoc :type (keyword (:type item)) :index (+ start-index idx))
+      (assoc :type (as-keyword (:type item)) :index (+ start-index idx))
       (remove-repo-id)
       (add-storage)))
 
@@ -50,8 +52,8 @@
 
 (reg-event-db
  :explorer/fetch-success
- ;[standard-interceptors]
  (fn [db [_ response]]
+   (info "index response: " response)
    (let [existing-data (get-in db [:explorer :notebooks])
          start-index (count existing-data)
          new-data (preprocess-list start-index response)]

@@ -23,11 +23,8 @@
   [req]
   (info "handler-explore-async")
   (let [n (notebooks)]
-    (info "nb count: " (count n))
-  ;(let [r (res/response {:data n})]
-    ;(println "r: " r)
-  ;r
-    (res/response {:content n})))
+    (info "explorer index - nb count: " (count n))
+    (res/response {:data n})))
 
 
 

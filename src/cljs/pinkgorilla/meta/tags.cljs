@@ -1,4 +1,4 @@
-(ns pinkgorilla.explore.tags
+(ns pinkgorilla.meta.tags
   (:require
    [clojure.string :refer [lower-case trim split]]
    [re-frame.core :refer [dispatch]]))
@@ -18,8 +18,8 @@
   (let [tags-csv (get-in notebook [:meta :tags])]
     (tags-csv->set tags-csv)))
 
-(defn notebook-tags->list [notebook]
-  (let [tags-csv (get-in notebook [:meta :tags])]
+(defn meta->tags [meta]
+  (let [tags-csv (:tags meta)]
     (tags-csv->list tags-csv)))
 
 (defn tag-view
@@ -35,3 +35,5 @@
    [:div
     (for [tag tags]
       ^{:key (gensym)} [tag-view selected-tags tag])])
+
+

@@ -3,11 +3,14 @@
    [cemerick.url :as url]
    [clojure.walk]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
-   [re-frame.core :refer [reg-sub subscribe dispatch]]
-   [pinkgorilla.storage.protocols :refer [storagetype query-params-to-storage gorilla-path storageformat]]))
+   [re-frame.core :refer [subscribe dispatch]]
+   [pinkgorilla.storage.protocols :refer [storagetype query-params-to-storage gorilla-path storageformat]]
+   [pinkgorilla.document.events] ; side effects
+   [pinkgorilla.document.subscriptions] ; side effects
+   ))
 
 
-(defn query-params []
+(defn url-query-params []
   (println "href: " (.. js/window -location -href))
   (println "query: " (-> (.. js/window -location -href)
                          (url/url)
@@ -17,23 +20,15 @@
       (url/url)
       :query))
 
-(reg-sub
- :document/get
- (fn [db storage]
-   (get-in db [:documents storage])))
-
-
-
 (defn err [reason]
   [:div
    [:h1 "Error loading document!"]
-   [:p "Reason"]
    [:p (pr-str reason)]])
 
 (defn notebook-page [notebook-view]
-  (let [params  (query-params)
+  (let [params  (url-query-params)
         kparams (clojure.walk/keywordize-keys params)
-        _(info "kw params: " kparams)
+        _ (info "kw params: " kparams)
         stype (keyword (:source kparams))
         storage (query-params-to-storage stype kparams)
         document (if storage (subscribe [:document/get storage]))]
@@ -41,25 +36,25 @@
     (when (and storage (not @document))
       (info "loading document storage: " storage)
       (dispatch [:document/load storage]))
+    (fn [notebook-view]
+      [:div
+       [:h1 "Notebook Viewer"]
+       [:p (pr-str params)]
+       (cond
+         (not storage)
+         [err "storage parameter are bad!"]
 
-    [:div
-     [:h1 "Notebook Viewer"]
-     [:p (pr-str params)]
-     (cond
-       (not storage)
-       [err "storage parameter are bad!"]
+         (nil? @document)
+         [err "requesting document"]
 
-       (not @document)
-       [err "requesting document"]
+         (= :document/loading @document)
+         [err "loading .."]
 
-       (= :document/loading @document)
-       [err "loading .."]
+         (:error @document)
+         [err "Document could not be loaded! " (pr-str (:error @document))]
 
-       (:error @document)
-       [err "Document could not be loaded! " (pr-str (:error @document))]
-
-       :else
-       [notebook-view document])]))
+         :else
+         [notebook-view document])])))
 
 
 

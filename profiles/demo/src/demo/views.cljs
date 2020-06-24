@@ -4,7 +4,7 @@
    [pinkgorilla.storage.protocols :refer [gorilla-path]]
    [pinkgorilla.explore.component :refer [notebook-explorer]]
    [pinkgorilla.document.component :refer [notebook-page]]
-   [pinkgorilla.document.views.meta :refer [document-view-meta]]
+   [pinkgorilla.meta.view :refer [document-view-meta]]
    [demo.routes :refer [current]]))
 
 (defn nav! [url]

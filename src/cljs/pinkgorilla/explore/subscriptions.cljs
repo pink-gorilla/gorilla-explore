@@ -1,8 +1,8 @@
 (ns pinkgorilla.explore.subscriptions
   (:require
    [re-frame.core :refer [reg-sub subscribe]]
-   [pinkgorilla.explore.tags :refer [notebook-tags->list]]
-   [pinkgorilla.explore.filter :refer [filter-notebooks]]))
+   [pinkgorilla.meta.tags :refer [meta->tags]]
+   [pinkgorilla.meta.filter :refer [filter-notebooks]]))
 
 (reg-sub
  :explorer/notebooks-all
@@ -29,7 +29,7 @@
    (subscribe [:explorer/notebooks-filtered]))
  (fn [notebooks-filtered]
    (->> notebooks-filtered
-        (mapcat notebook-tags->list)
+        (mapcat (comp meta->tags :meta))
         distinct
         sort)))
 

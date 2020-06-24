@@ -1,11 +1,10 @@
-(ns pinkgorilla.document.events-storage
+(ns pinkgorilla.document.events
   (:require
-   [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
+   [re-frame.core :refer [reg-event-db reg-event-fx]]
    [ajax.core :as ajax]
    [taoensso.timbre :refer-macros [info]]
    [bidi.bidi :as bidi]
-   [pinkgorilla.storage.protocols :refer [storagetype query-params-to-storage gorilla-path storageformat]]
-   [pinkgorilla.notebook.core :refer [load-notebook-hydrated save-notebook-hydrated]]))
+   [pinkgorilla.storage.protocols :refer [storagetype]]))
 
 (reg-event-db
  :bidi/init
@@ -66,16 +65,8 @@
 (reg-event-db
  :document/load-success
  (fn
-   [db [_ storage response-body]]
-   (let [_ (info "Load Response:\n" response-body)
-         notebook (:content response-body)
-         ;content (decode-content storage content)
-         ; _ (info "Content Only:\n" content)
-         ;notebook (if (nil? content)
-         ;           nil
-         ;           (load-notebook-hydrated (storageformat storage) content))
-         ;_ (info "notebook: " notebook)
-         ]
+   [db [_ storage notebook]]
+   (let [_ (info "Load Response:\n" notebook)]
      (assoc-in db [:documents storage] notebook))))
 
 ;; SAVE File

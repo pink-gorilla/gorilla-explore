@@ -1,9 +1,7 @@
 (ns pinkgorilla.explore.sidebar
   (:require
    [re-frame.core :refer [dispatch]]
-   ;PinkGorilla Notebook
-   ;[pinkgorilla.routes :as routes]
-   [pinkgorilla.explore.tags :refer [tag-box]])
+   [pinkgorilla.meta.tags :refer [tag-box]])
   (:require-macros [pinkgorilla.explore.macros :refer [tv]]))
 
 (defn sidebar

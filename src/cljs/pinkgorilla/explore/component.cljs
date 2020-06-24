@@ -1,14 +1,10 @@
 (ns pinkgorilla.explore.component
   (:require
    [re-frame.core :refer [subscribe]]
-   ;PinkGorilla Notebook
-   ;[pinkgorilla.routes :as routes]
    [pinkgorilla.explore.sidebar :refer [sidebar]]
    [pinkgorilla.explore.notebook :refer [notebook-box]]
-   
-   ; side effects
-   [pinkgorilla.explore.subscriptions]
-   [pinkgorilla.explore.events]
+   [pinkgorilla.explore.subscriptions] ; side effects
+   [pinkgorilla.explore.events] ; side effects
    ))
 
 ;; new version:
