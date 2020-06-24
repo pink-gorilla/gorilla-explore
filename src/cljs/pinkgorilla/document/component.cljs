@@ -7,7 +7,7 @@
    [pinkgorilla.storage.protocols :refer [storagetype query-params-to-storage gorilla-path storageformat]]
    [pinkgorilla.document.events] ; side effects
    [pinkgorilla.document.subscriptions] ; side effects
-   ))
+   [pinkgorilla.meta.view :refer [document-view-meta]]))
 
 
 (defn url-query-params []
@@ -25,7 +25,7 @@
    [:h1 "Error loading document!"]
    [:p (pr-str reason)]])
 
-(defn notebook-page [notebook-view]
+(defn document-page [document-view]
   (let [params  (url-query-params)
         kparams (clojure.walk/keywordize-keys params)
         _ (info "kw params: " kparams)
@@ -36,10 +36,10 @@
     (when (and storage (not @document))
       (info "loading document storage: " storage)
       (dispatch [:document/load storage]))
-    (fn [notebook-view]
+    (fn [document-view]
       [:div
-       [:h1 "Notebook Viewer"]
-       [:p (pr-str params)]
+       ;[:h1 "Document Viewer"]
+       ;[:p (pr-str params)]
        (cond
          (not storage)
          [err "storage parameter are bad!"]
@@ -54,7 +54,7 @@
          [err "Document could not be loaded! " (pr-str (:error @document))]
 
          :else
-         [notebook-view document])])))
+         [document-view-meta storage document document-view])])))
 
 
 

@@ -2,7 +2,7 @@
   (:require
    [re-frame.core :refer [reg-event-db reg-event-fx]]
    [ajax.core :as ajax]
-   [taoensso.timbre :refer-macros [info]]
+   [taoensso.timbre :refer-macros [debug info]]
    [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storagetype]]))
 
@@ -66,7 +66,7 @@
  :document/load-success
  (fn
    [db [_ storage notebook]]
-   (let [_ (info "Load Response:\n" notebook)]
+   (let [_ (debug "Document Load Response:\n" notebook)]
      (assoc-in db [:documents storage] notebook))))
 
 ;; SAVE File

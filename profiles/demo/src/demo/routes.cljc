@@ -1,6 +1,7 @@
 (ns demo.routes
   (:require
-   [taoensso.timbre :as timbre :refer-macros [tracef debugf infof warnf errorf info]]
+   #?(:clj [clojure.tools.logging :refer [trace debug info]]
+      :cljs [taoensso.timbre :refer-macros [trace debug info]])
    [bidi.bidi :as bidi]
    #?(:cljs [reagent.core :as r])
    #?(:cljs [re-frame.core :refer [dispatch reg-event-db]])
@@ -74,24 +75,24 @@
         :body nil
         :params {:token nil
                  :storagetype :repo
-                 :user "pink-gorilla" 
-                 :repo "gorilla-ui" 
+                 :user "pink-gorilla"
+                 :repo "gorilla-ui"
                  :filename "notebooks/videos.cljg"}})
 
-     (comment 
-     (notebook-load-handler load-request)
+     (comment
+       (notebook-load-handler load-request)
        ;
-     )
-     
+       )
+
      (def wrapped-notebook-save-handler
        (wrap-api-handler notebook-save-handler))
 
      (defn route->handler
        ([]
-        (println "->handler no args ..")
+        (info "->handler no args ..")
         nil)
        ([h & args]
-        (println "route server explore-handler:" h " args:" args)
+        (info "route server explore-handler:" h " args:" args)
         (case  h
           :api/explorer      wrapped-explore-handler
           :api/notebook-load wrapped-notebook-load-handler

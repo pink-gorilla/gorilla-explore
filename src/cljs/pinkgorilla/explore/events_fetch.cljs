@@ -1,7 +1,7 @@
 (ns pinkgorilla.explore.events-fetch
   "load list of explored notebooks"
   (:require
-   [taoensso.timbre :as timbre :refer-macros [info error]]
+   [taoensso.timbre :as timbre :refer-macros [debug info error]]
    [re-frame.core :refer [reg-event-db reg-event-fx]]
    [day8.re-frame.http-fx]
    [ajax.core :as ajax]
@@ -53,7 +53,7 @@
 (reg-event-db
  :explorer/fetch-success
  (fn [db [_ response]]
-   (info "index response: " response)
+   (debug "index response: " response)
    (let [existing-data (get-in db [:explorer :notebooks])
          start-index (count existing-data)
          new-data (preprocess-list start-index response)]
