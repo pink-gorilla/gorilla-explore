@@ -6,11 +6,11 @@
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    [cljs.core.async :as async :refer [<! >! chan timeout close!]]
    [re-frame.core :refer [dispatch]]
+   [pinkgorilla.explore.default-config]
    ; demo
-   [demo.routes]
+   [demo.routes :refer [init-routes explorer-routes-api]]
    [demo.views]
    [demo.config :refer [config-client]]
-   [pinkgorilla.explore.default-config]
    ))
 
 (enable-console-print!)
@@ -26,8 +26,10 @@
 (defn ^:export start []
   (println "demo starting ..")
 
+  (init-routes)
   (dispatch [:explorer/init config-client])
-  ;(dispatch [:nrepl/init "ws://localhost:9000/nrepl"])
+  (dispatch [:documents/init])
+  (dispatch [:bidi/init {:api explorer-routes-api}])
 
   #_(go
       (<! (timeout 7000))

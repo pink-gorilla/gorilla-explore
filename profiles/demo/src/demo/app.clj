@@ -4,23 +4,20 @@
    [shadow.cljs.devtools.api :as shadow]
     ;; [shadow.cljs.devtools.server.nrepl :as shadow-nrepl]
    [shadow.cljs.devtools.server :as shadow-server]
-   ;demo
-   [pinkgorilla.explore.default-config]
+   [pinkgorilla.explore.default-config] ; side effects
+   [pinkgorilla.explore.handler :refer [explore-directories-start]]
    [demo.routes]
-   [demo.explore-handler :refer [explore-directories-start]]
-   ))
+   [demo.config :refer [config-server]]))
 
 (defn -main
   {:shadow/requires-server true}
   [& args]
   (info "Starting with args: " args)
- 
-  (explore-directories-start)
+
+  (explore-directories-start config-server)
   (shadow-server/start!)
   (shadow/watch :demo {:verbose true}))
 
 
 (comment
-  (-main)
-  
-  )
+  (-main))

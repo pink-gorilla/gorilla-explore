@@ -5,7 +5,8 @@
    [ring.middleware.keyword-params :refer [wrap-keyword-params]]
    [ring.middleware.params :refer [wrap-params]]
    [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
-   [ring.middleware.format :refer [wrap-restful-format]]
+   ;[ring.middleware.format :refer [wrap-restful-format]]
+   [muuntaja.middleware :refer [wrap-format] ]
    [ring.middleware.json :refer [wrap-json-response]]))
 
 
@@ -13,9 +14,15 @@
   "a wrapper for JSON API calls"
   [handler]
   (-> handler ; middlewares execute from bottom -> up
-      (wrap-defaults api-defaults)
+      ;(wrap-defaults api-defaults)
       (wrap-keyword-params)
       (wrap-params)
-      (wrap-restful-format :formats [:json :transit-json :edn])
-      (wrap-gzip)))
+      (wrap-format) ; muuntaja
+      #_(wrap-restful-format :formats [:json
+                                     ;:json-kw 
+                                     :transit-json 
+                                     :edn])
+      ;(wrap-json-response)
+      ;(wrap-gzip)
+      ))
 

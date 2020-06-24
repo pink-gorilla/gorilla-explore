@@ -2,19 +2,10 @@
   "load list of explored notebooks"
   (:require
    [taoensso.timbre :as timbre :refer-macros [info error]]
-   [re-frame.core :refer [reg-event-db reg-event-fx]] 
+   [re-frame.core :refer [reg-event-db reg-event-fx]]
    [day8.re-frame.http-fx]
    [ajax.core :as ajax]
-   ; PinkGorilla Libraries
-   ; dependencies needed to be in cljs bundle:
-   [pinkgorilla.storage.storage :refer [create-storage]]
-   [pinkgorilla.storage.file]
-   [pinkgorilla.storage.gist]
-   [pinkgorilla.storage.repo]
-   [pinkgorilla.storage.bitbucket]
-   ;PinkGorilla Notebook
-   ;[pinkgorilla.events.helper :refer [standard-interceptors]]
-   ))
+   [pinkgorilla.storage.protocols :refer [create-storage]]))
 
 (reg-event-fx
  :explorer/fetch-index
@@ -25,17 +16,17 @@
                  :uri             (:url repository)
                  :timeout         10000                    ;; optional
                  :response-format (ajax/json-response-format {:keywords? true}) ; (ajax/transit-response-format) ;; IMPORTANT!: You must provide this.
-                 :on-success      [:explorer/fetch-response]
-                 :on-failure      [:process-error-response "load-explore-data"]}}))
+                 :on-success      [:explorer/fetch-success]
+                 :on-failure      [:explorer/fetch-error (:url repository)]}}))
 
 
 (reg-event-db
  :explorer/fetch-error
- (fn [db [_ location response]]
-   (error "ERROR RESPONSE: " location " r: "response)
+ (fn [db [_ url response]]
+   (error "Explorer : fetch err: " url " r: " response)
    #_(dispatch [:notification-add
-              (notification :warning
-                            (str location " Error: " (:status-text response) " (" (:status response) ")"))])
+                (notification :warning
+                              (str location " Error: " (:status-text response) " (" (:status response) ")"))])
    db))
 
 
@@ -58,7 +49,7 @@
     (vec (map-indexed (partial preprocess-item start-index) list))))
 
 (reg-event-db
- :explorer/fetch-response
+ :explorer/fetch-success
  ;[standard-interceptors]
  (fn [db [_ response]]
    (let [existing-data (get-in db [:explorer :notebooks])

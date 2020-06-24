@@ -1,8 +1,9 @@
-(ns pinkgorilla.storage.handler
+(ns pinkgorilla.document.handler
   (:require
    [clojure.tools.logging :refer [info]]
    [ring.util.response :as res]
-   [pinkgorilla.storage.storage :refer [query-params-to-storage storage-save storage-load]]))
+   [pinkgorilla.storage.filename-encoding :refer [decode-storage-using-filename]]
+   [pinkgorilla.storage.protocols :refer [query-params-to-storage storage-save storage-load]]))
 
 (defn notebook-save-handler
   [req]
@@ -25,17 +26,24 @@
 (defn notebook-load-handler
   [req]
   (let [params (:params req)
+        _ (info "params " (pr-str params))
         {:keys [tokens storagetype]} params
-        stype (keyword storagetype)
+        stype (if (keyword? storagetype) storagetype (keyword storagetype))
         storage-params (dissoc params :storagetype :tokens) ; notebook-content is too big for logging.
         ;_ (info "Saving type: " stype " params: " storage-params)
         storage (query-params-to-storage stype storage-params)]
     (if (nil? storage)
-      (throw (Exception. (str "cannot load from storage - storage is nil! " stype)))
+      {:status 500 :body "storage is nil"}
+      ;(throw (Exception. (str "cannot load from storage - storage is nil! " stype)))
       (do
         (info "Loading from storage: " storage)
         (if-let [content (storage-load storage tokens)]
-          (res/response {:content content})
-          {:status 500 :body "No content"})))))
+          (let [notebook (decode-storage-using-filename storage content)]
+            (if notebook
+              (do
+                (info "notebook successfully loaded! ")
+                (res/response notebook))
+              {:status 500 :body "decoding failed."}))
+          {:status 500 :body {:error "content is empty"}})))))
 
 

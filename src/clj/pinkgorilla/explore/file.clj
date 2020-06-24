@@ -4,9 +4,8 @@
   (:require
    [clojure.string :as str]
    [clojure.java.io]
-     ; dependencies needed to be in bundle: 
-   [pinkgorilla.storage.storage :as storage]
-   [pinkgorilla.storage.file]
+   ;[pinkgorilla.storage.protocols :as storage]
+   ;[pinkgorilla.storage.file]
    [pinkgorilla.explore.meta :refer [add-meta]]))
 
 ;; File is Notebook Format ??

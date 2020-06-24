@@ -24,6 +24,8 @@
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
                  [org.clojure/tools.cli "1.0.194"]
+                 [com.taoensso/timbre "4.10.0"] ; cljs logging
+
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
@@ -40,7 +42,7 @@
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
 
-                 [org.pinkgorilla/notebook-encoding "0.0.28"]         ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.1-SNAPSHOT"]         ; notebook encoding
                  ]
 
 
@@ -68,11 +70,11 @@
                                     [ring/ring-core "1.8.1"]
                                     [ring/ring-defaults "0.3.2"
                                      :exclusions [javax.servlet/servlet-api]]
-                                    [ring-middleware-format "0.7.4"]
+                                    [ring-middleware-format "0.7.4"] ; replaced by muuntaja
+                                    [metosin/muuntaja "0.6.7"] ; 30x faster than ring-middleware-format
                                     [ring/ring-json "0.5.0"]
                                     [bk/ring-gzip "0.3.0"] ; from oz
-                                    [clj-http "3.10.1"]
-                                    ]}
+                                    [clj-http "3.10.1"]]}
 
 
              :dev {:source-paths ["dev" "test"]

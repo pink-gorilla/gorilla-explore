@@ -3,7 +3,7 @@
    [clojure.string :as str ;:refer [subs]   ; subs should exist, but does not.
     ]
    ;PinkGorilla Libraries
-   [pinkgorilla.storage.storage :refer [external-url]]
+   [pinkgorilla.storage.protocols :refer [external-url]]
    ;PinkGorilla project
    [pinkgorilla.explore.tags :refer [tag-box notebook-tags->list]]))
 

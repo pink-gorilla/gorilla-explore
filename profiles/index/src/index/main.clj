@@ -1,19 +1,13 @@
 (ns index.main
   (:require
    [cheshire.core :as cheshire]
+   [pinkgorilla.explore.default-config] ; side effects
     ; dependencies needed to be in bundle: 
-   [pinkgorilla.storage.storage :as storage]
-   [pinkgorilla.storage.file]
-   [pinkgorilla.storage.gist]
-   [pinkgorilla.storage.repo]
-   [pinkgorilla.storage.bitbucket]
-  ;Gorilla Explore
    [pinkgorilla.explore.db :refer [load-db clear all]]
    [pinkgorilla.explore.discover :refer [discover-github-users]]
   ; from test folder
    [pinkgorilla.creds :refer [creds]])
   (:gen-class))
-
 
 (defn generate-list [users tokens]
   (let [filename "resources/list.json"

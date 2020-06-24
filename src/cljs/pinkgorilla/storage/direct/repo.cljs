@@ -2,7 +2,7 @@
   (:require
    [taoensso.timbre :refer-macros [info]]
    [goog.crypt.base64 :as b64]
-   [pinkgorilla.storage.direct.direct :refer [Direct]]
+   [pinkgorilla.storage.direct.protocol :refer [Direct]]
    [pinkgorilla.storage.repo :refer [StorageRepo]]))
 
 (extend-type StorageRepo

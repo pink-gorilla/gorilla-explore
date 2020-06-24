@@ -8,7 +8,6 @@
 
 ;; Save-Dialog Open/Close
 
-
 (reg-event-db
  :app:saveas
  [standard-interceptors]

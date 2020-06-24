@@ -3,7 +3,7 @@
    [clj-time.core :as t]
    [clj-time.format :as fmt]
    [pinkgorilla.notebook.core :refer [notebook-load]]
-   [pinkgorilla.storage.storage :refer [create-storage storageformat]]))
+   [pinkgorilla.storage.protocols :refer [create-storage storageformat]]))
 
 (defn random-edit-date []
   (fmt/unparse (:date fmt/formatters)
