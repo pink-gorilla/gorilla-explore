@@ -1,43 +1,14 @@
 (ns pinkgorilla.explore.notebook
   (:require
-   ;[clojure.string :as str] ;:refer [subs]   ; subs should exist, but does not.
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    [pinkgorilla.storage.filename-encoding :refer [split-filename]]
    [pinkgorilla.storage.protocols :refer [external-url]]
    [pinkgorilla.meta.tags :refer [tag-box meta->tags]]
    [pinkgorilla.meta.view :refer [tagline]]))
 
-#_(defn project-name-old [notebook]
-  (let [name (or (:filename notebook) "?")]
-    {:name (str/replace name #"^(.+?)/+$" "$1")}))
-
-#_(defn project-path-name
-  "extracts the only the name of the file, without extension and path"
-  [l]
-  (let [full-file-name (:filename l)
-        ;file-name (or (:filename notebook) "?")
-        ; the regex returns [full-hit name-only]
-        name (re-find #"(.+?)([\w-]*).(cljg|ipynb)*$" (or full-file-name ""))]
-    name))
-
-#_(defn notebook-name [l]
-  (nth (project-path-name l) 2))
-
-#_(defn subs2 [s start]
-  (.substring s start (count s)))
-
-#_(defn project-path [l]
-  (let [p (second (project-path-name l))
-        root-len (count (:root-dir l))
-        ;_ (.log js/console root-len)
-        ]
-    (if (= (:type l) :file)
-      (if (nil? p)
-        nil
-        (if (nil? root-len)
-          p
-          (subs2 p root-len))); for local files remove the root dir (we have :repo so dont need full rot path)
-      p)))
+; github stars are not yet included in the view.
+; [:div;.stars
+;  (:stars l)]
 
 (defn storage-link [notebook]
   (let [storage (:storage notebook)]
@@ -45,19 +16,12 @@
       ""
       (external-url storage))))
 
-
-; github stars are not yet included in the view.
-; [:div;.stars
-;  (:stars l)]
-
-
-
 (def border " border-r border-b border-l border-gray-400")
 (def lg " lg:border-l-0 lg:border-t lg:border-gray-400 lg:rounded-b-none lg:rounded-r")
 
 (defn notebook-box [open-notebook selected-tags notebook]
   (let [file-info (split-filename (:filename notebook))
-        _ (info "nb file-info: " file-info)]
+        _ (debug "nb file-info: " file-info)]
   [:div {:on-click #(open-notebook notebook)
          :class (str "h-48 bg-green-400 w-1/2 rounded-b  p-4 flex flex-col justify-between leading-normal hover:bg-orange-400" border lg)}
 

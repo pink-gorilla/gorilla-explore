@@ -13,4 +13,5 @@
    #?(:cljs [pinkgorilla.storage.direct.repo])
    #?(:cljs [pinkgorilla.storage.direct.bitbucket])
 
-   #?(:cljs [pinkgorilla.document.component])))
+   #?(:cljs [pinkgorilla.document.component])
+   #?(:cljs [pinkgorilla.bidi])))

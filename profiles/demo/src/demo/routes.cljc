@@ -4,8 +4,7 @@
       :cljs [taoensso.timbre :refer-macros [trace debug info]])
    [bidi.bidi :as bidi]
    #?(:cljs [reagent.core :as r])
-   #?(:cljs [re-frame.core :refer [dispatch reg-event-db]])
-   #?(:cljs [pushy.core :as pushy])
+   #?(:cljs [re-frame.core :refer [dispatch-sync reg-event-db]])
    #?(:clj [bidi.ring])
    #?(:clj [pinkgorilla.document.handler :refer [notebook-load-handler notebook-save-handler]])
    #?(:clj [pinkgorilla.explore.handler :refer [handler-explore-async]])
@@ -38,19 +37,9 @@
 
 #?(:cljs
    (do
-
-     (def current (r/atom nil))
-
-     (defn set-page! [match]
-       (info "setting page to: " match)
-       (reset! current match))
-
-     (def history
-       (pushy/pushy set-page! (partial bidi/match-route explorer-routes-frontend)))
-
-     (defn init-routes []
-       (info "starting pushy")
-       (pushy/start! history))))
+     (dispatch-sync [:bidi/init explorer-routes-api])
+;
+     ))
 
 #?(:clj
    (do
@@ -61,14 +50,14 @@
         :headers {"Content-Type" "text/html; charset=utf-8"}
         :body    (slurp "profiles/demo/public/index.html")})
 
-
      (def wrapped-explore-handler
        (wrap-api-handler handler-explore-async))
 
      (def wrapped-notebook-load-handler
        (wrap-api-handler notebook-load-handler))
 
-     (def load-request
+     ;TODO : make a unit test with this
+     (def demo-load-request
        {:headers
         {"content-type" "application/edn"
          "accept" "application/transit+json"}
@@ -80,7 +69,8 @@
                  :filename "notebooks/videos.cljg"}})
 
      (comment
-       (notebook-load-handler load-request)
+         ;TODO : make a unit test with this
+       (notebook-load-handler demo-load-request)
        ;
        )
 
@@ -100,7 +90,6 @@
           :ui/explorer       app-html
           :ui/notebook       app-html
           nil)))
-
 
      (def handler
        (bidi.ring/make-handler explorer-routes-api route->handler))))

@@ -8,7 +8,7 @@
    [re-frame.core :refer [dispatch]]
    [pinkgorilla.explore.default-config]
    ; demo
-   [demo.routes :refer [init-routes explorer-routes-api]]
+   [demo.routes :refer [explorer-routes-api]]
    [demo.views]
    [demo.config :refer [config-client]]
    ))
@@ -25,12 +25,9 @@
 
 (defn ^:export start []
   (println "demo starting ..")
-
-  (init-routes)
   (dispatch [:explorer/init config-client])
   (dispatch [:documents/init])
-  (dispatch [:bidi/init {:api explorer-routes-api}])
-
+  
   #_(go
       (<! (timeout 7000))
       (info "requesting describe..")

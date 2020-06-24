@@ -5,8 +5,7 @@
    [pinkgorilla.storage.protocols :refer [storagetype]]
    [pinkgorilla.meta.tags :refer [tag-box meta->tags]]))
 
-
-(defn notebook-page [& args]
+#_(defn notebook-page [& args]
   (println "e/nb! args: " args)
   [:h1 "Notebook Viewer"])
 
@@ -33,7 +32,7 @@
   (let [d @document
         meta (:meta d)
         file-info (split-filename (:filename storage))
-        _ (info "nb file-info: " file-info)]
+        _ (debug "nb file-info: " file-info)]
     [:div
      [header file-info meta storage]
      [document-view storage document]]))

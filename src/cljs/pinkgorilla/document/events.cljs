@@ -3,16 +3,8 @@
    [re-frame.core :refer [reg-event-db reg-event-fx]]
    [ajax.core :as ajax]
    [taoensso.timbre :refer-macros [debug info]]
-   [bidi.bidi :as bidi]
-   [pinkgorilla.storage.protocols :refer [storagetype]]))
-
-(reg-event-db
- :bidi/init
- (fn [db [_ bidi-config]]
-   (let [db (or db {})]
-     (info "bidi init ..")
-     (assoc db :bidi bidi-config))))
-
+   [pinkgorilla.storage.protocols :refer [storagetype]]
+   [pinkgorilla.bidi :refer [link]]))
 
 (reg-event-db
  :documents/init
@@ -20,8 +12,6 @@
    (let [db (or db {})]
      (info "document init ..")
      (assoc db :documents {}))))
-
-
 
 ;; Load File (from URL Parameters) - in view or edit mode
 
@@ -32,9 +22,8 @@
  :document/load
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (:secrets db)
-         api-routes (get-in db [:bidi :api])
-         url  (bidi/path-for api-routes :api/notebook-load)
-         stype (storagetype storage) 
+         url  (link :api/notebook-load)
+         stype (storagetype storage)
          _ (info "loading storage:" stype storage)
          params (assoc storage
                        :storagetype stype ; (keyword (:storagetype storage))
@@ -46,7 +35,7 @@
                    :uri             url
                    :params          params
                    :timeout         15000
-                   :response-format (ajax/transit-response-format) 
+                   :response-format (ajax/transit-response-format)
                    ;(ajax/json-response-format {:keywords? true})
                    :on-success      [:document/load-success storage]
                    :on-failure     [:document/load-error storage]}})))
