@@ -68,10 +68,13 @@
 
 (defn goto! [handler & params]
   (let [[qp] params]
-  (info "goto! handler: " handler " query-params: " qp)
-  (reset! current {:handler handler})
-  (when qp
-    (set-query-params qp))))
+    (info "goto! handler: " handler " query-params: " qp)
+    (reset! current {:handler handler})
+    (if qp
+      (let [url (str (link handler) "?" (url/map->query qp))]
+        (set-query-params qp)
+        (pushy/set-token! history url))
+      (pushy/set-token! history (link handler)))))
 
 (defn subs2 [s start]
   (.substring s start (count s)))
@@ -80,16 +83,14 @@
   (let [storage (:storage notebook)
         query-params (gorilla-path storage)
         query-params (url/query->map (subs2 query-params 1))
-        _ (info "query params: " query-params)
-       ]
-    (goto! :ui/notebook query-params)
-    ))
+        _ (info "query params: " query-params)]
+    (goto! :ui/notebook query-params)))
 
 
 (comment
 
- (link :ui/notebook)
+  (link :ui/notebook)
 ;
-)
+  )
 
 
