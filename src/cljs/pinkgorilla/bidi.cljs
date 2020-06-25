@@ -10,6 +10,17 @@
 
 ; query param handling
 ; bidi does not handle query params
+; idea how to solve the problem:
+; https://github.com/juxt/bidi/issues/51
+ #_(defn match-route-with-query-params
+    [route path & {:as options}]
+    (let [query-params (->> (:query (cemerick.url/url path))
+                            (map (fn [[k v]] [(keyword k) v]))
+                            (into {}))]
+      (-> (bidi/match-route* route path options)
+          (assoc :query-params query-params))))
+; bidi swagger:
+; https://github.com/pink-junkjard/bidi-swagger
 
 (defn window-query-params []
   (info "window query params: href: " (.. js/window -location -href))
