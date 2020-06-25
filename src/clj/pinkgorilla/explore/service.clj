@@ -1,4 +1,4 @@
-(ns pinkgorilla.explore.explorer-service
+(ns pinkgorilla.explore.service
   (:require
    [clojure.java.io]
    [clojure.core.async :refer [thread]]

@@ -1,18 +1,10 @@
 (ns pinkgorilla.explore.discover-test
   (:require
-
    [cheshire.core :refer :all]
-
-    ; dependencies needed to be in bundle: 
-   [pinkgorilla.storage.storage :as storage]
-   [pinkgorilla.storage.file]
-   [pinkgorilla.storage.gist]
-   [pinkgorilla.storage.repo]
-   [pinkgorilla.storage.bitbucket]
-
-   [pinkgorilla.creds :refer [creds]]
+   [pinkgorilla.explore.default-config] ;side effects
    [pinkgorilla.explore.db :refer [clear all]]
-   [pinkgorilla.explore.discover :refer [discover-github-users]]))
+   [pinkgorilla.explore.discover :refer [discover-github-users]]
+   [pinkgorilla.creds :refer [creds]]))
 
 (def seed ["lambdaforge" "ribelo" "k2n" "iantruslove" "rorokimdim" "ws"
            "bogdartysh" "decentstudio" "martinhynar" "hellonico" "lspector"

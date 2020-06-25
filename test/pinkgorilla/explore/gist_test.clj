@@ -1,7 +1,7 @@
 (ns pinkgorilla.explore.gist-test
   (:require
-   [pinkgorilla.creds :refer [creds]]
-   [pinkgorilla.explore.gist :refer [load-gists print-gist-response  gorilla-gists]]))
+   [pinkgorilla.explore.gist :refer [load-gists print-gist-response  gorilla-gists]]
+   [pinkgorilla.creds :refer [creds]]))
 
 (comment
 

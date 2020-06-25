@@ -1,0 +1,9 @@
+
+
+config (subscribe [:config])
+        dialog (subscribe [:dialog])
+
+        [:div.SaveDialog {:style (if-not (:save @dialog) {:display "none"} {})}
+         [:div {:class "gorilla-modal-overlay"}]
+         [:div {:class "gorilla-modal"}
+         ; [:div {:class "modal-content"}

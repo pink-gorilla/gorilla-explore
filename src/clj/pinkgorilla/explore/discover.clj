@@ -1,22 +1,14 @@
 (ns pinkgorilla.explore.discover
   (:require
-
    [clj-time.core :as t]
    [clj-time.format :as fmt]
-
-  ; dependencies needed to be in cljs bundle: 
-   [pinkgorilla.storage.storage :as storage]
-   [pinkgorilla.storage.file]
-   [pinkgorilla.storage.gist]
-   [pinkgorilla.storage.repo]
-   [pinkgorilla.storage.bitbucket]
-
-   [pinkgorilla.explore.db :refer [users add add-list usernames save-db]]
- ; [gorillauniverse.google :refer [discover-google]]
-   [pinkgorilla.explore.print :refer [print-gist]]
+   [pinkgorilla.document.default-config] ; side effects
    [pinkgorilla.explore.gist :refer [gorilla-gists]]
    [pinkgorilla.explore.repo :refer [gorilla-repos]]
-   [pinkgorilla.explore.meta :refer [add-meta add-random]]))
+   [pinkgorilla.explore.meta :refer [add-meta add-random]]
+   [pinkgorilla.explore.db :refer [users add add-list usernames save-db]]
+ ; [gorillauniverse.google :refer [discover-google]]
+   [pinkgorilla.explore.print :refer [print-gist]]))
 
 #_(defn add-google []
     (->> (discover-google)
