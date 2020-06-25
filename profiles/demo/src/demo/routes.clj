@@ -1,11 +1,6 @@
 (ns demo.routes
   (:require
-   ;#?(:clj 
    [clojure.tools.logging :refer [trace debug info]]
-    ;  :cljs [taoensso.timbre :refer-macros [trace debug info]])
-  ; [bidi.bidi :as bidi]
-  ; #?(:cljs [reagent.core :as r])
-  ; #?(:cljs [re-frame.core :refer [dispatch-sync reg-event-db]])
    [bidi.ring]
    [pinkgorilla.document.handler :refer [notebook-load-handler notebook-save-handler]]
    [pinkgorilla.explore.handler :refer [handler-explore-async]]

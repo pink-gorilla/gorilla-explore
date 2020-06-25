@@ -34,7 +34,7 @@
 
 (defn app []
   [:div
-   [:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
+   [:link {:rel "stylesheet" :href "/tailwindcss/dist/tailwind.css"}]
    ;[:h1 "explorer-ui"]
    ;[:p (str "route: " (pr-str @current))]
    (case (:handler @current)
