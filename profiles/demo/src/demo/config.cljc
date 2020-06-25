@@ -6,6 +6,6 @@
 
 (def config-client
   {:repositories
-   [{:name "local" :url "/api/explorer"}
+   [{:name "local" :save true :url "/api/explorer"}
     {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]})
 

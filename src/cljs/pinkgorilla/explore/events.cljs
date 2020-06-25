@@ -2,8 +2,9 @@
   (:require
    [re-frame.core :refer [reg-event-db trim-v dispatch]]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
-   [pinkgorilla.explore.events-fetch]; side effects
-   ))
+   [pinkgorilla.explore.events-fetch])) ; side effects
+
+;; DB
 
 (reg-event-db
  :explorer/init
@@ -16,6 +17,8 @@
              :notebooks []
              :search {:tags #{}
                       :text ""}}))))
+
+;; SEARCH
 
 (reg-event-db
  :explorer/show

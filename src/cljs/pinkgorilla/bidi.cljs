@@ -42,6 +42,9 @@
     (info "url did change to: " path " options:" options)
     (bidi/match-route @routes path))) ; options
 
+; see: 
+; https://github.com/clj-commons/pushy
+
 (def history
   (pushy/pushy bidi-goto! on-url-change))
 

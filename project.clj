@@ -41,8 +41,7 @@
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-
-                 [org.pinkgorilla/notebook-encoding "0.1.1-SNAPSHOT"]         ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.1"] ; notebook encoding
                  ]
 
 
@@ -74,7 +73,9 @@
                                     [metosin/muuntaja "0.6.7"] ; 30x faster than ring-middleware-format
                                     [ring/ring-json "0.5.0"]
                                     [bk/ring-gzip "0.3.0"] ; from oz
-                                    [clj-http "3.10.1"]]}
+                                    [clj-http "3.10.1"]
+                                    [re-com "2.8.0"]      ; reagent reuseable ui components
+                                    ]}
 
 
              :dev {:source-paths ["dev" "test"]

@@ -5,6 +5,11 @@
    [pinkgorilla.meta.filter :refer [filter-notebooks]]))
 
 (reg-sub
+ :explorer/config
+ (fn [db _]
+   (get-in db [:explorer :config])))
+
+(reg-sub
  :explorer/notebooks-all
  (fn [db _]
    (get-in db [:explorer :notebooks])))

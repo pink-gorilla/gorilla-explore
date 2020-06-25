@@ -1,17 +1,12 @@
 (ns demo.app
-  (:require-macros
-   [cljs.core.async.macros :refer [go go-loop]])
   (:require
    [reagent.dom]
-   [taoensso.timbre :as timbre :refer [debug info warn error]]
-   [cljs.core.async :as async :refer [<! >! chan timeout close!]]
-   [re-frame.core :refer [dispatch]]
-   [pinkgorilla.explore.default-config]
+   [taoensso.timbre :as timbre :refer [info]]
+   [re-frame.core :refer [dispatch dispatch-sync]]
+   [pinkgorilla.explore.default-config :refer [explorer-routes-api]] ;; side-effects
    ; demo
-   [demo.routes :refer [explorer-routes-api]]
    [demo.views]
-   [demo.config :refer [config-client]]
-   ))
+   [demo.config :refer [config-client]]))
 
 (enable-console-print!)
 
@@ -20,19 +15,13 @@
 (timbre/set-level! :info)
 
 (defn stop []
-  (js/console.log "Stopping..."))
-
+  (info "demo Stopping..."))
 
 (defn ^:export start []
-  (println "demo starting ..")
+  (info "demo starting ..")
+  (dispatch-sync [:bidi/init explorer-routes-api])
   (dispatch [:explorer/init config-client])
   (dispatch [:documents/init])
-  
-  #_(go
-      (<! (timeout 7000))
-      (info "requesting describe..")
-      (dispatch [:nrepl/describe]))
-
   (reagent.dom/render [demo.views/app]
                       (.getElementById js/document "app")))
 

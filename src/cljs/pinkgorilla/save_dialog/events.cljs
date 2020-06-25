@@ -1,22 +1,19 @@
-(ns pinkgorilla.storage.save-dialog.events
+(ns pinkgorilla.save-dialog.events
   (:require
-   [taoensso.timbre :refer-macros (info)]
+   [taoensso.timbre :refer-macros [info]]
    [re-frame.core :refer [reg-event-db reg-event-fx]]
-   [pinkgorilla.storage.storage :refer [query-params-to-storage gorilla-path]]
-   [pinkgorilla.events.helper :refer [standard-interceptors]]))
+   [pinkgorilla.storage.storage :refer [query-params-to-storage gorilla-path]]))
 
 
 ;; Save-Dialog Open/Close
 
 (reg-event-db
  :app:saveas
- [standard-interceptors]
  (fn [db _]
    (assoc-in db [:dialog :save] true)))
 
 (reg-event-db
  :save-dialog-cancel
- [standard-interceptors]
  (fn [db _]
    (assoc-in db [:dialog :save] false)))
 
@@ -25,7 +22,6 @@
 ; change storage settings
 (reg-event-db
  :save-as-storage
- [standard-interceptors]
  (fn [db [_ params]]
    (let [storage-type (keyword (:source params))
          _ (info "saving as storage type: " storage-type)

@@ -5,10 +5,6 @@
    [pinkgorilla.storage.protocols :refer [storagetype]]
    [pinkgorilla.meta.tags :refer [tag-box meta->tags]]))
 
-#_(defn notebook-page [& args]
-  (println "e/nb! args: " args)
-  [:h1 "Notebook Viewer"])
-
 (defn tag-box-meta [meta]
   [tag-box (meta->tags meta) #{}])
 
