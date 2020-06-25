@@ -28,6 +28,7 @@ lein demo2
 
 - **explorer**: the notebook explorer web handler, and its web frontend.
 - **document**: a loader and displayer for notebooks (or other content) powered by files / github repo / github gist.
+- **save-dialog**: use it for save and save-as operations. Gets a storage, returns a storage. 
 
 # Ideas
 

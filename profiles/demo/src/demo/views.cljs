@@ -6,9 +6,7 @@
    [pinkgorilla.explore.component :refer [notebook-explorer]]
    [pinkgorilla.document.component :refer [document-page]]
    [pinkgorilla.save-dialog.component :refer [save-dialog]]
-   [pinkgorilla.bidi :refer [goto! goto-notebook! current]]
-  ; [demo.routes]
-   ))
+   [pinkgorilla.bidi :refer [goto! goto-notebook! current]]))
 
 (defn document-view-dummy [storage document]
   [:div
