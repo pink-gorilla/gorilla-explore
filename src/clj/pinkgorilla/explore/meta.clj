@@ -1,9 +1,12 @@
 (ns pinkgorilla.explore.meta
   (:require
+   [taoensso.timbre :refer [info error]]
    [clj-time.core :as t]
    [clj-time.format :as fmt]
    [pinkgorilla.notebook.hydration :refer [notebook-load]]
-   [pinkgorilla.storage.protocols :refer [create-storage storageformat]]))
+   [pinkgorilla.storage.protocols :refer [determine-encoding]]
+   [pinkgorilla.storage.filename-encoding :refer [split-filename decode-storage-using-filename]]
+   [pinkgorilla.storage.protocols :refer [create-storage]]))
 
 (defn random-edit-date []
   (fmt/unparse (:date fmt/formatters)
@@ -11,20 +14,23 @@
 
 (defn add-meta [tokens entry]
   (let [;_ (println "adding meta for entry" entry)
-        storage (create-storage entry)
-        format (storageformat storage)]
-    (case format
-      :jupyter (assoc entry :meta {:tags "jupyter" :tagline "jupyter notebook"})
-      :gorilla (let [;_ (println "loading notebook " storage)
-                     nb (notebook-load storage tokens)]
-                 (if (nil? nb)
-                   entry
-                   (let [meta (if (= (:version nb) 1)
-                                {:tags "legacy" :tagline "legacy notebook"}
-                                (:meta nb))]
-                     (assoc entry :meta meta))))
-      (do (println "unknown storage format for:" format "for storage: " storage)
-          entry))))
+        file-info (split-filename (:filename entry))
+        format (:encoding file-info)]
+    (info "format: " format)
+    (if-not (= format :gorilla)
+      entry
+      (let [storage (create-storage entry)
+            ; notebook (decode encoding-type content)[
+            nb (notebook-load storage tokens)
+            ;_ (println "loading notebook " storage)
+            ]
+        (if (nil? nb)
+          entry
+          (let [meta (if (= (:version nb) 1)
+                       {:tags "legacy" :tagline "legacy notebook"}
+                       (dissoc (:meta nb) :name :description))] ; ignor previously used :name meta data
+            (info "adding meta data: " meta)
+            (assoc entry :meta meta)))))))
 
 (defn add-random [tokens entry]
   (assoc entry

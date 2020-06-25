@@ -3,7 +3,7 @@
    [clojure.walk]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    [re-frame.core :refer [subscribe dispatch]]
-   [pinkgorilla.storage.protocols :refer [storagetype query-params-to-storage gorilla-path storageformat]]
+   [pinkgorilla.storage.protocols :refer [query-params-to-storage]]
    [pinkgorilla.document.events] ; side effects
    [pinkgorilla.document.subscriptions] ; side effects
    [pinkgorilla.meta.view :refer [document-view-meta]]

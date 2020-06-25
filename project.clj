@@ -41,8 +41,8 @@
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-                 [org.pinkgorilla/notebook-encoding "0.1.1"] ; notebook encoding
-                 ]
+                 [org.pinkgorilla/notebook-encoding "0.1.2"] ; notebook encoding
+                 [bidi "2.1.6"]]
 
 
   :profiles {:index {; rebuilds the index
@@ -64,7 +64,7 @@
                                     [re-frame "0.10.9"]
                                     [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
                                     [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
-                                    [bidi "2.1.6"]
+
                                     [clj-commons/pushy "0.3.10"]
                                     [ring/ring-core "1.8.1"]
                                     [ring/ring-defaults "0.3.2"

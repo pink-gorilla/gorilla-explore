@@ -4,6 +4,7 @@
    [reagent.core :as r]
    [re-frame.core :refer [subscribe dispatch dispatch-sync]]
    [re-com.core :refer [input-text radio-button]]
+   [pinkgorilla.storage.filename-encoding :refer [split-filename encoding->extension]]
    [pinkgorilla.storage.protocols :refer [query-params-to-storage]]))
 
 #_(defn do-save [form]
@@ -20,16 +21,23 @@
   {; storage-type to create storage
    :storage-type :file
    ; query-params for document-save
-   :description ""
+   ;:description ""
    :user ""
    :repo ""
-   :filename ""
-
+   :filename "/my-new-notebook.cljg"
+   :name "my-new-notebook"
+   :path "/"
    ;encoding format
    :format :gorilla
    :explorer-root nil ; the keyword corresponding to the selected explorer root directory
    :file-directory "" ; directory corresponding to selected explorer root
    })
+
+(defn calc-filename [state]
+  (let [{:keys [format name path]} @state
+        filename (str path name "." (encoding->extension format))]
+    (swap! state assoc :filename filename)))
+
 
 (defn make-storage [state]
   (let [storage-type (keyword (:storage-type state))
@@ -38,8 +46,6 @@
     (when-not storage
       (error "save-dialog could not make storage for: " state))
     storage))
-
-
 
 (defn storage-type [state change!]
   [:div.m-2
@@ -126,19 +132,43 @@
 
 (defn filename [state change!]
   [:div
-   [:h3 "Filename"]
-   [:input {;; blur does not work - prevents the click
+   [:div.flex.flex-row
+    [:h3.w-16 "Path"]
+    [:input.w-64 {;; blur does not work - prevents the click
             ;; :on-blur     #(dispatch [:save-dialog-cancel])
             ;; :on-mouse-down #(dispatch [:save-dialog-cancel])
-            :type      "text"
-            :value     (:filename @state)
-            :on-change #(change! :filename (-> % .-target .-value))}]])
+                  :type      "text"
+                  :value     (:path @state)
+                  :on-change #(change! :path (-> % .-target .-value))}]]
+   [:div.flex.flex-row
+    [:h3.w-16 "Name"]
+    [:input.w-64 {;; blur does not work - prevents the click
+            ;; :on-blur     #(dispatch [:save-dialog-cancel])
+            ;; :on-mouse-down #(dispatch [:save-dialog-cancel])
+                  :type      "text"
+                  :value     (:name @state)
+                  :on-change #(change! :name (-> % .-target .-value))}]]
+   [:div.flex.flex-row
+    [:h3.w-16 "Full"]
+    [:span (:filename @state)]]])
+
+(defn storage->form [storage]
+  (if storage
+    (let [storage-seq (into {} storage)
+          file-info (split-filename (:filename storage-seq))]
+      {:filename (:full file-info)
+       :format (:encoding file-info)
+       :name (:name file-info)
+       :path (:path file-info)})
+    {}))
 
 
 (defn save-dialog
-  [{:keys [on-cancel on-save]}]
-  (let [state (r/atom empty-form)
-        change! (fn [k v] (swap! state assoc k v))
+  [{:keys [storage on-cancel on-save]}]
+  (let [state (r/atom (merge empty-form (storage->form storage)))
+        change! (fn [k v] 
+                  (swap! state assoc k v)
+                  (calc-filename state))
         check-key (fn [form keycode]
                     (case keycode
                       27 (on-cancel) ; ESC
@@ -146,7 +176,7 @@
                       nil))]
     (fn [{:keys [on-cancel on-save]}]
       [:div.bg-blue-300.m-5.border-solid.inline-block
-       {:class "w-1/3"
+       {:display {:width "200px"}
         :on-key-down   #(check-key @state (.-which %))}
        [:div.flex.flex-row.justify-start
         [storage-format state change!]

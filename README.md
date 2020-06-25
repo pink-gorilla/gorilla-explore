@@ -31,6 +31,10 @@ lein demo2
 
 # Ideas
 
+- auto generated tags :clj :cljs :cljs-only :clj-only
+this is useful for filtering in the notebook explorer
+better: {:meta {:kernels [clj cljs bash]}}
+
 - A Full search on github gets 858 hits:
 https://github.com/search?p=4&q=%22gorilla-repl.fileformat+%3D+1%22+extension%3Aclj&type=Code
 unfortunately github api has blocked search without referring to a repo.
