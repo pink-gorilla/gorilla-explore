@@ -7,6 +7,7 @@
 
 ;; Save-Dialog Open/Close
 
+
 (reg-event-db
  :app:saveas
  (fn [db _]
@@ -30,16 +31,16 @@
 
 ; navigate to current storage settings
 #_(reg-event-db
- :nav-to-storage
- [standard-interceptors]
- (fn [db [_ new-worksheet?]]
-   (let [storage (:storage db)]
-     (if new-worksheet?
-       (routes/nav! "/new")
-       (if (nil? storage)
-         (routes/nav! "/edit")
-         (routes/set-hash! (gorilla-path storage)))) ; 
-     db)))
+   :nav-to-storage
+   [standard-interceptors]
+   (fn [db [_ new-worksheet?]]
+     (let [storage (:storage db)]
+       (if new-worksheet?
+         (routes/nav! "/new")
+         (if (nil? storage)
+           (routes/nav! "/edit")
+           (routes/set-hash! (gorilla-path storage)))) ; 
+       db)))
 
 
 

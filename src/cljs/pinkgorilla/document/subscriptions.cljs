@@ -5,7 +5,6 @@
    [re-frame.core :refer [reg-sub dispatch]]
    [pinkgorilla.document.events]))
 
-
 (reg-sub
  :document/get
  (fn [db [_ storage]]

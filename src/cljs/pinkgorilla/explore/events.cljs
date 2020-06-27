@@ -24,7 +24,7 @@
  :explorer/show
  [trim-v]
  (fn [db [tags]]
-   (println ":explorer-show tags: " tags)
+   (info ":explorer-show tags: " tags)
    (-> db
        ;(assoc-in [:main] :explore)
        (assoc-in [:explorer :search :tags] tags))))

@@ -10,8 +10,8 @@
         "tags" : "cljs, reagent, demo",
         "tagline" : ""
       },
-      "stars" : 34,
-      "edit-date" : "2020-03-15"
+      "stars" : 2,
+      "edit-date" : "2019-07-15"
     },
     {
       "type" : "repo",
@@ -23,8 +23,8 @@
         "tagline" : "Video Demo (Youtube, and more)",
         "tags" : "cljs,cool,ui,video,youtube"
       },
-      "stars" : 88,
-      "edit-date" : "2019-06-18"
+      "stars" : 2,
+      "edit-date" : "2019-06-25"
     },
     {
       "type" : "repo",
@@ -36,8 +36,8 @@
         "tags" : "clj,vega",
         "tagline" : "vega from clojure"
       },
-      "stars" : 92,
-      "edit-date" : "2020-04-26"
+      "stars" : 6,
+      "edit-date" : "2019-10-07"
     },
     {
       "type" : "repo",
@@ -49,8 +49,8 @@
         "tagline" : "Sparkline charts demo",
         "tags" : "cljs,cool,ui,sparkline"
       },
-      "stars" : 88,
-      "edit-date" : "2019-12-21"
+      "stars" : 13,
+      "edit-date" : "2019-06-30"
     },
     {
       "type" : "repo",
@@ -62,8 +62,8 @@
         "tagline" : "charts with quil",
         "tags" : "cljs, demo, quil, svg"
       },
-      "stars" : 23,
-      "edit-date" : "2019-11-13"
+      "stars" : 4,
+      "edit-date" : "2020-02-29"
     },
     {
       "type" : "repo",
@@ -72,8 +72,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/hiccup/image-moon.cljg",
       "meta" : { },
-      "stars" : 13,
-      "edit-date" : "2020-06-09"
+      "stars" : 78,
+      "edit-date" : "2019-10-25"
     },
     {
       "type" : "repo",
@@ -85,8 +85,8 @@
         "tagline" : "highchart ui-plugin demo",
         "tags" : "highchart, demo, ui-plugin"
       },
-      "stars" : 34,
-      "edit-date" : "2020-01-18"
+      "stars" : 99,
+      "edit-date" : "2019-10-14"
     },
     {
       "type" : "repo",
@@ -95,8 +95,8 @@
       "repo" : "kernel-cljs-shadow",
       "filename" : "notebooks/shadow-npm-deps.cljg",
       "meta" : { },
-      "stars" : 22,
-      "edit-date" : "2020-02-28"
+      "stars" : 66,
+      "edit-date" : "2019-08-14"
     },
     {
       "type" : "repo",
@@ -108,8 +108,8 @@
         "tagline" : "alphavantaget",
         "tags" : "trateg,clj,quant"
       },
-      "stars" : 16,
-      "edit-date" : "2019-10-30"
+      "stars" : 67,
+      "edit-date" : "2019-09-22"
     },
     {
       "type" : "repo",
@@ -121,8 +121,8 @@
         "tags" : "clj,renderable, image",
         "tagline" : ""
       },
-      "stars" : 86,
-      "edit-date" : "2020-05-09"
+      "stars" : 36,
+      "edit-date" : "2019-10-06"
     },
     {
       "type" : "repo",
@@ -131,8 +131,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/hiccup/custom-tag.cljg",
       "meta" : { },
-      "stars" : 64,
-      "edit-date" : "2020-02-07"
+      "stars" : 49,
+      "edit-date" : "2019-05-05"
     },
     {
       "type" : "repo",
@@ -141,8 +141,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/hiccup/html-script.cljg",
       "meta" : { },
-      "stars" : 82,
-      "edit-date" : "2019-07-28"
+      "stars" : 6,
+      "edit-date" : "2019-12-12"
     },
     {
       "type" : "repo",
@@ -151,8 +151,8 @@
       "repo" : "unittest-notebooks",
       "filename" : "samples/v1-no-meta.cljg",
       "meta" : { },
-      "stars" : 22,
-      "edit-date" : "2020-03-02"
+      "stars" : 47,
+      "edit-date" : "2020-01-31"
     },
     {
       "type" : "repo",
@@ -164,8 +164,8 @@
         "tags" : "",
         "tagline" : "reproduce the error"
       },
-      "stars" : 10,
-      "edit-date" : "2019-07-20"
+      "stars" : 64,
+      "edit-date" : "2019-11-01"
     },
     {
       "type" : "repo",
@@ -174,8 +174,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/hiccup/tailwind.cljg",
       "meta" : { },
-      "stars" : 77,
-      "edit-date" : "2019-05-31"
+      "stars" : 69,
+      "edit-date" : "2019-09-18"
     },
     {
       "type" : "repo",
@@ -184,8 +184,8 @@
       "repo" : "gorilla-ui",
       "filename" : "notebooks/leaflet-iss-realtime.cljg",
       "meta" : { },
-      "stars" : 97,
-      "edit-date" : "2019-08-04"
+      "stars" : 86,
+      "edit-date" : "2020-04-01"
     },
     {
       "type" : "repo",
@@ -194,8 +194,8 @@
       "repo" : "python-gorilla",
       "filename" : "resources/notebooks/techml-vega.cljg",
       "meta" : { },
-      "stars" : 57,
-      "edit-date" : "2019-12-05"
+      "stars" : 67,
+      "edit-date" : "2019-02-19"
     },
     {
       "type" : "repo",
@@ -204,8 +204,8 @@
       "repo" : "clojisr-gorilla",
       "filename" : "resources/notebooks/scicloj-fiddle.cljg",
       "meta" : { },
-      "stars" : 51,
-      "edit-date" : "2019-11-25"
+      "stars" : 6,
+      "edit-date" : "2019-09-16"
     },
     {
       "type" : "repo",
@@ -217,8 +217,8 @@
         "tagline" : "AGGrid clj and cljs",
         "tags" : "cljs,cool,ui,aggrid"
       },
-      "stars" : 17,
-      "edit-date" : "2020-03-06"
+      "stars" : 51,
+      "edit-date" : "2020-01-17"
     },
     {
       "type" : "repo",
@@ -229,8 +229,8 @@
       "meta" : {
         "tags" : "cljs, demo, cool, reagent"
       },
-      "stars" : 18,
-      "edit-date" : "2019-06-19"
+      "stars" : 41,
+      "edit-date" : "2019-08-07"
     },
     {
       "type" : "repo",
@@ -242,8 +242,8 @@
         "tags" : "cljs, demo, cool, reagent",
         "tagline" : "bodymass indicator (using only cljs reagent)"
       },
-      "stars" : 81,
-      "edit-date" : "2019-11-07"
+      "stars" : 75,
+      "edit-date" : "2019-04-27"
     },
     {
       "type" : "repo",
@@ -255,8 +255,8 @@
         "tagline" : "complex svg plot and quil example",
         "tags" : "cljs, svg, quil, cool, sierpinsky"
       },
-      "stars" : 13,
-      "edit-date" : "2020-05-02"
+      "stars" : 51,
+      "edit-date" : "2019-10-17"
     },
     {
       "type" : "repo",
@@ -265,8 +265,8 @@
       "repo" : "python-gorilla",
       "filename" : "resources/notebooks/panthera-objects.cljg",
       "meta" : { },
-      "stars" : 43,
-      "edit-date" : "2020-01-18"
+      "stars" : 53,
+      "edit-date" : "2020-03-03"
     },
     {
       "type" : "repo",
@@ -275,8 +275,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/clojure/multimethods.cljg",
       "meta" : { },
-      "stars" : 39,
-      "edit-date" : "2019-02-15"
+      "stars" : 62,
+      "edit-date" : "2019-12-24"
     },
     {
       "type" : "repo",
@@ -288,8 +288,8 @@
         "tags" : "svg, renderer, sample",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 77,
-      "edit-date" : "2020-06-20"
+      "stars" : 67,
+      "edit-date" : "2019-05-18"
     },
     {
       "type" : "repo",
@@ -301,8 +301,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : "cljs, vega, "
       },
-      "stars" : 43,
-      "edit-date" : "2019-08-11"
+      "stars" : 12,
+      "edit-date" : "2019-04-30"
     },
     {
       "type" : "repo",
@@ -311,8 +311,8 @@
       "repo" : "gorilla-ui",
       "filename" : "notebooks/leaflet.cljg",
       "meta" : { },
-      "stars" : 49,
-      "edit-date" : "2019-03-10"
+      "stars" : 74,
+      "edit-date" : "2019-06-08"
     },
     {
       "type" : "repo",
@@ -323,8 +323,8 @@
       "meta" : {
         "tagline" : ""
       },
-      "stars" : 6,
-      "edit-date" : "2019-06-26"
+      "stars" : 57,
+      "edit-date" : "2019-10-24"
     },
     {
       "type" : "repo",
@@ -333,8 +333,8 @@
       "repo" : "gorilla-ui",
       "filename" : "notebooks/math-solver.cljg",
       "meta" : { },
-      "stars" : 87,
-      "edit-date" : "2019-07-28"
+      "stars" : 90,
+      "edit-date" : "2020-01-31"
     },
     {
       "type" : "repo",
@@ -346,8 +346,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj, zmq, messenging, cool"
       },
-      "stars" : 59,
-      "edit-date" : "2019-09-04"
+      "stars" : 42,
+      "edit-date" : "2020-04-24"
     },
     {
       "type" : "repo",
@@ -359,8 +359,8 @@
         "tagline" : "clocks and tables",
         "tags" : ""
       },
-      "stars" : 73,
-      "edit-date" : "2019-12-08"
+      "stars" : 42,
+      "edit-date" : "2019-12-19"
     },
     {
       "type" : "repo",
@@ -372,8 +372,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 3,
-      "edit-date" : "2020-03-24"
+      "stars" : 25,
+      "edit-date" : "2019-11-21"
     },
     {
       "type" : "repo",
@@ -382,8 +382,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/specs.cljg",
       "meta" : { },
-      "stars" : 64,
-      "edit-date" : "2019-09-01"
+      "stars" : 52,
+      "edit-date" : "2019-09-16"
     },
     {
       "type" : "repo",
@@ -395,8 +395,8 @@
         "tagline" : "svg shapes (from maria cloud)",
         "tags" : "cljs,demo,mariacloud, svg"
       },
-      "stars" : 31,
-      "edit-date" : "2019-06-19"
+      "stars" : 36,
+      "edit-date" : "2019-10-13"
     },
     {
       "type" : "repo",
@@ -405,8 +405,8 @@
       "repo" : "python-gorilla",
       "filename" : "resources/notebooks/python-bokeh-line10k.cljg",
       "meta" : { },
-      "stars" : 19,
-      "edit-date" : "2019-08-14"
+      "stars" : 33,
+      "edit-date" : "2020-05-07"
     },
     {
       "type" : "repo",
@@ -418,8 +418,8 @@
         "tags" : "cljs,test",
         "tagline" : "explore what clojurescript can do"
       },
-      "stars" : 3,
-      "edit-date" : "2019-11-05"
+      "stars" : 77,
+      "edit-date" : "2019-06-24"
     },
     {
       "type" : "repo",
@@ -431,8 +431,8 @@
         "tagline" : "",
         "tags" : "data-science, panthera ,python"
       },
-      "stars" : 5,
-      "edit-date" : "2020-01-24"
+      "stars" : 65,
+      "edit-date" : "2019-06-12"
     },
     {
       "type" : "repo",
@@ -443,8 +443,8 @@
       "meta" : {
         "tagline" : "Jupyter Notebook"
       },
-      "stars" : 53,
-      "edit-date" : "2020-05-20"
+      "stars" : 2,
+      "edit-date" : "2019-05-14"
     },
     {
       "type" : "repo",
@@ -453,8 +453,8 @@
       "repo" : "ui-geschichte",
       "filename" : "notebooks/git-graph.cljg",
       "meta" : { },
-      "stars" : 3,
-      "edit-date" : "2019-10-24"
+      "stars" : 0,
+      "edit-date" : "2019-11-23"
     },
     {
       "type" : "repo",
@@ -463,8 +463,8 @@
       "repo" : "gorilla-notebook",
       "filename" : "notebooks/clojure/diff.cljg",
       "meta" : { },
-      "stars" : 27,
-      "edit-date" : "2019-09-06"
+      "stars" : 93,
+      "edit-date" : "2019-05-31"
     },
     {
       "type" : "repo",
@@ -473,8 +473,8 @@
       "repo" : "python-gorilla",
       "filename" : "resources/notebooks/python-intro-cnuernberger.cljg",
       "meta" : { },
-      "stars" : 44,
-      "edit-date" : "2019-09-29"
+      "stars" : 78,
+      "edit-date" : "2020-01-09"
     },
     {
       "type" : "repo",
@@ -485,8 +485,8 @@
       "meta" : {
         "tagline" : "Jupyter Notebook"
       },
-      "stars" : 99,
-      "edit-date" : "2019-06-16"
+      "stars" : 50,
+      "edit-date" : "2019-12-02"
     },
     {
       "type" : "repo",
@@ -498,8 +498,8 @@
         "tags" : "legacy",
         "tagline" : "legacy notebook"
       },
-      "stars" : 91,
-      "edit-date" : "2020-05-06"
+      "stars" : 73,
+      "edit-date" : "2020-05-10"
     },
     {
       "type" : "repo",
@@ -508,8 +508,8 @@
       "repo" : "clojisr-gorilla",
       "filename" : "resources/notebooks/R-by-example.cljg",
       "meta" : { },
-      "stars" : 63,
-      "edit-date" : "2019-09-20"
+      "stars" : 52,
+      "edit-date" : "2019-03-09"
     }
   ]
 }

@@ -1,5 +1,6 @@
 (ns pinkgorilla.explore.gist
   (:require
+   [taoensso.timbre :as timbre :refer [tracef debugf infof warnf errorf info]]
    [pinkgorilla.storage.github :refer [load-gist-all]]
    [pinkgorilla.explore.github-helper :refer [user-gists specific-gist]]
    [pinkgorilla.explore.print :refer [print-gist]]))
@@ -9,16 +10,16 @@
 (defn load-gists [user & [token]]
   (let [gists (if (nil? token)
                 (do
-                  (println "loading gists without token")
+                  (info "loading gists without token")
                   (user-gists user))
                 (do
-                  (println "loading gists for user with token: " token)
+                  (info "loading gists for user with token: " token)
                   (user-gists user {:oauth-token token})))
         status (:status gists)]
     (if (nil? status)
-      (do (println "User " user " has total " (count gists) "gists.")
+      (do (info "User " user " has total " (count gists) "gists.")
           {:data gists})
-      (do (println "error fetching gists for " user)
+      (do (info "error fetching gists for " user)
           {:error gists}))))
 
 
@@ -49,7 +50,7 @@
   (let [gists (:data (load-gists user token))
         gists (if (nil? gists) [] gists)
         gists-gorilla (flatten (map gist-to-storage-list gists))
-        _ (println user " total gists: " (count gists) " gorilla gists:"  (count gists-gorilla))]
+        _ (info user " total gists: " (count gists) " gorilla gists:"  (count gists-gorilla))]
     gists-gorilla))
 
 ;; Content Analysis
@@ -62,7 +63,7 @@
   "returns the filename of the first valid gorilla filename, or nil"
   [gist-id & [token]]
   (let [content-map (load-gist-all gist-id token)
-        ;_ (println "content map: " content-map)
+        ;_ (info "content map: " content-map)
         filenames (remove nil? (map (fn [[filename content]]
                                       (when (gorilla-content? content) filename)) content-map))]
     (first filenames)))
@@ -72,7 +73,7 @@
         gorilla-infos (atom [])]
     (doseq [gist gists]
       (let [gist-id (:id gist)
-            _ (println "gorilla search in " user " gist: " gist-id)
+            _ (info "gorilla search in " user " gist: " gist-id)
             fn-gorilla (find-gorilla-fn gist-id token)]
         (if (not (nil? fn-gorilla))
           (swap! gorilla-infos conj {:user user
@@ -80,7 +81,7 @@
                                      :id gist-id
                                      :description (:description gist)
                                      :gist-fn fn-gorilla}))))
-    (println "gorilla gists discovered: " (count @gorilla-infos))
+    (info "gorilla gists discovered: " (count @gorilla-infos))
     @gorilla-infos))
 
 (defn print-gist-response [gist-response]

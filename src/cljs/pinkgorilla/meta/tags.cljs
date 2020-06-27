@@ -32,8 +32,8 @@
                               (dispatch [:explorer/toggle-tag tag]))} tag]])
 
 (defn tag-box [tags selected-tags]
-   [:div
-    (for [tag tags]
-      ^{:key (gensym)} [tag-view selected-tags tag])])
+  [:div
+   (for [tag tags]
+     ^{:key (gensym)} [tag-view selected-tags tag])])
 
 

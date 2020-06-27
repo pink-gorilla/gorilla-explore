@@ -10,15 +10,13 @@
    ;[pinkgorilla.bidi :refer [query-params]]
    ))
 
-
 (defn err [storage document message]
   [:div.m-6.p-6.bg-blue-300.border-solid
    [:h1 message]
    (when storage
      [:p "storage: " (pr-str storage)])
    (when document
-     [:p (pr-str (:error document))])
-   ])
+     [:p (pr-str (:error document))])])
 
 (defn document-page [params document-view]
   (let [kparams (clojure.walk/keywordize-keys params)

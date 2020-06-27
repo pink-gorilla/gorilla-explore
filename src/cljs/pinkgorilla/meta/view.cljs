@@ -16,7 +16,7 @@
   [:div.bg-blue-100.flex.flex.col.justify-between
      ;top-row
    [:div
-    [:span.m-2.p-1.border.border-solid (storagetype storage)]    
+    [:span.m-2.p-1.border.border-solid (storagetype storage)]
     [:span.m-2.text-xl (:name file-info)]
     [:span.m-2.italic (or (:tagline meta) "No tagline entered...")]]
      ;second row

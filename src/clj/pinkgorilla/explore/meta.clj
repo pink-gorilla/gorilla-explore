@@ -13,7 +13,7 @@
                (-> (rand-int 500) t/days t/ago)))
 
 (defn add-meta [tokens entry]
-  (let [;_ (println "adding meta for entry" entry)
+  (let [;_ (info "adding meta for entry" entry)
         file-info (split-filename (:filename entry))
         format (:encoding file-info)]
     (debug "format: " format)
@@ -22,7 +22,7 @@
       (let [storage (create-storage entry)
             ; notebook (decode encoding-type content)[
             nb (notebook-load storage tokens)
-            ;_ (println "loading notebook " storage)
+            ;_ (info "loading notebook " storage)
             ]
         (if (nil? nb)
           entry

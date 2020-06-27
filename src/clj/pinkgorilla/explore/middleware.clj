@@ -1,6 +1,5 @@
 (ns pinkgorilla.explore.middleware
   (:require
-   [taoensso.timbre :as timbre :refer-macros [tracef debugf infof warnf errorf info]]
    ;[ring.middleware.gzip :refer [wrap-gzip]]
    [ring.middleware.keyword-params :refer [wrap-keyword-params]]
    [ring.middleware.params :refer [wrap-params]]

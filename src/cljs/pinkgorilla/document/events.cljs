@@ -11,10 +11,9 @@
  (fn [db [_ explorer-routes-api]]
    (let [db (or db {})]
      (info "document init .. " explorer-routes-api)
-     (assoc db :document 
+     (assoc db :document
             {:documents {}
-            :routes explorer-routes-api}))))
-
+             :routes explorer-routes-api}))))
 
 (defn link [db handler]
   (info "link: handler:" handler " db: " db)

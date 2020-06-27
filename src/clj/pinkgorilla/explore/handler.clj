@@ -2,10 +2,8 @@
   " API endpoint for file-system exploration
  This returns not only filenames, but full meta-data"
   (:require
-
-  ; [taoensso.timbre :as timbre :refer-macros [tracef debugf info infof warnf errorf info]]
-
-   [clojure.tools.logging :refer [info]]
+   [taoensso.timbre :as timbre :refer [tracef debugf info infof warnf errorf info]]
+   ;[clojure.tools.logging :refer [info]]
    [ring.util.response :as res]
    [pinkgorilla.explore.service :refer [explore-directories start notebooks]]))
 

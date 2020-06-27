@@ -18,7 +18,6 @@
                  :on-success      [:explorer/fetch-success]
                  :on-failure      [:explorer/fetch-error (:url repository)]}}))
 
-
 (reg-event-db
  :explorer/fetch-error
  (fn [db [_ url response]]
@@ -27,7 +26,6 @@
                 (notification :warning
                               (str location " Error: " (:status-text response) " (" (:status response) ")"))])
    db))
-
 
 (defn remove-repo-id [item]
   (if (= (:type item) :repo)
@@ -58,8 +56,6 @@
          start-index (count existing-data)
          new-data (preprocess-list start-index response)]
      (-> (assoc-in db [:explorer :notebooks] (concat existing-data new-data))))))
-
-
 
 (reg-event-fx
  :explorer/fetch-indices

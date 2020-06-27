@@ -38,7 +38,6 @@
         filename (str path name "." (encoding->extension format))]
     (swap! state assoc :filename filename)))
 
-
 (defn make-storage [state]
   (let [storage-type (keyword (:storage-type state))
         _ (info "saving as storage type: " storage-type)
@@ -84,8 +83,6 @@
     :value       :clj
     :model       (:format @state)
     :on-change   #(change! :format %)]])
-
-
 
 (defn github [state change!]
   [:div.m-2.mt-5.pt-3
@@ -162,11 +159,10 @@
        :path (:path file-info)})
     {}))
 
-
 (defn save-dialog
   [{:keys [storage on-cancel on-save]}]
   (let [state (r/atom (merge empty-form (storage->form storage)))
-        change! (fn [k v] 
+        change! (fn [k v]
                   (swap! state assoc k v)
                   (calc-filename state))
         check-key (fn [form keycode]

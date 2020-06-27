@@ -1,6 +1,7 @@
 (ns pinkgorilla.explore.repo
   (:require
    [clojure.string]
+   [taoensso.timbre :as timbre :refer [tracef debugf infof warnf errorf info]]
    [pinkgorilla.explore.github-helper :refer [search-code]]
    [pinkgorilla.explore.print :refer [print-repo]]))
 
@@ -19,12 +20,12 @@
 
 (defn tap-ignore [repos]
   (let [ignored (remove gorilla-extension? repos)]
-    (println "pinkgorilla-notebooks (bad extension): " (count ignored))
-    (println ignored)
+    (info "pinkgorilla-notebooks (bad extension): " (count ignored))
+    (info ignored)
     repos))
 
 (defn tap [text repos]
-  (println text (count repos))
+  (info text (count repos))
   repos)
 
 
@@ -34,7 +35,7 @@
 
 
 (defn gorilla-repos [user & [options]]
-  (let [_ (println "discovering pinkgorilla notebooks in github repos for user " user)
+  (let [_ (info "discovering pinkgorilla notebooks in github repos for user " user)
         keywords "gorilla-repl fileformat = 2"
         query {:in "file"
                         ;:language "clj"
@@ -42,7 +43,7 @@
         options {:per_page 100}
         r (search-code keywords query options); (merge search-options options) options)
         items (:items r)
-        _ (println "total found: " (:total_count r)  " incomplete results: " (:incomplete_results r))]
+        _ (info "total found: " (:total_count r)  " incomplete results: " (:incomplete_results r))]
 
     (->> (map (partial repo-data user) items)
          (tap "search results (from code-search): ")

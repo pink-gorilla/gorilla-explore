@@ -1,5 +1,6 @@
 (ns pinkgorilla.explore.discover
   (:require
+   [taoensso.timbre :as timbre :refer [tracef debugf infof warnf errorf info]]
    [clj-time.core :as t]
    [clj-time.format :as fmt]
    [pinkgorilla.document.default-config] ; side effects
@@ -18,11 +19,11 @@
          (clojure.pprint/print-table [:user :gists])))
 
 (defn log [val name]
-  (println name ": " val)
+  (info name ": " val)
   val)
 
 (defn github-action [type user]
-  (println "discovering github " type " for user " user)
+  (info "discovering github " type " for user " user)
   (case type
     :gist (gorilla-gists user)
     :repo (gorilla-repos user)
@@ -52,10 +53,10 @@
       (save-db)))
 
 (defn discover-github-users [type tokens user-names]
-  (println "discovering for " (count user-names) "users of type:" type)
+  (info "discovering for " (count user-names) "users of type:" type)
   (doseq [user-name user-names]
     (discover-github type tokens user-name))
-  (println "FINISHED discovering " (count user-names) " users for type:" type))
+  (info "FINISHED discovering " (count user-names) " users for type:" type))
 
 (defn discover-github-all [type tokens]
   (discover-github-users type tokens (usernames)))

@@ -17,7 +17,9 @@
 
   :target-path  "target/jar"
   :source-paths ["src/clj"
-                 "src/cljc"] ; "test"
+                 "src/cljc"
+                 "src/cljs" ; cljshas to go into jar too.
+                 ] ; "test"
   ;:test-paths ["test"]
   :resource-paths  ["resources" ; not from npm
                     #_"target/node_modules"] ; css png resources from npm modules
@@ -85,7 +87,8 @@
                                     ]}
 
 
-             :dev {:source-paths ["dev" "test"]
+             :dev {:source-paths ["profiles/dev/src" 
+                                  "test"]
                    :dependencies [[clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]

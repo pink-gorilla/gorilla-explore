@@ -1,7 +1,7 @@
 (ns pinkgorilla.explorer.bidi
   (:require
-   [taoensso.timbre :refer-macros [debug info error]] 
-   [re-frame.core :refer [dispatch]]   
+   [taoensso.timbre :refer-macros [debug info error]]
+   [re-frame.core :refer [dispatch]]
    [cemerick.url :as url]
    [pinkgorilla.storage.protocols :refer [gorilla-path]]))
 
