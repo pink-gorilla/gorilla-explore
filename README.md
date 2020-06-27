@@ -21,7 +21,7 @@ lein build-index
 The demo runs a webserver on port 8001 and has the explorer on path "/explorer".
 
 ```
-lein demo2
+lein demo
 ```
 
 # components

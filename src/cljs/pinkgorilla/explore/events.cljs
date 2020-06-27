@@ -7,10 +7,10 @@
 ;; DB
 
 (reg-event-db
- :explorer/init
+ :explore/init
  (fn [db [_ config]]
    (let [db (or db {})]
-     (info "explorer init ..")
+     (info "explore init ..")
      (dispatch [:explorer/fetch-indices])
      (assoc db :explorer
             {:config config

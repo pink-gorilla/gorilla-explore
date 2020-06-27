@@ -3,7 +3,7 @@
    [taoensso.timbre :as timbre :refer-macros [tracef debugf info infof warnf errorf info]]
    [bidi.bidi :as bidi]
    [clj-http.client :as client]
-   [demo.routes :refer [explorer-routes]]))
+   [pinkgorilla.explorer.default-config :refer [explorer-routes-api]]))
 
 (def query-params-load
   {:storagetype "file"
@@ -15,9 +15,9 @@
          ";; gorilla-repl.fileformat = 2\n"))
 
 
-(bidi/path-for explorer-routes :explorer/index)
+(bidi/path-for explorer-routes-api :explorer/index)
 
-(def path (bidi/path-for explorer-routes :storage/load))
+(def path (bidi/path-for explorer-routes-api :storage/load))
 
 (def url (str "http://localhost:8001" path))
 

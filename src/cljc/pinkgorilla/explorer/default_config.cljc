@@ -1,4 +1,4 @@
-(ns pinkgorilla.explore.default-config
+(ns pinkgorilla.explorer.default-config
   (:require
    [bidi.bidi :as bidi] ; for tests (see bottom)
 
@@ -12,15 +12,26 @@
    #?(:cljs [pinkgorilla.storage.direct.repo])
    #?(:cljs [pinkgorilla.storage.direct.bitbucket])
 
-   ; this project
+   ; document
    #?(:cljs [pinkgorilla.document.component])
+   #?(:clj [pinkgorilla.document.handler])
    #?(:cljs [pinkgorilla.save-dialog.component])
-   #?(:cljs [pinkgorilla.bidi])))
+
+  ; explore   
+   #?(:clj [pinkgorilla.explore.handler :refer [handler-explore-async]])
+   #?(:clj [pinkgorilla.explore.middleware :refer [wrap-api-handler]])
+
+   ; explorer (explore + document)
+   #?(:cljs [pinkgorilla.explorer.events])))
+
+
+
 
 ; ROUTES:
 ; route definitions can be composed with bidi. 
 ; Therefore it does make sense that default route config is
 ; exported here. 
+
 
 (def explorer-routes-ui
   {"explorer"  :ui/explorer
@@ -43,6 +54,29 @@
     ;["" :id]               :bongo  
 
 
+(def config-server
+  {:exclude       #{".git" ".svn"}
+   :roots {:gorilla-notebook "../gorilla-notebook/notebooks"}})
+
+(def config-client
+  {:repositories
+   [{:name "local" :save true :url "/api/explorer"}
+    {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]})
+
+#?(:clj
+   (do
+     (def explore-handler
+       (wrap-api-handler handler-explore-async))
+
+     (def notebook-load-handler
+       (wrap-api-handler pinkgorilla.document.handler/notebook-load-handler))
+
+     (def notebook-save-handler
+       (wrap-api-handler pinkgorilla.document.handler/notebook-save-handler))
+
+    ;
+     ))
+
 (comment
 
   (bidi/path-for explorer-routes-frontend  :ui/explorer)
@@ -52,6 +86,22 @@
   (bidi/path-for explorer-routes-api  :api/explorer)
   (bidi/path-for explorer-routes-api  :api/notebook-load)
   (bidi/path-for explorer-routes-api  :ui/explorer)
+
+       ;TODO : make a unit test with this
+  (def demo-load-request
+    {:headers
+     {"content-type" "application/edn"
+      "accept" "application/transit+json"}
+     :body nil
+     :params {:token nil
+              :storagetype :repo
+              :user "pink-gorilla"
+              :repo "gorilla-ui"
+              :filename "notebooks/videos.cljg"}})
+
+     ;TODO : make a unit test with this
+  (notebook-load-handler demo-load-request)
+       ;
 
   ;
   )

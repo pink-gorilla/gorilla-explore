@@ -1,17 +1,28 @@
 (ns pinkgorilla.document.events
   (:require
+   [taoensso.timbre :refer-macros [debug info]]
    [re-frame.core :refer [reg-event-db reg-event-fx]]
    [ajax.core :as ajax]
-   [taoensso.timbre :refer-macros [debug info]]
-   [pinkgorilla.storage.protocols :refer [storagetype]]
-   [pinkgorilla.bidi :refer [link]]))
+   [bidi.bidi :as bidi]
+   [pinkgorilla.storage.protocols :refer [storagetype]]))
 
 (reg-event-db
- :documents/init
- (fn [db [_]]
+ :document/init
+ (fn [db [_ explorer-routes-api]]
    (let [db (or db {})]
-     (info "document init ..")
-     (assoc db :documents {}))))
+     (info "document init .. " explorer-routes-api)
+     (assoc db :document 
+            {:documents {}
+            :routes explorer-routes-api}))))
+
+
+(defn link [db handler]
+  (info "link: handler:" handler " db: " db)
+  (let [routes (get-in db [:document :routes])
+        _ (info "routes: " routes)
+        url (bidi/path-for routes handler)]
+    (info "bidi link url: " url)
+    url))
 
 ;; Load File (from URL Parameters) - in view or edit mode
 
@@ -22,14 +33,15 @@
  :document/load
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (:secrets db)
-         url  (link :api/notebook-load)
+         url  (link db :api/notebook-load)
          stype (storagetype storage)
          _ (info "loading storage:" stype storage)
          params (assoc storage
                        :storagetype stype ; (keyword (:storagetype storage))
                        :tokens secrets)]
      ;(dispatch [:ga/event :notebook :load])
-     {:db         (assoc-in db [:documents storage] :document/loading) ; notebook view on loading
+     (info "loading :" params)
+     {:db         (assoc-in db [:document :documents storage] :document/loading) ; notebook view on loading
       ;; :ga/event [:notebook-load]
       :http-xhrio {:method          :get
                    :uri             url
@@ -48,7 +60,7 @@
          _ (info "Load Response Error:\n" response-body)
          content (:content response-body)
          _ (info "Content Only:\n" content)]
-     (assoc-in db [:documents storage]
+     (assoc-in db [:document :documents storage]
                {:error response-body}))))
 
 (reg-event-db
@@ -56,7 +68,7 @@
  (fn
    [db [_ storage notebook]]
    (let [_ (debug "Document Load Response:\n" notebook)]
-     (assoc-in db [:documents storage] notebook))))
+     (assoc-in db [:document :documents storage] notebook))))
 
 ;; SAVE File
 

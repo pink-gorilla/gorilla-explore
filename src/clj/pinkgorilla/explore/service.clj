@@ -1,12 +1,13 @@
 (ns pinkgorilla.explore.service
   (:require
+   [taoensso.timbre :refer [debug info error]]
    [clojure.java.io]
    [clojure.core.async :refer [thread]]
    [hawk.core :as hawk]
    [pinkgorilla.explore.file :refer [explore-directory notebook-file? file-info]]))
 
 (defn- explore-dir [excludes [name dir]]
-  (println "exploring notebooks for repo " name " in " dir)
+  (info "exploring notebooks for repo " name " in " dir)
   (->> (explore-directory excludes dir)
        (map #(assoc % :repo name :root-dir dir))
        (vec)))
@@ -26,8 +27,8 @@
        (swap! data assoc :notebooks)))
 
 (defn process-file-change [ctx {:keys [kind file] :as e}]
-  (println "watcher-action: event: " e)
-  (println "watcher-action: context: " ctx)
+  (info "watcher-action: event: " e)
+  (info "watcher-action: context: " ctx)
   (when (notebook-file? file)
     (case kind
       :create (add-notebook file)
@@ -53,9 +54,9 @@
     (thread
       (->> (explore-directories excludes roots)
            (swap! data assoc :notebooks))
-      (println "initial exploration finished: "
-               (count (:notebooks @data)) " notebooks discovered."))
-    (println "starting watcher: "  watch-paths)
+      (info "initial exploration finished: "
+            (count (:notebooks @data)) " notebooks discovered."))
+    (info "starting watcher: "  watch-paths)
     (hawk/watch! {:watcher :polling}
                  [{:paths watch-paths
                    :handler process-file-change}]))

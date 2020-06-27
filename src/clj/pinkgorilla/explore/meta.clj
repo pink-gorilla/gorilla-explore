@@ -1,6 +1,6 @@
 (ns pinkgorilla.explore.meta
   (:require
-   [taoensso.timbre :refer [info error]]
+   [taoensso.timbre :refer [debug info error]]
    [clj-time.core :as t]
    [clj-time.format :as fmt]
    [pinkgorilla.notebook.hydration :refer [notebook-load]]
@@ -16,7 +16,7 @@
   (let [;_ (println "adding meta for entry" entry)
         file-info (split-filename (:filename entry))
         format (:encoding file-info)]
-    (info "format: " format)
+    (debug "format: " format)
     (if-not (= format :gorilla)
       entry
       (let [storage (create-storage entry)
@@ -29,7 +29,7 @@
           (let [meta (if (= (:version nb) 1)
                        {:tags "legacy" :tagline "legacy notebook"}
                        (dissoc (:meta nb) :name :description))] ; ignor previously used :name meta data
-            (info "adding meta data: " meta)
+            (debug "adding meta data: " meta)
             (assoc entry :meta meta)))))))
 
 (defn add-random [tokens entry]

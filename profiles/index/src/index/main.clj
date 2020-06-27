@@ -1,7 +1,7 @@
 (ns index.main
   (:require
    [cheshire.core :as cheshire]
-   [pinkgorilla.explore.default-config] ; side effects
+   [pinkgorilla.explorer.default-config] ; side effects
     ; dependencies needed to be in bundle: 
    [pinkgorilla.explore.db :refer [load-db clear all]]
    [pinkgorilla.explore.discover :refer [discover-github-users]]

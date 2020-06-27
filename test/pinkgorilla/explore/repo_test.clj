@@ -1,6 +1,6 @@
 (ns pinkgorilla.explore.repo-test
   (:require
-   [pinkgorilla.explore.default-config] ;side effects
+   [pinkgorilla.explorer.default-config] ;side effects
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.notebook.hydration :refer [notebook-load]]
    [pinkgorilla.explore.print :refer [print-repo]]

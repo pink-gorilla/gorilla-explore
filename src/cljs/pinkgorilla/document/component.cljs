@@ -7,7 +7,8 @@
    [pinkgorilla.document.events] ; side effects
    [pinkgorilla.document.subscriptions] ; side effects
    [pinkgorilla.meta.view :refer [document-view-meta]]
-   [pinkgorilla.bidi :refer [query-params]]))
+   ;[pinkgorilla.bidi :refer [query-params]]
+   ))
 
 
 (defn err [storage document message]
@@ -19,18 +20,17 @@
      [:p (pr-str (:error document))])
    ])
 
-(defn document-page [document-view]
-  (let [params  @query-params
-        kparams (clojure.walk/keywordize-keys params)
+(defn document-page [params document-view]
+  (let [kparams (clojure.walk/keywordize-keys params)
         _ (info "kw params: " kparams)
         stype (keyword (:source kparams))
         storage (query-params-to-storage stype kparams)
-        document (if storage (subscribe [:document/get storage]))]
-    (println "e/nb! qp: " params)
+        document (when storage (subscribe [:document/get storage]))]
+    (info "qp: " params)
     (when (and storage (not @document))
       (info "loading document storage: " storage)
       (dispatch [:document/load storage]))
-    (fn [document-view]
+    (fn [params document-view]
       [:div
        ;[:h1 "Document Viewer"]
        ;[:p (pr-str params)]

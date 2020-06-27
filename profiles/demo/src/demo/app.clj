@@ -3,12 +3,11 @@
    ;[clojure.tools.logging :refer [info]]
    [taoensso.timbre :as timbre :refer [info]]
    [shadow.cljs.devtools.api :as shadow]
+   [shadow.cljs.devtools.server :as shadow-server]   
     ;; [shadow.cljs.devtools.server.nrepl :as shadow-nrepl]
-   [shadow.cljs.devtools.server :as shadow-server]
-   [pinkgorilla.explore.default-config] ; side effects
+   [pinkgorilla.explorer.default-config :refer [config-server]] ; side effects
    [pinkgorilla.explore.handler :refer [explore-directories-start]]
-   [demo.routes]
-   [demo.config :refer [config-server]]))
+   [demo.routes]))
 
 ;(timbre/set-level! :trace) ; Uncomment for more logging
 ;  (timbre/set-level! :debug)
@@ -23,6 +22,7 @@
   (shadow-server/start!)
   (shadow/watch :demo {:verbose true}))
 
-
 (comment
-  (-main))
+  (-main)
+;  
+  )

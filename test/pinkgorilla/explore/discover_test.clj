@@ -1,7 +1,7 @@
 (ns pinkgorilla.explore.discover-test
   (:require
    [cheshire.core :refer :all]
-   [pinkgorilla.explore.default-config] ;side effects
+   [pinkgorilla.explorer.default-config] ;side effects
    [pinkgorilla.explore.db :refer [clear all]]
    [pinkgorilla.explore.discover :refer [discover-github-users]]
    [pinkgorilla.creds :refer [creds]]))

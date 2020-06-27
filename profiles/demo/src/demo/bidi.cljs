@@ -1,18 +1,17 @@
-(ns pinkgorilla.bidi
+(ns demo.bidi
   (:require
-   [cemerick.url :as url]
+   [taoensso.timbre :refer-macros [debug info error]]
    [reagent.core :as r]
    [re-frame.core :refer [reg-event-db reg-event-fx]]
-   [taoensso.timbre :refer-macros [debug info error]]
    [bidi.bidi :as bidi]
    [pushy.core :as pushy]
-   [pinkgorilla.storage.protocols :refer [gorilla-path]]))
+   [cemerick.url :as url]))
 
 ; query param handling
 ; bidi does not handle query params
 ; idea how to solve the problem:
 ; https://github.com/juxt/bidi/issues/51
- #_(defn match-route-with-query-params
+#_(defn match-route-with-query-params
     [route path & {:as options}]
     (let [query-params (->> (:query (cemerick.url/url path))
                             (map (fn [[k v]] [(keyword k) v]))
@@ -37,6 +36,7 @@
 
 (defn set-initial-query-params []
   (let [params (window-query-params)]
+    (info "initial query params: " params)
     (set-query-params params)))
 
 ; bidi routing
@@ -90,16 +90,15 @@
         (pushy/set-token! history url))
       (pushy/set-token! history (link handler)))))
 
-(defn subs2 [s start]
-  (.substring s start (count s)))
-
-(defn goto-notebook! [notebook]
-  (let [storage (:storage notebook)
-        query-params (gorilla-path storage)
-        query-params (url/query->map (subs2 query-params 1))
-        _ (info "query params: " query-params)]
-    (goto! :ui/notebook query-params)))
-
+(reg-event-fx
+ :bidi/goto
+ (fn [_ [_ handler & params]]
+   (info "bidi goto handler: " handler " query-params: " params)
+   (if (> (count params) 0)
+     (do (info "p: "  (concat [handler] params))
+         (apply goto! (concat [handler] params)))
+     (do (info "goto! no-qp")
+         (goto! handler)))))
 
 (comment
 

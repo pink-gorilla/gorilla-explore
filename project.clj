@@ -16,7 +16,8 @@
                   ["vcs" "push"]]
 
   :target-path  "target/jar"
-  :source-paths ["src/clj"] ; "test"
+  :source-paths ["src/clj"
+                 "src/cljc"] ; "test"
   ;:test-paths ["test"]
   :resource-paths  ["resources" ; not from npm
                     #_"target/node_modules"] ; css png resources from npm modules
@@ -41,8 +42,17 @@
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
+                 ; routing
+                 [bidi "2.1.6"]
+                 [clj-commons/pushy "0.3.10"]
+                 ; middleware for handler for documet/explore
+                 [metosin/muuntaja "0.6.7"] ; 30x faster than ring-middleware-format
+                 [ring/ring-core "1.8.1"]
+                 [ring/ring-defaults "0.3.2"
+                  :exclusions [javax.servlet/servlet-api]]
+                 ; pinkgorilla
                  [org.pinkgorilla/notebook-encoding "0.1.2"] ; notebook encoding
-                 [bidi "2.1.6"]]
+                 ]
 
 
   :profiles {:index {; rebuilds the index
@@ -65,12 +75,9 @@
                                     [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
                                     [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
 
-                                    [clj-commons/pushy "0.3.10"]
-                                    [ring/ring-core "1.8.1"]
-                                    [ring/ring-defaults "0.3.2"
-                                     :exclusions [javax.servlet/servlet-api]]
-                                    [ring-middleware-format "0.7.4"] ; replaced by muuntaja
-                                    [metosin/muuntaja "0.6.7"] ; 30x faster than ring-middleware-format
+
+
+                                    ;[ring-middleware-format "0.7.4"] ; replaced by muuntaja
                                     [ring/ring-json "0.5.0"]
                                     [bk/ring-gzip "0.3.0"] ; from oz
                                     [clj-http "3.10.1"]
@@ -93,7 +100,7 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
-  :plugins [[lein-shell "0.5.0"]
+  :plugins [; [lein-shell "0.5.0"]
             [lein-ancient "0.6.15"]]
 
   :aliases {"bump-version"
@@ -102,8 +109,8 @@
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
 
-            "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "cljs" "shell" "shadow-cljs" "watch" "demo"]
+            ; "demo-frontend"  ^{:doc "Runs UI components via webserver."}
+            ; ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "demo"]
 
-            "demo2"  ^{:doc "Runs UI components via webserver."}
+            "demo"  ^{:doc "Runs UI components via webserver."}
             ["with-profile" "demo" "run" "-m" "demo.app"]})

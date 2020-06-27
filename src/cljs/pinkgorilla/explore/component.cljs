@@ -4,8 +4,7 @@
    [pinkgorilla.explore.sidebar :refer [sidebar]]
    [pinkgorilla.explore.notebook :refer [notebook-box]]
    [pinkgorilla.explore.subscriptions] ; side effects
-   [pinkgorilla.explore.events] ; side effects
-   ))
+   [pinkgorilla.explore.events])) ; side effects
 
 ;; new version:
 ;; https://github.com/braveclojure/open-source-2/blob/master/src/frontend/open_source/components/project/list.cljs
