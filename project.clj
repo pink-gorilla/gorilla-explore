@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-explore "0.2.8-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-explore "0.2.8"
   :description "Explore PinkGorilla notebooks (private and public) on github."
   :url "https://github.com/pink-gorilla/gorilla-explore"
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
