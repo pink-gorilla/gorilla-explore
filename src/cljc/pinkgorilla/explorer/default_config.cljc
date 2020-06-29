@@ -35,9 +35,10 @@
 
 
 (def explorer-routes-ui
-  {"explorer"  :ui/explorer
-   "notebook"  :ui/notebook
-   "demo/save" :demo/save})
+  {"explorer"     :ui/explorer
+   "notebook"     :ui/notebook
+   "notebook/new" :ui/notebook-new
+   "demo/save"    :demo/save})
 
 (def explorer-routes-frontend
   ["/" explorer-routes-ui])
