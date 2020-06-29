@@ -1,8 +1,9 @@
 # Ping Gorilla Explore [![GitHub Actions status |pink-gorilla/gorilla-explore](https://github.com/pink-gorilla/gorilla-explore/workflows/CI/badge.svg)](https://github.com/pink-gorilla/gorilla-explore/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/org.pinkgorilla/gorilla-explore.svg)](https://clojars.org/org.pinkgorilla/gorilla-explore)
 
 
-- Tools to explore (and load) the universe of Pink Gorilla documents.
 - This project is used in [Notebook](https://github.com/pink-gorilla/gorilla-notebook) and [Goldly](https://github.com/pink-gorilla/goldly).
+- Tools to explore (and load) the universe of Pink Gorilla notebooks.
+
 
 
 # notebook index
