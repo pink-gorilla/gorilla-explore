@@ -4,7 +4,10 @@
    [re-frame.core :refer [reg-event-db reg-event-fx]]
    [ajax.core :as ajax]
    [bidi.bidi :as bidi]
-   [pinkgorilla.storage.protocols :refer [storagetype]]))
+   [pinkgorilla.storage.protocols :refer [storagetype]]
+   [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
+   [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
+   [pinkgorilla.notebook.template :refer [create-new-worksheet]]))
 
 (reg-event-db
  :document/init
@@ -23,10 +26,22 @@
     (info "bidi link url: " url)
     url))
 
+(reg-event-db
+ :document/create
+ (fn [db [_ id]]
+   (let [;id (make-hip-nsname)
+         _ (info "creating document:" id)
+         storage (StorageUnsaved. id)
+         document (create-new-worksheet id)]
+     (assoc-in db [:document :documents storage] document))))
+
+
+
 ;; Load File (from URL Parameters) - in view or edit mode
 
 ;; http://localhost:3449/worksheet.html#/view?source=github&user=JonyEpsilon&repo=gorilla-test&path=ws/graph-examples.clj
 ;; http://localhost:3449/worksheet.html#/view?source=gist&id=2c210794185e9d8c0c80564db581b136&filename=new-render.clj
+
 
 (reg-event-fx
  :document/load

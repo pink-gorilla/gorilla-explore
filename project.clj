@@ -61,7 +61,7 @@
                  [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.2"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.3"] ; notebook encoding
                  ]
 
 
