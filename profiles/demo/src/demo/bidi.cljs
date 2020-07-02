@@ -45,7 +45,7 @@
 (def routes (r/atom nil))
 
 (defn bidi-goto! [match]
-  (info "setting page to: " match)
+  (info "setting current page to: " match)
   (reset! current match))
 
 (defn on-url-change [path & options]

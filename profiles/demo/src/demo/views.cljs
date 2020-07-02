@@ -1,6 +1,7 @@
 (ns demo.views
   (:require
    [taoensso.timbre :as timbre :refer [debug info warn error]]
+   [pinkgorilla.ui.ui.dialog :refer [modal-container]]
    [pinkgorilla.explore.component :refer [notebook-explorer]]
    [pinkgorilla.document.component :refer [document-page]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]
@@ -21,11 +22,12 @@
 
 (defn open-notebook [nb]
   (info "load-notebook-click" nb)
-  (goto-notebook! nb))
+  (goto-notebook! (:storage nb)))
 
 (defn app []
   [:div
    [:link {:rel "stylesheet" :href "/tailwindcss/dist/tailwind.css"}]
+   [modal-container]
    ;[:h1 "explorer-ui"]
    ;[:p (str "route: " (pr-str @current))]
    (case (:handler @current)

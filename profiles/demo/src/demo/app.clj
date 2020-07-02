@@ -1,6 +1,5 @@
 (ns demo.app
   (:require
-   ;[clojure.tools.logging :refer [info]]
    [taoensso.timbre :as timbre :refer [info]]
    [shadow.cljs.devtools.api :as shadow]
    [shadow.cljs.devtools.server :as shadow-server]   

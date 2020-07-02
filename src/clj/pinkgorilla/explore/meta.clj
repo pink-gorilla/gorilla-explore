@@ -3,9 +3,8 @@
    [taoensso.timbre :refer [debug info error]]
    [clj-time.core :as t]
    [clj-time.format :as fmt]
-   [pinkgorilla.notebook.hydration :refer [notebook-load]]
-   [pinkgorilla.storage.protocols :refer [determine-encoding]]
-   [pinkgorilla.storage.filename-encoding :refer [split-filename decode-storage-using-filename]]
+   [pinkgorilla.notebook.hydration :refer [load-notebook]]
+   [pinkgorilla.storage.filename-encoding :refer [split-filename]]
    [pinkgorilla.storage.protocols :refer [create-storage]]))
 
 (defn random-edit-date []
@@ -21,7 +20,7 @@
       entry
       (let [storage (create-storage entry)
             ; notebook (decode encoding-type content)[
-            nb (notebook-load storage tokens)
+            nb (load-notebook storage tokens)
             ;_ (info "loading notebook " storage)
             ]
         (if (nil? nb)

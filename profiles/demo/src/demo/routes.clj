@@ -1,6 +1,6 @@
 (ns demo.routes
   (:require
-   [clojure.tools.logging :refer [trace debug info]]
+   [taoensso.timbre :as timbre :refer [trace debug info warn error]]
    [bidi.ring]
    [pinkgorilla.explorer.default-config
     :refer [explorer-routes-api

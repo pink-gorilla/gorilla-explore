@@ -4,8 +4,6 @@
   (:require
    [clojure.string :as str]
    [clojure.java.io]
-   ;[pinkgorilla.storage.protocols :as storage]
-   ;[pinkgorilla.storage.file]
    [pinkgorilla.explore.meta :refer [add-meta]]))
 
 ;; File is Notebook Format ??

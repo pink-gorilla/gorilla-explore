@@ -47,7 +47,7 @@
     storage))
 
 (defn storage-type [state change!]
-  [:div.m-2
+  [:div.m-2.w-16
    [:p "Storage"]
    [radio-button
     :label       "file"
@@ -66,7 +66,7 @@
     :on-change   #(change! :storage-type %)]])
 
 (defn storage-format [state change!]
-  [:div.m-2
+  [:div.m-2.w-24
    [:p "Format"]
    [radio-button
     :label       "gorilla"
@@ -154,9 +154,9 @@
     (let [storage-seq (into {} storage)
           file-info (split-filename (:filename storage-seq))]
       {:filename (:full file-info)
-       :format (:encoding file-info)
-       :name (:name file-info)
-       :path (:path file-info)})
+       :format (or (:encoding file-info) :gorilla)
+       :name (or (:name file-info) "")
+       :path (or (:path file-info) "")})
     {}))
 
 (defn save-dialog
@@ -168,7 +168,7 @@
         check-key (fn [form keycode]
                     (case keycode
                       27 (on-cancel) ; ESC
-                      13 (on-save form)   ; Enter
+                      13 (on-save storage (make-storage @state))   ; Enter
                       nil))]
     (fn [{:keys [on-cancel on-save]}]
       [:div.bg-blue-300.m-5.border-solid.inline-block
@@ -186,5 +186,5 @@
          {:on-click #(on-cancel)}
          "Cancel"]
         [:div.bg-green-700.m-2.w-16.p-1.text-center
-         {:on-click #(on-save (make-storage @state))}
+         {:on-click #(on-save storage (make-storage @state))}
          "Save"]]])))

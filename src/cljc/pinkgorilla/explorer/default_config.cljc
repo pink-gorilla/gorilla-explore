@@ -23,7 +23,8 @@
    #?(:clj [pinkgorilla.explore.middleware :refer [wrap-api-handler]])
 
    ; explorer (explore + document)
-   #?(:cljs [pinkgorilla.explorer.events])))
+   #?(:cljs [pinkgorilla.explorer.events])
+   #?(:cljs [pinkgorilla.save-dialog.events])))
 
 
 
