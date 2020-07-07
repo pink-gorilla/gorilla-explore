@@ -71,32 +71,3 @@
 
     ;
      ))
-
-(comment
-
-  (bidi/path-for explorer-routes-frontend  :ui/explorer)
-  (bidi/path-for explorer-routes-frontend  :ui/notebook)
-  (bidi/path-for explorer-routes-frontend  :ui/unknown)
-
-  (bidi/path-for explorer-routes-api  :api/explorer)
-  (bidi/path-for explorer-routes-api  :api/notebook-load)
-  (bidi/path-for explorer-routes-api  :ui/explorer)
-
-       ;TODO : make a unit test with this
-  (def demo-load-request
-    {:headers
-     {"content-type" "application/edn"
-      "accept" "application/transit+json"}
-     :body nil
-     :params {:token nil
-              :storagetype :repo
-              :user "pink-gorilla"
-              :repo "gorilla-ui"
-              :filename "notebooks/videos.cljg"}})
-
-     ;TODO : make a unit test with this
-  (notebook-load-handler demo-load-request)
-       ;
-
-  ;
-  )

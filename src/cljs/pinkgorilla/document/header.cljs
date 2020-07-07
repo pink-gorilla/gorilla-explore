@@ -28,6 +28,18 @@
     [:div.bg-blue-100.flex.flex-row.justify-between.w-100 ; screen
      ;left-col
      [:div
+      [:a {:on-click #(dispatch [:bidi/goto :ui/explorer])
+           :class "hover:text-blue-700"}
+       [:i.fa.fa-th-large.fa-lg.pl-1]]
+
+      [:a {:on-click #(dispatch [:document/new])
+           :class "hover:text-blue-700"}
+       [:i.fa.fa-plus.fa-lg.pl-1]]
+
+      [:a {:on-click #(dispatch [:document/save storage])
+           :class "hover:text-blue-700"}
+       [:i.fa.fa-save.fa-lg.pl-1]]
+
       [:span.m-2.border.border-solid (storagetype storage)]
       [:span.m-2.text-xl (determine-name storage)] ; (:name file-info)]
       [:span.m-2.italic [tagline storage meta]]]
@@ -35,16 +47,16 @@
      [:div ; .pl-5
       [:div.inline-block.m-1 [tag-box-meta meta]]
       [:span.m-2 (:path file-info)]
-      [:span.border-solid.border.round.hover:bg-green-400.m-2
-       {:on-click #(dispatch [:document/save storage])}
-       "save"]
-      [:span.border-solid.border.round.hover:bg-green-400.m-2
-       {:on-click #(dispatch [:document/new])}
-       "new"]]]))
+      #_[:span.border-solid.border.round.hover:bg-green-400.m-2
+         {:on-click #(dispatch [:document/save storage])}
+         "save"]
+      #_[:span.border-solid.border.round.hover:bg-green-400.m-2
+         {:on-click #(dispatch [:document/new])}
+         "new"]]]))
 
 (defn document-view-with-header [storage document document-view]
   (let [file-info (split-filename (:filename storage))
         _ (debug "nb file-info: " file-info)]
-    [:div ; .w-screen
+    [:div.w-screen.h-screen.flex.flex-col.overflow-hidden
      [header file-info document storage]
      [document-view storage document]]))

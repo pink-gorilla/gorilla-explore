@@ -100,17 +100,13 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
-  :plugins [; [lein-shell "0.5.0"]
-            [lein-ancient "0.6.15"]]
+  :plugins [[lein-ancient "0.6.15"]]
 
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
-
-            ; "demo-frontend"  ^{:doc "Runs UI components via webserver."}
-            ; ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "demo"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
             ["with-profile" "demo" "run" "-m" "demo.app"]})

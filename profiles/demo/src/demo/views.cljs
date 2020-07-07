@@ -1,6 +1,7 @@
 (ns demo.views
   (:require
    [taoensso.timbre :as timbre :refer [debug info warn error]]
+   [pinkgorilla.ui.config :refer [link-css]]
    [pinkgorilla.ui.ui.dialog :refer [modal-container]]
    [pinkgorilla.bidi.routes :refer [goto! current query-params]]
    [pinkgorilla.explore.component :refer [notebook-explorer]]
@@ -11,7 +12,7 @@
 (defn document-view-dummy [storage document]
   [:div
 
-   [:div.m-3.bg-blue-300
+   #_[:div.m-3.bg-blue-300
     [:a {:on-click #(goto! :ui/explorer)}
      "explorer"]]
 
@@ -38,7 +39,8 @@
 
 (defn app []
   [:div
-   [:link {:rel "stylesheet" :href "/tailwindcss/dist/tailwind.css"}]
+   [link-css "tailwindcss/dist/tailwind.css"]
+   [link-css "@fortawesome/fontawesome-free/css/all.min.css"]
    [modal-container]
    ;[:h1 "explorer-ui"]
    ;[:p (str "route: " (pr-str @current))]
@@ -47,7 +49,6 @@
      :ui/notebook [document-page @query-params document-view-dummy]
      :demo/main [main]
      :demo/save [save-dialogs]
-     [not-found]
-     )])
+     [not-found])])
 
 
