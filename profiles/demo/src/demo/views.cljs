@@ -2,11 +2,11 @@
   (:require
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    [pinkgorilla.ui.ui.dialog :refer [modal-container]]
+   [pinkgorilla.bidi.routes :refer [goto! current query-params]]
    [pinkgorilla.explore.component :refer [notebook-explorer]]
    [pinkgorilla.document.component :refer [document-page]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]
-   [demo.save-dialog-demo :refer [save-dialogs]]
-   [demo.bidi :refer [goto! current query-params]]))
+   [demo.save-dialog-demo :refer [save-dialogs]]))
 
 (defn document-view-dummy [storage document]
   [:div
@@ -24,6 +24,18 @@
   (info "load-notebook-click" nb)
   (goto-notebook! (:storage nb)))
 
+
+(defn main []
+  [:div
+   [:h1 "demo - explorer"]
+   [:a.bg-green-300 {:href "/explorer"} "explorer"]
+   [:a.bg-red-300 {:href "/demo/save"} "save-as dialog demo"]])
+
+(defn not-found []
+  [:div
+   [:h1 "route handler not found: "]
+   [:p @current]])
+
 (defn app []
   [:div
    [:link {:rel "stylesheet" :href "/tailwindcss/dist/tailwind.css"}]
@@ -33,10 +45,9 @@
    (case (:handler @current)
      :ui/explorer [notebook-explorer open-notebook]
      :ui/notebook [document-page @query-params document-view-dummy]
+     :demo/main [main]
      :demo/save [save-dialogs]
-     ;  :system [system (:system-id route-params)]
-     [:div
-      [:h1 "route handler not found: "]
-      [:p @current]])])
+     [not-found]
+     )])
 
 

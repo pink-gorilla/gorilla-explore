@@ -13,6 +13,8 @@
    #?(:cljs [pinkgorilla.storage.direct.bitbucket])
    #?(:cljs [pinkgorilla.storage.unsaved])
 
+   #?(:cljs [pinkgorilla.bidi.events])
+
    ; document
    #?(:cljs [pinkgorilla.document.component])
    #?(:clj [pinkgorilla.document.handler])
@@ -26,29 +28,19 @@
    #?(:cljs [pinkgorilla.explorer.events])
    #?(:cljs [pinkgorilla.save-dialog.events])))
 
-
-
-
 ; ROUTES:
 ; route definitions can be composed with bidi. 
 ; Therefore it does make sense that default route config is
 ; exported here. 
 
-
 (def explorer-routes-ui
   {"explorer"     :ui/explorer
-   "notebook"     :ui/notebook
-   "notebook/new" :ui/notebook-new
-   "demo/save"    :demo/save})
-
-(def explorer-routes-frontend
-  ["/" explorer-routes-ui])
+   "notebook"     :ui/notebook})
 
 (def explorer-routes-api
-  ["" {"/" explorer-routes-ui
-       "/api/" {"explorer"  {:get  :api/explorer}
-                "notebook"  {:get  :api/notebook-load
-                             :post :api/notebook-save}}}])
+  {"/api/" {"explorer"  {:get  :api/explorer}
+            "notebook"  {:get  :api/notebook-load
+                         :post :api/notebook-save}}})
 
     ;"section-a"            {"" :section-a
     ;                        ["/item-" :item-id] :a-item}

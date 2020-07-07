@@ -9,7 +9,7 @@
 
 (reg-event-fx
  :explorer/init
- (fn [_ [_ config explorer-routes-api]]
+ (fn [_ [_ config]]
    (info "explorer init ..")
    (dispatch [:explore/init config])
-   (dispatch [:document/init explorer-routes-api])))
+   (dispatch [:document/init])))

@@ -3,8 +3,8 @@
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.save-dialog.component :refer [save-dialog]]))
 
-(defn on-save [data]
-  (js/alert (pr-str data)))
+(defn on-save [storage-old storage-new]
+  (js/alert (pr-str storage-new)))
 
 (defn on-cancel [data]
   (js/alert "cancel!"))

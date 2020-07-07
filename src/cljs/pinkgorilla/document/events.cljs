@@ -3,30 +3,20 @@
    [taoensso.timbre :refer-macros [debug info error]]
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
    [ajax.core :as ajax]
-   [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storagetype gorilla-path]]
    [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
    [pinkgorilla.notebook.hydration :refer [hydrate]]
+   [pinkgorilla.bidi.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 (reg-event-db
  :document/init
- (fn [db [_ explorer-routes-api]]
+ (fn [db [_]]
    (let [db (or db {})]
-     (info "document init .. " explorer-routes-api)
-     (assoc db :document
-            {:documents {}
-             :routes explorer-routes-api}))))
-
-(defn link [db handler]
-  (info "link for handler:" handler)
-  (let [routes (get-in db [:document :routes])
-        ; _ (info "routes: " routes)
-        url (bidi/path-for routes handler)]
-    (info "bidi link url: " url)
-    url))
+     (info "document init .. ")
+     (assoc db :document {:documents {}}))))
 
 ;; Load File (from URL Parameters) - in view or edit mode
 
@@ -37,7 +27,7 @@
  :document/load
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (get-secrets db)
-         url  (link db :api/notebook-load)
+         url  (link :api/notebook-load)
          storage-type (storagetype storage)
          _ (info "loading storage:" storage-type storage)
          params (assoc storage
@@ -79,7 +69,7 @@
  :document/save
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (get-secrets db)
-         url  (link db :api/notebook-save)
+         url  (link :api/notebook-save)
          storage-type (storagetype storage)
          _ (info "notebook saving to storage " storage-type)
          notebook (get-in db [:document :documents storage])

@@ -16,9 +16,10 @@
                   ["vcs" "push"]]
 
   :target-path  "target/jar"
+  
   :source-paths ["src/clj"
                  "src/cljc"
-                 "src/cljs" ; cljshas to go into jar too.
+                 "src/cljs" ; cljs has to go into jar too.
 ] ; "test"
   ;:test-paths ["test"]
   :resource-paths  ["resources" ; not from npm

@@ -1,8 +1,7 @@
-(ns demo.bidi
+(ns pinkgorilla.bidi.routes
   (:require
    [taoensso.timbre :refer-macros [debug info error]]
    [reagent.core :as r]
-   [re-frame.core :refer [reg-event-db reg-event-fx]]
    [bidi.bidi :as bidi]
    [pushy.core :as pushy]
    [cemerick.url :as url]))
@@ -59,20 +58,8 @@
 (def history
   (pushy/pushy bidi-goto! on-url-change))
 
-(reg-event-db
- :bidi/init
- (fn [db [_ new-routes]]
-   (info "bidi init ..")
-   (reset! routes new-routes)
-   (info "bidi routes are: " new-routes)
-   (let [db (or db {})]
-     (info "starting pushy")
-     (pushy/start! history) ; link url => state
-     (set-initial-query-params)
-     db)))
-
 (defn link [handler]
-  (info "link for: " handler)
+  (info "link for handler: " handler)
   (let [url (bidi/path-for @routes handler)]
     (info "bidi link url: " url)
     url))
@@ -89,16 +76,6 @@
         (set-query-params qp)
         (pushy/set-token! history url))
       (pushy/set-token! history (link handler)))))
-
-(reg-event-fx
- :bidi/goto
- (fn [_ [_ handler & params]]
-   (info "bidi goto handler: " handler " query-params: " params)
-   (if (> (count params) 0)
-     (do (info "p: "  (concat [handler] params))
-         (apply goto! (concat [handler] params)))
-     (do (info "goto! no-qp")
-         (goto! handler)))))
 
 (comment
 
