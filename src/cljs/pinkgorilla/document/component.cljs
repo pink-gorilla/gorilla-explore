@@ -6,9 +6,7 @@
    [pinkgorilla.storage.protocols :refer [query-params-to-storage]]
    [pinkgorilla.document.events] ; side effects
    [pinkgorilla.document.subscriptions] ; side effects
-   [pinkgorilla.document.header :refer [document-view-with-header]]
-   ;[pinkgorilla.bidi :refer [query-params]]
-   ))
+   [pinkgorilla.document.header :refer [document-view-with-header]]))
 
 (defn err [storage document message]
   [:div.m-6.p-6.bg-blue-300.border-solid

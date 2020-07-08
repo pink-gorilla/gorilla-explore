@@ -59,4 +59,5 @@
         _ (debug "nb file-info: " file-info)]
     [:div.w-screen.h-screen.flex.flex-col.overflow-hidden
      [header file-info document storage]
-     [document-view storage document]]))
+     [:div.h-full.overflow-y-scroll.overflow-x-hidden ; .overflow-scroll
+      [document-view storage document]]]))
