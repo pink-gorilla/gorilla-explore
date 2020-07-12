@@ -31,7 +31,7 @@
                          [com.cognitect/transit-clj "1.0.324"]
                          [com.cognitect/transit-java "1.0.343"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.8"]
+  :dependencies [[org.pinkgorilla/webly "0.0.9"]
 
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
@@ -58,7 +58,7 @@
                  ; pinkgorilla
 
                  [org.pinkgorilla/notebook-encoding "0.1.7"] ; notebook encoding
-                 [org.pinkgorilla/gorilla-ui "0.2.23"] ; modal dialog
+                 [org.pinkgorilla/gorilla-ui "0.2.24"] ; modal dialog
                  ]
 
 
