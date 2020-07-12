@@ -8,7 +8,7 @@
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
    [pinkgorilla.notebook.hydration :refer [hydrate]]
-   [pinkgorilla.bidi.routes :refer [link]]
+   [webly.web.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 (reg-event-db

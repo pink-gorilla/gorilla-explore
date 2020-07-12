@@ -2,27 +2,20 @@
   (:require
    [reagent.dom]
    [taoensso.timbre :as timbre :refer [info]]
-   [re-frame.core :refer [dispatch-sync]]
-   [pinkgorilla.ui.config :refer [set-prefix!]]
+   [re-frame.core :refer [dispatch-sync]]   
+   [webly.web.app]
+   [webly.config :refer [webly-config]]
    [pinkgorilla.explorer.default-config :refer [config-client]] ;; side-effects
-   [demo.routes :refer [demo-routes-api]] ; side effects
-   [demo.views :refer [app]]))
-
-(enable-console-print!)
-
-;(timbre/set-level! :trace) ; Uncomment for more logging
-;  (timbre/set-level! :debug)
-(timbre/set-level! :info)
-
-(set-prefix! "/")
-
-(defn stop []
-  (info "demo Stopping..."))
+   [demo.routes :refer [demo-routes-backend]]
+   [demo.views] ; side-effects
+   ))
 
 (defn ^:export start []
-  (info "demo starting ..")
-  (dispatch-sync [:bidi/init demo-routes-api])
+  (swap! webly-config assoc :timbre-loglevel :debug)
+  (info "explorer demo starting ..")
   (dispatch-sync [:explorer/init config-client])
-  (reagent.dom/render [app]
-                      (.getElementById js/document "app")))
+  (webly.web.app/start demo-routes-backend)
+  (webly.web.app/mount-app))
+
+
 

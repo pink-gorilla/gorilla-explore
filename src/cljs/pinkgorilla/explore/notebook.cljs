@@ -42,7 +42,7 @@
        (tagline (:meta notebook))]]
 
      [:div.flex.items-center
-      [:img {:class "w-10 h-10 bg-white rounded-full mr-4" :src "./pink-gorilla-32.png" :alt "Avatar"}]
+      [:img {:class "w-10 h-10 bg-white rounded-full mr-4" :src "/r/pink-gorilla-32.png" :alt "Avatar"}]
       [:div.text-sm.mr-4
        [:p.text-white.leading-none (:user notebook)]
        [:p.text-gray-600 (:edit-date notebook)]]

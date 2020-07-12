@@ -16,18 +16,26 @@
                   ["vcs" "push"]]
 
   :target-path  "target/jar"
-  
+
   :source-paths ["src/clj"
                  "src/cljc"
-                 "src/cljs" ; cljs has to go into jar too.
-] ; "test"
+                 "src/cljs"] ; cljs has to go into jar too.
+  ; "test"
   ;:test-paths ["test"]
   :resource-paths  ["resources" ; not from npm
                     #_"target/node_modules"] ; css png resources from npm modules
 
-  :dependencies [[org.clojure/clojure "1.10.1"]
+  :managed-dependencies [[joda-time "2.9.9"]
+                         [clj-time "0.14.3"]
+                         [com.fasterxml.jackson.core/jackson-core "2.11.0"]
+                         [com.cognitect/transit-clj "1.0.324"]
+                         [com.cognitect/transit-java "1.0.343"]]
+
+  :dependencies [[org.pinkgorilla/webly "0.0.8"]
+
+                 [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
-                 [org.clojure/tools.cli "1.0.194"]
+                 ;[org.clojure/tools.cli "1.0.194"]
                  [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
@@ -38,32 +46,19 @@
                  [throttler "1.0.0" ; api rate-limits ; has very old core.async
                   :exclusions  [[org.clojure/clojure]
                                 [org.clojure/core.async]]]
-                 ;[org.pinkgorilla/throttler "1.0.2"] ; throtteling
                  [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-                 ; routing
-                 [bidi "2.1.6"]
-                 [clj-commons/pushy "0.3.10"]
-                 ; middleware for handler for documet/explore
-                 [metosin/muuntaja "0.6.7"] ; 30x faster than ring-middleware-format
-                 [ring/ring-core "1.8.1"]
-                 [ring/ring-defaults "0.3.2"
-                  :exclusions [javax.servlet/servlet-api]]
-                 ; frontend
-                 [reagent "0.10.0"
-                  :exclusions [org.clojure/tools.reader
-                               cljsjs/react
-                               cljsjs/react-dom]]
-                 [re-frame "0.10.9"]
+
                  [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
                  [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
+
                  [org.pinkgorilla/notebook-encoding "0.1.7"] ; notebook encoding
-                 [org.pinkgorilla/gorilla-ui "0.2.22"] ; modal dialog
+                 [org.pinkgorilla/gorilla-ui "0.2.23"] ; modal dialog
                  ]
 
 
@@ -71,18 +66,10 @@
                      :main ^:skip-aot index.main
                      :source-paths ["profiles/index/src" "test"]}
 
-             :demo  {:source-paths ["src/cljs"
-                                    "profiles/demo/src"
+             :demo  {:source-paths ["profiles/demo/src"
                                     "test"]
-                     :dependencies [[org.clojure/clojure "1.10.1"]
-                                   ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                    [thheller/shadow-cljs "2.8.81"]
-                                    [thheller/shadow-cljsjs "0.0.21"]
-                                    [org.clojure/clojurescript "1.10.773"]
-                                    ;[ring-middleware-format "0.7.4"] ; replaced by muuntaja
-                                    ;[ring/ring-json "0.5.0"]
-                                    ;[bk/ring-gzip "0.3.0"] ; from oz
-                                    ]}
+                     :resource-paths ["target/webly" ; bundle
+                                      ]}
 
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
@@ -108,5 +95,12 @@
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
 
+            ; this will be removed when shadow package.json issue is resolved.
+            "build-shadow-ci"  ^{:doc "compiles bundle"}
+            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "demo"]
+
+            "build"  ^{:doc "compiles bundle via webly"}
+            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+dev" "demo.app/handler" "demo.app"]
+
             "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "demo" "run" "-m" "demo.app"]})
+            ["with-profile" "+demo" "run" "-m" "demo.app"]})
