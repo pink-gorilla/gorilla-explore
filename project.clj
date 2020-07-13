@@ -57,7 +57,7 @@
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
 
-                 [org.pinkgorilla/notebook-encoding "0.1.7"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.9"] ; notebook encoding
                  [org.pinkgorilla/gorilla-ui "0.2.24"] ; modal dialog
                  ]
 
