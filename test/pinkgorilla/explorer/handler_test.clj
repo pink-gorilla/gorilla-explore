@@ -1,30 +1,51 @@
 (ns pinkgorilla.explorer.handler-test
   (:require
-   [bidi.bidi :as bidi]))
+   [clojure.test :refer [deftest is testing]]
+   [ring.mock.request :refer [request json-body] :rename {request mock-request}]
+   [bidi.bidi :as bidi]
+   [webly.web.handler :refer [make-handler]]
+   [pinkgorilla.explorer.default-config :refer [explorer-routes-api]]
+   [pinkgorilla.explorer.handler] ; side-effects
+   ))
+
+(def routes-backend
+  ["/api/" explorer-routes-api])
+
+(def routes-frontend
+  ["/" :demo/main])
+
+(def handler (make-handler routes-backend routes-frontend))
+
+(defn GET [url]
+  (handler (mock-request :get url)))
+
+(defn POST [url data]
+  (handler (-> (mock-request :post url)
+               (json-body data))))
+
+(defn content-type [res]
+  (get-in res [:headers "Content-Type"]))
+
+(def load-notebook-data
+  {:notebook    ";; gorilla-repl.fileformat = 2\n"
+   :storagetype "file"
+   :storage-params {:filename "target/test-save.cljg"}})
+
+(deftest save-notebook []
+  (let [response (POST "/api/notebook" load-notebook-data)
+        _ (println response)]
+    (is (= "application/json; charset=utf-8" (content-type response)))
+    (is (= 200 (:status response)))))
 
 (comment
-  (bidi/path-for demo-routes-api :demo/main)
-  (bidi/path-for demo-routes-api :ui/explorer)
-  (bidi/path-for demo-routes-api :ui/notebook)
+  (bidi/path-for routes-api :demo/main)
   (bidi/path-for demo-routes-api :ui/unknown)
 
-  (bidi/path-for demo-routes-api :api/explorer)
-  (bidi/path-for demo-routes-api  :api/notebook-load)
-
   (bidi.bidi/match-route demo-routes-api "/explorer")
-  (bidi.bidi/match-route demo-routes-api "/api/explorer" :request-method :get)
+  (bidi.bidi/match-route routes-backend "/api/explorer" :request-method :get)
 
        ;TODO : make a unit test with this
-  (def demo-load-request
-    {:headers
-     {"content-type" "application/edn"
-      "accept" "application/transit+json"}
-     :body nil
-     :params {:token nil
-              :storagetype :repo
-              :user "pink-gorilla"
-              :repo "gorilla-ui"
-              :filename "notebooks/videos.cljg"}})
+
 
        ;TODO : make a unit test with this
   (notebook-load-handler demo-load-request)

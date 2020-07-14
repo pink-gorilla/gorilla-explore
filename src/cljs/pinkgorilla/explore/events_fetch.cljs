@@ -2,7 +2,7 @@
   "load list of explored notebooks"
   (:require
    [taoensso.timbre :as timbre :refer-macros [debug info error]]
-   [re-frame.core :refer [reg-event-db reg-event-fx]]
+   [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
    [day8.re-frame.http-fx]
    [ajax.core :as ajax]
    [pinkgorilla.storage.protocols :refer [create-storage]]))
@@ -22,9 +22,10 @@
  :explorer/fetch-error
  (fn [db [_ url response]]
    (error "Explorer : fetch err: " url " r: " response)
-   #_(dispatch [:notification-add
-                (notification :warning
-                              (str location " Error: " (:status-text response) " (" (:status response) ")"))])
+   (dispatch [:notification/show
+              (str "Explorer fetch error url: " url)
+               ; Error: " (:status-text response) " (" (:status response) ")")
+              :warning])
    db))
 
 (defn remove-repo-id [item]

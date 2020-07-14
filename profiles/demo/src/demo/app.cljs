@@ -11,7 +11,7 @@
    ))
 
 (defn ^:export start []
-  (swap! webly-config assoc :timbre-loglevel :debug)
+  (swap! webly-config assoc :timbre-loglevel :info)
   (info "explorer demo starting ..")
   (dispatch-sync [:explorer/init config-client])
   (webly.web.app/start demo-routes-backend)

@@ -31,7 +31,7 @@
                          [com.cognitect/transit-clj "1.0.324"]
                          [com.cognitect/transit-java "1.0.343"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.9"]
+  :dependencies [[org.pinkgorilla/webly "0.0.12"]
 
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
@@ -56,9 +56,8 @@
                  [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-
                  [org.pinkgorilla/notebook-encoding "0.1.9"] ; notebook encoding
-                 [org.pinkgorilla/gorilla-ui "0.2.24"] ; modal dialog
+                 [org.pinkgorilla/gorilla-ui "0.2.25"] ; modal dialog
                  ]
 
 
@@ -73,7 +72,8 @@
 
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
-                   :dependencies [[clj-kondo "2020.03.20"]]
+                   :dependencies [[ring/ring-mock "0.4.0"]
+                                  [clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}

@@ -13,7 +13,7 @@
 
 (def demo-routes-backend
   ["/" {"" demo-routes-app
-        "api" explorer-routes-api
+        "api/" explorer-routes-api
         "r" resource-handler}])
 
 

@@ -10,7 +10,7 @@
   (let [_ (info "save request: " req)
         params (:body-params req) ; was: (:params req)
         {:keys [tokens storagetype storage-params notebook]} params
-        ;storage-type (keyword storagetype)
+        storagetype (if (string? storagetype) (keyword storagetype) storagetype) ; json supports no keywords
         ;storage-params (dissoc params :notebook :storagetype :tokens) ; notebook-content is too big for logging.
         ;_ (info "Saving type: " stype " params: " storage-params)
         storage (query-params-to-storage storagetype storage-params)

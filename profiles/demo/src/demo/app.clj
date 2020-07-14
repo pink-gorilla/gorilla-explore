@@ -15,7 +15,8 @@
 (defn -main
   []
   (info "demo starting..")
-  (swap! webly-config assoc :timbre-loglevel :debug)
+  (swap! webly-config assoc :timbre-loglevel :info)
+  (swap! webly-config assoc :title "notebook-explorer")
   (swap! webly-config assoc :start "demo.app.start (); ")
 
   (explore-directories-start config-server)
