@@ -3,24 +3,20 @@
    [clojure.set]
    [taoensso.timbre :refer-macros [info]]
    [re-frame.core :refer [reg-event-db dispatch]]
-   [pinkgorilla.ui.ui.dialog :refer [close-modal]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]
    [pinkgorilla.save-dialog.component :refer [save-dialog]]))
 
-
 ;; Save-Dialog Open/Close
-
 
 (reg-event-db
  :document/save-as
  (fn [db [_ storage]]
-   (dispatch [:modal {:show? true
-                      :child [save-dialog {:storage storage
-                                           :on-cancel close-modal
-                                           :on-save (fn [old new]
-                                                      (dispatch [:document/save-as-storage old new])
-                                                      (close-modal))}]
-                      :size :medium}])
+   (dispatch [:modal/open [save-dialog {:storage storage
+                                        :on-cancel #(dispatch [:modal/close])
+                                        :on-save (fn [old new]
+                                                   (dispatch [:document/save-as-storage old new])
+                                                   (dispatch [:modal/close]))}]
+              :medium])
    db))
 
 ;; Respond to Events from Save-Dialog
