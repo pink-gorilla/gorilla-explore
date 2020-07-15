@@ -42,7 +42,7 @@
                              (map name)
                              (str/join ","))]
         (debug "notebook tags: " (notebook-tags notebook)
-              "merged tags: " merged-tags)
+               "merged tags: " merged-tags)
         (assoc meta :tags merged-tags)))))
 
 (defn add-meta [tokens entry]
