@@ -41,7 +41,7 @@
                              (set/union k-tags)
                              (map name)
                              (str/join ","))]
-        (deug "notebook tags: " (notebook-tags notebook)
+        (debug "notebook tags: " (notebook-tags notebook)
               "merged tags: " merged-tags)
         (assoc meta :tags merged-tags)))))
 
