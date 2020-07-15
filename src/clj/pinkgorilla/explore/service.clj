@@ -54,8 +54,7 @@
     (thread
       (->> (explore-directories excludes roots)
            (swap! data assoc :notebooks))
-      (info "initial exploration finished: "
-            (count (:notebooks @data)) " notebooks discovered."))
+      (info "initial exploration finished: " (count (:notebooks @data)) " notebooks discovered."))
     (info "starting watcher: "  watch-paths)
     (hawk/watch! {:watcher :polling}
                  [{:paths watch-paths
