@@ -14,12 +14,13 @@
         ;storage-params (dissoc params :notebook :storagetype :tokens) ; notebook-content is too big for logging.
         ;_ (info "Saving type: " stype " params: " storage-params)
         storage (query-params-to-storage storagetype storage-params)
-        _ (info "Notebook: " notebook)]
+        _ (debug "Saving Notebook: " notebook)]
     (if (nil? storage)
       (res/bad-request {:error (str "Cannot save to storage - storage is nil! " storagetype)})
       (do
-        (info "Saving: storage: " storage " creds: " (keys tokens)) ; ; make sure we dont log secrets 
-        (res/response (save-notebook storage tokens notebook))))))
+        (info "Saving: storage: " storage " creds: " (keys tokens)) ; keys only: dont log secrets 
+        (let [save-result (save-notebook storage tokens notebook)]
+          (res/response save-result))))))
 
 (defn notebook-load-handler
   [req]

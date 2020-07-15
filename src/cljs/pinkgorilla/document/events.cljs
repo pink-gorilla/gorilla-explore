@@ -78,7 +78,6 @@
                  :notebook notebook
                  :tokens secrets}]
      (info "save params: " params)
-
      (if (= storage-type :unsaved)
        (do
          (dispatch [:document/save-as storage])
@@ -104,17 +103,21 @@
 (reg-event-db
  :document/save-success
  (fn [db [_ storage result]]
-   (info "Save to storage " storage " result : " result)
-     ;(add-notification (notification :info "Notebook saved."))
+   (info "Save success! storage: " storage " result: " result)
+   (dispatch [:notification/show
+              (str "Saved successully!")
+              :success])
    db))
 
 (reg-event-db
  :document/save-error
  (fn
    [db [_ storage response-body]]
-   (error "Save Response Error for\n" storage)
-   (error "Save Response Error:\n" response-body)
-   ;(dispatch [:notification-add (notification :warning "save-notebook ERROR!!")])
+   (error "Save Error " response-body " for \n" storage)
+                  ; Error: " (:status-text response) " (" (:status response) ")")
+   (dispatch [:notification/show
+              (str "Save error! ")
+              :danger])
    (let [content (:content response-body)
          _ (error "Content Only:\n" content)]
      ;(assoc-in db [:document :documents storage]
