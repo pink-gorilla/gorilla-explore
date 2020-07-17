@@ -9,7 +9,7 @@
    [pinkgorilla.document.header :refer [document-view-with-header]]))
 
 (defn err [storage document message]
-  [:div.m-6.p-6.bg-blue-300.border-solid
+  [:div.m-6.p-6.bg-red-300.border-solid
    [:h1 message]
    (when storage
      [:p "storage: " (pr-str storage)])

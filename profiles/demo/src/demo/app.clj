@@ -13,13 +13,12 @@
 (def handler (make-handler demo-routes-backend demo-routes-frontend))
 
 (defn -main
-  []
-  (info "demo starting..")
+  [mode]
+  (info "demo starting mode: " mode)
   (swap! webly-config assoc :timbre-loglevel :info)
   (swap! webly-config assoc :title "notebook-explorer")
   (swap! webly-config assoc :start "demo.app.start (); ")
 
   (explore-directories-start config-server)
 
-  (info "demo watching..")
-  (build-cli :watch "+dev" "demo.app/handler" "demo.app"))
+  (build-cli mode "+demo" "demo.app/handler" "demo.app"))

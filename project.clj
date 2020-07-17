@@ -16,12 +16,10 @@
                   ["vcs" "push"]]
 
   :target-path  "target/jar"
-
   :source-paths ["src/clj"
                  "src/cljc"
                  "src/cljs"] ; cljs has to go into jar too.
-  ; "test"
-  ;:test-paths ["test"]
+  :test-paths ["test"]
   :resource-paths  ["resources" ; not from npm
                     #_"target/node_modules"] ; css png resources from npm modules
 
@@ -31,11 +29,10 @@
                          [com.cognitect/transit-clj "1.0.324"]
                          [com.cognitect/transit-java "1.0.343"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.12"]
+  :dependencies [[org.pinkgorilla/webly "0.0.17"]
 
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
-                 ;[org.clojure/tools.cli "1.0.194"]
                  [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
@@ -57,7 +54,7 @@
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
                  [org.pinkgorilla/notebook-encoding "0.1.9"] ; notebook encoding
-                 [org.pinkgorilla/gorilla-ui "0.2.25"] ; modal dialog
+                 ;[org.pinkgorilla/gorilla-ui "0.2.25"] ; modal dialog
                  ]
 
 
@@ -72,7 +69,8 @@
 
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
-                   :dependencies [[ring/ring-mock "0.4.0"]
+                   :dependencies [[thheller/shadow-cljs "2.10.15"]
+                                  [ring/ring-mock "0.4.0"]
                                   [clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]]
@@ -97,10 +95,17 @@
 
             ; this will be removed when shadow package.json issue is resolved.
             "build-shadow-ci"  ^{:doc "compiles bundle"}
-            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "demo"]
+            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "webly"]
 
             "build"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+dev" "demo.app/handler" "demo.app"]
+            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+demo" "demo.app/handler" "demo.app"]
+
+            "build-prod"  ^{:doc "compiles bundle via webly"}
+            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "release" "+demo" "demo.app/handler" "demo.app"]
+
+
+            "run-prod"  ^{:doc "runs compiles bundle on shadow dev server"}
+            ["with-profile" "+demo" "run" "-m" "demo.app" "run"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
             ["with-profile" "+demo" "run" "-m" "demo.app"]})
