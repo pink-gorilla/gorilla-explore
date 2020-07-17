@@ -21,7 +21,8 @@
 
 (defn notebook-box [open-notebook selected-tags notebook]
   (let [file-info (split-filename (:filename notebook))
-        _ (debug "nb file-info: " file-info)]
+        ;_ (debug "nb file-info: " file-info)
+        ]
     [:div {:on-click #(open-notebook notebook)
            :class (str "h-48 bg-green-400 w-1/2 rounded-b  p-4 flex flex-col justify-between leading-normal hover:bg-orange-400" border lg)}
 

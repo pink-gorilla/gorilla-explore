@@ -4,15 +4,29 @@
    [pinkgorilla.meta.tags :refer [tag-box]])
   (:require-macros [pinkgorilla.explore.macros :refer [tv]]))
 
+(defn repo [[name notebooks]]
+  [:div.h-12.flex.flex-row
+   [:span.w-20.text-blue-800.text-lg name]
+   [:span.border.rounded-full.bg-pink-300.p-1 (str (count notebooks))]])
+
+(defn root-box [roots]
+  [:div
+   [:h3.w-full.bg-blue-300.p-2 "Locations"]
+   (into [:div]
+         (map repo roots))])
+
 (defn sidebar
   "sidebar on the right (search keyword / tags / etc)"
-  [search tags-available]
+  [roots search tags-available]
   [:div.mt-12
 
-   [:h3 "Search Text"]
-   [:input {:value (:text @search)
-            :on-change #(dispatch [:explorer/search-text (tv %)])
-            :placeholder "Text Search: `leaflet`, `ISS` ..."}]
+   [root-box @roots]
+
+   [:h3.w-full.bg-blue-300.p-2 "Search Text"]
+   [:input.mb-5
+    {:value (:text @search)
+     :on-change #(dispatch [:explorer/search-text (tv %)])
+     :placeholder "Search text ... "}]
 
    #_[:div
       [:label.label {:for "stargazers-count"}]
@@ -36,5 +50,6 @@
                                       :id "days-since-push"
                                       :value "368"}]]]
 
+   [:h3.w-full.bg-blue-300.p-2 "Tags"]
    [:div.section.tags
     [tag-box tags-available (:tags @search)]]])

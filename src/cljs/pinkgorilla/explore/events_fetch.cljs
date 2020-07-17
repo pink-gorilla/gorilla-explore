@@ -15,13 +15,13 @@
                  :uri             (:url repository)
                  :timeout         10000                    ;; optional
                  :response-format (ajax/json-response-format {:keywords? true}) ; (ajax/transit-response-format) ;; IMPORTANT!: You must provide this.
-                 :on-success      [:explorer/fetch-success]
+                 :on-success      [:explorer/fetch-success (:name repository)]
                  :on-failure      [:explorer/fetch-error (:url repository)]}}))
 
 (reg-event-db
  :explorer/fetch-error
  (fn [db [_ url response]]
-   (error "Explorer : fetch err: " url " r: " response)
+   (error "Explorer fetch-error: " url " response: " response)
    (dispatch [:notification/show
               (str "Explorer fetch error url: " url)
                ; Error: " (:status-text response) " (" (:status response) ")")
@@ -51,12 +51,11 @@
 
 (reg-event-db
  :explorer/fetch-success
- (fn [db [_ response]]
+ (fn [db [_ name response]]
    (debug "index response: " response)
-   (let [existing-data (get-in db [:explorer :notebooks])
-         start-index (count existing-data)
+   (let [start-index 0
          new-data (preprocess-list start-index response)]
-     (-> (assoc-in db [:explorer :notebooks] (concat existing-data new-data))))))
+     (-> (assoc-in db [:explorer :notebooks name] new-data)))))
 
 (reg-event-fx
  :explorer/fetch-indices

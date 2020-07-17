@@ -9,10 +9,22 @@
  (fn [db _]
    (get-in db [:explorer :config])))
 
+(defn notebooks-root [data notebooks root]
+  (->> (get data root)
+       (map (fn [nb] (assoc nb :root name)))
+       (concat notebooks)))
+
+(reg-sub
+ :explorer/notebooks-root
+ (fn [db _]
+   (get-in db [:explorer :notebooks])))
+
 (reg-sub
  :explorer/notebooks-all
  (fn [db _]
-   (get-in db [:explorer :notebooks])))
+   (let [data (get-in db [:explorer :notebooks])
+         roots (keys data)]
+     (reduce (partial notebooks-root data) [] roots))))
 
 (reg-sub
  :explorer/search-options

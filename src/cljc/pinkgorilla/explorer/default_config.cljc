@@ -34,12 +34,12 @@
                 :post :api/notebook-save}})
 
 (def config-server
-  {:exclude       #{".git" ".svn"}
-   :roots {:gorilla-notebook "../gorilla-notebook/notebooks"}})
+  {:exclude #{".git" ".svn"}
+   :roots   {:app "./notebooks"}}) ; for projects that use notebook as a library
 
 (def config-client
   {:repositories
-   [{:name "local" :save true :url "/api/explorer"}
+   [{:name "local"  :url "/api/explorer" :save true}
     {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]})
 
 

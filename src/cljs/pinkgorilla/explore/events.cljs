@@ -10,13 +10,17 @@
  :explore/init
  (fn [db [_ config]]
    (let [db (or db {})]
-     (info "explore init ..")
-     (dispatch [:explorer/fetch-indices])
-     (assoc db :explorer
-            {:config config
-             :notebooks []
-             :search {:tags #{}
-                      :text ""}}))))
+     (let [root-names (->> (:repositories config)
+                           (map :name))
+           add (fn [acc n] (assoc acc n []))
+           notebooks (reduce add {} root-names)]
+       (info "explore init roots:" root-names " notebooks " notebooks)
+       (dispatch [:explorer/fetch-indices])
+       (assoc db :explorer
+              {:config config
+               :notebooks notebooks
+               :search {:tags #{}
+                        :text ""}})))))
 
 ;; SEARCH
 
@@ -26,7 +30,6 @@
  (fn [db [tags]]
    (info ":explorer-show tags: " tags)
    (-> db
-       ;(assoc-in [:main] :explore)
        (assoc-in [:explorer :search :tags] tags))))
 
 (reg-event-db

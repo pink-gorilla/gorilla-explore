@@ -108,4 +108,4 @@
             ["with-profile" "+demo" "run" "-m" "demo.app" "run"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "demo.app"]})
+            ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]})
