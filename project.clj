@@ -20,18 +20,27 @@
                  "src/cljc"
                  "src/cljs"] ; cljs has to go into jar too.
   :test-paths ["test"]
-  
+
   :resource-paths  ["resources"] ; gorilla-explore resources
 
-  :managed-dependencies [[joda-time "2.9.9"]
-                         [clj-time "0.14.3"]
-                         [com.fasterxml.jackson.core/jackson-core "2.11.0"]
+  :managed-dependencies [[joda-time "2.10.6"]
+                         [clj-time "0.15.2"]
+                         [com.fasterxml.jackson.core/jackson-core "2.11.1"]
                          [com.cognitect/transit-clj "1.0.324"]
-                         [com.cognitect/transit-java "1.0.343"]]
+                         [com.cognitect/transit-cljs "0.8.264"]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.19"]
+                         [com.cognitect/transit-java "1.0.343"]
+                         [ring/ring-codec "1.1.2"] ; old dep from ring-mock
+                         [com.google.javascript/closure-compiler-unshaded "v20200315"]
+                          [com.google.code.findbugs/jsr305 "3.0.2"]
+
+                         [org.clojure/clojurescript "1.10.773"]
+
+                         ]
+
+  :dependencies [[org.pinkgorilla/webly "0.0.20"]
                  [org.clojure/clojure "1.10.1"]
-                 [org.clojure/core.async "1.1.582"]
+                 [org.clojure/core.async "1.2.603"]
                  [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
@@ -44,14 +53,15 @@
                                 [org.clojure/core.async]]]
                  [org.clojure/data.json "1.0.0"]
                  [clj-time "0.15.2"]  ; datetime
-                 [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
+                 [net.java.dev.jna/jna "5.6.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
                  [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
-                 [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
+                 [day8.re-frame/http-fx "0.1.6" ;  reframe based http requests
+                  :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.9"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.10"] ; notebook encoding
                  ]
 
 
@@ -68,9 +78,10 @@
                                   "test"]
                    :dependencies [;[thheller/shadow-cljs "2.10.15"]
                                   [ring/ring-mock "0.4.0"]
-                                  [clj-kondo "2020.03.20"]]
+                                  [clj-kondo "2020.06.21"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
-                                  [lein-cloverage "1.1.2"]]
+                                  [lein-cloverage "1.1.2"]
+                                  [lein-ancient "0.6.15"]]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
                    :cloverage    {:codecov? true
                                   ;; In case we want to exclude stuff
@@ -82,24 +93,23 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
-  :plugins [[lein-ancient "0.6.15"]]
 
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
             ;; INDEXER 
-            
+
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
 
             ;; SHADOW testing
-            
+
             ; this will be removed when shadow package.json issue is resolved.
             "build-shadow-ci"  ^{:doc "compiles bundle"}
             ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "webly"]
 
             ;; APP
-            
+
             "build-dev"  ^{:doc "compiles bundle via webly"}
             ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+demo" "demo.app/handler" "demo.app"]
 
