@@ -30,7 +30,7 @@
                1 #{(first kernels)
                    (add-only (first kernels))}
                (into #{} kernels))]
-    (debug "nb kernel tags: " tags)
+    ;(debug "nb kernel tags: " tags)
     tags))
 
 (defn add-kernel-tags [meta notebook]
@@ -41,8 +41,8 @@
                              (set/union k-tags)
                              (map name)
                              (str/join ","))]
-        (debug "notebook tags: " (notebook-tags notebook)
-               "merged tags: " merged-tags)
+        #_(debug "notebook tags: " (notebook-tags notebook)
+                 "merged tags: " merged-tags)
         (assoc meta :tags merged-tags)))))
 
 (defn add-meta [tokens entry]

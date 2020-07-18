@@ -11,7 +11,7 @@
 
 (defn main []
   [:div
-   [:h1 "demo - explorer"]
+   [:h1 "demo - explorer !"]
    [:a.bg-green-300 {:href "/explorer"} "explorer"]
    [:a.bg-red-300 {:href "/demo/save"} "save-as dialog demo"]])
 

@@ -10,8 +10,8 @@
         "tags" : "reagent,clj,cljs,demo",
         "tagline" : ""
       },
-      "stars" : 75,
-      "edit-date" : "2020-06-21"
+      "stars" : 66,
+      "edit-date" : "2019-04-06"
     },
     {
       "type" : "repo",
@@ -23,8 +23,8 @@
         "tagline" : "Video Demo (Youtube, and more)",
         "tags" : "video,youtube,cool,ui,clj,cljs"
       },
-      "stars" : 77,
-      "edit-date" : "2020-05-23"
+      "stars" : 38,
+      "edit-date" : "2020-05-19"
     },
     {
       "type" : "repo",
@@ -36,8 +36,8 @@
         "tags" : "clj-only,vega,clj",
         "tagline" : "vega from clojure"
       },
-      "stars" : 35,
-      "edit-date" : "2020-06-28"
+      "stars" : 46,
+      "edit-date" : "2019-10-16"
     },
     {
       "type" : "repo",
@@ -49,8 +49,8 @@
         "tagline" : "Sparkline charts demo",
         "tags" : "cool,ui,clj,cljs,sparkline"
       },
-      "stars" : 92,
-      "edit-date" : "2019-07-26"
+      "stars" : 86,
+      "edit-date" : "2020-06-07"
     },
     {
       "type" : "repo",
@@ -62,8 +62,8 @@
         "tagline" : "charts with quil",
         "tags" : "quil,svg,clj,cljs,demo"
       },
-      "stars" : 21,
-      "edit-date" : "2019-07-01"
+      "stars" : 38,
+      "edit-date" : "2019-06-19"
     },
     {
       "type" : "repo",
@@ -74,8 +74,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 30,
-      "edit-date" : "2019-07-23"
+      "stars" : 34,
+      "edit-date" : "2019-08-04"
     },
     {
       "type" : "repo",
@@ -87,8 +87,8 @@
         "tagline" : "highchart ui-plugin demo",
         "tags" : "clj-only,ui-plugin,highchart,clj,demo"
       },
-      "stars" : 45,
-      "edit-date" : "2019-08-04"
+      "stars" : 41,
+      "edit-date" : "2019-12-17"
     },
     {
       "type" : "repo",
@@ -99,8 +99,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 19,
-      "edit-date" : "2020-05-28"
+      "stars" : 12,
+      "edit-date" : "2020-07-06"
     },
     {
       "type" : "repo",
@@ -112,8 +112,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 24,
-      "edit-date" : "2019-06-17"
+      "stars" : 31,
+      "edit-date" : "2019-03-27"
     },
     {
       "type" : "repo",
@@ -125,8 +125,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 77,
-      "edit-date" : "2019-05-03"
+      "stars" : 95,
+      "edit-date" : "2020-01-03"
     },
     {
       "type" : "repo",
@@ -137,8 +137,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 72,
-      "edit-date" : "2019-07-11"
+      "stars" : 62,
+      "edit-date" : "2019-11-30"
     },
     {
       "type" : "repo",
@@ -149,8 +149,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 2,
-      "edit-date" : "2019-06-05"
+      "stars" : 39,
+      "edit-date" : "2019-10-27"
     },
     {
       "type" : "repo",
@@ -162,8 +162,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 13,
-      "edit-date" : "2020-03-09"
+      "stars" : 90,
+      "edit-date" : "2019-05-09"
     },
     {
       "type" : "repo",
@@ -174,8 +174,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 33,
-      "edit-date" : "2019-06-17"
+      "stars" : 76,
+      "edit-date" : "2020-04-09"
     },
     {
       "type" : "repo",
@@ -186,8 +186,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 69,
-      "edit-date" : "2020-01-29"
+      "stars" : 4,
+      "edit-date" : "2020-04-20"
     },
     {
       "type" : "repo",
@@ -198,8 +198,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 88,
-      "edit-date" : "2019-12-22"
+      "stars" : 72,
+      "edit-date" : "2020-02-24"
     },
     {
       "type" : "repo",
@@ -210,8 +210,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 94,
-      "edit-date" : "2020-05-31"
+      "stars" : 79,
+      "edit-date" : "2020-04-08"
     },
     {
       "type" : "repo",
@@ -223,8 +223,8 @@
         "tagline" : "AGGrid clj and cljs",
         "tags" : "cool,aggrid,ui,clj,cljs"
       },
-      "stars" : 2,
-      "edit-date" : "2019-08-10"
+      "stars" : 42,
+      "edit-date" : "2019-10-25"
     },
     {
       "type" : "repo",
@@ -235,8 +235,8 @@
       "meta" : {
         "tags" : "cool,reagent,clj,cljs,demo"
       },
-      "stars" : 58,
-      "edit-date" : "2020-06-14"
+      "stars" : 43,
+      "edit-date" : "2019-09-17"
     },
     {
       "type" : "repo",
@@ -248,8 +248,8 @@
         "tags" : "cool,reagent,clj,cljs,demo",
         "tagline" : "bodymass indicator (using only cljs reagent)"
       },
-      "stars" : 75,
-      "edit-date" : "2020-04-24"
+      "stars" : 52,
+      "edit-date" : "2019-04-11"
     },
     {
       "type" : "repo",
@@ -261,8 +261,8 @@
         "tagline" : "complex svg plot and quil example",
         "tags" : "cool,quil,svg,sierpinsky,clj,cljs"
       },
-      "stars" : 9,
-      "edit-date" : "2019-10-07"
+      "stars" : 32,
+      "edit-date" : "2019-07-18"
     },
     {
       "type" : "repo",
@@ -273,8 +273,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 45,
-      "edit-date" : "2019-04-14"
+      "stars" : 34,
+      "edit-date" : "2020-05-11"
     },
     {
       "type" : "repo",
@@ -285,8 +285,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 67,
-      "edit-date" : "2019-07-28"
+      "stars" : 40,
+      "edit-date" : "2020-02-01"
     },
     {
       "type" : "repo",
@@ -298,8 +298,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 59,
-      "edit-date" : "2019-03-06"
+      "stars" : 26,
+      "edit-date" : "2020-06-26"
     },
     {
       "type" : "repo",
@@ -311,8 +311,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 24,
-      "edit-date" : "2020-06-18"
+      "stars" : 71,
+      "edit-date" : "2020-03-04"
     },
     {
       "type" : "repo",
@@ -323,8 +323,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 55,
-      "edit-date" : "2019-10-26"
+      "stars" : 73,
+      "edit-date" : "2019-12-07"
     },
     {
       "type" : "repo",
@@ -336,8 +336,8 @@
         "tagline" : "",
         "tags" : "clj-only,clj"
       },
-      "stars" : 55,
-      "edit-date" : "2019-07-03"
+      "stars" : 71,
+      "edit-date" : "2019-07-07"
     },
     {
       "type" : "repo",
@@ -348,8 +348,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 33,
-      "edit-date" : "2019-12-20"
+      "stars" : 59,
+      "edit-date" : "2020-04-15"
     },
     {
       "type" : "repo",
@@ -361,8 +361,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 88,
-      "edit-date" : "2019-10-06"
+      "stars" : 94,
+      "edit-date" : "2019-07-17"
     },
     {
       "type" : "repo",
@@ -374,8 +374,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 15,
-      "edit-date" : "2020-05-29"
+      "stars" : 83,
+      "edit-date" : "2019-04-12"
     },
     {
       "type" : "repo",
@@ -386,8 +386,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 1,
-      "edit-date" : "2019-03-10"
+      "stars" : 44,
+      "edit-date" : "2019-10-31"
     },
     {
       "type" : "repo",
@@ -398,8 +398,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 83,
-      "edit-date" : "2019-09-14"
+      "stars" : 74,
+      "edit-date" : "2020-01-24"
     },
     {
       "type" : "repo",
@@ -411,8 +411,8 @@
         "tagline" : "svg shapes (from maria cloud)",
         "tags" : "mariacloud,svg,clj,cljs,demo"
       },
-      "stars" : 7,
-      "edit-date" : "2019-07-08"
+      "stars" : 44,
+      "edit-date" : "2019-03-11"
     },
     {
       "type" : "repo",
@@ -423,8 +423,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 63,
-      "edit-date" : "2020-02-08"
+      "stars" : 29,
+      "edit-date" : "2019-12-23"
     },
     {
       "type" : "repo",
@@ -436,8 +436,8 @@
         "tags" : "clj,cljs,test",
         "tagline" : "explore what clojurescript can do"
       },
-      "stars" : 9,
-      "edit-date" : "2020-07-13"
+      "stars" : 95,
+      "edit-date" : "2019-04-03"
     },
     {
       "type" : "repo",
@@ -449,8 +449,8 @@
         "tagline" : "",
         "tags" : "clj-only,data-science,python,clj,panthera"
       },
-      "stars" : 4,
-      "edit-date" : "2020-01-10"
+      "stars" : 53,
+      "edit-date" : "2019-12-11"
     },
     {
       "type" : "repo",
@@ -462,8 +462,8 @@
         "tagline" : "Jupyter Notebook",
         "tags" : "clj-only,clj"
       },
-      "stars" : 28,
-      "edit-date" : "2019-09-10"
+      "stars" : 85,
+      "edit-date" : "2020-06-21"
     },
     {
       "type" : "repo",
@@ -474,8 +474,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 38,
-      "edit-date" : "2019-04-24"
+      "stars" : 43,
+      "edit-date" : "2019-04-25"
     },
     {
       "type" : "repo",
@@ -486,8 +486,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 64,
-      "edit-date" : "2019-09-22"
+      "stars" : 97,
+      "edit-date" : "2019-04-07"
     },
     {
       "type" : "repo",
@@ -498,8 +498,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 15,
-      "edit-date" : "2020-01-23"
+      "stars" : 29,
+      "edit-date" : "2019-08-21"
     },
     {
       "type" : "repo",
@@ -511,8 +511,8 @@
         "tagline" : "Jupyter Notebook",
         "tags" : "clj-only,clj"
       },
-      "stars" : 93,
-      "edit-date" : "2019-09-10"
+      "stars" : 94,
+      "edit-date" : "2019-12-20"
     },
     {
       "type" : "repo",
@@ -523,8 +523,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 0,
-      "edit-date" : "2019-04-10"
+      "stars" : 61,
+      "edit-date" : "2019-06-15"
     },
     {
       "type" : "repo",
@@ -535,8 +535,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 68,
-      "edit-date" : "2019-09-23"
+      "stars" : 93,
+      "edit-date" : "2019-06-10"
     }
   ]
 }

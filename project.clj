@@ -20,8 +20,8 @@
                  "src/cljc"
                  "src/cljs"] ; cljs has to go into jar too.
   :test-paths ["test"]
-  :resource-paths  ["resources" ; not from npm
-                    #_"target/node_modules"] ; css png resources from npm modules
+  
+  :resource-paths  ["resources"] ; gorilla-explore resources
 
   :managed-dependencies [[joda-time "2.9.9"]
                          [clj-time "0.14.3"]
@@ -29,8 +29,7 @@
                          [com.cognitect/transit-clj "1.0.324"]
                          [com.cognitect/transit-java "1.0.343"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.17"]
-
+  :dependencies [[org.pinkgorilla/webly "0.0.19"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.1.582"]
                  [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
@@ -48,13 +47,11 @@
                  [net.java.dev.jna/jna "5.2.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-
                  [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
                  [day8.re-frame/http-fx "0.1.6"] ; reframe based http requests
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
                  [org.pinkgorilla/notebook-encoding "0.1.9"] ; notebook encoding
-                 ;[org.pinkgorilla/gorilla-ui "0.2.25"] ; modal dialog
                  ]
 
 
@@ -69,7 +66,7 @@
 
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
-                   :dependencies [[thheller/shadow-cljs "2.10.15"]
+                   :dependencies [;[thheller/shadow-cljs "2.10.15"]
                                   [ring/ring-mock "0.4.0"]
                                   [clj-kondo "2020.03.20"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
@@ -90,21 +87,26 @@
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
+            ;; INDEXER 
+            
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
 
+            ;; SHADOW testing
+            
             ; this will be removed when shadow package.json issue is resolved.
             "build-shadow-ci"  ^{:doc "compiles bundle"}
             ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "webly"]
 
-            "build"  ^{:doc "compiles bundle via webly"}
+            ;; APP
+            
+            "build-dev"  ^{:doc "compiles bundle via webly"}
             ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+demo" "demo.app/handler" "demo.app"]
 
             "build-prod"  ^{:doc "compiles bundle via webly"}
             ["with-profile" "+demo" "run" "-m" "webly.build-cli" "release" "+demo" "demo.app/handler" "demo.app"]
 
-
-            "run-prod"  ^{:doc "runs compiles bundle on shadow dev server"}
+            "run-web"  ^{:doc "runs compiles bundle on shadow dev server"}
             ["with-profile" "+demo" "run" "-m" "demo.app" "run"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
