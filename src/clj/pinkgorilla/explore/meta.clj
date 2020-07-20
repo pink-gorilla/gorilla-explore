@@ -49,7 +49,7 @@
   (let [;_ (info "adding meta for entry" entry)
         file-info (split-filename (:filename entry))
         format (:encoding file-info)]
-    (debug "format: " format)
+    ;(debug "format: " format)
     (if-not (= format :gorilla)
       entry
       (let [storage (create-storage entry)
