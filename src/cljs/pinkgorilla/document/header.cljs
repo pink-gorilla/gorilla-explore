@@ -40,6 +40,10 @@
            :class "hover:text-blue-700"}
        [:i.fa.fa-save.fa-lg.pl-1]]
 
+      [:a {:on-click #(dispatch [:palette/show])
+           :class "hover:text-blue-700"}
+       [:i.fa.fa-save.fa-stream.pl-1]]
+
       [:span.m-2.border.border-solid (storagetype storage)]
       [:span.m-2.text-xl (determine-name storage)] ; (:name file-info)]
       [:span.m-2.italic [tagline storage meta]]]
