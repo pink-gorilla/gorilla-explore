@@ -38,7 +38,7 @@
 
 (defn get-storage [params]
   (let [kparams (clojure.walk/keywordize-keys params)
-        _ (info "document page kw params: " kparams)
+        ;_ (info "document page kw params: " kparams)
         stype (keyword (:source kparams))
         storage (query-params-to-storage stype kparams)]
     storage))
@@ -47,7 +47,7 @@
   (let [storage (get-storage params)
         document (when storage (subscribe [:document/get storage]))]
     (when (and storage (not @document))
-      (info "loading document storage: " storage)
+      ;(info "loading document storage: " storage)
       (dispatch [:document/load storage]))
     (info "rendering document-page params: " params)
     [document-viewer document-view storage document]))
