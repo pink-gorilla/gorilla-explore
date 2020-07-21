@@ -1,8 +1,10 @@
 (ns pinkgorilla.explore.subscriptions
   (:require
+   [taoensso.timbre :refer-macros [debug info error]]
    [re-frame.core :refer [reg-sub subscribe]]
    [pinkgorilla.meta.tags :refer [meta->tags]]
-   [pinkgorilla.meta.filter :refer [filter-notebooks]]))
+   [pinkgorilla.meta.filter :refer [filter-notebooks]]
+   [pinkgorilla.explore.unsaved :refer [unsaved-notebooks]]))
 
 (reg-sub
  :explorer/config
@@ -20,11 +22,20 @@
    (get-in db [:explorer :notebooks])))
 
 (reg-sub
+ :explorer/notebooks-unsaved
+ (fn [db _]
+   (unsaved-notebooks db)))
+
+(reg-sub
  :explorer/notebooks-all
  (fn [db _]
    (let [data (get-in db [:explorer :notebooks])
-         roots (keys data)]
-     (reduce (partial notebooks-root data) [] roots))))
+         roots (keys data)
+         notebooks (reduce (partial notebooks-root data) [] roots)
+         unsaved (unsaved-notebooks db)]
+     (info "explorer notebooks: " notebooks)
+     notebooks
+     (concat notebooks unsaved))))
 
 (reg-sub
  :explorer/search-options

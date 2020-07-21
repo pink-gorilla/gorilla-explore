@@ -20,7 +20,7 @@
   [roots search tags-available]
   [:div.mt-12
 
-   [root-box @roots]
+   [root-box roots]
 
    [:h3.w-full.bg-blue-300.p-2 "Search Text"]
    [:input.mb-5

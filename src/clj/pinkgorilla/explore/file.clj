@@ -67,14 +67,13 @@
   (let [tokens {}
         filename (.getPath file)
         filename-canonical (.getPath (.getCanonicalFile file))]
-    (->>
-     {:type :file
-      :user "_file"
-      :filename filename
-      :filename-canonical filename-canonical
-      :id filename
-      :edit-date (date->str (Date. (.lastModified file)))}
-     (add-meta tokens))))
+    (->> {:type :file
+          :user "_file"
+          :filename filename
+          :filename-canonical filename-canonical
+          :id filename
+          :edit-date (date->str (Date. (.lastModified file)))}
+         (add-meta tokens))))
 
 (defn explore-directory
   "get all pink-gorilla filenames in a directory.
