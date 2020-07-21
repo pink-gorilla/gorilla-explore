@@ -33,8 +33,7 @@
          roots (keys data)
          notebooks (reduce (partial notebooks-root data) [] roots)
          unsaved (unsaved-notebooks db)]
-     (info "explorer notebooks: " notebooks)
-     notebooks
+     ;notebooks
      (concat notebooks unsaved))))
 
 (reg-sub

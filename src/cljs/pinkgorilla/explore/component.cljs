@@ -20,7 +20,7 @@
         search         (subscribe [:explorer/search-options])]
     (fn []
       (let [roots-all (assoc @roots "unsaved" @unsaved)]
-        (info "roots all: " roots-all)
+        ;(info "roots all: " roots-all)
         [:div
          [:link {:rel "stylesheet" :href "/r/explorer/explorer.css"}]
          [:div.flex.w-screen.h-screen ; .w-100 ; separation for main/sidebar
