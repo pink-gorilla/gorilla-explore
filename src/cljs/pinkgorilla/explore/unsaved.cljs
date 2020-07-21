@@ -5,7 +5,7 @@
    [pinkgorilla.explorer.notebook-meta :refer [notebook-meta]]))
 
 (defn unsaved? [[storage document]]
-  (info "checking: " storage)
+  ;(info "checking: " storage)
   (= (storagetype storage) :unsaved))
 
 (defn add-meta [[storage nb]]
@@ -20,7 +20,7 @@
   (let [documents (get-in db [:document :documents])
         docs-unsaved (into {} (filter unsaved? documents))
         explorer-unsaved  (into [] (map add-meta docs-unsaved))]
-    (info "docs unsaved: " docs-unsaved)
-    (info "explorer unsaved: " explorer-unsaved)
+    ;(info "docs unsaved: " docs-unsaved)
+    ;(info "explorer unsaved: " explorer-unsaved)
     explorer-unsaved))
 
