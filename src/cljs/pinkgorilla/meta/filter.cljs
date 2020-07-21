@@ -25,6 +25,7 @@
             notebooks)))
 
 (defn filter-notebooks [notebooks-all search-options]
-  (-> notebooks-all
-      (filter-notebooks-text (:text search-options))
-      (filter-notebooks-tags (:tags search-options))))
+  (let [{:keys [tags text]} search-options]
+    (-> notebooks-all
+        (filter-notebooks-text text)
+        (filter-notebooks-tags tags))))

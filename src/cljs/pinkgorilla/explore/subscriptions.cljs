@@ -26,15 +26,34 @@
  (fn [db _]
    (unsaved-notebooks db)))
 
+(defn notebooks-all [db]
+  (let [data (get-in db [:explorer :notebooks])
+        roots (keys data)
+        notebooks (reduce (partial notebooks-root data) [] roots)
+        unsaved (unsaved-notebooks db)]
+     ;notebooks
+    (concat notebooks unsaved)))
+
 (reg-sub
  :explorer/notebooks-all
  (fn [db _]
-   (let [data (get-in db [:explorer :notebooks])
-         roots (keys data)
-         notebooks (reduce (partial notebooks-root data) [] roots)
-         unsaved (unsaved-notebooks db)]
-     ;notebooks
-     (concat notebooks unsaved))))
+   (notebooks-all db)))
+
+(defn notebooks-root-all [db]
+  (let [root (get-in db [:explorer :search :root])
+        data (get-in db [:explorer :notebooks])]
+    (info "root-all: " root)
+    ;(notebooks-all db)
+    (case root
+      "unsaved" (unsaved-notebooks db)
+      "all"     (notebooks-all db)
+      nil       (notebooks-all db)
+      (get data root))))
+
+(reg-sub
+ :explorer/notebooks-root-all
+ (fn [db _]
+   (notebooks-root-all db)))
 
 (reg-sub
  :explorer/search-options
@@ -45,7 +64,7 @@
  :explorer/notebooks-filtered
  (fn [_]
    ;; return a vector of subscriptions
-   [(subscribe [:explorer/notebooks-all])
+   [(subscribe [:explorer/notebooks-root-all])
     (subscribe [:explorer/search-options])])
  (fn [[notebooks-all search-options]]
    (filter-notebooks notebooks-all search-options)))

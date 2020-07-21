@@ -20,9 +20,11 @@
               {:config config
                :notebooks notebooks
                :search {:tags #{}
-                        :text ""}})))))
+                        :text ""
+                        :root "all"}})))))
 
 ;; SEARCH
+
 
 (reg-event-db
  :explorer/show
@@ -36,6 +38,11 @@
  :explorer/search-text
  (fn [db [_ text]]
    (assoc-in db [:explorer :search :text] text)))
+
+(reg-event-db
+ :explorer/set-search-root
+ (fn [db [_ root]]
+   (assoc-in db [:explorer :search :root] root)))
 
 (reg-event-db
  :explorer/toggle-tag
