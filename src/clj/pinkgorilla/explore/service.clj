@@ -44,8 +44,18 @@
    (.getPath))
   path)
 
+(defn exists? [path]
+  (->> path clojure.java.io/file .exists))
+
+(defn existing-roots [roots]
+  (into {} (filter (fn [[name-kw path]]
+            ;(println name-kw path)
+                     (when (exists? path)
+                       [name-kw path])) roots)))
+
 (defn start [excludes roots]
-  (let [watch-paths (into [] (map to-canonical (vals roots)))
+  (let [roots (existing-roots roots)
+        watch-paths (into [] (map to-canonical (vals roots)))
         c {:excludes excludes
            :roots roots
            :notebooks []
