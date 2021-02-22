@@ -38,7 +38,7 @@
 
                          ]
 
-  :dependencies [[org.pinkgorilla/webly "0.0.24"]
+  :dependencies [[org.pinkgorilla/webly "0.0.29"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
@@ -61,7 +61,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.13"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.15"] ; notebook encoding
                  ]
 
 

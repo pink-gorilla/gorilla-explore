@@ -15,9 +15,9 @@
 (defn -main
   [mode]
   (info "demo starting mode: " mode)
-  (swap! webly-config assoc :timbre-loglevel :info)
-  (swap! webly-config assoc :title "notebook-explorer")
-  (swap! webly-config assoc :start "demo.app.start (); ")
+  (swap! webly-config assoc :timbre-loglevel :info
+                            :title "notebook-explorer"
+                            :start "demo.app.start (); ")
 
   (explore-directories-start config-server)
 
