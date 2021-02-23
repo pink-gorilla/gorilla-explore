@@ -61,7 +61,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.15"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.16"] ; notebook encoding
                  ]
 
 

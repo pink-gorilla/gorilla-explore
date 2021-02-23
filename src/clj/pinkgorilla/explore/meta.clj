@@ -3,7 +3,7 @@
    [taoensso.timbre :refer [debug info error]]
    [clj-time.core :as t]
    [clj-time.format :as fmt]
-   [pinkgorilla.notebook.hydration :refer [load-notebook]]
+   [pinkgorilla.notebook.persistence :refer [load-notebook]]
    [pinkgorilla.storage.filename-encoding :refer [split-filename]]
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.explorer.notebook-meta :refer [notebook-meta]]))

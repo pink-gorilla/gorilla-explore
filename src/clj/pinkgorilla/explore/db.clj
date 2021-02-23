@@ -85,13 +85,13 @@
 (defn load-db [fn]
   (-> (reset! json-fn fn)
       (slurp)
-      (parse-string true)
+      (cheshire.core/parse-string true)
       (:data)
       (#(reset! users %))
       (print-status)))
 
 (defn save-db []
-  (spit @json-fn (generate-string {:data @users}) :append false)
+  (spit @json-fn (cheshire.core/generate-string {:data @users}) :append false)
   (print-status @users))
 
 (defn clear []

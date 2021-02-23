@@ -3,7 +3,7 @@
    [taoensso.timbre :refer [debug info error]]
    [ring.util.response :as res]
    [pinkgorilla.storage.protocols :refer [query-params-to-storage]]
-   [pinkgorilla.notebook.hydration :refer [load-notebook save-notebook]]))
+   [pinkgorilla.notebook.persistence :refer [load-notebook save-notebook]]))
 
 (defn notebook-save-handler
   [req]
@@ -36,7 +36,7 @@
         (info "Loading from storage: " storage)
         (if-let [notebook (load-notebook storage tokens)]
           (do
-            (info "notebook successfully loaded! ")
+            (info "notebook successfully loaded! size: " (count notebook))
             (res/response notebook))
           (res/bad-request {:error "notebook loading failed."}))))))
 

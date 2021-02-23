@@ -2,7 +2,7 @@
   (:require
    [pinkgorilla.explorer.default-config] ; side-effects
    [pinkgorilla.storage.protocols :refer [create-storage]]
-   [pinkgorilla.notebook.hydration :refer [load-notebook]]
+   [pinkgorilla.notebook.persistence :refer [load-notebook]]
    [pinkgorilla.explore.print :refer [print-repo]]
    [pinkgorilla.explore.repo :refer [gorilla-repos]]
    [pinkgorilla.creds :refer [creds]]))

@@ -7,7 +7,6 @@
    [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
-   [pinkgorilla.notebook.hydration :refer [hydrate]]
    [webly.web.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
@@ -16,7 +15,9 @@
  (fn [db [_]]
    (let [db (or db {})]
      (info "document init .. ")
-     (assoc db :document {:documents {}}))))
+     (assoc db :document {:fn-hydrate (fn [nb] nb)
+                          :fn-dehydrate (fn [nb] nb)
+                          :documents {}}))))
 
 ;; Load File (from URL Parameters) - in view or edit mode
 
@@ -60,7 +61,9 @@
  :document/load-success
  (fn
    [db [_ storage notebook]]
-   (let [_ (debug "Document Load Response:\n" notebook)]
+   (let [_ (debug "Document Load Response:\n" notebook)
+         fn-hydrate (get-in db [:document :fn-hydrate])
+         notebook (fn-hydrate notebook)]
      (assoc-in db [:document :documents storage] notebook))))
 
 ;; SAVE File
@@ -73,6 +76,8 @@
          storage-type (storagetype storage)
          _ (info "notebook saving to storage " storage-type)
          notebook (get-in db [:document :documents storage])
+         fn-dehydrate (get-in db [:document :fn-dehydrate])
+         notebook (fn-dehydrate notebook)
          params {:storage-params (into {} storage)
                  :storagetype storage-type
                  :notebook notebook
@@ -132,8 +137,7 @@
    (let [id (make-hip-nsname)
          _ (info "creating document:" id)
          storage (StorageUnsaved. id)
-         document-dehydrated (new-notebook id)
-         document (hydrate document-dehydrated)]
+         document (new-notebook id)]
      (goto-notebook! storage)
      (assoc-in db [:document :documents storage] document))))
 

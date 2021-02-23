@@ -11,7 +11,7 @@
     (keyword n-only)))
 
 (defn kernel-tags [notebook]
-  (let [segments (vals (:segments notebook))
+  (let [segments (:segments notebook)
         kernels (->> (filter #(:kernel %) segments)
                      (group-by :kernel) ; returns ma, keys = kernel
                      keys)
