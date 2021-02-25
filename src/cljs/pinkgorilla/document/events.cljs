@@ -10,21 +10,25 @@
    [webly.web.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
-(defn hydrate [nb]
+(defn hydrate-noop [nb]
   (info "hydrating / no-op")
   nb)
 
-(defn dehydrate [nb]
+(defn dehydrate-noop [nb]
   (info "dehydrating / no-op")
   nb)
 
 (reg-event-db
  :document/init
- (fn [db [_]]
-   (let [db (or db {})]
+ (fn [db [_ config]]
+   (let [db (or db {})
+         {:keys [fn-hydrate fn-dehydrate]
+          :or {fn-hydrate hydrate-noop
+               fn-dehydrate dehydrate-noop}}
+         config]
      (info "document init .. ")
-     (assoc db :document {:fn-hydrate hydrate
-                          :fn-dehydrate dehydrate
+     (assoc db :document {:fn-hydrate fn-hydrate
+                          :fn-dehydrate fn-dehydrate
                           :documents {}}))))
 
 ;; Load File (from URL Parameters) - in view or edit mode

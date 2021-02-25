@@ -12,4 +12,4 @@
  (fn [_ [_ config]]
    (info "explorer init ..")
    (dispatch [:explore/init config])
-   (dispatch [:document/init])))
+   (dispatch [:document/init config])))
