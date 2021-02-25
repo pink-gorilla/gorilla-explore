@@ -3,20 +3,28 @@
    [taoensso.timbre :refer-macros [debug info error]]
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
    [ajax.core :as ajax]
-   [pinkgorilla.storage.protocols :refer [storagetype gorilla-path]]
+   [pinkgorilla.storage.protocols :refer [storagetype]]
    [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
    [webly.web.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
+(defn hydrate [nb]
+  (info "hydrating / no-op")
+  nb)
+
+(defn dehydrate [nb]
+  (info "dehydrating / no-op")
+  nb)
+
 (reg-event-db
  :document/init
  (fn [db [_]]
    (let [db (or db {})]
      (info "document init .. ")
-     (assoc db :document {:fn-hydrate (fn [nb] nb)
-                          :fn-dehydrate (fn [nb] nb)
+     (assoc db :document {:fn-hydrate hydrate
+                          :fn-dehydrate dehydrate
                           :documents {}}))))
 
 ;; Load File (from URL Parameters) - in view or edit mode
