@@ -4,6 +4,7 @@
    [ring.mock.request :refer [request json-body] :rename {request mock-request}]
    [bidi.bidi :as bidi]
    [webly.web.handler :refer [make-handler]]
+   [webly.user.app.handler :refer [app-handler]]
    [pinkgorilla.explorer.default-config :refer [explorer-routes-api]]
    [pinkgorilla.explorer.handler] ; side-effects
    ))
@@ -14,7 +15,7 @@
 (def routes-frontend
   ["/" :demo/main])
 
-(def handler (make-handler routes-backend routes-frontend))
+(def handler (make-handler app-handler routes-backend routes-frontend))
 
 (defn GET [url]
   (handler (mock-request :get url)))
