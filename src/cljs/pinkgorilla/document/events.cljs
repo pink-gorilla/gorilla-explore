@@ -52,7 +52,7 @@
                        :tokens secrets)]
      (info "loading url: " url " params: "  params)
      {:db         (assoc-in db [:document :documents storage] :document/loading) ; notebook view on loading
-      :dispatch [:ga/event {:category "notebook" :action "document-load" :label 77 :value url}]
+      :dispatch [:ga/event {:category "notebook-storage" :action "load" :label 77 :value url}]
       :http-xhrio {:method          :get
                    :uri             url
                    :params          params
@@ -103,6 +103,7 @@
          (dispatch [:document/save-as storage])
          {:db db})
        {:db         db ; (assoc-in db [:dialog :save] false)
+        :dispatch [:ga/event {:category "notebook-storage" :action "save" :label 77 :value 13}]
         :http-xhrio {:method          :post
                      :uri             url
                      :params          params

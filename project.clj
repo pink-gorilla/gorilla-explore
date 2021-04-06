@@ -39,7 +39,7 @@
 
                          [org.clojure/clojurescript "1.10.773"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.1.8"]
+  :dependencies [[org.pinkgorilla/webly "0.1.9"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
@@ -65,9 +65,9 @@
                  [org.pinkgorilla/notebook-encoding "0.1.18"] ; notebook encoding
                  ]
 
-  :jvm-opts ["-Dtrust_all_cert=true" ; used when ssl certs are fucked up
-               ;"-Djavax.net.ssl.trustStore=/home/andreas/.keystore"
-             ]
+ ; :jvm-opts ["-Dtrust_all_cert=true" ; used when ssl certs are fucked up
+ ;              ;"-Djavax.net.ssl.trustStore=/home/andreas/.keystore"
+ ;            ]
 
 
   :profiles {:index {; rebuilds the index
