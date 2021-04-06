@@ -1,15 +1,17 @@
 (ns pinkgorilla.explorer.events
   (:require
-   [re-frame.core :refer [reg-event-fx trim-v dispatch]]
+   [re-frame.core :refer [reg-event-db dispatch]]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
-   [pinkgorilla.explore.events] ; side-effects
-   [pinkgorilla.document.events] ; side-effects
-)) ; side effects
+   ; side-effects
+   [pinkgorilla.explore.events]
+   [pinkgorilla.document.events]))
 
-
-(reg-event-fx
+(reg-event-db
  :explorer/init
- (fn [_ [_ config]]
-   (info "explorer init ..")
-   (dispatch [:explore/init config])
-   (dispatch [:document/init config])))
+ (fn [db [_ config-explorer-app]]
+   (let [config-explorer (get-in db [:config :explorer :client])
+         config-explorer (merge config-explorer-app config-explorer)]
+     (info "explorer init ..")
+     (dispatch [:explore/init])
+     (dispatch [:document/init config-explorer]))
+   db))

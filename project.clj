@@ -6,6 +6,7 @@
                                      :password :env/release_password
                                      :sign-releases false}]]
 
+
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]
                   ["vcs" "commit" "Release %s"]
@@ -23,6 +24,8 @@
 
   :resource-paths  ["resources"] ; gorilla-explore resources
 
+    :prep-tasks ["md"]
+
   :managed-dependencies [[joda-time "2.10.6"]
                          [clj-time "0.15.2"]
                          [com.fasterxml.jackson.core/jackson-core "2.11.2"]
@@ -32,16 +35,14 @@
                          [com.cognitect/transit-java "1.0.343"]
                          [ring/ring-codec "1.1.2"] ; old dep from ring-mock
                          [com.google.javascript/closure-compiler-unshaded "v20200504"]
-                          [com.google.code.findbugs/jsr305 "3.0.2"]
+                         [com.google.code.findbugs/jsr305 "3.0.2"]
 
-                         [org.clojure/clojurescript "1.10.773"]
+                         [org.clojure/clojurescript "1.10.773"]]
 
-                         ]
-
-  :dependencies [[org.pinkgorilla/webly "0.0.29"]
+  :dependencies [[org.pinkgorilla/webly "0.1.8"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.3.610"]
-                 [com.taoensso/timbre "4.10.0"] ; clj/cljs logging
+                 [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
                  [clojure.java-time "0.3.2"]
                   ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.6"] ; github api  ; https://github.com/clj-commons/tentacles
@@ -61,8 +62,12 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.8.0"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.16"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.18"] ; notebook encoding
                  ]
+
+  :jvm-opts ["-Dtrust_all_cert=true" ; used when ssl certs are fucked up
+               ;"-Djavax.net.ssl.trustStore=/home/andreas/.keystore"
+             ]
 
 
   :profiles {:index {; rebuilds the index
@@ -72,6 +77,7 @@
              :demo  {:source-paths ["profiles/demo/src"
                                     "test"]
                      :resource-paths ["target/webly" ; bundle
+                                      "profiles/demo/resources"
                                       ]}
 
              :dev {:source-paths ["profiles/dev/src"
@@ -81,7 +87,9 @@
                                   [clj-kondo "2020.07.29"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
-                                  [lein-ancient "0.6.15"]]
+                                  [lein-ancient "0.6.15"]
+                                   [lein-shell "0.5.0"]
+                                  ]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
                    :cloverage    {:codecov? true
                                   ;; In case we want to exclude stuff
@@ -97,6 +105,10 @@
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
+             "md"  ^{:doc "Copies markdown files to resources"}
+["shell" "./scripts/copy-md.sh"]
+
+
             ;; INDEXER 
 
             "build-index" ^{:doc "Rebuild the notebook index"}
@@ -110,14 +122,14 @@
 
             ;; APP
 
-            "build-dev"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+demo" "demo.app/handler" "demo.app"]
+            "demo"  ^{:doc "Runs UI components via webserver."}
+            ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]
 
-            "build-prod"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "release" "+demo" "demo.app/handler" "demo.app"]
+            "build-dev"  ^{:doc "compiles bundle via webly"}
+            ["with-profile" "+demo" "run" "-m" "demo.app" "compile"]
+
+            "build"  ^{:doc "compiles bundle via webly"}
+            ["with-profile" "+demo" "run" "-m" "demo.app" "release"]
 
             "run-web"  ^{:doc "runs compiles bundle on shadow dev server"}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "run"]
-
-            "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]})
+            ["with-profile" "+demo" "run" "-m" "demo.app" "run"]})

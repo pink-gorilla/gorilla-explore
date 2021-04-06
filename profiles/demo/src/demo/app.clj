@@ -1,24 +1,20 @@
 (ns demo.app
   (:require
    [taoensso.timbre :as timbre :refer [info]]
-   [webly.build :refer [build-cli]]
-   [webly.config :refer [webly-config]]
-   [webly.web.handler :refer [make-handler]]
-   [pinkgorilla.explorer.default-config :refer [config-server]] ; side effects
-   [pinkgorilla.explorer.handler] ; side-effects   
+   [webly.config :refer [load-config! get-in-config]]
+   [webly.user.app.app :refer [webly-run!]]
    [pinkgorilla.explore.handler :refer [explore-directories-start]]
-   [demo.routes :refer [demo-routes-backend demo-routes-frontend]]))
-
-(info "making handler ..")
-(def handler (make-handler demo-routes-backend demo-routes-frontend))
+   ; side-effects 
+   [pinkgorilla.explorer.handler]
+   [pinkgorilla.explorer.default-config]
+   [demo.routes]))
 
 (defn -main
   [mode]
-  (info "demo starting mode: " mode)
-  (swap! webly-config assoc :timbre-loglevel :info
-                            :title "notebook-explorer"
-                            :start "demo.app.start (); ")
-
-  (explore-directories-start config-server)
-
-  (build-cli mode "+demo" "demo.app/handler" "demo.app"))
+  (load-config!)
+  (let [mode (or mode "watch")
+        config-explorer-server (get-in-config [:explorer :server])]
+    (when (or (= mode "watch")
+              (= mode "run"))
+      (explore-directories-start config-explorer-server))
+    (webly-run! mode)))

@@ -2,26 +2,27 @@
   (:require
    [re-frame.core :refer [reg-event-db trim-v dispatch]]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
-   [pinkgorilla.explore.events-fetch])) ; side effects
+   ; side effects
+   [pinkgorilla.explore.events-fetch]))
 
 ;; DB
 
 (reg-event-db
  :explore/init
- (fn [db [_ config]]
-   (let [db (or db {})]
-     (let [root-names (->> (:repositories config)
-                           (map :name))
-           add (fn [acc n] (assoc acc n []))
-           notebooks (reduce add {} root-names)]
-       (info "explore init roots:" root-names " notebooks " notebooks)
-       (dispatch [:explorer/fetch-indices])
-       (assoc db :explorer
-              {:config config
-               :notebooks notebooks
-               :search {:tags #{}
-                        :text ""
-                        :root "all"}})))))
+ (fn [db [_]]
+   (let [db (or db {})
+         config-explorer (get-in db [:config :explorer :client])
+         root-names (->> (:repositories config-explorer)
+                         (map :name))
+         add (fn [acc n] (assoc acc n []))
+         notebooks (reduce add {} root-names)]
+     (info "explore init roots:" root-names " notebooks " notebooks)
+     (dispatch [:explorer/fetch-indices])
+     (assoc db :explorer
+            {:notebooks notebooks
+             :search {:tags #{}
+                      :text ""
+                      :root "all"}}))))
 
 ;; SEARCH
 

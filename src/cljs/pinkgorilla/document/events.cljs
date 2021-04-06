@@ -3,11 +3,12 @@
    [taoensso.timbre :refer-macros [debug info error]]
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
    [ajax.core :as ajax]
+   [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storagetype]]
    [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
-   [webly.web.routes :refer [link]]
+  ; [webly.web.routes :refer [link]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 (defn hydrate-noop [nb]
@@ -36,20 +37,22 @@
 (defn get-secrets [db]
   (:secrets db))
 
+(defn url-link [db route]
+  (bidi/path-for (get-in db [:bidi :server]) route))
+
 (reg-event-fx
  :document/load
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (get-secrets db)
-         url  (link :api/notebook-load)
+         url  (url-link db :api/notebook-load); (link :api/notebook-load)
          storage-type (storagetype storage)
          _ (info "loading storage:" storage-type storage)
          params (assoc storage
                        :storagetype storage-type ; (keyword (:storagetype storage))
                        :tokens secrets)]
-     ;(dispatch [:ga/event :notebook :load])
-     (info "loading :" params)
+     (info "loading url: " url " params: "  params)
      {:db         (assoc-in db [:document :documents storage] :document/loading) ; notebook view on loading
-      ;; :ga/event [:notebook-load]
+      :dispatch [:ga/event {:category "notebook" :action "document-load" :label 77 :value url}]
       :http-xhrio {:method          :get
                    :uri             url
                    :params          params
@@ -84,7 +87,7 @@
  :document/save
  (fn [{:keys [db]} [_ storage]]
    (let [secrets (get-secrets db)
-         url  (link :api/notebook-save)
+         url  (url-link db :api/notebook-save)
          storage-type (storagetype storage)
          _ (info "notebook saving to storage " storage-type)
          notebook (get-in db [:document :documents storage])

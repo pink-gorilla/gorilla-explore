@@ -60,7 +60,7 @@
 (reg-event-fx
  :explorer/fetch-indices
  (fn [{:keys [db]}]
-   (let [events (->> (get-in db [:explorer :config :repositories])
+   (let [events (->> (get-in db [:config :explorer :client :repositories])
                      (map (fn [repo] (conj [:explorer/fetch-index] repo)))
                      vec)]
      {:db         db

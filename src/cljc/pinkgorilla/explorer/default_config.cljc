@@ -1,6 +1,6 @@
 (ns pinkgorilla.explorer.default-config
   (:require
-   #?(:cljs [webly.config]) ; from webly
+   ;#?(:cljs [webly.config]) ; from webly
    [pinkgorilla.document.default-config]  ; from encoding
 
    ; todo: move direct storage to encoding

@@ -33,7 +33,7 @@
 
      [:h3.w-full.bg-blue-300.p-2 "Search Text"]
      [:input.mb-5
-      {:value :text
+      {:value text
        :on-change #(dispatch [:explorer/search-text (tv %)])
        :placeholder "Search text ... "}]
 
