@@ -26,11 +26,12 @@
          {:keys [fn-hydrate fn-dehydrate]
           :or {fn-hydrate hydrate-noop
                fn-dehydrate dehydrate-noop}}
-         config]
-     (info "document init .. ")
-     (assoc db :document {:fn-hydrate fn-hydrate
-                          :fn-dehydrate fn-dehydrate
-                          :documents {}}))))
+         config
+         doc-config {:fn-hydrate fn-hydrate
+                     :fn-dehydrate fn-dehydrate
+                     :documents {}}]
+     (info "document init .. " doc-config)
+     (assoc db :document doc-config))))
 
 ;; Load File (from URL Parameters) - in view or edit mode
 
