@@ -1,7 +1,7 @@
 (ns pinkgorilla.document.component
   (:require
    [clojure.walk]
-   [taoensso.timbre :as timbre :refer [debug info warn error]]
+   [taoensso.timbre :refer-macros [debug info warn error]]
    [re-frame.core :refer [subscribe dispatch]]
    [pinkgorilla.storage.protocols :refer [query-params-to-storage]]
    [pinkgorilla.document.events] ; side effects
@@ -16,7 +16,7 @@
    (when document
      [:p (pr-str (:error document))])])
 
-(defn document-viewer [document-view storage document]
+(defn document-viewer [document-view header-menu-left storage document]
   [:div
        ;[:h1 "Document Viewer"]
        ;[:p (pr-str params)]
@@ -34,7 +34,7 @@
      [err storage @document "Error Loading Document"]
 
      :else
-     [document-view-with-header storage document document-view])])
+     [document-view-with-header document-view header-menu-left storage document])])
 
 (defn get-storage [params]
   (let [kparams (clojure.walk/keywordize-keys params)
@@ -43,14 +43,14 @@
         storage (query-params-to-storage stype kparams)]
     storage))
 
-(defn document-page [params document-view]
+(defn document-page [document-view header-menu-left params]
   (let [storage (get-storage params)
         document (when storage (subscribe [:document/get storage]))]
     (when (and storage (not @document))
       ;(info "loading document storage: " storage)
       (dispatch [:document/load storage]))
     (info "rendering document-page params: " params)
-    [document-viewer document-view storage document]))
+    [document-viewer document-view header-menu-left storage document]))
 
 
 

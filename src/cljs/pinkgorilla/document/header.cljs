@@ -22,28 +22,13 @@
         [:span {:on-click #(reset! edit? true)}
          (or (:tagline meta) "No tagline entered...")]))))
 
-(defn header [file-info document storage]
+(defn header [header-menu-left file-info document storage]
   (let [d @document
         meta (:meta d)]
     [:div.bg-blue-100.flex.flex-row.justify-between.w-100 ; screen
      ;left-col
      [:div
-      [:a {:on-click #(dispatch [:bidi/goto :ui/explorer])
-           :class "hover:text-blue-700"}
-       [:i.fa.fa-th-large.fa-lg.pl-1]]
-
-      [:a {:on-click #(dispatch [:document/new])
-           :class "hover:text-blue-700"}
-       [:i.fa.fa-plus.fa-lg.pl-1]]
-
-      [:a {:on-click #(dispatch [:document/save storage])
-           :class "hover:text-blue-700"}
-       [:i.fa.fa-save.fa-lg.pl-1]]
-
-      [:a {:on-click #(dispatch [:palette/show])
-           :class "hover:text-blue-700"}
-       [:i.fa.fa-save.fa-stream.pl-1]]
-
+      [header-menu-left]
       [:span.m-2.border.border-solid (storagetype storage)]
       [:span.m-2.text-xl (determine-name storage)] ; (:name file-info)]
       [:span.m-2.italic [tagline storage meta]]]
@@ -58,10 +43,10 @@
          {:on-click #(dispatch [:document/new])}
          "new"]]]))
 
-(defn document-view-with-header [storage document document-view]
+(defn document-view-with-header [document-view header-menu-left storage document]
   (let [file-info (split-filename (:filename storage))
         _ (debug "nb file-info: " file-info)]
     [:div.w-screen.h-screen.flex.flex-col.overflow-hidden
-     [header file-info document storage]
+     [header header-menu-left file-info document storage]
      [:div.h-full.overflow-y-scroll.overflow-x-hidden ; .overflow-scroll
       [document-view storage document]]]))

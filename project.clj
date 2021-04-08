@@ -39,7 +39,7 @@
 
                          [org.clojure/clojurescript "1.10.773"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.1.9"]
+  :dependencies [[org.pinkgorilla/webly "0.1.10"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging

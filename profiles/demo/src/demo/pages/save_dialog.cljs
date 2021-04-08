@@ -1,5 +1,6 @@
-(ns demo.save-dialog-demo
+(ns demo.pages.save-dialog
   (:require
+   [webly.web.handler :refer [reagent-page]]
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.save-dialog.component :refer [save-dialog]]))
 
@@ -42,3 +43,7 @@
      [save-dialog {:storage nil
                    :on-save on-save
                    :on-cancel on-cancel}]]]])
+
+
+(defmethod reagent-page :demo/save [& args]
+  [save-dialogs])

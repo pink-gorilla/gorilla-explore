@@ -10,4 +10,5 @@
  (fn [db [_]]
    (info "explorer demo starting ..")
    (dispatch [:explorer/init config-hydration])
+   (dispatch [:webly/status :running])
    db))
