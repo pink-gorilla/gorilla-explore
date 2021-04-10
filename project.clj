@@ -39,8 +39,7 @@
 
                          [org.clojure/clojurescript "1.10.773"]]
 
-  :dependencies [[org.pinkgorilla/webly "0.1.10"]
-                 [org.clojure/clojure "1.10.1"]
+  :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
                  [clojure.java-time "0.3.2"]
@@ -58,9 +57,9 @@
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
                  [cljs-ajax "0.8.0"] ; needed for re-frame/http-fx
-                 [day8.re-frame/http-fx "0.2.1" ;  reframe based http requests
+                 [day8.re-frame/http-fx "0.2.3" ;  reframe based http requests
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
-                 [re-com "2.8.0"]      ; reagent reuseable ui components
+                 [re-com "2.13.2"]      ; reagent reuseable ui components
                  ; pinkgorilla
                  [org.pinkgorilla/notebook-encoding "0.1.18"] ; notebook encoding
                  ]
@@ -83,8 +82,9 @@
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
                    :dependencies [;[thheller/shadow-cljs "2.10.15"]
+                                  [org.pinkgorilla/webly "0.1.12"]
                                   [ring/ring-mock "0.4.0"]
-                                  [clj-kondo "2020.07.29"]]
+                                  [clj-kondo "2021.03.31"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
                                   [lein-ancient "0.6.15"]
@@ -106,7 +106,7 @@
             ["change" "version" "leiningen.release/bump-version"]
 
              "md"  ^{:doc "Copies markdown files to resources"}
-["shell" "./scripts/copy-md.sh"]
+             ["shell" "./scripts/copy-md.sh"]
 
 
             ;; INDEXER 
