@@ -154,9 +154,11 @@
    (let [id (make-hip-nsname)
          _ (info "creating document:" id)
          storage (StorageUnsaved. id)
-         document (new-notebook id)]
+         document (new-notebook id)
+         fn-hydrate (get-in db [:document :fn-hydrate])
+         notebook (fn-hydrate document)]
      (goto-notebook! storage)
-     (assoc-in db [:document :documents storage] document))))
+     (assoc-in db [:document :documents storage] notebook))))
 
 ; EDIT Document
 
