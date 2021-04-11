@@ -2,6 +2,7 @@
 
 - This project is used in [Notebook](https://github.com/pink-gorilla/gorilla-notebook) and [Goldly](https://github.com/pink-gorilla/goldly).
 - Tools to explore (and load) the universe of Pink Gorilla notebooks.
+- End Users: this project is not for you.
 
 # notebook index
 
@@ -16,11 +17,14 @@ lein build-index
 
 # UI demo
 
-The demo runs a webserver on port 9000 and has the explorer on path "/explorer".
+The demo runs a webserver on port 8000 with explorer ui with demos.
 
 ```
 lein demo
 ```
+
+Open in browser: http://localhost:8000/
+
 
 # components
 
