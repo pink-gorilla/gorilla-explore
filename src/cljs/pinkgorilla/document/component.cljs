@@ -22,7 +22,7 @@
        ;[:p (pr-str params)]
    (cond
      (not storage)
-     [err storage @document "storage parameter are bad!"]
+     [err storage nil "storage parameter are bad!"]
 
      (nil? @document)
      [err storage @document "requesting document"]
@@ -44,12 +44,12 @@
     storage))
 
 (defn document-page [document-view header-menu-left params]
+  (info "rendering document-page params: " params)
   (let [storage (get-storage params)
         document (when storage (subscribe [:document/get storage]))]
     (when (and storage (not @document))
       ;(info "loading document storage: " storage)
       (dispatch [:document/load storage]))
-    (info "rendering document-page params: " params)
     [document-viewer document-view header-menu-left storage document]))
 
 
