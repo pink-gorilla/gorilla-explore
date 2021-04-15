@@ -45,5 +45,5 @@
                    :on-cancel on-cancel}]]]])
 
 
-(defmethod reagent-page :demo/save [& args]
+(defmethod reagent-page :demo/save [{:keys [route-params query-params handler]}]
   [save-dialogs])

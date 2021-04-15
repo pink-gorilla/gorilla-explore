@@ -20,7 +20,7 @@ lein build-index
 The demo runs a webserver on port 8000 with explorer ui with demos.
 
 ```
-lein demo
+lein demo watch
 ```
 
 Open in browser: http://localhost:8000/

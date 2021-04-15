@@ -81,8 +81,7 @@
 
              :dev {:source-paths ["profiles/dev/src"
                                   "test"]
-                   :dependencies [;[thheller/shadow-cljs "2.10.15"]
-                                  [org.pinkgorilla/webly "0.1.12"]
+                   :dependencies [[org.pinkgorilla/webly "0.1.21"]
                                   [ring/ring-mock "0.4.0"]
                                   [clj-kondo "2021.03.31"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
@@ -108,28 +107,14 @@
              "md"  ^{:doc "Copies markdown files to resources"}
              ["shell" "./scripts/copy-md.sh"]
 
-
             ;; INDEXER 
 
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main"]
 
-            ;; SHADOW testing
-
-            ; this will be removed when shadow package.json issue is resolved.
-            "build-shadow-ci"  ^{:doc "compiles bundle"}
-            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "compile" "webly"]
-
             ;; APP
 
-            "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]
+            "demo"
+            ["with-profile" "+demo" "run" "-m" "demo.app"]
 
-            "build-dev"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "compile"]
-
-            "build"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "release"]
-
-            "run-web"  ^{:doc "runs compiles bundle on shadow dev server"}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "run"]})
+             })

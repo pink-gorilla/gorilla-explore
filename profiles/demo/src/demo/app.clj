@@ -2,6 +2,7 @@
   (:require
    [taoensso.timbre :as timbre :refer [info]]
    [webly.config :refer [load-config! get-in-config]]
+   [webly.profile :refer [server?]]
    [webly.user.app.app :refer [webly-run!]]
    [pinkgorilla.explore.handler :refer [explore-directories-start]]
    ; side-effects 
@@ -10,11 +11,9 @@
    [demo.routes]))
 
 (defn -main
-  [mode]
+  [profile-name]
   (load-config!)
-  (let [mode (or mode "watch")
-        config-explorer-server (get-in-config [:explorer :server])]
-    (when (or (= mode "watch")
-              (= mode "run"))
+  (let [config-explorer-server (get-in-config [:explorer :server])]
+    (when (server? profile-name)
       (explore-directories-start config-explorer-server))
-    (webly-run! mode)))
+    (webly-run! profile-name)))

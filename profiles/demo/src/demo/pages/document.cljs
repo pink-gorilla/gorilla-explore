@@ -2,7 +2,6 @@
   (:require
    [re-frame.core :refer [subscribe dispatch]]
    [webly.web.handler :refer [reagent-page]]
-   [webly.web.routes :refer [query-params]]
    [pinkgorilla.document.component :refer [document-page]]))
 
 (defn header-icon [fa-icon rf-dispatch]
@@ -30,5 +29,8 @@
     [:p " storage: " (pr-str storage)]]
    [:div.m-16.bg-blue-300 "document: " @document]])
 
-(defmethod reagent-page :ui/notebook [& args]
-  [document-page document-view-dummy header-menu-left @query-params])
+(defmethod reagent-page :ui/notebook [{:keys [route-params query-params handler] :as route}]
+  (println "doc page args: " route)
+  (if query-params
+    [document-page document-view-dummy header-menu-left query-params]
+    [:h1 "error. no query params route-p:" (pr-str route)]))

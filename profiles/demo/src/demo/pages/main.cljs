@@ -11,5 +11,5 @@
    [:a.bg-green-300 {:href "/explorer"} "explorer"]
    [:a.bg-red-300 {:href "/demo/save"} "save-as dialog demo"]])
 
-(defmethod reagent-page :demo/main [& args]
+(defmethod reagent-page :demo/main [{:keys [route-params query-params handler]}]
   [main])

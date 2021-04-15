@@ -10,5 +10,5 @@
   (info "load-notebook-click" nb)
   (goto-notebook! (:storage nb)))
 
-(defmethod reagent-page :ui/explorer [& args]
+(defmethod reagent-page :ui/explorer [{:keys [route-params query-params handler]}]
   [notebook-explorer open-notebook])
