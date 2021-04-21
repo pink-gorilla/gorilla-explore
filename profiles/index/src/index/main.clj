@@ -2,30 +2,58 @@
   (:require
    [taoensso.timbre :as timbre :refer [tracef debugf infof warnf errorf info]]
    [cheshire.core :as cheshire]
+   [pinkgorilla.explore.discover :refer [discover-github]]
+   [pinkgorilla.document.default-config] ; side effects
    [pinkgorilla.explorer.default-config] ; side effects
-    ; dependencies needed to be in bundle: 
-   [pinkgorilla.explore.db :refer [load-db clear all]]
-   [pinkgorilla.explore.discover :refer [discover-github-users]]
-  ; from test folder
-   [pinkgorilla.creds :refer [creds]])
+   [pinkgorilla.creds :refer [creds]] ; from test folder
+   )
   (:gen-class))
 
 ;(timbre/set-level! :trace) ; Uncomment for more logging
 ;  (timbre/set-level! :debug)
 (timbre/set-level! :info)
 
-(defn generate-list [users tokens]
-  (let [filename "resources/list.json"
-        my-pretty-printer (cheshire/create-pretty-printer
+(defn- save [filename data]
+  (let [my-pretty-printer (cheshire/create-pretty-printer
                            (assoc cheshire/default-pretty-print-options
                                   :indent-arrays? true))]
-    (clear)
-    (discover-github-users :gist tokens users)
-    (discover-github-users :repo tokens users)
-    (spit filename (cheshire/generate-string {:data (all)} {:pretty my-pretty-printer}) :append false)
-    (info "generate-list finished.")))
+    (spit filename (cheshire/generate-string {:data data} {:pretty my-pretty-printer}) :append false)))
 
-(defn -main [& args]
-  (info "re-building index of pink-gorilla notebooks ..")
-  (load-db "resources/explorer.json") ; hACK - otherwise db gets saved to just universe.json
-  (generate-list ["awb99" "pink-gorilla" "deas"] (creds)))
+
+(defn is-excluded? [storage]
+  (cond
+    (= (:repo storage) "notebook-encoding") true
+    (= (:filename storage) "meta1.cljg") true
+    (= (:filename storage) "unittest-meta1.cljg") true
+    (and (:filename storage) (.contains (:filename storage) "broken/")) true
+    :else false))
+
+(defn remove-excluded [storages]
+  (remove is-excluded? storages))
+
+(defn discover-users [tokens user-names]
+  (info "discovering for " (count user-names) "users")
+  (let [notebook-list (map #(discover-github tokens %) user-names)
+        notebooks (->> notebook-list
+                       (reduce concat [])
+                       (filter remove-excluded))]
+    (save "resources/list.json" notebooks)
+    (info "FINISHED discovering users" (count user-names) " notebooks: " (count notebooks))))
+
+
+(defn discover-user [username tokens]
+  (let [notebooks (discover-github tokens username)]
+    (save (str "profiles/index/data/" username ".json") notebooks)))
+
+(defn -main [mode]
+  (let [tokens (creds)
+        ;users (usernames)
+        users ["awb99" "pink-gorilla" "deas"]]
+    (info "re-building index of pink-gorilla notebooks ..")
+
+    (case mode
+      "index"
+      (discover-users users tokens)
+
+      "user"
+      (discover-user "awb99" tokens))))
