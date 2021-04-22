@@ -17,7 +17,7 @@
                   ["vcs" "push"]]
 
   :target-path  "target/jar"
-  :source-paths ["src"] 
+  :source-paths ["src"]
   :test-paths ["test"]
   :resource-paths  ["resources"] ; gorilla-explore resources
   :prep-tasks ["md"]
@@ -28,7 +28,7 @@
                  [ring/ring-codec "1.1.3"]  ; webly + ring-mock
                  [org.apache.httpcomponents/httpcore "4.4.14"] ; webly + clj-ajax
 
-                 [org.pinkgorilla/webly "0.2.4"]
+                 [org.pinkgorilla/webly "0.2.5"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
@@ -55,7 +55,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.13.2"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.21"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.28"] ; notebook encoding
                  ]
 
 
@@ -96,6 +96,12 @@
 
             "md"  ^{:doc "Copies markdown files to resources"}
             ["shell" "./scripts/copy-md.sh"]
+
+            "lint"  ^{:doc "Lint for dummies"}
+            ["clj-kondo"
+             "--config" "clj-kondo.edn"
+             "--lint" "src"]
+
 
             ; Single User notebooks
             "user" ^{:doc "Rebuild the notebook index"}

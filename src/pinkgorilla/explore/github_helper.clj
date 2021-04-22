@@ -22,8 +22,10 @@
 
 
 (defn options-oauth2 [token-github]
-  {:client-id (get-in-config [:oauth2 :github :client-id])
-   :client-token token-github})
+  (when token-github
+    {;:client-id (get-in-config [:oauth2 :github :client-id])
+   ;:client-token token-github
+     :oauth-token token-github}))
 
 
 ;; gist url format:

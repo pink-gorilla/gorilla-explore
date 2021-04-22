@@ -1,6 +1,6 @@
 (ns pinkgorilla.document.handler
   (:require
-   [taoensso.timbre :refer [debug info error]]
+   [taoensso.timbre :refer [trace debug info error]]
    [ring.util.response :as res]
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.notebook.persistence :refer [load-notebook save-notebook]]
@@ -16,31 +16,35 @@
 
 (defn notebook-save-handler
   [req]
-  (let [_ (info "save request: " req)
-        params (:body-params req) ; was: (:params req)
+  (trace "save request: " req)
+  (let [params (:body-params req) ; was: (:params req)
         {:keys [token-github storage notebook]} params
         tokens (options-oauth2 token-github)
         pstorage storage
         storage (params->storage pstorage)]
     (if (nil? storage)
-      (res/bad-request {:error (str "Cannot save to storage - storage is nil! " pstorage)})
+      (res/bad-request {:error-message (str "Cannot save to storage - storage is nil! " pstorage)})
       (do
         (info "Saving: storage: " storage " creds: " (keys tokens)) ; keys only: dont log secrets 
-        (error "tokens: " tokens)
+        (trace "tokens: " tokens)
         (let [save-result (save-notebook storage tokens notebook)]
-          (res/response save-result))))))
+          (info "save result: " save-result)
+          (if (= true (:success save-result))
+            (res/response save-result)
+            (res/bad-request save-result)))))))
 
 (defn notebook-load-handler
   [req]
   (let [params (:params req)
-        _ (debug "document load params " (pr-str params))
+        _ (info "document load params " (pr-str params))
         {:keys [token-github]} params
         tokens (options-oauth2 token-github)
         storage (params->storage params)]
     (if (nil? storage)
       (res/bad-request {:error "storage is nil"})
       (do
-        (info "Loading from storage: " storage)
+        (info "Loading Notebook from storage: " storage)
+        (info "tokens: " tokens)
         (if-let [notebook (load-notebook storage tokens)]
           (do
             (info "notebook successfully loaded! size: " (count notebook))

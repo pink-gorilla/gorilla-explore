@@ -42,8 +42,14 @@
 
 
 (defn discover-user [username tokens]
-  (let [notebooks (discover-github tokens username)]
-    (save (str "profiles/index/data/" username ".json") notebooks)))
+  (let [notebooks (discover-github tokens username)
+        f (str "profiles/index/data/" username ".json")
+        ]
+    (info "user data: " (pr-str notebooks))
+    (save f notebooks)
+    (info "user data saved to: " f)
+
+    ))
 
 (defn -main [mode]
   (let [tokens (creds)

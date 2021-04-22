@@ -2,11 +2,17 @@
   (:require
    [clojure.string]
    [taoensso.timbre :as timbre :refer [tracef debugf infof warnf errorf info]]
-   [pinkgorilla.storage.impl.github :refer [load-gist-all]]
+   [tentacles.gists]
    [pinkgorilla.explore.github-helper :refer [user-gists specific-gist]]
    [pinkgorilla.explore.print :refer [print-gist]]))
 
 ;; GITHUB WRAPPER
+
+(defn load-gist-all [gist-id & [tokens]]
+  (tentacles.gists/file-contents
+   (if (nil? tokens)
+     (tentacles.gists/specific-gist gist-id)
+     (tentacles.gists/specific-gist gist-id tokens))))
 
 (defn load-gists [user & [options]]
   (let [gists (if (nil? options)

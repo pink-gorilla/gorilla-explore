@@ -38,8 +38,10 @@
   (:secrets db))
 
 (defn get-tokens [db]
-  (let [github (get-in db [:token :github :access-token])]
-    {:token-github github}))
+  (let [token-github (get-in db [:token :github :access-token])]
+    (if token-github
+      {:token-github token-github}
+      {})))
 
 (defn url-link [db route]
   (bidi/path-for (get-in db [:bidi :server]) route))
@@ -69,10 +71,8 @@
  :document/load-error
  (fn
    [db [_ storage response-body]]
-   (error "Load Response Error for\n" storage)
-   (error "Load Response Error:\n" response-body)
-   (let [content (:content response-body)
-         _ (error "Content Only:\n" content)]
+   (error "Load Response Error for " storage " Error: " response-body)
+   (let [content (:content response-body)]
      (assoc-in db [:document :documents storage]
                {:error response-body}))))
 
@@ -119,7 +119,7 @@
                      :response-format (ajax/transit-response-format)
                                      ;(ajax/json-response-format {:keywords? true}) 
                      :on-success      [:document/save-success storage]
-                     :on-failure      [:document/save-error]}}))))
+                     :on-failure      [:document/save-error storage]}}))))
 
 
 ;; display success message when saving was successful
@@ -137,16 +137,12 @@
 (reg-event-db
  :document/save-error
  (fn
-   [db [_ storage response-body]]
-   (error "Save Error " response-body " for \n" storage)
-                  ; Error: " (:status-text response) " (" (:status response) ")")
-   (dispatch [:notification/show
-              (str "Save error! ")
-              :danger])
-   (let [content (:content response-body)
-         _ (error "Content Only:\n" content)]
-     ;(assoc-in db [:document :documents storage]
-     ;          {:error response-body})
+   [db [_ storage response]]
+   (let [error-message (get-in response [:response :error-message])]
+     (error "Save Error " response " for \n" storage)
+     (dispatch [:notification/show
+                (str "Save error! " error-message)
+                :danger])
      db)))
 
 ; NEW Document
