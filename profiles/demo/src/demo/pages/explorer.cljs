@@ -2,7 +2,7 @@
   (:require
    [taoensso.timbre :as timbre :refer [info]]
    [webly.web.handler :refer [reagent-page]]
-   [pinkgorilla.explore.component :refer [notebook-explorer]]
+   [pinkgorilla.document.collection.component :refer [notebook-explorer]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 

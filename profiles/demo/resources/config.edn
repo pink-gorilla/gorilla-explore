@@ -8,14 +8,17 @@
 
  :google-analytics {:enabled true} ; set to false to disable google-analytics tracking.
 
- :timbre-loglevel [[#{"pinkgorilla.nrepl.client.connection"} :debug]
+ :timbre-loglevel [[#{"webly.ws.*"} :info]
+                   [#{"webly.user.*"} :info]
+                   [#{"org.eclipse.jetty.*"} :info]
+                   [#{"pinkgorilla.nrepl.client.connection"} :debug]
                    [#{"*"} :debug]]
 
  :explorer
  {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}
                           {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
   :server {:exclude #{".git" ".svn"}
-           :roots   {:app "./notebooks"}}}
+           :roots   {:app "./profiles/demo/notebooks"}}}
 
  ;
  }

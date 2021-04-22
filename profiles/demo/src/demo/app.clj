@@ -4,10 +4,11 @@
    [webly.config :refer [load-config! get-in-config]]
    [webly.profile :refer [server?]]
    [webly.user.app.app :refer [webly-run!]]
-   [pinkgorilla.explore.handler :refer [explore-directories-start]]
-   ; side-effects 
-   [pinkgorilla.explorer.handler]
+; side-effects 
    [pinkgorilla.explorer.default-config]
+   [pinkgorilla.explorer.handler]
+   [pinkgorilla.explore.handler :refer [explore-directories-start]]
+
    [demo.routes]))
 
 (defn -main

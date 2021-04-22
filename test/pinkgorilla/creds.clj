@@ -7,9 +7,8 @@
   "Get creds from environment or file. See sample-creds.edn for an example"
   []
   (if-let [github-token (System/getenv "GITHUB_TOKEN")]
-    {:github-token github-token
+    {:oauth-token github-token
      :gist-id      (System/getenv "GIST_ID")}
-    (-> (io/resource "creds.edn")
+    (-> (io/resource "creds-test.edn")
         (slurp)
         (edn/read-string))))
-;; (comment (creds))
