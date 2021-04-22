@@ -29,8 +29,8 @@
 
 (def load-notebook-data
   {:notebook    ";; gorilla-repl.fileformat = 2\n"
-   :storagetype "file"
-   :storage-params {:filename "target/test-save.cljg"}})
+   :storage {:type :file
+             :filename "target/test-save.cljg"}})
 
 (deftest save-notebook []
   (let [response (POST "/api/notebook" load-notebook-data)
