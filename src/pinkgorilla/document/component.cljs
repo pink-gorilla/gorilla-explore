@@ -2,7 +2,7 @@
   (:require
    [clojure.string]
    [clojure.walk]
-   [taoensso.timbre :refer-macros [debug info warn error]]
+   [taoensso.timbre :refer-macros [debugf info warn error]]
    [re-frame.core :refer [subscribe dispatch]]
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.document.events] ; side effects
@@ -39,7 +39,7 @@
 
 (defn get-storage [params]
   (let [kparams (clojure.walk/keywordize-keys params)
-        _ (info "document page kw params: " kparams)
+        _ (debugf "document page kw params: %s" kparams)
         type (:type kparams)
         type (if (string? type) (keyword (clojure.string/replace type ":" "")) type)
         kparams (assoc kparams :type type)
@@ -49,11 +49,10 @@
     storage))
 
 (defn document-page [document-view header-menu-left params]
-  (info "rendering document-page params: " params)
+  (debugf "rendering document-page params: %s" params)
   (let [storage (get-storage params)
         document (when storage (subscribe [:document/get storage]))]
     (when (and storage (not @document))
-      ;(info "loading document storage: " storage)
       (dispatch [:document/load storage]))
     [document-viewer document-view header-menu-left storage document]))
 
