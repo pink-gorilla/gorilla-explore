@@ -9,8 +9,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 43,
-      "edit-date" : "2020-05-15"
+      "stars" : 79,
+      "edit-date" : "2020-06-29"
     },
     {
       "type" : "gist",
@@ -21,8 +21,8 @@
       "meta" : {
         "test" : 789
       },
-      "stars" : 52,
-      "edit-date" : "2021-04-08"
+      "stars" : 86,
+      "edit-date" : "2021-04-21"
     },
     {
       "type" : "gist",
@@ -33,8 +33,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 89,
-      "edit-date" : "2020-02-11"
+      "stars" : 5,
+      "edit-date" : "2020-10-14"
     },
     {
       "type" : "repo",
@@ -45,8 +45,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 33,
-      "edit-date" : "2020-10-12"
+      "stars" : 96,
+      "edit-date" : "2020-04-04"
     },
     {
       "type" : "repo",
@@ -57,8 +57,8 @@
       "meta" : {
         "tags" : "nb-load-failed"
       },
-      "stars" : 37,
-      "edit-date" : "2020-06-22"
+      "stars" : 22,
+      "edit-date" : "2021-02-12"
     },
     {
       "type" : "repo",
@@ -70,8 +70,8 @@
         "tags" : "reagent,clj,cljs,demo",
         "tagline" : ""
       },
-      "stars" : 70,
-      "edit-date" : "2021-04-08"
+      "stars" : 91,
+      "edit-date" : "2020-06-19"
     },
     {
       "type" : "repo",
@@ -82,8 +82,8 @@
       "meta" : {
         "tags" : "nb-load-failed"
       },
-      "stars" : 22,
-      "edit-date" : "2020-08-24"
+      "stars" : 98,
+      "edit-date" : "2020-01-29"
     },
     {
       "type" : "repo",
@@ -94,8 +94,8 @@
       "meta" : {
         "tags" : "nb-load-failed"
       },
-      "stars" : 78,
-      "edit-date" : "2021-02-03"
+      "stars" : 49,
+      "edit-date" : "2020-08-09"
     },
     {
       "type" : "repo",
@@ -107,8 +107,8 @@
         "tagline" : "Video Demo (Youtube, ...)",
         "tags" : "video,youtube,cool,ui,clj,cljs"
       },
-      "stars" : 30,
-      "edit-date" : "2020-11-29"
+      "stars" : 33,
+      "edit-date" : "2020-06-09"
     },
     {
       "type" : "repo",
@@ -119,8 +119,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 53,
-      "edit-date" : "2020-03-17"
+      "stars" : 36,
+      "edit-date" : "2020-06-25"
     },
     {
       "type" : "repo",
@@ -132,8 +132,8 @@
         "tagline" : "sparkling demo",
         "tags" : "sparkling,deas,clj-only,clj,demo"
       },
-      "stars" : 81,
-      "edit-date" : "2020-05-11"
+      "stars" : 55,
+      "edit-date" : "2020-10-31"
     },
     {
       "type" : "repo",
@@ -144,8 +144,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 66,
-      "edit-date" : "2020-02-18"
+      "stars" : 22,
+      "edit-date" : "2020-12-18"
     },
     {
       "type" : "repo",
@@ -157,8 +157,8 @@
         "tagline" : "sparkling demo",
         "tags" : "sparkling,deas,clj-only,clj,demo"
       },
-      "stars" : 67,
-      "edit-date" : "2021-04-12"
+      "stars" : 16,
+      "edit-date" : "2020-10-13"
     },
     {
       "type" : "repo",
@@ -169,8 +169,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 33,
-      "edit-date" : "2020-04-29"
+      "stars" : 98,
+      "edit-date" : "2021-04-25"
     },
     {
       "type" : "repo",
@@ -182,8 +182,8 @@
         "tagline" : "sparkling demo",
         "tags" : "sparkling,deas,clj-only,clj,demo"
       },
-      "stars" : 40,
-      "edit-date" : "2020-10-15"
+      "stars" : 75,
+      "edit-date" : "2020-08-30"
     },
     {
       "type" : "repo",
@@ -195,8 +195,8 @@
         "tagline" : "charts with quil",
         "tags" : "quil,svg,clj,cljs,demo"
       },
-      "stars" : 15,
-      "edit-date" : "2020-11-02"
+      "stars" : 36,
+      "edit-date" : "2020-05-01"
     },
     {
       "type" : "repo",
@@ -208,8 +208,8 @@
         "tagline" : "Sparkline charts demo",
         "tags" : "cool,ui,clj,cljs,sparkline"
       },
-      "stars" : 45,
-      "edit-date" : "2020-06-29"
+      "stars" : 57,
+      "edit-date" : "2020-12-18"
     },
     {
       "type" : "repo",
@@ -221,8 +221,8 @@
         "tags" : "clj-only,vega,clj",
         "tagline" : "vega from clojure"
       },
-      "stars" : 81,
-      "edit-date" : "2020-12-30"
+      "stars" : 27,
+      "edit-date" : "2019-12-31"
     },
     {
       "type" : "repo",
@@ -234,8 +234,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 20,
-      "edit-date" : "2021-02-09"
+      "stars" : 46,
+      "edit-date" : "2020-11-30"
     },
     {
       "type" : "repo",
@@ -246,8 +246,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 62,
-      "edit-date" : "2020-10-15"
+      "stars" : 60,
+      "edit-date" : "2020-02-25"
     },
     {
       "type" : "repo",
@@ -259,8 +259,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 53,
-      "edit-date" : "2020-02-08"
+      "stars" : 98,
+      "edit-date" : "2020-11-16"
     },
     {
       "type" : "repo",
@@ -271,8 +271,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 59,
-      "edit-date" : "2021-02-15"
+      "stars" : 19,
+      "edit-date" : "2021-03-09"
     },
     {
       "type" : "repo",
@@ -284,8 +284,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 33,
-      "edit-date" : "2020-12-24"
+      "stars" : 91,
+      "edit-date" : "2020-11-25"
     },
     {
       "type" : "repo",
@@ -297,8 +297,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 97,
-      "edit-date" : "2020-01-03"
+      "stars" : 35,
+      "edit-date" : "2020-07-05"
     },
     {
       "type" : "repo",
@@ -310,8 +310,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 99,
-      "edit-date" : "2020-05-08"
+      "stars" : 81,
+      "edit-date" : "2020-01-03"
     },
     {
       "type" : "repo",
@@ -323,8 +323,8 @@
         "tagline" : "highchart ui-plugin demo",
         "tags" : "clj-only,ui-plugin,highchart,clj,demo"
       },
-      "stars" : 82,
-      "edit-date" : "2020-12-29"
+      "stars" : 62,
+      "edit-date" : "2020-08-24"
     },
     {
       "type" : "repo",
@@ -335,8 +335,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 20,
-      "edit-date" : "2020-12-15"
+      "stars" : 33,
+      "edit-date" : "2020-06-23"
     },
     {
       "type" : "repo",
@@ -348,8 +348,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 79,
-      "edit-date" : "2020-02-10"
+      "stars" : 91,
+      "edit-date" : "2020-03-03"
     },
     {
       "type" : "repo",
@@ -360,8 +360,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 63,
-      "edit-date" : "2020-03-25"
+      "stars" : 75,
+      "edit-date" : "2020-03-09"
     },
     {
       "type" : "repo",
@@ -372,8 +372,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 28,
-      "edit-date" : "2020-03-11"
+      "stars" : 83,
+      "edit-date" : "2020-06-08"
     },
     {
       "type" : "repo",
@@ -384,8 +384,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 89,
-      "edit-date" : "2020-07-09"
+      "stars" : 35,
+      "edit-date" : "2021-03-18"
     },
     {
       "type" : "repo",
@@ -396,8 +396,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 87,
-      "edit-date" : "2020-12-03"
+      "stars" : 62,
+      "edit-date" : "2020-02-10"
     },
     {
       "type" : "repo",
@@ -408,8 +408,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 48,
-      "edit-date" : "2020-11-25"
+      "stars" : 83,
+      "edit-date" : "2020-06-04"
     },
     {
       "type" : "repo",
@@ -420,8 +420,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 2,
-      "edit-date" : "2020-11-09"
+      "stars" : 17,
+      "edit-date" : "2020-03-27"
     },
     {
       "type" : "repo",
@@ -432,7 +432,7 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 57,
+      "stars" : 54,
       "edit-date" : "2020-08-27"
     },
     {
@@ -444,8 +444,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 24,
-      "edit-date" : "2020-07-10"
+      "stars" : 87,
+      "edit-date" : "2021-01-24"
     },
     {
       "type" : "repo",
@@ -456,8 +456,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 27,
-      "edit-date" : "2020-05-16"
+      "stars" : 92,
+      "edit-date" : "2020-05-18"
     },
     {
       "type" : "repo",
@@ -469,8 +469,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 47,
-      "edit-date" : "2020-05-29"
+      "stars" : 12,
+      "edit-date" : "2021-01-07"
     },
     {
       "type" : "repo",
@@ -481,8 +481,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 1,
-      "edit-date" : "2021-03-13"
+      "stars" : 37,
+      "edit-date" : "2021-03-20"
     },
     {
       "type" : "repo",
@@ -494,8 +494,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 58,
-      "edit-date" : "2020-03-18"
+      "stars" : 93,
+      "edit-date" : "2020-06-28"
     },
     {
       "type" : "repo",
@@ -507,8 +507,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 36,
-      "edit-date" : "2021-03-02"
+      "stars" : 77,
+      "edit-date" : "2020-08-14"
     },
     {
       "type" : "repo",
@@ -519,8 +519,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 82,
-      "edit-date" : "2020-08-03"
+      "stars" : 30,
+      "edit-date" : "2021-04-08"
     },
     {
       "type" : "repo",
@@ -532,8 +532,8 @@
         "tags" : "cool,reagent,clj,cljs,demo",
         "tagline" : "bodymass indicator (using only cljs reagent)"
       },
-      "stars" : 42,
-      "edit-date" : "2020-06-30"
+      "stars" : 73,
+      "edit-date" : "2021-04-23"
     },
     {
       "type" : "repo",
@@ -544,8 +544,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 7,
-      "edit-date" : "2020-05-01"
+      "stars" : 85,
+      "edit-date" : "2020-07-12"
     },
     {
       "type" : "repo",
@@ -557,8 +557,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 62,
-      "edit-date" : "2020-03-02"
+      "stars" : 71,
+      "edit-date" : "2021-04-18"
     },
     {
       "type" : "repo",
@@ -570,8 +570,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 89,
-      "edit-date" : "2020-02-23"
+      "stars" : 76,
+      "edit-date" : "2020-06-29"
     },
     {
       "type" : "repo",
@@ -583,8 +583,8 @@
         "tags" : "clj-only,vega,clj,demo,widgets",
         "tagline" : "full vega demo, reagent dynamic state"
       },
-      "stars" : 66,
-      "edit-date" : "2020-06-19"
+      "stars" : 36,
+      "edit-date" : "2020-05-20"
     },
     {
       "type" : "repo",
@@ -596,8 +596,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 33,
-      "edit-date" : "2020-12-06"
+      "stars" : 55,
+      "edit-date" : "2020-02-28"
     },
     {
       "type" : "repo",
@@ -608,8 +608,8 @@
       "meta" : {
         "tags" : "cool,reagent,clj,cljs,demo"
       },
-      "stars" : 4,
-      "edit-date" : "2020-02-18"
+      "stars" : 57,
+      "edit-date" : "2020-06-13"
     },
     {
       "type" : "repo",
@@ -621,8 +621,8 @@
         "tagline" : "AGGrid clj and cljs",
         "tags" : "cool,aggrid,ui,clj,cljs"
       },
-      "stars" : 83,
-      "edit-date" : "2020-11-08"
+      "stars" : 42,
+      "edit-date" : "2021-02-12"
     },
     {
       "type" : "repo",
@@ -634,8 +634,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 34,
-      "edit-date" : "2020-11-28"
+      "stars" : 28,
+      "edit-date" : "2020-08-03"
     },
     {
       "type" : "repo",
@@ -647,8 +647,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 29,
-      "edit-date" : "2020-08-21"
+      "stars" : 40,
+      "edit-date" : "2020-03-03"
     },
     {
       "type" : "repo",
@@ -660,8 +660,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 97,
-      "edit-date" : "2020-09-13"
+      "stars" : 49,
+      "edit-date" : "2020-04-01"
     },
     {
       "type" : "repo",
@@ -673,8 +673,8 @@
         "tagline" : "complex svg plot and quil example",
         "tags" : "cool,quil,svg,sierpinsky,clj,cljs"
       },
-      "stars" : 38,
-      "edit-date" : "2019-12-23"
+      "stars" : 44,
+      "edit-date" : "2021-03-13"
     },
     {
       "type" : "repo",
@@ -685,8 +685,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 32,
-      "edit-date" : "2020-08-05"
+      "stars" : 97,
+      "edit-date" : "2020-06-03"
     },
     {
       "type" : "repo",
@@ -697,8 +697,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 27,
-      "edit-date" : "2020-06-14"
+      "stars" : 78,
+      "edit-date" : "2020-08-29"
     },
     {
       "type" : "repo",
@@ -709,8 +709,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 63,
-      "edit-date" : "2020-08-08"
+      "stars" : 15,
+      "edit-date" : "2021-01-14"
     },
     {
       "type" : "repo",
@@ -722,8 +722,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 88,
-      "edit-date" : "2020-12-08"
+      "stars" : 70,
+      "edit-date" : "2020-12-15"
     },
     {
       "type" : "repo",
@@ -735,8 +735,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 89,
-      "edit-date" : "2020-09-29"
+      "stars" : 7,
+      "edit-date" : "2020-04-10"
     },
     {
       "type" : "repo",
@@ -748,8 +748,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 48,
-      "edit-date" : "2020-12-08"
+      "stars" : 43,
+      "edit-date" : "2021-01-14"
     },
     {
       "type" : "repo",
@@ -761,8 +761,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 6,
-      "edit-date" : "2020-01-03"
+      "stars" : 97,
+      "edit-date" : "2020-08-05"
     },
     {
       "type" : "repo",
@@ -774,8 +774,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 68,
-      "edit-date" : "2020-03-28"
+      "stars" : 85,
+      "edit-date" : "2020-09-22"
     },
     {
       "type" : "repo",
@@ -787,8 +787,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 33,
-      "edit-date" : "2020-07-18"
+      "stars" : 84,
+      "edit-date" : "2021-01-23"
     },
     {
       "type" : "repo",
@@ -799,8 +799,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 65,
-      "edit-date" : "2021-03-17"
+      "stars" : 56,
+      "edit-date" : "2020-10-06"
     },
     {
       "type" : "repo",
@@ -811,8 +811,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 8,
-      "edit-date" : "2020-08-15"
+      "stars" : 87,
+      "edit-date" : "2020-10-12"
     },
     {
       "type" : "repo",
@@ -823,8 +823,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 12,
-      "edit-date" : "2020-07-13"
+      "stars" : 85,
+      "edit-date" : "2020-12-06"
     },
     {
       "type" : "repo",
@@ -835,8 +835,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 26,
-      "edit-date" : "2020-08-02"
+      "stars" : 62,
+      "edit-date" : "2020-01-16"
     },
     {
       "type" : "repo",
@@ -847,8 +847,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 66,
-      "edit-date" : "2020-04-10"
+      "stars" : 88,
+      "edit-date" : "2020-04-04"
     },
     {
       "type" : "repo",
@@ -860,8 +860,8 @@
         "tagline" : "test 234",
         "tags" : "clj-only,clj"
       },
-      "stars" : 14,
-      "edit-date" : "2020-01-30"
+      "stars" : 9,
+      "edit-date" : "2020-08-01"
     },
     {
       "type" : "repo",
@@ -873,8 +873,8 @@
         "tagline" : "svg shapes (from maria cloud)",
         "tags" : "mariacloud,svg,clj,cljs,demo"
       },
-      "stars" : 44,
-      "edit-date" : "2020-07-11"
+      "stars" : 64,
+      "edit-date" : "2020-10-01"
     },
     {
       "type" : "repo",
@@ -885,8 +885,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 30,
-      "edit-date" : "2020-07-07"
+      "stars" : 96,
+      "edit-date" : "2020-02-27"
     },
     {
       "type" : "repo",
@@ -898,8 +898,8 @@
         "tags" : "clj,cljs,test",
         "tagline" : "explore what clojurescript can do"
       },
-      "stars" : 29,
-      "edit-date" : "2020-12-14"
+      "stars" : 45,
+      "edit-date" : "2020-03-27"
     },
     {
       "type" : "repo",
@@ -910,8 +910,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 53,
-      "edit-date" : "2020-04-02"
+      "stars" : 74,
+      "edit-date" : "2021-03-03"
     },
     {
       "type" : "repo",
@@ -922,8 +922,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 99,
-      "edit-date" : "2020-08-15"
+      "stars" : 2,
+      "edit-date" : "2020-01-13"
     },
     {
       "type" : "repo",
@@ -935,7 +935,7 @@
         "tags" : "clj-only,clj"
       },
       "stars" : 78,
-      "edit-date" : "2021-03-12"
+      "edit-date" : "2020-05-09"
     },
     {
       "type" : "repo",
@@ -946,8 +946,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 32,
-      "edit-date" : "2020-11-05"
+      "stars" : 14,
+      "edit-date" : "2019-12-30"
     },
     {
       "type" : "repo",
@@ -958,8 +958,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 42,
-      "edit-date" : "2020-09-05"
+      "stars" : 33,
+      "edit-date" : "2021-03-01"
     },
     {
       "type" : "gist",
@@ -970,8 +970,8 @@
       "meta" : {
         "test" : 789
       },
-      "stars" : 36,
-      "edit-date" : "2020-03-11"
+      "stars" : 85,
+      "edit-date" : "2020-11-19"
     },
     {
       "type" : "gist",
@@ -982,8 +982,8 @@
       "meta" : {
         "test" : 789
       },
-      "stars" : 76,
-      "edit-date" : "2020-12-06"
+      "stars" : 6,
+      "edit-date" : "2020-10-17"
     }
   ]
 }

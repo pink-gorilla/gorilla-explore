@@ -24,7 +24,7 @@ shadow-cljs.edn
 ./package.json
 ./package-lock.json
 ./shadow-cljs.edn
-./profiles/index/data/*.json
+profiles/index/data/**.json
 creds.edn
 .calva
 package.json

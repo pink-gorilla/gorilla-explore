@@ -17,7 +17,12 @@
   (let [my-pretty-printer (cheshire/create-pretty-printer
                            (assoc cheshire/default-pretty-print-options
                                   :indent-arrays? true))]
-    (spit filename (cheshire/generate-string {:data data} {:pretty my-pretty-printer}) :append false)))
+    (spit filename 
+          (cheshire/generate-string 
+           {:data data} 
+           {:pretty my-pretty-printer}) 
+          ;:append false
+          )))
 
 
 (defn discover-user [tokens username]
