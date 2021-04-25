@@ -16,7 +16,9 @@
 
 (defn explore-directories-start [config-server]
   (info "exploring setting: " config-server)
-  (start (:excludes config-server) (:roots config-server)))
+  (start (:excludes config-server)
+         (:roots config-server)
+         (:resource-root-path config-server)))
 
 (defn handler-explore-async
   [req]

@@ -27,5 +27,4 @@
 
 (defn tag-box-meta [meta]
   [:div
-   [:link {:rel "stylesheet" :href "/r/explorer/explorer.css"}]
    [tag-box (meta->tags meta) #{}]])

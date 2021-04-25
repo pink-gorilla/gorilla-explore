@@ -20,21 +20,21 @@
                   (decode :gorilla))]
       (select-keys nb [:meta])))
 
+(defn load-meta [tokens storage]
+  (let [nb (load-notebook storage tokens)]
+    (if nb
+      (notebook-meta nb)
+      (do (error "meta for storage could not be loaded: " storage)
+          {:tags "nb-load-failed"}))))
+
 (defn add-meta [tokens entry]
   (debug "adding meta for entry" entry)
   (let [file-info (split-filename (:filename entry))
         format (:encoding file-info)]
-    ;(debug "format: " format)
-    (if-not (= format :gorilla)
-      entry
-      (let [storage (create-storage entry)
-            ; notebook (decode encoding-type content)[
-            nb (load-notebook storage tokens)
-            ;_ (info "loading notebook " storage)
-            ]
-        (if (nil? nb)
-          (assoc entry :meta {:tags "error"})
-          (assoc entry :meta (notebook-meta nb)))))))
+    (if (= format :gorilla)
+      (let [storage (create-storage entry)]
+        (assoc entry :meta (load-meta tokens storage)))
+      (assoc entry :meta {:tags "no-gorilla"}))))
 
 (defn add-random [tokens entry]
   (assoc entry

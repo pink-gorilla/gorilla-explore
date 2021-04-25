@@ -1,6 +1,6 @@
 (ns pinkgorilla.explore.service
   (:require
-   [taoensso.timbre :refer [debug info error]]
+   [taoensso.timbre :refer [debug info warn error]]
    [clojure.java.io]
    [clojure.core.async :refer [thread]]
    [hawk.core :as hawk]
@@ -58,11 +58,15 @@
   (let [nbs-old (:notebooks a)]
     (assoc a :notebooks (concat nbs-old nbs-new))))
 
-(defn add-resources []
-  (let [nbs (explore-resources)]
-    (swap! data add-nbs nbs)))
+(defn add-resources [resource-root-path]
+  (if resource-root-path
+    (do
+      (info "exploring notebooks in resource path: " resource-root-path)
+      (let [nbs (explore-resources resource-root-path)]
+        (swap! data add-nbs nbs)))
+    (warn "not exploring notebooks in resources. resource-root-path")))
 
-(defn start [excludes roots]
+(defn start [excludes roots resource-root-path]
   (let [roots (existing-roots roots)
         watch-paths (into [] (map to-canonical (vals roots)))
         c {:excludes excludes
@@ -71,7 +75,7 @@
            :watching watch-paths}]
     (reset! data c)
     (thread
-      (add-resources)
+      (add-resources resource-root-path)
       (->> (explore-directories excludes roots)
            ;(swap! data assoc :notebooks)
            (swap! data add-nbs))

@@ -30,7 +30,7 @@
                  [ring/ring-codec "1.1.3"]  ; webly + ring-mock
                  [org.apache.httpcomponents/httpcore "4.4.14"] ; webly + clj-ajax
 
-                 [org.pinkgorilla/webly "0.2.6"]
+                 [org.pinkgorilla/webly "0.2.11"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
@@ -48,7 +48,7 @@
                  [net.java.dev.jna/jna "5.8.0"] ; excluded from hawk, fixes tech.ml.dataset issue
                  [hawk "0.2.11" ; file watcher
                   :exclusions [[net.java.dev.jna/jna]]] ; this breaks tech.ml.dataset and libpythonclj
-                 [resauce "0.2.0"] ; resources
+                 ; [resauce "0.2.0"] ; resources
                  [clojure-interop/java.net "1.0.5"]
                  [clojure-interop/java.io "1.0.5"]
 
@@ -57,7 +57,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.13.2"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.29"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.31"] ; notebook encoding
                  ]
 
 
@@ -67,10 +67,7 @@
                                     "test" ; so we have  test creds
                                     ]}
 
-             :demo  {:dependencies []
-                     :source-paths ["profiles/demo/src"
-                                    ;"test"
-                                    ]
+             :demo  {:source-paths ["profiles/demo/src"]
                      :resource-paths ["target/webly" ; bundle
                                       "profiles/demo/resources"]}
 
@@ -103,7 +100,6 @@
             ["clj-kondo"
              "--config" "clj-kondo.edn"
              "--lint" "src"]
-
 
             ; Single User notebooks
             "user" ^{:doc "Rebuild the notebook index"}

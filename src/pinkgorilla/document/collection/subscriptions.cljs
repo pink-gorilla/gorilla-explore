@@ -42,7 +42,7 @@
 (defn notebooks-root-all [db]
   (let [root (get-in db [:explorer :search :root])
         data (get-in db [:explorer :notebooks])]
-    (info "root-all: " root)
+    (debug "root-all: " root)
     ;(notebooks-all db)
     (case root
       "unsaved" (unsaved-notebooks db)

@@ -1,26 +1,29 @@
 (ns pinkgorilla.explorer.events
   (:require
-   [re-frame.core :refer [reg-event-db dispatch]]
+   [re-frame.core :as rf]
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    ; side-effects
    [pinkgorilla.document.collection.events]
-   [pinkgorilla.document.events]))
+   [pinkgorilla.document.events]
+   [pinkgorilla.explorer.css :refer [components config]]))
 
-(reg-event-db
+(rf/dispatch [:css/add-components components config])
+
+(rf/reg-event-db
  :explorer/init
  (fn [db [_ config-explorer-app]]
    (let [config-explorer (get-in db [:config :explorer :client])
          config-explorer (merge config-explorer-app config-explorer)]
      (info "explorer init ..")
-     (dispatch [:explore/init])
-     (dispatch [:document/init config-explorer]))
+     (rf/dispatch [:explore/init])
+     (rf/dispatch [:document/init config-explorer]))
    db))
 
-(reg-event-db
+(rf/reg-event-db
  :oauth2/logged-in
  (fn [db [_ provider]]
    (info "logged in to: " provider)
    (when (= provider :github)
      (info "loading my github repos after github login..")
-     (dispatch [:explorer/fetch-my-github]))
+     (rf/dispatch [:explorer/fetch-my-github]))
    db))

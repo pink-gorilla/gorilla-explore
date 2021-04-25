@@ -11,13 +11,15 @@
  :timbre-loglevel [[#{"webly.ws.*"} :info]
                    [#{"webly.user.*"} :info]
                    [#{"org.eclipse.jetty.*"} :info]
-                   [#{"pinkgorilla.nrepl.client.connection"} :debug]
+                   [#{"pinkgorilla.document.*"} :info]
+                   [#{"pinkgorilla.nrepl.client.connection.*"} :debug]
                    [#{"*"} :debug]]
 
  :explorer
  {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}
                           {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
   :server {:exclude #{".git" ".svn"}
+           :resource-root-path "notebooks"
            :roots   {:app "./profiles/demo/notebooks"}}}
 
  ;
