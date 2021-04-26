@@ -30,7 +30,7 @@
                  [ring/ring-codec "1.1.3"]  ; webly + ring-mock
                  [org.apache.httpcomponents/httpcore "4.4.14"] ; webly + clj-ajax
 
-                 [org.pinkgorilla/webly "0.2.11"]
+                 [org.pinkgorilla/webly "0.2.12"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/core.async "1.3.610"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
@@ -57,7 +57,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.13.2"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.31"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.32"] ; notebook encoding
                  ]
 
 
