@@ -9,20 +9,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 79,
-      "edit-date" : "2020-06-29"
-    },
-    {
-      "type" : "gist",
-      "id" : "5e5fb05046d3510745bd3285adb42715",
-      "description" : "unittest storage-raw",
-      "user" : "awb99",
-      "filename" : "meta1.cljg",
-      "meta" : {
-        "test" : 789
-      },
-      "stars" : 86,
-      "edit-date" : "2021-04-21"
+      "stars" : 48,
+      "edit-date" : "2020-08-01"
     },
     {
       "type" : "gist",
@@ -33,8 +21,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 5,
-      "edit-date" : "2020-10-14"
+      "stars" : 40,
+      "edit-date" : "2021-02-12"
     },
     {
       "type" : "repo",
@@ -45,20 +33,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 96,
-      "edit-date" : "2020-04-04"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "51b54635b91b07443b8a6f72205e24ffe35e23ad",
-      "repo" : "notebook-encoding",
-      "filename" : "test/notebooks/notebook1.cljg",
-      "meta" : {
-        "tags" : "nb-load-failed"
-      },
-      "stars" : 22,
-      "edit-date" : "2021-02-12"
+      "stars" : 82,
+      "edit-date" : "2019-12-30"
     },
     {
       "type" : "repo",
@@ -70,32 +46,8 @@
         "tags" : "reagent,clj,cljs,demo",
         "tagline" : ""
       },
-      "stars" : 91,
-      "edit-date" : "2020-06-19"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "b0c61812d0a466b81d98177cda87061039123f9b",
-      "repo" : "notebook-encoding",
-      "filename" : "test/notebooks/bad-format.cljg",
-      "meta" : {
-        "tags" : "nb-load-failed"
-      },
-      "stars" : 98,
-      "edit-date" : "2020-01-29"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "b0c61812d0a466b81d98177cda87061039123f9b",
-      "repo" : "notebook-encoding",
-      "filename" : "test/notebooks/demo.cljg",
-      "meta" : {
-        "tags" : "nb-load-failed"
-      },
-      "stars" : 49,
-      "edit-date" : "2020-08-09"
+      "stars" : 62,
+      "edit-date" : "2020-12-28"
     },
     {
       "type" : "repo",
@@ -107,8 +59,8 @@
         "tagline" : "Video Demo (Youtube, ...)",
         "tags" : "video,youtube,cool,ui,clj,cljs"
       },
-      "stars" : 33,
-      "edit-date" : "2020-06-09"
+      "stars" : 49,
+      "edit-date" : "2020-02-10"
     },
     {
       "type" : "repo",
@@ -120,45 +72,7 @@
         "tags" : "clj-only,clj"
       },
       "stars" : 36,
-      "edit-date" : "2020-06-25"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "147a4550a1111f0ac0813be2d615221d56e48c3f",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/broken/sparkling.cljg",
-      "meta" : {
-        "tagline" : "sparkling demo",
-        "tags" : "sparkling,deas,clj-only,clj,demo"
-      },
-      "stars" : 55,
-      "edit-date" : "2020-10-31"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "d53e54d352fa2f9d6a257401d48fce7d93be5653",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/image-moon.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 22,
-      "edit-date" : "2020-12-18"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "147a4550a1111f0ac0813be2d615221d56e48c3f",
-      "repo" : "notebook-ui",
-      "filename" : "notebooks/broken/sparkling.cljg",
-      "meta" : {
-        "tagline" : "sparkling demo",
-        "tags" : "sparkling,deas,clj-only,clj,demo"
-      },
-      "stars" : 16,
-      "edit-date" : "2020-10-13"
+      "edit-date" : "2020-12-03"
     },
     {
       "type" : "repo",
@@ -169,21 +83,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 98,
-      "edit-date" : "2021-04-25"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "147a4550a1111f0ac0813be2d615221d56e48c3f",
-      "repo" : "gorilla-notebook",
-      "filename" : "notebooks/broken/sparkling.cljg",
-      "meta" : {
-        "tagline" : "sparkling demo",
-        "tags" : "sparkling,deas,clj-only,clj,demo"
-      },
-      "stars" : 75,
-      "edit-date" : "2020-08-30"
+      "stars" : 63,
+      "edit-date" : "2020-07-10"
     },
     {
       "type" : "repo",
@@ -195,8 +96,8 @@
         "tagline" : "charts with quil",
         "tags" : "quil,svg,clj,cljs,demo"
       },
-      "stars" : 36,
-      "edit-date" : "2020-05-01"
+      "stars" : 95,
+      "edit-date" : "2020-03-02"
     },
     {
       "type" : "repo",
@@ -208,8 +109,8 @@
         "tagline" : "Sparkline charts demo",
         "tags" : "cool,ui,clj,cljs,sparkline"
       },
-      "stars" : 57,
-      "edit-date" : "2020-12-18"
+      "stars" : 24,
+      "edit-date" : "2020-12-02"
     },
     {
       "type" : "repo",
@@ -221,21 +122,8 @@
         "tags" : "clj-only,vega,clj",
         "tagline" : "vega from clojure"
       },
-      "stars" : 27,
-      "edit-date" : "2019-12-31"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "923d948961957036c15417e0e16988ae2120c63f",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/clojure/core_async.cljg",
-      "meta" : {
-        "tagline" : "alphavantaget",
-        "tags" : "clj-only,quant,clj,trateg"
-      },
-      "stars" : 46,
-      "edit-date" : "2020-11-30"
+      "stars" : 41,
+      "edit-date" : "2020-08-28"
     },
     {
       "type" : "repo",
@@ -246,8 +134,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 60,
-      "edit-date" : "2020-02-25"
+      "stars" : 53,
+      "edit-date" : "2021-03-16"
     },
     {
       "type" : "repo",
@@ -259,8 +147,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 98,
-      "edit-date" : "2020-11-16"
+      "stars" : 71,
+      "edit-date" : "2019-12-20"
     },
     {
       "type" : "repo",
@@ -271,21 +159,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 19,
-      "edit-date" : "2021-03-09"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "3b0bf97bc1cd144c030b3553cfd9e2a88960673d",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/image-table.cljg",
-      "meta" : {
-        "tags" : "clj-only,renderable,image,clj",
-        "tagline" : ""
-      },
-      "stars" : 91,
-      "edit-date" : "2020-11-25"
+      "stars" : 6,
+      "edit-date" : "2020-03-04"
     },
     {
       "type" : "repo",
@@ -297,8 +172,8 @@
         "tagline" : "alphavantaget",
         "tags" : "clj-only,quant,clj,trateg"
       },
-      "stars" : 35,
-      "edit-date" : "2020-07-05"
+      "stars" : 75,
+      "edit-date" : "2020-08-23"
     },
     {
       "type" : "repo",
@@ -310,8 +185,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 81,
-      "edit-date" : "2020-01-03"
+      "stars" : 55,
+      "edit-date" : "2020-03-19"
     },
     {
       "type" : "repo",
@@ -323,20 +198,8 @@
         "tagline" : "highchart ui-plugin demo",
         "tags" : "clj-only,ui-plugin,highchart,clj,demo"
       },
-      "stars" : 62,
-      "edit-date" : "2020-08-24"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "13044afc528688a95c48c34f0997bd0528b66807",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/custom-tag.cljg",
-      "meta" : {
-        "tags" : "clj,cljs"
-      },
-      "stars" : 33,
-      "edit-date" : "2020-06-23"
+      "stars" : 4,
+      "edit-date" : "2020-12-28"
     },
     {
       "type" : "repo",
@@ -348,20 +211,8 @@
         "tags" : "clj-only,renderable,image,clj",
         "tagline" : ""
       },
-      "stars" : 91,
-      "edit-date" : "2020-03-03"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "301e5b0073820ff2c4ce9241a453c6f5af79269e",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/html-script.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 75,
-      "edit-date" : "2020-03-09"
+      "stars" : 38,
+      "edit-date" : "2021-02-05"
     },
     {
       "type" : "repo",
@@ -372,8 +223,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 83,
-      "edit-date" : "2020-06-08"
+      "stars" : 52,
+      "edit-date" : "2021-04-24"
     },
     {
       "type" : "repo",
@@ -384,8 +235,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 35,
-      "edit-date" : "2021-03-18"
+      "stars" : 55,
+      "edit-date" : "2020-02-27"
     },
     {
       "type" : "repo",
@@ -396,8 +247,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 62,
-      "edit-date" : "2020-02-10"
+      "stars" : 56,
+      "edit-date" : "2020-03-20"
     },
     {
       "type" : "repo",
@@ -408,32 +259,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 83,
-      "edit-date" : "2020-06-04"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "cd67590e40490360a150befd98a02128c893498f",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/tailwind.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 17,
-      "edit-date" : "2020-03-27"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "10400d7392e609e2bf915536c9ae6af33f363c90",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/clojure/multimethods.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 54,
-      "edit-date" : "2020-08-27"
+      "stars" : 28,
+      "edit-date" : "2020-09-26"
     },
     {
       "type" : "repo",
@@ -444,8 +271,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 87,
-      "edit-date" : "2021-01-24"
+      "stars" : 71,
+      "edit-date" : "2021-01-23"
     },
     {
       "type" : "repo",
@@ -456,21 +283,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 92,
-      "edit-date" : "2020-05-18"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "fedacb2370147b1af0fdbeb280bdb2ccf3583874",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/clojure/newline-output-console.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj",
-        "tagline" : "reproduce the error"
-      },
-      "stars" : 12,
-      "edit-date" : "2021-01-07"
+      "stars" : 15,
+      "edit-date" : "2020-10-31"
     },
     {
       "type" : "repo",
@@ -481,8 +295,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 37,
-      "edit-date" : "2021-03-20"
+      "stars" : 60,
+      "edit-date" : "2020-02-29"
     },
     {
       "type" : "repo",
@@ -494,8 +308,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 93,
-      "edit-date" : "2020-06-28"
+      "stars" : 34,
+      "edit-date" : "2020-01-22"
     },
     {
       "type" : "repo",
@@ -507,8 +321,8 @@
         "tags" : "clj-only,clj",
         "tagline" : "reproduce the error"
       },
-      "stars" : 77,
-      "edit-date" : "2020-08-14"
+      "stars" : 67,
+      "edit-date" : "2020-03-03"
     },
     {
       "type" : "repo",
@@ -519,8 +333,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 30,
-      "edit-date" : "2021-04-08"
+      "stars" : 78,
+      "edit-date" : "2020-05-25"
     },
     {
       "type" : "repo",
@@ -532,8 +346,8 @@
         "tags" : "cool,reagent,clj,cljs,demo",
         "tagline" : "bodymass indicator (using only cljs reagent)"
       },
-      "stars" : 73,
-      "edit-date" : "2021-04-23"
+      "stars" : 15,
+      "edit-date" : "2020-01-12"
     },
     {
       "type" : "repo",
@@ -544,8 +358,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 85,
-      "edit-date" : "2020-07-12"
+      "stars" : 56,
+      "edit-date" : "2021-04-21"
     },
     {
       "type" : "repo",
@@ -557,34 +371,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 71,
-      "edit-date" : "2021-04-18"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "2e6ba1e41dcf6d06810e79e491146141d4292078",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/svg-circle.cljg",
-      "meta" : {
-        "tags" : "clj-only,renderer,sample,svg,clj",
-        "tagline" : "svg via hiccup"
-      },
-      "stars" : 76,
-      "edit-date" : "2020-06-29"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "b9e1445d600f902007fab40ff2aa336d6d782aa0",
-      "repo" : "notebook-encoding",
-      "filename" : "test/notebooks/reagent-manipulate.cljg",
-      "meta" : {
-        "tags" : "clj-only,vega,clj,demo,widgets",
-        "tagline" : "full vega demo, reagent dynamic state"
-      },
-      "stars" : 36,
-      "edit-date" : "2020-05-20"
+      "stars" : 41,
+      "edit-date" : "2020-10-30"
     },
     {
       "type" : "repo",
@@ -596,8 +384,8 @@
         "tags" : "clj-only,renderer,sample,svg,clj",
         "tagline" : "svg via hiccup"
       },
-      "stars" : 55,
-      "edit-date" : "2020-02-28"
+      "stars" : 54,
+      "edit-date" : "2020-01-11"
     },
     {
       "type" : "repo",
@@ -608,8 +396,8 @@
       "meta" : {
         "tags" : "cool,reagent,clj,cljs,demo"
       },
-      "stars" : 57,
-      "edit-date" : "2020-06-13"
+      "stars" : 62,
+      "edit-date" : "2020-08-12"
     },
     {
       "type" : "repo",
@@ -621,8 +409,8 @@
         "tagline" : "AGGrid clj and cljs",
         "tags" : "cool,aggrid,ui,clj,cljs"
       },
-      "stars" : 42,
-      "edit-date" : "2021-02-12"
+      "stars" : 92,
+      "edit-date" : "2020-12-25"
     },
     {
       "type" : "repo",
@@ -634,21 +422,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 28,
-      "edit-date" : "2020-08-03"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "4b12b953796b2f6ffb96b0214105f1272b4da818",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/widget-vega.cljg",
-      "meta" : {
-        "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
-        "tags" : ",vega,clj,cljs"
-      },
-      "stars" : 40,
-      "edit-date" : "2020-03-03"
+      "stars" : 61,
+      "edit-date" : "2020-07-06"
     },
     {
       "type" : "repo",
@@ -660,8 +435,8 @@
         "tagline" : "a lot of vega demos (latest version of vega) plus dynamic widgets",
         "tags" : ",vega,clj,cljs"
       },
-      "stars" : 49,
-      "edit-date" : "2020-04-01"
+      "stars" : 64,
+      "edit-date" : "2021-01-22"
     },
     {
       "type" : "repo",
@@ -673,20 +448,8 @@
         "tagline" : "complex svg plot and quil example",
         "tags" : "cool,quil,svg,sierpinsky,clj,cljs"
       },
-      "stars" : 44,
-      "edit-date" : "2021-03-13"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "69288024111a6876a2960a76070f172b153dfdda",
-      "repo" : "gorilla-notebook",
-      "filename" : "test/notebooks/broken/reagent-demo-err-renderex.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 97,
-      "edit-date" : "2020-06-03"
+      "stars" : 24,
+      "edit-date" : "2020-09-28"
     },
     {
       "type" : "repo",
@@ -697,8 +460,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 78,
-      "edit-date" : "2020-08-29"
+      "stars" : 72,
+      "edit-date" : "2020-05-17"
     },
     {
       "type" : "repo",
@@ -709,8 +472,8 @@
       "meta" : {
         "tags" : "clj,cljs"
       },
-      "stars" : 15,
-      "edit-date" : "2021-01-14"
+      "stars" : 33,
+      "edit-date" : "2020-03-15"
     },
     {
       "type" : "repo",
@@ -722,8 +485,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 70,
-      "edit-date" : "2020-12-15"
+      "stars" : 82,
+      "edit-date" : "2020-11-19"
     },
     {
       "type" : "repo",
@@ -735,8 +498,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 7,
-      "edit-date" : "2020-04-10"
+      "stars" : 96,
+      "edit-date" : "2020-12-04"
     },
     {
       "type" : "repo",
@@ -748,8 +511,8 @@
         "tagline" : " zmq messenging: run zmq server and client with ping testing.",
         "tags" : "clj-only,cool,messenging,zmq,clj"
       },
-      "stars" : 43,
-      "edit-date" : "2021-01-14"
+      "stars" : 33,
+      "edit-date" : "2019-12-29"
     },
     {
       "type" : "repo",
@@ -761,34 +524,8 @@
         "tagline" : "clocks and tables",
         "tags" : "clj-only,clj"
       },
-      "stars" : 97,
-      "edit-date" : "2020-08-05"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "ffb8a8a9a8f0677edf3f9ec3edede4fab7aca1cf",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/clojure/zmqping.cljg",
-      "meta" : {
-        "tagline" : " zmq messenging: run zmq server and client with ping testing.",
-        "tags" : "clj-only,cool,messenging,zmq,clj"
-      },
-      "stars" : 85,
-      "edit-date" : "2020-09-22"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "14887560b52116c3816f1484aaa0089e67bbeffa",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/hiccup/clock-and-table.cljg",
-      "meta" : {
-        "tagline" : "clocks and tables",
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 84,
-      "edit-date" : "2021-01-23"
+      "stars" : 57,
+      "edit-date" : "2020-12-13"
     },
     {
       "type" : "repo",
@@ -799,8 +536,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 56,
-      "edit-date" : "2020-10-06"
+      "stars" : 76,
+      "edit-date" : "2021-01-28"
     },
     {
       "type" : "repo",
@@ -811,8 +548,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 87,
-      "edit-date" : "2020-10-12"
+      "stars" : 41,
+      "edit-date" : "2020-07-09"
     },
     {
       "type" : "repo",
@@ -823,20 +560,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 85,
-      "edit-date" : "2020-12-06"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "b871567e81f84b570fb04a06fd0dcfdff5471f82",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/specs.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 62,
-      "edit-date" : "2020-01-16"
+      "stars" : 98,
+      "edit-date" : "2021-01-11"
     },
     {
       "type" : "repo",
@@ -847,8 +572,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 88,
-      "edit-date" : "2020-04-04"
+      "stars" : 96,
+      "edit-date" : "2020-05-31"
     },
     {
       "type" : "repo",
@@ -860,8 +585,8 @@
         "tagline" : "test 234",
         "tags" : "clj-only,clj"
       },
-      "stars" : 9,
-      "edit-date" : "2020-08-01"
+      "stars" : 26,
+      "edit-date" : "2020-05-25"
     },
     {
       "type" : "repo",
@@ -873,20 +598,8 @@
         "tagline" : "svg shapes (from maria cloud)",
         "tags" : "mariacloud,svg,clj,cljs,demo"
       },
-      "stars" : 64,
-      "edit-date" : "2020-10-01"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "ab129a5e57ae4a1e902a1c40032161d232f060e8",
-      "repo" : "notebook-encoding",
-      "filename" : "test/notebooks/diff.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 96,
-      "edit-date" : "2020-02-27"
+      "stars" : 53,
+      "edit-date" : "2020-04-16"
     },
     {
       "type" : "repo",
@@ -898,8 +611,8 @@
         "tags" : "clj,cljs,test",
         "tagline" : "explore what clojurescript can do"
       },
-      "stars" : 45,
-      "edit-date" : "2020-03-27"
+      "stars" : 19,
+      "edit-date" : "2021-02-13"
     },
     {
       "type" : "repo",
@@ -910,8 +623,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 74,
-      "edit-date" : "2021-03-03"
+      "stars" : 5,
+      "edit-date" : "2020-09-21"
     },
     {
       "type" : "repo",
@@ -922,68 +635,8 @@
       "meta" : {
         "tags" : "clj-only,clj"
       },
-      "stars" : 2,
-      "edit-date" : "2020-01-13"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "05ddc9174100053273642329667f673ac75276a8",
-      "repo" : "notebook-clj",
-      "filename" : "notebooks/clojure/diff.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 78,
-      "edit-date" : "2020-05-09"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "65c4d0bb3ed07aa6bfdcafbbaa9fdb1e582a74b4",
-      "repo" : "gorilla-ui",
-      "filename" : "notebooks/broken/leaflet-dsl-old.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 14,
-      "edit-date" : "2019-12-30"
-    },
-    {
-      "type" : "repo",
-      "user" : "pink-gorilla",
-      "id" : "e631ff840f525ba5ef28db9585b34ec3b510949c",
-      "repo" : "gorilla-ui",
-      "filename" : "notebooks/broken/deaflet-dsl-original-legacy.cljg",
-      "meta" : {
-        "tags" : "clj-only,clj"
-      },
-      "stars" : 33,
-      "edit-date" : "2021-03-01"
-    },
-    {
-      "type" : "gist",
-      "id" : "3fdd1bab74de88b3d1366d6d2c6c0908",
-      "description" : "unittest-meta1",
-      "user" : "deas",
-      "filename" : "meta1.cljg",
-      "meta" : {
-        "test" : 789
-      },
-      "stars" : 85,
-      "edit-date" : "2020-11-19"
-    },
-    {
-      "type" : "gist",
-      "id" : "298fbe496a2aea922a2a60b5a45e5b86",
-      "description" : "unittest storage-raw",
-      "user" : "deas",
-      "filename" : "meta1.cljg",
-      "meta" : {
-        "test" : 789
-      },
-      "stars" : 6,
-      "edit-date" : "2020-10-17"
+      "stars" : 9,
+      "edit-date" : "2021-04-08"
     }
   ]
 }

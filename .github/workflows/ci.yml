@@ -40,3 +40,7 @@ jobs:
         #
         export LEIN_JVM_OPTS="-Dmaven.wagon.rto=90000"
         lein release
+    -  name: CodeCoverage
+      run: |
+        lein cloverage
+        bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json

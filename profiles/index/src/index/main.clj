@@ -6,7 +6,7 @@
    [pinkgorilla.document.default-config] ; side effects
    [pinkgorilla.explorer.default-config] ; side effects
    [pinkgorilla.creds :refer [creds]] ; from test folder
-   [index.excluded :refer [remove-excluded]])
+   [index.excluded :refer [excluded?]])
   (:gen-class))
 
 ;(timbre/set-level! :trace) ; Uncomment for more logging
@@ -38,7 +38,7 @@
   (let [notebook-list (map #(discover-user tokens %) user-names)
         notebooks (->> notebook-list
                        (reduce concat [])
-                       (filter remove-excluded))]
+                       (remove excluded?))]
     (save "resources/list.json" notebooks)
     (info "FINISHED discovering users" (count user-names) " notebooks: " (count notebooks))))
 
