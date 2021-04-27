@@ -5,12 +5,12 @@
    [bidi.bidi :as bidi]
    [webly.web.handler :refer [make-handler]]
    [webly.user.app.handler :refer [app-handler]]
-   [pinkgorilla.explorer.default-config :refer [explorer-routes-api]]
+   [pinkgorilla.explorer.default-config :as explorer]
    [pinkgorilla.explorer.handler] ; side-effects
    ))
 
 (def routes-backend
-  ["/api/" explorer-routes-api])
+  ["/api/" explorer/routes-api])
 
 (def routes-frontend
   ["/" :demo/main])

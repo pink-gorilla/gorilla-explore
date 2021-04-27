@@ -2,10 +2,10 @@
   (:require
    [clojure.test :refer [deftest is testing]]
    [bidi.bidi :as bidi]
-   [pinkgorilla.explorer.default-config :refer [explorer-routes-api]]))
+   [pinkgorilla.explorer.default-config :as explorer]))
 
 (def routes-backend
-  ["/api/" explorer-routes-api])
+  ["/api/" explorer/routes-api])
 
 (deftest handler->path []
   (is (= (bidi/path-for routes-backend :api/explorer) "/api/explorer"))
