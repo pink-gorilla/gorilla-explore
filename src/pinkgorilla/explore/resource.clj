@@ -43,6 +43,8 @@
 (defn explore-resources [resource-root-path]
   (->>  (resauce/resource-dir-names-tree resource-root-path)
         (filter cljg-file?)
+        (distinct) ; for a strange reason, there are MANY duplicates in notebook-ui
+        (sort)
         (map file-infos)))
 
 (comment
