@@ -6,7 +6,7 @@
    [pinkgorilla.document.default-config] ; side effects
    [pinkgorilla.explorer.default-config] ; side effects
    [pinkgorilla.creds :refer [creds]] ; from test folder
-   [index.excluded :refer [excluded?]])
+   [pinkgorilla.explore.excluded :refer [excluded?]])
   (:gen-class))
 
 ;(timbre/set-level! :trace) ; Uncomment for more logging

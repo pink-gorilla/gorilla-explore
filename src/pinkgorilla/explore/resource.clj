@@ -5,7 +5,8 @@
    [pinkgorilla.document.default-config] ; side-efffects
    [pinkgorilla.storage.filename-encoding :refer [split-filename]]
    [pinkgorilla.document.meta.meta :refer [add-meta]]
-   [pinkgorilla.storage.protocols :refer [create-storage]]))
+   [pinkgorilla.storage.protocols :refer [create-storage]]
+   [pinkgorilla.explore.excluded :refer [excluded?]]))
 
 (defn- ends-with
   [string ending]
@@ -45,7 +46,8 @@
         (filter cljg-file?)
         (distinct) ; for a strange reason, there are MANY duplicates in notebook-ui
         (sort)
-        (map file-infos)))
+        (map file-infos)
+        (remove excluded?)))
 
 (comment
 
