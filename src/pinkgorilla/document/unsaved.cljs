@@ -4,20 +4,20 @@
    [pinkgorilla.storage.protocols :refer [storagetype]]
    [pinkgorilla.document.meta.notebook :refer [notebook-meta]]))
 
-(defn unsaved? [[storage document]]
+(defn unsaved? [[id document]]
   ;(info "checking: " storage)
-  (= (storagetype storage) :unsaved))
+  (nil? (:storage document)))
 
 (defn add-meta [[storage nb]]
   (->   {:type :unsaved
-         :id (:id storage)
+         :id (get-in nb [:meta :id])
          :edit-date ""
-         :storage storage
-         :filename (str "./" (:id storage) ".cljg")}
+         :storage nil
+         :filename (str "./unsaved.cljg")}
         (assoc :meta (notebook-meta nb))))
 
 (defn unsaved-notebooks [db]
-  (let [documents (get-in db [:document :documents])
+  (let [documents (get-in db [:docs])
         docs-unsaved (into {} (filter unsaved? documents))
         explorer-unsaved  (into [] (map add-meta docs-unsaved))]
     ;(info "docs unsaved: " docs-unsaved)

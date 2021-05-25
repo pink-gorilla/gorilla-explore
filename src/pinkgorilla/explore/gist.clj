@@ -82,7 +82,7 @@
       (let [gist-id (:id gist)
             _ (info "gorilla search in " user " gist: " gist-id)
             fn-gorilla (find-gorilla-fn gist-id token)]
-        (if (not (nil? fn-gorilla))
+        (when (not (nil? fn-gorilla))
           (swap! gorilla-infos conj {:user user
                                      :type "gist"
                                      :id gist-id

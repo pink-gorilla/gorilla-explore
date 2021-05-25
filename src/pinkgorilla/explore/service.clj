@@ -103,7 +103,8 @@
   (start #{".git"} {:gorilla-ui "../gorilla-ui/notebooks"
                     :gorilla-plot "../gorilla-plot/notebooks"
                     :backtest "../../quant/backtest/notebooks"
-                    :trateg "../../quant/trateg/notebooks"})
+                    :trateg "../../quant/trateg/notebooks"}
+         "notebooks")
 
   (notebooks)
   (first (notebooks))

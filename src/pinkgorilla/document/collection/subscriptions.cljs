@@ -9,7 +9,7 @@
 (reg-sub
  :explorer/config
  (fn [db _]
-   (get-in db [:explorer :config])))
+   (get-in db [:config :explorer])))
 
 (defn notebooks-root [data notebooks root]
   (->> (get data root)

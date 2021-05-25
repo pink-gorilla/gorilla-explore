@@ -1,6 +1,6 @@
 (ns pinkgorilla.explorer.default-config
   (:require
-   [pinkgorilla.document.default-config]  ; from encoding
+   [pinkgorilla.encoding.default-config]  ; from encoding
 
    ; todo: move direct storage to encoding
   ; storage.direct works only in cljs

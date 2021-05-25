@@ -1,4 +1,5 @@
-(ns pinkgorilla.explore.print)
+(ns pinkgorilla.explore.print
+  (:require [clojure.pprint]))
 
 (defn shorten-field-one-
   "caps description (so table view is still nice)"
@@ -26,7 +27,8 @@
 
 (comment
   ;; Print GISTS/REPOS from db 
-  (use '[universe.db :refer [gists repos]])
-  (print-gist (gists))
-  (print-repo (repos)))
+  ;(use '[universe.db :refer [gists repos]])
+  ;(print-gist (gists))
+  ;(print-repo (repos))
+  )
 

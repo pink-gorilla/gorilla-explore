@@ -2,7 +2,7 @@
   (:require
    [taoensso.timbre :as timbre :refer [info warn error]]
    [resauce-hack.core :as resauce]
-   [pinkgorilla.document.default-config] ; side-efffects
+   [pinkgorilla.encoding.default-config] ; side-efffects
    [pinkgorilla.storage.filename-encoding :refer [split-filename]]
    [pinkgorilla.document.meta.meta :refer [add-meta]]
    [pinkgorilla.storage.protocols :refer [create-storage]]

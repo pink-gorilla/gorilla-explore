@@ -1,11 +1,10 @@
 (ns pinkgorilla.document.events
   (:require
-   [taoensso.timbre :refer-macros [debug info error]]
+   [taoensso.timbre :refer-macros [debug info warn error]]
    [re-frame.core :refer [reg-event-db reg-event-fx dispatch]]
    [ajax.core :as ajax]
    [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storage->map]]
-   [pinkgorilla.storage.unsaved :refer [StorageUnsaved]]
    [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
    [pinkgorilla.notebook.template :refer [new-notebook]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
@@ -28,7 +27,7 @@
          config
          doc-config {:fn-hydrate fn-hydrate
                      :fn-dehydrate fn-dehydrate
-                     :documents {}}]
+                     :storages {}}]
      (info "document init .. " doc-config)
      (assoc db :document doc-config))))
 
@@ -57,7 +56,7 @@
                        tokens ; secrets
                        )]
      (info "loading url: " url " params: "  params)
-     {:db         (assoc-in db [:document :documents storage] :document/loading) ; notebook view on loading
+     {:db         (assoc-in db [:document :storages storage] {:status :document/loading}) ; notebook view on loading
       :dispatch [:ga/event {:category "notebook-storage" :action "load" :label 77 :value url}]
       :http-xhrio {:method          :get
                    :uri             url
@@ -73,7 +72,7 @@
    [db [_ storage response-body]]
    (error "Load Response Error for " storage " Error: " response-body)
    (let [content (:content response-body)]
-     (assoc-in db [:document :documents storage]
+     (assoc-in db [:document :storages storage]
                {:error response-body}))))
 
 (reg-event-db
@@ -82,29 +81,35 @@
    [db [_ storage notebook]]
    (let [_ (debug "Document Load Response:\n" notebook)
          fn-hydrate (get-in db [:document :fn-hydrate])
-         notebook (fn-hydrate notebook)]
-     (assoc-in db [:document :documents storage] notebook))))
+         notebook (fn-hydrate notebook)
+         id (get-in notebook [:meta :id])]
+     (-> db
+         (assoc-in [:docs id] notebook)
+         (assoc-in [:document :storages storage] {:id id})))))
 
 ;; SAVE File
 
 (reg-event-fx
  :document/save
- (fn [{:keys [db]} [_ storage]]
-   (info "notebook saving to storage " storage)
+ (fn [{:keys [db]} [_ doc-id storage]]
+   (info "saving notebook id: " doc-id "storage: " storage)
    (let [;secrets (get-secrets db)
          tokens (get-tokens db)
          url  (url-link db :api/notebook-save)
-         notebook (get-in db [:document :documents storage])
+         doc-id (if (keyword? doc-id) doc-id (keyword doc-id))
+         notebook (get-in db [:docs doc-id])
          fn-dehydrate (get-in db [:document :fn-dehydrate])
          notebook (fn-dehydrate notebook)
-         m  (storage->map storage)
+         nb-no-storage (dissoc notebook :storage)
+         _ (warn "storage: " storage)
+         m  (when storage (storage->map storage))
          params (merge {:storage m
-                        :notebook notebook}
+                        :notebook nb-no-storage}
                        tokens)]
      (info "save params: " params)
-     (if (= (:type m) :unsaved)
+     (if (not storage)
        (do
-         (dispatch [:document/save-as storage])
+         (dispatch [:document/save-as doc-id storage])
          {:db db})
        {:db         db
         :dispatch [:ga/event {:category "notebook-storage" :action "save" :label 77 :value 13}]
@@ -150,21 +155,21 @@
 (reg-event-db
  :document/new
  (fn [db [_]]
-   (let [id (make-hip-nsname)
-         _ (info "creating document:" id)
-         storage (StorageUnsaved. id)
-         document (new-notebook id)
+   (info "creating new notebook:")
+   (let [document (new-notebook)
+         doc-id (get-in document [:meta :id])
          fn-hydrate (get-in db [:document :fn-hydrate])
          notebook (fn-hydrate document)]
-     (goto-notebook! storage)
-     (assoc-in db [:document :documents storage] notebook))))
+     (warn "goto doc id: " doc-id)
+     (goto-notebook! {:id doc-id})
+     (assoc-in db [:docs doc-id] notebook))))
 
 ; EDIT Document
 
 (reg-event-db
  :document/update-meta
- (fn [db [_ storage meta]]
-   (assoc-in db [:document :documents storage :meta] meta)))
+ (fn [db [_ doc-id meta]]
+   (assoc-in db [:docs doc-id :meta] meta)))
 
 
 
