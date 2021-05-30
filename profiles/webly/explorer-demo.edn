@@ -22,7 +22,7 @@
                           {:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
   :server {:exclude #{".git" ".svn"}
            :resource-root-path "notebooks"
-           :roots   {:app "./profiles/demo/notebooks"}}}
+           :roots   {:app "./profiles/webly/notebooks"}}}
 
  ;
  }

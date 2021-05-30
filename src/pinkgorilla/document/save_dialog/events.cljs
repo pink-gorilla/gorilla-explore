@@ -29,6 +29,6 @@
    (let [_ (info "doc save-as id: " doc-id " storage: " storage)]
      (goto-notebook! storage)
      (dispatch [:document/save doc-id storage])
-     (assoc-in db [:document :storages storage] {:id doc-id}))))
+     (assoc-in db [:docloader :storages storage] {:id doc-id}))))
 
 

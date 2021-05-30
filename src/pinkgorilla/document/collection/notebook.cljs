@@ -2,7 +2,6 @@
   (:require
    [taoensso.timbre :as timbre :refer [debug info warn error]]
    [pinkgorilla.storage.filename-encoding :refer [split-filename]]
-   [pinkgorilla.storage.protocols :refer [external-url]]
    [pinkgorilla.document.meta.tags :refer [meta->tags]]
    [pinkgorilla.document.meta.view :refer [tagline tag-box]]))
 
@@ -10,11 +9,6 @@
 ; [:div;.stars
 ;  (:stars l)]
 
-(defn storage-link [notebook]
-  (let [storage (:storage notebook)]
-    (if (nil? storage)
-      ""
-      (external-url storage))))
 
 (def border " border-r border-b border-l border-gray-400")
 (def lg " lg:border-l-0 lg:border-t lg:border-gray-400 lg:rounded-b-none lg:rounded-r")
@@ -30,11 +24,10 @@
      [:div.mb-8
 
     ;; project storage location - click opens github web page or the file browser
-      [:a {:href (storage-link notebook) :target "_blank" :rel "noopener noreferrer"}
-       [:div.px-0.py-0.bg-White
-        [:span {:class "pg-storage-prop mr-1"}  (:type notebook)]
-        [:span {:class "pg-storage-prop mr-1"} (:repo notebook)]
-        [:span {:class "pg-storage-prop"} (:path file-info)]]]
+      [:div.px-0.py-0.bg-White
+       [:span {:class "pg-storage-prop mr-1"}  (:type notebook)]
+       [:span {:class "pg-storage-prop mr-1"} (:repo notebook)]
+       [:span {:class "pg-storage-prop"} (:path file-info)]]
 
     ;; project name - click opens the notebook in pink-gorilla
       [:a {:on-click #(open-notebook notebook)}

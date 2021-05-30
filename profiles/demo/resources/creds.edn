@@ -1,7 +1,0 @@
-{:oauth2 {:github {:client-id      "25928b07df85fb46bf15"
-                   :client-secret  "ab0502c40f986c09b8de3d450505ee4b517bb4cf"}
-          :google {:client-id      "8777197473-oh6b1sr53ggtfm8nrtviob6dr6ugd9eg.apps.googleusercontent.com"
-                   :client-secret  "8v5UR7m4Zk8uR-QybiVQbjmY"}}
-
- ;
- }

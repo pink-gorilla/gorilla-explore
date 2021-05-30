@@ -1,6 +1,6 @@
 # Notebook Explorer [![GitHub Actions status |pink-gorilla/gorilla-explore](https://github.com/pink-gorilla/gorilla-explore/workflows/CI/badge.svg)](https://github.com/pink-gorilla/gorilla-explore/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/org.pinkgorilla/gorilla-explore.svg)](https://clojars.org/org.pinkgorilla/gorilla-explore)
 
-- This project is used in [Notebook](https://github.com/pink-gorilla/gorilla-notebook) and [Goldly](https://github.com/pink-gorilla/goldly).
+- This project is used in [Notebook](https://github.com/pink-gorilla/notebook).
 - Tools to explore (and load) the universe of Pink Gorilla notebooks.
 - End Users: this project is not for you.
 
@@ -20,7 +20,7 @@ lein build-index
 The demo runs a webserver on port 8000 with explorer ui with demos.
 
 ```
-lein demo watch
+lein webly watch
 ```
 
 Open in browser: http://localhost:8000/

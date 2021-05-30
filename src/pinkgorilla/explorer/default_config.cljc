@@ -8,7 +8,6 @@
    #?(:cljs [pinkgorilla.storage.direct.gist])
    #?(:cljs [pinkgorilla.storage.direct.repo])
    #?(:cljs [pinkgorilla.storage.direct.bitbucket])
-   #?(:cljs [pinkgorilla.storage.unsaved])
 
    ; document
    #?(:cljs [pinkgorilla.document.component])

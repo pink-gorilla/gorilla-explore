@@ -9,7 +9,7 @@
  :document/get
  (fn [db [_ storage]]
    (debugf "document storage for: %s" storage)
-   (get-in db [:document :storages storage])))
+   (get-in db [:docloader :storages storage])))
 
 (reg-sub
  :document/view

@@ -30,7 +30,7 @@
                  [ring/ring-codec "1.1.3"]  ; webly + ring-mock
                  [org.apache.httpcomponents/httpcore "4.4.14"] ; webly + clj-ajax
 
-                 [org.pinkgorilla/webly "0.2.29"]
+                 [org.pinkgorilla/webly "0.2.41"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/core.async "1.3.618"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging
@@ -38,7 +38,7 @@
                   ; dependencies used for discovery:
                  [irresponsible/tentacles "0.6.8"] ; github api  ; https://github.com/clj-commons/tentacles
                  [com.cemerick/url "0.1.1"]  ; url query-strings
-                 [clj-http "3.12.1"]  ; http requests
+                 [clj-http "3.12.2"]  ; http requests
                  [cheshire "5.10.0"]  ; JSON parsings
                  [throttler "1.0.0" ; api rate-limits ; has very old core.async
                   :exclusions  [[org.clojure/clojure]
@@ -57,7 +57,7 @@
                   :exclusions [[re-frame]]] ; a more modern reframe comes from webly
                  [re-com "2.13.2"]      ; reagent reuseable ui components
                  ; pinkgorilla
-                 [org.pinkgorilla/notebook-encoding "0.1.35"] ; notebook encoding
+                 [org.pinkgorilla/notebook-encoding "0.1.36"] ; notebook encoding
                  ]
 
 
@@ -67,9 +67,9 @@
                                     "test" ; so we have  test creds
                                     ]}
 
-             :demo  {:source-paths ["profiles/demo/src"]
+             :webly  {:source-paths ["profiles/webly/src"]
                      :resource-paths ["target/webly" ; bundle
-                                      "profiles/demo/resources"]}
+                                      "profiles/webly/resources"]}
 
              :dev {:source-paths ["test"]
                    :dependencies [[ring/ring-mock "0.4.0"]
@@ -110,8 +110,8 @@
             ["with-profile" "index" "run" "-m" "index.main" "index"]
 
             ;; APP
-            "demo"
-            ["with-profile" "+demo" "run" "-m" "demo.app"]}
+            "webly"
+            ["with-profile" "+webly" "run" "-m" "demo.app"]}
 
   ;
   )

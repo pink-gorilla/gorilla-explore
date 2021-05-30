@@ -13,8 +13,8 @@
 
 (defn -main
   [profile-name]
-  (load-config!)
+  (load-config! "profiles/webly/explorer-demo.edn")
   (let [config-explorer-server (get-in-config [:explorer :server])]
     (when (server? profile-name)
       (explore-directories-start config-explorer-server))
-    (webly-run! profile-name)))
+    (webly-run! profile-name "profiles/webly/explorer-demo.edn")))

@@ -4,7 +4,7 @@
    [re-frame.core :refer [reg-sub subscribe]]
    [pinkgorilla.document.meta.tags :refer [meta->tags]]
    [pinkgorilla.document.meta.filter :refer [filter-notebooks]]
-   [pinkgorilla.document.unsaved :refer [unsaved-notebooks]]))
+   [pinkgorilla.document.open :refer [open-notebooks]]))
 
 (reg-sub
  :explorer/config
@@ -24,13 +24,13 @@
 (reg-sub
  :explorer/notebooks-unsaved
  (fn [db _]
-   (unsaved-notebooks db)))
+   (open-notebooks db)))
 
 (defn notebooks-all [db]
   (let [data (get-in db [:explorer :notebooks])
         roots (keys data)
         notebooks (reduce (partial notebooks-root data) [] roots)
-        unsaved (unsaved-notebooks db)]
+        unsaved (open-notebooks db)]
      ;notebooks
     (concat notebooks unsaved)))
 
@@ -45,7 +45,7 @@
     (debug "root-all: " root)
     ;(notebooks-all db)
     (case root
-      "unsaved" (unsaved-notebooks db)
+      "unsaved" (open-notebooks db)
       "all"     (notebooks-all db)
       nil       (notebooks-all db)
       (get data root))))

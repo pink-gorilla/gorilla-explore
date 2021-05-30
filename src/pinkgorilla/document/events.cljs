@@ -5,8 +5,7 @@
    [ajax.core :as ajax]
    [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storage->map]]
-   [pinkgorilla.notebook.hipster :refer [make-hip-nsname]]
-   [pinkgorilla.notebook.template :refer [new-notebook]]
+   [notebook.template :refer [make-notebook]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 (defn hydrate-noop [nb]
@@ -29,12 +28,9 @@
                      :fn-dehydrate fn-dehydrate
                      :storages {}}]
      (info "document init .. " doc-config)
-     (assoc db :document doc-config))))
+     (assoc db :docloader doc-config))))
 
 ;; Load File (from URL Parameters) - in view or edit mode
-
-(defn get-secrets [db]
-  (:secrets db))
 
 (defn get-tokens [db]
   (let [token-github (get-in db [:token :github :access-token])]
@@ -48,15 +44,14 @@
 (reg-event-fx
  :document/load
  (fn [{:keys [db]} [_ storage]]
-   (let [;secrets (get-secrets db)
-         tokens (get-tokens db)
+   (let [tokens (get-tokens db)
          url  (url-link db :api/notebook-load)
          _ (info "loading storage:" storage)
          params (merge (storage->map storage)
                        tokens ; secrets
                        )]
      (info "loading url: " url " params: "  params)
-     {:db         (assoc-in db [:document :storages storage] {:status :document/loading}) ; notebook view on loading
+     {:db         (assoc-in db [:docloader :storages storage] {:status :document/loading}) ; notebook view on loading
       :dispatch [:ga/event {:category "notebook-storage" :action "load" :label 77 :value url}]
       :http-xhrio {:method          :get
                    :uri             url
@@ -72,7 +67,7 @@
    [db [_ storage response-body]]
    (error "Load Response Error for " storage " Error: " response-body)
    (let [content (:content response-body)]
-     (assoc-in db [:document :storages storage]
+     (assoc-in db [:docloader :storages storage]
                {:error response-body}))))
 
 (reg-event-db
@@ -80,12 +75,12 @@
  (fn
    [db [_ storage notebook]]
    (let [_ (debug "Document Load Response:\n" notebook)
-         fn-hydrate (get-in db [:document :fn-hydrate])
+         fn-hydrate (get-in db [:docloader :fn-hydrate])
          notebook (fn-hydrate notebook)
          id (get-in notebook [:meta :id])]
      (-> db
          (assoc-in [:docs id] notebook)
-         (assoc-in [:document :storages storage] {:id id})))))
+         (assoc-in [:docloader :storages storage] {:id id})))))
 
 ;; SAVE File
 
@@ -98,7 +93,7 @@
          url  (url-link db :api/notebook-save)
          doc-id (if (keyword? doc-id) doc-id (keyword doc-id))
          notebook (get-in db [:docs doc-id])
-         fn-dehydrate (get-in db [:document :fn-dehydrate])
+         fn-dehydrate (get-in db [:docloader :fn-dehydrate])
          notebook (fn-dehydrate notebook)
          nb-no-storage (dissoc notebook :storage)
          _ (warn "storage: " storage)
@@ -156,9 +151,9 @@
  :document/new
  (fn [db [_]]
    (info "creating new notebook:")
-   (let [document (new-notebook)
+   (let [document (make-notebook)
          doc-id (get-in document [:meta :id])
-         fn-hydrate (get-in db [:document :fn-hydrate])
+         fn-hydrate (get-in db [:docloader :fn-hydrate])
          notebook (fn-hydrate document)]
      (warn "goto doc id: " doc-id)
      (goto-notebook! {:id doc-id})
