@@ -30,7 +30,7 @@
                  [ring/ring-codec "1.1.3"]  ; webly + ring-mock
                  [org.apache.httpcomponents/httpcore "4.4.14"] ; webly + clj-ajax
 
-                 [org.pinkgorilla/webly "0.2.41"]
+                 [org.pinkgorilla/webly "0.2.43"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/core.async "1.3.618"]
                  [com.taoensso/timbre "5.1.2"] ; clj/cljs logging

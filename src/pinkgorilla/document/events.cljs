@@ -5,6 +5,7 @@
    [ajax.core :as ajax]
    [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storage->map]]
+   [notebook.core :as nb]
    [notebook.template :refer [make-notebook]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
@@ -148,10 +149,23 @@
 ; NEW Document
 
 (reg-event-db
- :document/new
+ :document/new-template
  (fn [db [_]]
    (info "creating new notebook:")
    (let [document (make-notebook)
+         doc-id (get-in document [:meta :id])
+         fn-hydrate (get-in db [:docloader :fn-hydrate])
+         notebook (fn-hydrate document)]
+     (warn "goto doc id: " doc-id)
+     (goto-notebook! {:id doc-id})
+     (assoc-in db [:docs doc-id] notebook))))
+
+(reg-event-db
+ :document/new
+ (fn [db [_]]
+   (info "creating new notebook:")
+   (let [document  (-> (nb/new-notebook)
+                       (nb/add-code  :clj ""))
          doc-id (get-in document [:meta :id])
          fn-hydrate (get-in db [:docloader :fn-hydrate])
          notebook (fn-hydrate document)]
