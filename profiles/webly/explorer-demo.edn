@@ -1,5 +1,5 @@
 {:webly {:title "notebook explorer Demo"
-         :lein-cljs-profile "+demo"
+         :lein-cljs-profile ""
          :ns-cljs-app [demo.app]
          :bundle-entry  "demo.app.start ();"
          :start-user-app [:demo/start]

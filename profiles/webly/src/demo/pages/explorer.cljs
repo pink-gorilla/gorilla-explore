@@ -5,7 +5,6 @@
    [pinkgorilla.document.collection.component :refer [notebook-explorer]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
-
 (defn open-notebook [nb]
   (info "load-notebook-click" nb)
   (goto-notebook! (:storage nb)))

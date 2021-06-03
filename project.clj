@@ -20,9 +20,7 @@
   :source-paths ["src"]
   :test-paths ["test"]
   :resource-paths  ["resources"] ; gorilla-explore resources
-  :prep-tasks ["md"]
-
-
+ 
   :dependencies [; dependency conflict resolution
                  [org.clojure/tools.namespace "1.1.0" ; encoding/marginalia + webly/ring-develop
                     :exclusions [[org.clojure/tools.reader]] ; old version
@@ -68,8 +66,7 @@
                                     ]}
 
              :webly  {:source-paths ["profiles/webly/src"]
-                     :resource-paths ["target/webly" ; bundle
-                                      "profiles/webly/resources"]}
+                     :resource-paths ["profiles/webly/resources"]}
 
              :dev {:source-paths ["test"]
                    :dependencies [[ring/ring-mock "0.4.0"]
@@ -93,10 +90,7 @@
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
-            "md"  ^{:doc "Copies markdown files to resources"}
-            ["shell" "./scripts/copy-md.sh"]
-
-            "lint"  ^{:doc "Lint for dummies"}
+           "lint"  ^{:doc "Lint for dummies"}
             ["clj-kondo"
              "--config" "clj-kondo.edn"
              "--lint" "src"]
@@ -109,7 +103,7 @@
             "build-index" ^{:doc "Rebuild the notebook index"}
             ["with-profile" "index" "run" "-m" "index.main" "index"]
 
-            ;; APP
+            ;; ui demo 
             "webly"
             ["with-profile" "+webly" "run" "-m" "demo.app"]}
 

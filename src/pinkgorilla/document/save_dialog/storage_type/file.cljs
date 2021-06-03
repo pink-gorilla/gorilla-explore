@@ -4,12 +4,22 @@
    [re-frame.core :as rf]
    [re-com.core :refer [input-text radio-button]]))
 
+(defn ensure-selected [change! state repos]
+  (when (and @state repos)
+    (when (not (:explorer-root @state))
+      (let [k (first (keys repos))
+            path (get repos k)]
+        (change! :explorer-root k)
+        (change! :path (str path "/"))
+        nil))))
+
 (defn file [state change!]
   (let [config (rf/subscribe [:explorer/config])]
     (fn [state change!]
       (when-let [repositories (get-in @config [:server :roots])]
         [:div
          [:div
+          [ensure-selected change! state repositories]
           [:h3.text-blue-600 "File Directory"]
             ;[:p (pr-str repositories)]
           (doall (map (fn [[name path]]

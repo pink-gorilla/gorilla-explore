@@ -1,8 +1,6 @@
 (ns pinkgorilla.document.save-dialog.format
   (:require
    [taoensso.timbre :refer-macros [info error]]
-   [reagent.core :as r]
-   [re-frame.core :refer [subscribe]]
    [re-com.core :refer [input-text radio-button]]))
 
 (defn storage-format [state change!]

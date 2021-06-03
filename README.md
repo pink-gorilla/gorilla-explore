@@ -1,8 +1,10 @@
 # Notebook Explorer [![GitHub Actions status |pink-gorilla/gorilla-explore](https://github.com/pink-gorilla/gorilla-explore/workflows/CI/badge.svg)](https://github.com/pink-gorilla/gorilla-explore/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/org.pinkgorilla/gorilla-explore.svg)](https://clojars.org/org.pinkgorilla/gorilla-explore)
 
-- This project is used in [Notebook](https://github.com/pink-gorilla/notebook).
-- Tools to explore (and load) the universe of Pink Gorilla notebooks.
 - End Users: this project is not for you.
+- This project is used in [Notebook](https://github.com/pink-gorilla/notebook).
+- ui and ring-handler to load and save notebook
+- notebook explorer ui
+- notebook discovery.
 
 # notebook index
 
@@ -16,8 +18,6 @@ lein build-index
 - After the index is built, the new index has to be pushed to github.
 
 # UI demo
-
-The demo runs a webserver on port 8000 with explorer ui with demos.
 
 ```
 lein webly watch
