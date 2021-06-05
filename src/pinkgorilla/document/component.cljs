@@ -3,6 +3,7 @@
    [clojure.string]
    [clojure.walk]
    [taoensso.timbre :refer-macros [debugf info warn error]]
+   [reagent.core :as r]
    [re-frame.core :as rf :refer [subscribe dispatch]]
    [pinkgorilla.storage.protocols :refer [create-storage]]
    [pinkgorilla.document.events] ; side effects
@@ -11,12 +12,18 @@
 
 (defn show-id [document-view header-menu-left storage doc-id]
   ; bug: this does not resubscribe.
-  (let [doc-id-kw (keyword doc-id)
-        _ (warn "subscribing doc id: " doc-id-kw)
-        d (rf/subscribe [:document/view doc-id-kw])]
+  (let [doc-id-kw-a (r/atom nil)
+        sub (r/atom nil)]
     (fn [document-view header-menu-left storage doc-id]
-      (info "doc-id: " doc-id)
-      [document-view-with-header document-view header-menu-left storage @d])))
+      (let [doc-id-kw (keyword doc-id)
+            _ (when (not (= @doc-id-kw-a doc-id-kw))
+                (let [_ (warn "subscribing doc id: " doc-id-kw)
+                      s (rf/subscribe [:document/view doc-id-kw])]
+                  (reset! doc-id-kw-a doc-id-kw)
+                  (reset! sub s)))
+            d @sub]
+        ;(info "doc-id: " doc-id)
+        [document-view-with-header document-view header-menu-left storage @d]))))
 
 
 ;; DOC LOADER

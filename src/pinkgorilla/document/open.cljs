@@ -14,7 +14,7 @@
 (defn open-ids [db]
   (let [s (get-in db [:docloader :storages])
         x (reduce add-nb {} s)]
-    (warn "x: " x)
+    ;(warn "x: " x)
     x))
 
 (defn add-meta [open-ids [storage nb]]
@@ -25,7 +25,7 @@
              {:type :unsaved
               :filename (str "./unsaved.cljg")})
         s (or s {:id id})]
-    (warn "storage for " id ": " s)
+    ;(warn "storage for " id ": " s)
     (merge sm
            {:id id
             :edit-date ""

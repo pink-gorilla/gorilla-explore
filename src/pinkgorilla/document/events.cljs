@@ -6,7 +6,7 @@
    [bidi.bidi :as bidi]
    [pinkgorilla.storage.protocols :refer [storage->map]]
    [notebook.core :as nb]
-   [notebook.template :refer [make-notebook]]
+   [notebook.template.core :refer [make-notebook]]
    [pinkgorilla.explorer.bidi :refer [goto-notebook!]]))
 
 (defn hydrate-noop [nb]
@@ -149,7 +149,7 @@
 ; NEW Document
 
 (reg-event-db
- :document/new-template
+ :document/new
  (fn [db [_]]
    (info "creating new notebook:")
    (let [document (make-notebook)
@@ -161,7 +161,7 @@
      (assoc-in db [:docs doc-id] notebook))))
 
 (reg-event-db
- :document/new
+ :document/new-empty
  (fn [db [_]]
    (info "creating new notebook:")
    (let [document  (-> (nb/new-notebook)
